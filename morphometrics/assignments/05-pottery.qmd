@@ -5,7 +5,17 @@ subtitle: "5% of final grade | Due: Week 10"
 
 ## Overview
 
-This is a lightweight assignment focused on **interpretation** rather than code. The analysis pipeline is pre-built; your job is to run it and explain what you see.
+This is a lightweight assignment focused on **interpretation** rather than code. The analysis pipeline is pre-built; your job is to run it, read the results, and explain what you see archaeologically.
+
+The data this week comes from real Edo-period Japanese storage jars (Ogame vessels, from Loftus 2025). The key question: **do jars from kiln sites (where they were produced) differ in shape from jars deposited in burial contexts?**
+
+---
+
+## Background (read before running the notebook)
+
+**Ogame jars** are large stoneware vessels made in northern Kyushu, Japan, during the Edo period (AD 1600–1800). They served as storage containers for soy sauce, sake, and fertilizer — and also as burial containers for human remains. The dataset contains **243 standardized jar profile images** from 12 sites: 2 kiln sites where jars were manufactured, and 9 mortuary sites where jars were found in burials.
+
+**Published comparison:** Before running the notebook, read the summary of the Bibracte case study in [Module 10](../modules/10-pottery.qmd). That study showed that EFA can reliably recover ceramic typological groups from shape alone. Your assignment tests a different question: not what *type* a vessel is, but what *context* it came from.
 
 ---
 
@@ -13,22 +23,25 @@ This is a lightweight assignment focused on **interpretation** rather than code.
 
 1. Open the [Week 10 Colab notebook](https://colab.research.google.com) *(link active Week 10)*
 2. Run all cells (Shift+Enter through the notebook, or Runtime → Run All)
-3. The notebook will automatically load the pottery dataset, run EFA + PCA, and produce a labeled scatter plot
+3. The notebook downloads the Ogame dataset from Zenodo automatically, extracts outlines, computes EFA, runs PCA, and produces labeled scatter plots
 
-**You do not need to write any code for this assignment.**
+**You do not need to write any code.**
 
 ---
 
 ## Required Output
 
-1. **One PCA scatter plot** — already produced by the notebook, colored by period or site (whichever variable produces the most interesting pattern)
+1. **One PCA scatter plot** coloured by depositional context (Kiln vs. Burial) — produced automatically by the notebook
 
-2. **300-word written interpretation** in which you address:
+2. **300-word written interpretation** addressing all four of the following:
 
-   - What does the scatter plot show? Are groups separated, overlapping, or randomly distributed?
-   - Look at the reconstructed vessel shapes at opposite ends of PC1 (produced in the notebook). What is actually different about the vessel forms?
-   - Connect the shape pattern to the archaeological context of the dataset. Does the shape variation make archaeological sense? What might explain it?
-   - One question that the shape data raises that cannot be answered from shape alone.
+   a. **Describe the pattern:** Are kiln jars and burial jars separated in shape space, overlapping, or mixed? Where do they fall on PC1 and PC2?
+
+   b. **Describe the shape variation:** What does PC1 appear to capture? (Look at jars at opposite extremes of the axis — what is visually different about them?)
+
+   c. **Interpret archaeologically:** What does the shape pattern — or the lack of a pattern — suggest about production practices and funerary selection in Edo-period Kyushu? Connect to what you know about craft production and burial archaeology.
+
+   d. **One unanswerable question:** Name one thing the shape data alone cannot tell you, and what additional evidence you would need to answer it.
 
 ---
 
@@ -45,8 +58,8 @@ This is a lightweight assignment focused on **interpretation** rather than code.
 
 | Criterion | Points |
 |-----------|--------|
-| Plot produced correctly | 30 |
-| Interpretation addresses shape patterns specifically | 40 |
-| Archaeological context engaged | 20 |
+| Plot produced correctly (Kiln vs. Burial colour-coded, axes labelled with % variance) | 30 |
+| Interpretation describes the shape pattern specifically | 40 |
+| Archaeological context engaged (production, funerary selection, Edo-period Kyushu) | 20 |
 | Writing quality | 10 |
 | **Total** | **100** |

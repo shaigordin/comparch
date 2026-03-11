@@ -7,7 +7,8 @@ subtitle: "All data used in this course — sources, formats, and download links
 
 All datasets used in this course are either:
 1. **Provided directly** in the course repository (coins and axes)
-2. **Open-access** from published peer-reviewed research (pottery)
+2. **Open-access with downloadable files** from published peer-reviewed research (Ogame jars)
+3. **Referenced** from published research that requires institutional access (Bibracte ceramics — case study reading only)
 
 For every dataset, the original source is fully cited. All data must be used for educational purposes only and cited appropriately in any work derived from this course.
 
@@ -103,20 +104,73 @@ data/flanged_axes/
 | Vases | 9 |
 | Bottles | 7 |
 
-**Format:** Pre-computed EFA coefficients (20 harmonics, closed-contour normalization) stored as CSV, derived from published archaeological drawings digitized at 1200 dpi. Typological metadata (vessel type) included.
+**Format:** EFA coefficients (20 harmonics) derived from published archaeological drawings digitized at 1200 dpi. Typological metadata (vessel type) included in supplementary materials.
 
 **Source:**
 > Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50.
 > DOI: [10.1016/j.jas.2014.05.033](https://doi.org/10.1016/j.jas.2014.05.033)
 
-Supplementary materials (corpus list, typological descriptors, EFA coefficients) available from the publisher at the DOI above.
+::: {.callout-note}
+## Data availability
+The raw EFA coefficients were not publicly deposited. The supplementary materials at the DOI above contain the corpus list and typological descriptors. The Bibracte dataset is used as a **published case study reading** in Module 10; the hands-on student exercise uses the Ogame jars dataset (Dataset 4 below).
+:::
+
+**Used in:** [Module 10](../modules/10-pottery.qmd) (reading and case study)
+
+---
+
+---
+
+## Dataset 4: Ogame Jars from Edo-Period Japan
+
+**Artefact type:** Large stoneware storage/burial jars (Ogame, 大甕)
+
+**Site:** 12 sites in northern Kyushu, Japan (Hizen and Chikuzen provinces)
+
+**Period:** Edo period, c. AD 1600–1800
+
+**Specimens:** 243 jars (standardized silhouette profile images)
+
+**Contexts:**
+
+| Site code | Site name | Context | N |
+|-----------|-----------|---------|---|
+| FR | Furukameyashimo | Kiln | 89 |
+| KM | Kameya | Kiln | 48 |
+| MR | Maruya | Mortuary | 36 |
+| NT | Nishitakagi | Mortuary | 21 |
+| NS | Narasaki | Mortuary | 11 |
+| MD | Mukaida | Mortuary | 12 |
+| MT | Mitsutake | Mortuary | 10 |
+| HK | Hakozaki | Mortuary | 4 |
+| KS, KT, TJ, TK | Other mortuary | Mortuary | 12 |
+
+**Kiln sites total:** 137 | **Mortuary sites total:** 106
+
+**Format:** Standardized PNG silhouette images, one per jar (black vessel on white background). Metadata CSV (`Ogame_Samples.csv`) with sample ID, site code, and depositional context code (1 = Burial, 2 = Kiln).
+
+**License:** CC-BY 4.0
+
+**Source:**
+> Loftus, J. (2025). A Geometric Morphometric Dataset of Edo-Period 'Ogame' Jar Profiles from Northern Kyushu, Japan. *Journal of Open Archaeology Data* 13: 13.
+> DOI: [10.5334/joad.159](https://doi.org/10.5334/joad.159) | Data: [zenodo.org/records/15781166](https://doi.org/10.5281/zenodo.15781166)
 
 **Files in repository:**
 ```
-data/bibracte_ceramics/
-├── bibracte_efa_coefficients.csv    ← 154 vessels × EFA coefficients + vessel_type column
-└── bibracte_metadata.csv            ← vessel type, size group, vessel ID, literature ref
+data/ogame_jars/
+└── Ogame_GMM/
+    ├── Ogame_Profiles_All/       ← 243 PNG silhouettes (all jars)
+    ├── Ogame_Profiles_Site/
+    │   ├── FR/                   ← 89 kiln jars (Furukameyashimo)
+    │   ├── KM/                   ← 48 kiln jars (Kameya)
+    │   ├── MR/                   ← 36 mortuary jars (Maruya)
+    │   └── [9 other site folders]
+    ├── Ogame_Samples.csv         ← metadata: sample ID, site, context code
+    ├── Ogame_Sites.csv           ← site metadata: coordinates, type, excavation dates
+    └── README.txt
 ```
+
+The notebook for Module 10 downloads this dataset directly from Zenodo at runtime, so students do not need to manage the files manually.
 
 **Used in:** [Assignment 5](../assignments/05-pottery.qmd), [Module 10](../modules/10-pottery.qmd)
 
@@ -155,3 +209,6 @@ When using course datasets in your assignments or final project, cite the origin
 
 **For Bibracte ceramics:**
 > Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50. DOI: 10.1016/j.jas.2014.05.033
+
+**For Ogame jars:**
+> Loftus, J. (2025). A Geometric Morphometric Dataset of Edo-Period 'Ogame' Jar Profiles from Northern Kyushu, Japan. *Journal of Open Archaeology Data* 13: 13. DOI: 10.5334/joad.159

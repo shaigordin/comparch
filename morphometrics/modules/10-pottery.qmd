@@ -1,6 +1,6 @@
 ---
 title: "Module 10: Case Study III — Pottery and Ceramic Traditions"
-subtitle: "Week 10 — Pottery, Statistics, and Synthesis"
+subtitle: "Week 10 — From Typology to Shape Space"
 ---
 
 ## Why Pottery?
@@ -14,42 +14,93 @@ Pottery shape reflects:
 - **Cultural identity** — potters learned their craft within communities; shape encodes that transmission
 - **Exchange** — when pottery moved between communities, shapes were copied (and subtly transformed)
 
----
-
-## The Dataset: Bibracte Celtic Ceramics
-
-This module uses 154 complete ceramic vessels from **Bibracte**, a Celtic oppidum in Burgundy, France, that served as the capital of the Aedui tribe during the Second Iron Age (2nd century BC – 1st century AD). The site is one of the best-excavated Iron Age oppida in Europe, with an enormous assemblage of well-documented pottery.
-
-The assemblage spans **eight functional types** defined by the traditional typology of Barral et al. (1995):
-
-| Type | N | Description |
-|------|---|-------------|
-| Plates | 35 | Wide, flat open forms |
-| Dishes | 20 | Shallow open containers |
-| Bowls | 24 | Hemispherical open forms |
-| Cups | 18 | Small closed drinking vessels |
-| Goblets | 14 | Tall, narrow drinking vessels |
-| Pots | 27 | Medium-sized closed cooking/storage vessels |
-| Vases | 9 | Wide-bodied closed storage vessels |
-| Bottles | 7 | Narrow-necked closed vessels |
-
-**Source:** Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50. DOI: [10.1016/j.jas.2014.05.033](https://doi.org/10.1016/j.jas.2014.05.033)
-
-**Format:** Outlines extracted from published archaeological profile drawings (standardized to external half cross-section, mirrored for full profile). The data we use are the pre-computed EFA coefficients from the paper's supplementary materials (20 harmonics, closed-contour normalization).
-
-For the analysis pipeline below, the data format is pre-computed EFA coefficients stored in a CSV file, with a metadata column recording the vessel type.
+This week has two parts. First you read about a published case study. Then you run your own analysis on a real open-access dataset.
 
 ---
 
-## The Research Questions
+## Part I — Published Case Study: Bibracte Celtic Ceramics
 
-This module explores a fundamental question in ceramic studies:
+### What was the question?
 
-**Main question:** Does the vessel's *shape* alone predict its *function*? Specifically, do the eight traditional typological groups (plates, bowls, pots…) separate cleanly in shape space — or does shape overlap between types?
+Ceramic typology is built on the expert's eye: an archaeologist looks at a vessel and assigns it to a type. But can a computer reach the same conclusion using shape alone? And if so, what does this tell us about whether typology captures real morphological structure?
 
-**Follow-up:** Within a given type (e.g., pots), how much shape variation exists? And which shape features (aspect ratio, neck width, shoulder profile) drive the separation between groups?
+This is the question that Wilczek et al. (2014) asked using **154 complete Iron Age vessels from Bibracte**, a major Celtic oppidum (fortified town) in Burgundy, France. Bibracte was the capital of the Aedui tribe in the Second Iron Age (2nd century BC – 1st century AD) and is one of the most extensively excavated oppida in Europe.
 
-The Bibracte dataset is ideal for this question because the traditional typology was built on *perceived* shape differences. EFA lets us test whether those perceived differences are real and quantifiable.
+### The dataset
+
+154 vessels with complete, well-preserved cross-sections. Assigned to **8 functional types** by the traditional typology of Barral et al. (1995):
+
+| Type | N | Character |
+|------|---|-----------|
+| Plates | 35 | Wide and flat; open form |
+| Dishes | 20 | Shallower than plates |
+| Bowls | 24 | Hemispherical; open |
+| Cups | 18 | Small, closed drinking vessels |
+| Goblets | 14 | Tall, narrow; drinking |
+| Pots | 27 | Medium, closed; cooking/storage |
+| Vases | 9 | Wide body; storage |
+| Bottles | 7 | Narrow neck; closed |
+
+Outlines were extracted from published archaeological drawings (1200 dpi scans, external half cross-section mirrored to full profile), then processed by **Elliptic Fourier Analysis (EFA)** using 20 harmonics.
+
+### What they found
+
+::: {.callout-tip}
+## Key result (Wilczek et al. 2014)
+
+**PC1 captures ~93% of total shape variance.** The main axis of shape variation is elongation: **plates occupy one extreme** (wide, flat) and **bottles occupy the other** (tall, narrow neck). Bowls, pots, cups, and goblets fall between these endpoints.
+
+An unsupervised computer clustering of shape space (with no knowledge of the traditional types) produced **7 clusters that closely match the 8 traditional types** — the computer and the archaeologist largely agreed. This validates that EFA captures the same morphological structure that typologists have described intuitively for decades.
+
+Importantly, some types show high internal shape variation (pots, goblets) while others are tightly clustered (plates, bottles). This reveals which types are morphologically coherent and which may overlap functionally.
+:::
+
+### Why this matters
+
+EFA makes typology **reproducible and quantifiable**. Anyone can run the same code on the same images and get the same result. The expert is still needed to interpret those results archaeologically — but the initial classification can be automated and tested statistically.
+
+**Citation:** Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50. DOI: [10.1016/j.jas.2014.05.033](https://doi.org/10.1016/j.jas.2014.05.033)
+
+---
+
+## Part II — Your Analysis: Ogame Jars from Edo-Period Japan
+
+### The research question
+
+Not all shape questions are about typology. A different and equally important question is about **production and selection**:
+
+> *Are jars from kiln sites (where they were made) more standardized in shape than jars from burial contexts (where families chose specific vessels to inter with the dead)?*
+
+If kiln-produced jars are highly uniform, that tells us something about production organization — potters working to a standard. If burial jars show different or more varied shapes, that might mean families selected visually distinctive vessels, or that different kilns supplied different markets.
+
+This question is answerable with EFA + PCA.
+
+### The dataset
+
+**Loftus, J. (2025).** A Geometric Morphometric Dataset of Edo-Period 'Ogame' Jar Profiles from Northern Kyushu, Japan. *Journal of Open Archaeology Data* 13:13. DOI: [10.5334/joad.159](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.159) | Data: [zenodo.org/records/15781166](https://doi.org/10.5281/zenodo.15781166)
+
+**Ogame** (大甕, "large jars") are thick-walled stoneware vessels produced in the Hizen and Chikuzen provinces of northern Kyushu during the Edo period (c. AD 1600–1800). They served diverse functions: storing soy sauce and other goods, and also as burial containers for human remains.
+
+| | |
+|---|---|
+| **Specimens** | 243 jars |
+| **Sites** | 12 (2 kiln sites + 9 mortuary sites + 1 museum collection) |
+| **Format** | Standardized PNG silhouette images, one per jar |
+| **License** | CC-BY 4.0 |
+
+| Site code | Site name | Context | N |
+|-----------|-----------|---------|---|
+| FR | Furukameyashimo | Kiln | 89 |
+| KM | Kameya | Kiln | 48 |
+| MR | Maruya | Mortuary | 36 |
+| NT | Nishitakagi | Mortuary | 21 |
+| NS | Narasaki | Mortuary | 11 |
+| MD | Mukaida | Mortuary | 12 |
+| MT | Mitsutake | Mortuary | 10 |
+| HK | Hakozaki | Mortuary | 4 |
+| KS, KT, TJ, TK | Other mortuary | Mortuary | 12 |
+
+**Kiln sites (FR + KM = 137 jars) vs. Mortuary sites (106 jars)** is the main comparison.
 
 ---
 
@@ -59,102 +110,188 @@ The Bibracte dataset is ideal for this question because the traditional typology
 ## Open the Week 10 Notebook
 [→ Week 10 Colab Notebook](https://colab.research.google.com) *(link active Week 10)*
 
-This notebook is **pre-built** — you run it cell by cell without writing any new code. The focus this week is on interpretation, not coding.
+This notebook is **pre-built** — run it cell by cell without writing any new code. Focus on interpretation.
 :::
 
-The pipeline is identical to the axes analysis:
-
-1. Load vessel profile images
-2. Extract outlines (using the same `extract_outline()` function)
-3. Fit EFA (15 harmonics for vessels — slightly more detail needed)
-4. PCA on EFA coefficients
-5. Color-code by period / site / vessel type
-6. Statistical tests
+### Step 1 — Install and import
 
 ```python
-# The Week 10 notebook runs this automatically —
-# shown here for reference
+!pip install pyefd scikit-image --quiet
 
-import pandas as pd
+import os, zipfile, requests
 import numpy as np
+import pandas as pd
+from PIL import Image
+from skimage import measure
+import pyefd
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
+from scipy.stats import mannwhitneyu
+```
 
-# Load pre-computed EFA coefficients (20 harmonics, closed-contour normalization)
-# Each row = one vessel; first column = vessel_type; remaining columns = EFA coefficients
-df = pd.read_csv("bibracte_efa_coefficients.csv")
-vessel_types = df["vessel_type"].values
-coeffs = df.drop(columns=["vessel_type"]).values
+### Step 2 — Download and unpack the dataset
 
-# PCA on EFA coefficients
+```python
+# Download from Zenodo (run once — ~30 MB)
+url = "https://zenodo.org/records/15781166/files/Ogame_GMM.zip?download=1"
+r = requests.get(url, stream=True)
+with open("Ogame_GMM.zip", "wb") as f:
+    for chunk in r.iter_content(chunk_size=8192):
+        f.write(chunk)
+
+with zipfile.ZipFile("Ogame_GMM.zip") as z:
+    z.extractall(".")
+print("Done. Files extracted to Ogame_GMM/")
+```
+
+### Step 3 — Load metadata
+
+```python
+samples = pd.read_csv("Ogame_GMM/Ogame_Samples.csv")
+# Rename the long column for convenience
+samples = samples.rename(columns={
+    samples.columns[3]: "context_code"
+})
+samples["context"] = samples["context_code"].map({1: "Burial", 2: "Kiln"})
+print(samples["context"].value_counts())
+print(samples["Site Code"].value_counts())
+```
+
+### Step 4 — Extract outlines and compute EFA
+
+```python
+def extract_outline(image_path):
+    """Extract the external outline of a black vessel silhouette on white background."""
+    img = np.array(Image.open(image_path).convert('L'))
+    binary = img < 128                         # True where vessel is (dark pixels)
+    contours = measure.find_contours(binary.astype(float), 0.5)
+    if not contours:
+        return None
+    return max(contours, key=len)              # largest contour = vessel outline
+
+records = []
+img_dir = "Ogame_GMM/Ogame_Profiles_All"
+
+for _, row in samples.iterrows():
+    path = os.path.join(img_dir, f"{row['Sample ID']}.png")
+    if not os.path.exists(path):
+        continue
+    outline = extract_outline(path)
+    if outline is None or len(outline) < 50:
+        continue
+    y, x = outline[:, 0], outline[:, 1]   # skimage returns (row, col)
+    # Compute EFA with 20 harmonics, normalised for size and orientation
+    coeffs = pyefd.elliptic_fourier_descriptors(
+        np.column_stack([x, y]), order=20, normalize=True
+    )
+    records.append({
+        "sample_id":  row["Sample ID"],
+        "site_code":  row["Site Code"],
+        "context":    row["context"],
+        **{f"c{i:03d}": v for i, v in enumerate(coeffs.ravel())}
+    })
+
+df = pd.DataFrame(records)
+print(f"Processed {len(df)} jars successfully")
+```
+
+### Step 5 — PCA and visualisation
+
+```python
+coeff_cols = [c for c in df.columns if c.startswith("c")]
+X = df[coeff_cols].values
+
 pca = PCA()
-scores = pca.fit_transform(coeffs)
-
+scores = pca.fit_transform(X)
 var1 = pca.explained_variance_ratio_[0] * 100
 var2 = pca.explained_variance_ratio_[1] * 100
 
-# Color-code by vessel type (8 groups)
-type_names = ['Plates', 'Dishes', 'Bowls', 'Cups', 'Goblets', 'Pots', 'Vases', 'Bottles']
-colors = plt.cm.Set1(np.linspace(0, 1, len(type_names)))
-color_map = dict(zip(type_names, colors))
+# ── Plot 1: colour by depositional context ───────────────────────────────────
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-fig, ax = plt.subplots(figsize=(9, 7))
-for vtype, color in color_map.items():
-    mask = vessel_types == vtype
-    ax.scatter(scores[mask, 0], scores[mask, 1],
-               c=[color], label=vtype, s=60, alpha=0.8, edgecolors='white', linewidths=0.5)
+colors = {"Kiln": "#e07b39", "Burial": "#4a90c4"}
+for ctx, col in colors.items():
+    mask = df["context"] == ctx
+    axes[0].scatter(scores[mask, 0], scores[mask, 1],
+                    c=col, label=f"{ctx} (n={mask.sum()})",
+                    s=50, alpha=0.75, edgecolors="white", linewidths=0.5)
 
-ax.set_xlabel(f"PC1 ({var1:.1f}% variance)")
-ax.set_ylabel(f"PC2 ({var2:.1f}% variance)")
-ax.set_title("Bibracte Celtic Ceramics — Shape Space by Vessel Type")
-ax.axhline(0, color='grey', lw=0.5, ls='--')
-ax.axvline(0, color='grey', lw=0.5, ls='--')
-ax.legend(title="Vessel type", bbox_to_anchor=(1.02, 1), loc='upper left')
+axes[0].set_xlabel(f"PC1 ({var1:.1f}%)")
+axes[0].set_ylabel(f"PC2 ({var2:.1f}%)")
+axes[0].set_title("Ogame Jar Shape Space — by Depositional Context")
+axes[0].axhline(0, color="grey", lw=0.5, ls="--")
+axes[0].axvline(0, color="grey", lw=0.5, ls="--")
+axes[0].legend()
+
+# ── Plot 2: colour by production site (kiln sites only) ──────────────────────
+kiln_mask = df["context"] == "Kiln"
+kiln_sites = df.loc[kiln_mask, "site_code"].unique()
+kiln_colors = {"FR": "#d62728", "KM": "#ff7f0e"}
+for site in kiln_sites:
+    mask = df["site_code"] == site
+    axes[1].scatter(scores[mask, 0], scores[mask, 1],
+                    c=kiln_colors.get(site, "#aaaaaa"),
+                    label=f"{site} (n={mask.sum()})",
+                    s=55, alpha=0.8, edgecolors="white", linewidths=0.5)
+
+axes[1].set_xlabel(f"PC1 ({var1:.1f}%)")
+axes[1].set_ylabel(f"PC2 ({var2:.1f}%)")
+axes[1].set_title("Kiln Sites Compared — FR vs KM")
+axes[1].axhline(0, color="grey", lw=0.5, ls="--")
+axes[1].axvline(0, color="grey", lw=0.5, ls="--")
+axes[1].legend()
+
 plt.tight_layout()
-plt.savefig("pottery_pca.png", dpi=150, bbox_inches='tight')
+plt.savefig("ogame_pca.png", dpi=150, bbox_inches="tight")
 plt.show()
-print(f"PC1 explains {var1:.1f}% | PC2 explains {var2:.1f}% | Together: {var1+var2:.1f}%")
+print(f"PC1: {var1:.1f}% | PC2: {var2:.1f}% | Together: {var1+var2:.1f}%")
+```
+
+### Step 6 — Statistical test (kiln vs. burial)
+
+```python
+pc1_kiln   = scores[df["context"] == "Kiln",   0]
+pc1_burial = scores[df["context"] == "Burial",  0]
+
+stat, p = mannwhitneyu(pc1_kiln, pc1_burial, alternative="two-sided")
+print(f"Mann-Whitney U test on PC1 scores:")
+print(f"  Kiln mean PC1:   {pc1_kiln.mean():.4f}")
+print(f"  Burial mean PC1: {pc1_burial.mean():.4f}")
+print(f"  U = {stat:.1f}, p = {p:.4f}")
+if p < 0.05:
+    print("  → Significant difference in shape between kiln and burial jars.")
+else:
+    print("  → No significant difference — shapes overlap.")
 ```
 
 ---
 
-## Reading the Pottery PCA Plot
+## Interpreting the Results
 
-Look at your PCA output and consider:
+Work through these questions with your PCA plots:
 
-1. **Do functional types cluster separately?** Or do groups overlap in shape space? The published result shows that **plates and bottles occupy opposite ends of PC1** — the main axis of shape variation is elongation (from flat/wide to narrow/tall). Where do bowls, pots, and vases fall relative to each other?
+1. **Do kiln jars and burial jars separate in shape space?** If yes, what does that mean archaeologically? If no — what might explain the lack of difference?
 
-2. **Which PC axis captures the most meaningful archaeological variation?** Look at the reconstructed vessel shapes at the extremes of PC1 and PC2. Since PC1 typically captures ~93% of total variance in this dataset, PC2 shows subtler distinctions.
+2. **Do the two kiln sites (FR and KM) cluster separately?** If yes, this suggests each workshop had its own production style. If they overlap, kilns were producing to a shared regional standard.
 
-3. **What shape features characterize each group?** Examples:
-   - Tall vs. wide vessels (aspect ratio — main axis of PC1)
-   - Narrow vs. wide neck
-   - Convex vs. straight body profile
-   - Carinated (angular) vs. rounded shoulders
+3. **What shape features drive PC1?** Look at jars plotted at the extreme left vs. extreme right of your scatter plot. Ask: what is visually different about those vessels?
 
-4. **Are there outliers?** Goblets and pots tend to show wide internal variation in this dataset — this reflects functional overlap in the traditional typology. What might explain a vessel that falls far from its group's cluster?
+4. **What is the spread within each context?** High variance in burial jars could mean families chose idiosyncratic vessels; low variance in kiln jars would suggest production standardization.
 
-5. **Does morphometrics confirm traditional typology?** The key result from Wilczek et al. (2014): yes, broadly — an unsupervised clustering of shape space produces 7 groups that closely match the 8 traditional types. This validates morphometrics as a reproducible, quantitative alternative to expert typology.
+5. **Connect to historical context:** The Edo period (1600–1800) was a time of expanding commercial production in Kyushu. Large kilns like Furukameyashimo (FR) produced for regional markets. Did commercial production lead to more standardized jar forms than jars selected for burial?
 
 ---
 
-## Connecting Shape to Function
+## Connecting Back to Bibracte
 
-One of the most powerful applications of vessel GM is linking shape to function. Use this rough guide as a starting point:
+| | Bibracte (Wilczek 2014) | Ogame jars (Loftus 2025) |
+|---|---|---|
+| **Question** | Does shape separate functional types? | Does shape separate production/funerary contexts? |
+| **Method** | EFA on archaeological drawings | EFA on standardized PNG silhouettes |
+| **Main finding** | PC1 = elongation; types largely confirmed | TBD — you will discover this |
+| **Archaeological meaning** | Typology has real morphological basis | Production standardization and funerary selection |
 
-| Shape feature | Common functional association |
-|--------------|-------------------------------|
-| Narrow neck, wide body | Storage (reduces evaporation) |
-| Wide opening, flat base | Serving / open containers |
-| S-shaped profile | Cooking pots (thermal shock resistance) |
-| Very thin walls, tall neck | Pouring vessels, transport amphorae |
-| Carinated shoulder | Often prestige/serving ware |
-
-::: {.callout-warning}
-## Caution
-Shape-function associations are generalizations. Always check against excavation context, residue analysis, and ethnographic parallels before drawing strong functional conclusions.
-:::
+Both studies use the same mathematical tool — EFA — to answer fundamentally different questions. That is the power of geometric morphometrics: one method, many questions.
 
 ---
 
@@ -162,14 +299,14 @@ Shape-function associations are generalizations. Always check against excavation
 
 ::: {.callout-note}
 ## Assignment 5: Pottery PCA (5%)
-Run the Week 10 notebook. Produce one PCA plot labeled by period or site. Write 300 words connecting the shape pattern to the archaeological context.
+Run the Week 10 notebook on the Ogame dataset. Produce one PCA plot (coloured by context). Write 300 words connecting the shape pattern to the archaeological context of production and funerary use in Edo-period Japan.
 
 [→ Assignment 5](../assignments/05-pottery.qmd)
 :::
 
 ---
 
-## Next Week: Statistics and Testing
+## Next Week: Testing Hypotheses
 
 We formalize the statistical tools we have been using intuitively: permutation tests, effect sizes, allometry, and multiple comparisons.
 
