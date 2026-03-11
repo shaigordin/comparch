@@ -1,0 +1,86 @@
+---
+title: "Shape in Time"
+subtitle: "Geometric Morphometrics for Archaeologists — Spring 2026"
+page-layout: full
+---
+
+::: {.hero-banner}
+
+# Shape in Time {.display}
+## Geometric Morphometrics for Archaeologists
+
+**Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?**
+
+:::
+
+---
+
+## Course Overview
+
+Geometric morphometrics (GM) is one of the most powerful methods in modern archaeology. It gives us a rigorous, quantitative way to study *shape* — the very thing that makes a Roman coin look like a Roman coin, or a Bronze Age axe look older than an Iron Age one.
+
+In this course you will learn to:
+
+- Capture the shape of archaeological objects using digital images and landmark coordinates
+- Use **AI tools to write all the code** you need — no prior programming experience required
+- Perform real analyses on published datasets of **coins, axes, and pottery**
+- Connect shape patterns to big historical and archaeological questions
+
+**No coding background needed. AI writes the code; you ask the questions.**
+
+---
+
+## The Big Questions We Will Answer
+
+::: {.grid}
+
+::: {.g-col-4}
+### Coins
+![Roman denarii of Hadrian and Antoninus Pius](../images/neo_assyrian_relief_reconstruction.png){.rounded}
+
+*Did Roman mints in different provinces produce coins with subtly different shapes? Can we detect this from shape alone?*
+:::
+
+::: {.g-col-4}
+### Axes
+*Were Bronze Age flanged axes made according to a single design, or do regional traditions show up in their shape? What does this tell us about craft networks?*
+:::
+
+::: {.g-col-4}
+### Pottery
+*Can we distinguish pottery production traditions from vessel shape alone, without knowing the clay source? What does shape variation in pots tell us about trade and cultural contact?*
+:::
+
+:::
+
+---
+
+## How This Course Works
+
+| Week | Topic | Method |
+|------|-------|--------|
+| 1–2 | What is shape? Why does it matter? | Concepts |
+| 3–4 | Capturing shape: landmarks & outlines | Data collection |
+| 5–6 | Your AI lab partner: writing R code with Claude | AI-assisted coding |
+| 7–8 | Shape space: Procrustes & PCA | Landmark GM |
+| 9–10 | Outlines and Bronze Age axes | Elliptic Fourier |
+| 11–12 | Testing hypotheses, pottery case study | Statistics |
+| 13 | 3D morphometrics — the frontier | 3D GM |
+| 14 | Final project presentations | Synthesis |
+
+---
+
+## Instructor & Format
+
+- **Format:** 2 hours lecture + 1 hour lab per week
+- **Tools:** R (via AI-generated code), ImageJ/FIJI, tpsDig2, MorphoJ
+- **Assessment:** 5 short assignments (50%) + Final project (50%)
+- **Language of instruction:** English
+- **Prerequisites:** None beyond basic computer literacy
+
+---
+
+::: {.callout-tip}
+## First Step
+Start with [Module 1 — What is Shape?](modules/01-what-is-shape.qmd) and the [Shape Journal assignment](assignments/01-shape-journal.qmd) before the first class.
+:::

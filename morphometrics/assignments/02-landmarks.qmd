@@ -1,0 +1,106 @@
+---
+title: "Assignment 2: Landmark Exercise"
+subtitle: "10% of final grade | Due: Week 4"
+---
+
+## Overview
+
+You will digitize 20 Hadrian coin images using FIJI, assess the consistency of your landmark placement, and reflect on what this experience reveals about GM as a method.
+
+---
+
+## Step 1: Download the Data
+
+Download the Hadrian coin dataset from the course Data page:
+[→ Data](../data/index.qmd)
+
+The folder `DEN_Hadrian/` contains 20 JPEG images of Hadrian denarii, all standardized to the same orientation (portrait facing right).
+
+---
+
+## Step 2: The 8-Landmark Protocol
+
+Place landmarks in this exact order on every coin:
+
+| # | Location | Notes |
+|---|---------|-------|
+| 1 | Tip of nose (most anterior point of portrait) | Type II |
+| 2 | Back of skull (most posterior point) | Type II |
+| 3 | Base of chin (most inferior point of face) | Type II |
+| 4 | Top of forehead (most superior point of portrait) | Type II |
+| 5 | Coin edge at 12 o'clock (top) | Type III |
+| 6 | Coin edge at 6 o'clock (bottom) | Type III |
+| 7 | Coin edge at 3 o'clock (rightmost point) | Type III |
+| 8 | Coin edge at 9 o'clock (leftmost point) | Type III |
+
+::: {.callout-warning}
+## Consistency is more important than "correctness"
+Use the same definition for each landmark on every coin. A landmark placed slightly off is less damaging than a landmark placed inconsistently. Write a brief note before you start digitizing, describing exactly how you will define each landmark.
+:::
+
+---
+
+## Step 3: Digitize with FIJI
+
+Full step-by-step FIJI instructions are in [Module 3](../modules/03-ai-coding.qmd).
+
+For each coin:
+1. Open the image
+2. Set scale using the scale bar (or leave in pixels — just be consistent)
+3. Place 8 landmarks using the Point tool + Shift-click
+4. Record coordinates via Analyze → Measure or ROI Manager
+
+---
+
+## Step 4: Convert to TPS Format
+
+Open the [Week 4 Colab notebook](https://colab.research.google.com) and run the TPS conversion cell. Paste your FIJI measurements table into the provided input area.
+
+---
+
+## Step 5: Inter-Observer Comparison
+
+Find a partner in the class. Exchange your TPS files. Open the Week 4 notebook, load both TPS files, and run the inter-observer error analysis cell:
+
+```python
+# Provided in the notebook:
+# Calculates mean Procrustes distance between two digitizers
+# per landmark and overall
+compare_digitizers(your_tps, partner_tps)
+```
+
+The output will show which landmarks had the highest disagreement.
+
+---
+
+## Step 6: Written Reflection (400 words)
+
+Answer these questions in your reflection:
+
+1. **Which landmarks were easiest to place consistently?** Why?
+2. **Which were hardest?** What made them ambiguous?
+3. **What was your inter-observer error?** How does it compare to the variation between coins?
+4. **If you were designing this landmark protocol from scratch**, what would you change? Would you add, remove, or redefine any landmarks?
+5. **What does this experience tell you** about the subjectivity embedded in supposedly "objective" quantitative methods?
+
+---
+
+## Deliverables
+
+1. Your TPS file (attach as `.tps`)
+2. A screenshot of the inter-observer error output
+3. 400-word written reflection (in the same PDF)
+
+**Submit as: one PDF (reflection + screenshot) + one TPS file**
+
+---
+
+## Grading
+
+| Criterion | Points |
+|-----------|--------|
+| TPS file complete (all 20 specimens, 8 landmarks each) | 30 |
+| Inter-observer comparison completed correctly | 20 |
+| Reflection addresses all 5 questions substantively | 40 |
+| Writing quality | 10 |
+| **Total** | **100** |

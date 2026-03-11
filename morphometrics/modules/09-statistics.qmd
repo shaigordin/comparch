@@ -1,0 +1,158 @@
+---
+title: "Module 9: Case Study II — Bronze Age Axes and Craft Networks"
+subtitle: "Week 9 — Outlines and the Bronze Age"
+---
+
+## Archaeological Background
+
+### The European Bronze Age and Its Metal
+
+The Bronze Age in Europe (c. 2300–800 BCE) was defined by metallurgy. Bronze — an alloy of copper and tin — required long-distance exchange networks, because copper and tin deposits are rarely found together. The very existence of Bronze Age material culture implies connectivity.
+
+**Flanged axes** are among the most common Bronze Age metal finds. They were functional tools (woodworking, combat) but also prestige objects, hoarded in deposits, and possibly used as currency-like valuables.
+
+The "flanged" design — raised ridges along the sides to help hafting — was a technological solution that spread across Europe in the Middle Bronze Age. But how did this spread happen?
+
+### G3 and G4 Groups
+
+Our dataset comes from Central European flanged axes classified into two typological groups (designations following standard Bronze Age typo-chronology):
+
+- **G3**: Earlier group, c. 1600–1400 BCE. Primarily found in western Central Europe.
+- **G4**: Later group, c. 1400–1200 BCE. Wider geographic distribution.
+
+Traditional typology classifies them by a combination of proportions (flange height, blade width relative to total length) and decorative features. But typology is always a simplification.
+
+The question: **does shape variation in these axes respect the G3/G4 boundary? Is there a continuous morphological gradient? Are there regional variants within each group?**
+
+---
+
+## Why This Matters Historically
+
+Three possible outcomes:
+
+### Outcome A: Clean separation
+G3 and G4 form distinct, non-overlapping clusters in shape space. This supports the idea that each group represents a coherent production tradition — perhaps a specific workshop, region, or period with its own design template.
+
+**Implication:** Bronze Age metalworkers maintained strict shape standards within each tradition, possibly through apprenticeship networks with limited cross-transmission.
+
+### Outcome B: Overlapping clusters
+G3 and G4 overlap substantially in shape space. Shape variation is continuous, not categorical.
+
+**Implication:** The G3/G4 typological boundary may be a modern analytical construct rather than an emic (insider) category recognized by Bronze Age communities. Shape changed gradually, not in a discrete step.
+
+### Outcome C: Geographic gradient cuts across typological groups
+PC axes that capture most variation correlate with geographic position, not with G3/G4 group membership.
+
+**Implication:** Shape variation reflects local production traditions that don't align with the typological sequence — regional craft identity was stronger than temporal change.
+
+**None of these outcomes is "right" or "wrong."** Each tells us something important about Bronze Age social and technological organization.
+
+---
+
+## Full Analysis: Assignment 4 Walkthrough
+
+::: {.callout-important}
+## Open the Week 9 Notebook
+[→ Week 9 Colab Notebook](https://colab.research.google.com) *(link active Week 9)*
+:::
+
+This notebook extends the EFA from Week 8 with group comparison, statistical testing, and geographic visualization.
+
+### The Statistical Test
+
+We use a permutation-based MANOVA (the same logic as for coins, applied to EFA+PCA scores):
+
+```python
+# Permutation MANOVA on EFA PCA scores
+f_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=8)
+
+print(f"\nPermutation MANOVA (G3 vs G4):")
+print(f"  F = {f_stat:.3f}")
+print(f"  p = {p_val:.3f}")
+print(f"  {'SIGNIFICANT' if p_val < 0.05 else 'NOT SIGNIFICANT'} at α = 0.05")
+
+# Effect size: proportion of variance explained
+r2 = f_stat / (f_stat + (len(labels) - 2))
+print(f"  R² ≈ {r2:.3f} ({r2*100:.1f}% of variance explained by group)")
+```
+
+### Interpreting Effect Size
+
+| R² value | Interpretation |
+|----------|---------------|
+| < 0.05 | Very small effect — groups barely differ |
+| 0.05–0.15 | Small effect |
+| 0.15–0.35 | Medium effect |
+| > 0.35 | Large effect — groups strongly differ |
+
+Even if the test is significant (p < 0.05), a small R² means groups differ *reliably* but not *dramatically*.
+
+---
+
+## Geographic Visualization
+
+The geographic metadata for the axes is provided as a CSV file. Here we link PC scores to find-spot locations:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+
+# Load geographic metadata
+geo = pd.read_csv("data/flanged_axes/axes_metadata.csv")
+# Columns: name, group, latitude, longitude, country, site_name
+
+# Merge with PCA scores
+df_geo = pd.merge(df, geo, on='name')
+
+# Map PC1 score to color (blue = negative, red = positive)
+norm = mcolors.TwoSlopeNorm(vcenter=0,
+                              vmin=df_geo['PC1'].min(),
+                              vmax=df_geo['PC1'].max())
+colors_map = cm.RdBu_r(norm(df_geo['PC1']))
+
+# Simple scatter map (approximate)
+fig, ax = plt.subplots(figsize=(10, 8))
+sc = ax.scatter(df_geo['longitude'], df_geo['latitude'],
+                c=df_geo['PC1'], cmap='RdBu_r', s=80,
+                edgecolor='black', linewidth=0.5, norm=norm)
+
+# Label markers with group
+for _, row in df_geo.iterrows():
+    ax.annotate(row['group'], (row['longitude'], row['latitude']),
+                fontsize=6, ha='center', va='bottom')
+
+plt.colorbar(sc, label='PC1 score (shape axis)')
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+ax.set_title("Geographic distribution of PC1 shape scores — Flanged Axes")
+plt.tight_layout()
+plt.show()
+```
+
+**Note:** The axes_metadata.csv will be provided. If geographic data is not available for all specimens in the dataset, we will work with the subset that has coordinates.
+
+---
+
+## Discussion Questions
+
+1. Do the reconstructed EFA shapes at PC1 extremes match what you would expect from looking at G3 vs. G4 axes visually?
+
+2. If G3 and G4 overlap in shape space but your permutation test is significant — how do you reconcile these two results?
+
+3. Imagine you found a new Bronze Age axe from an unknown site. How would you use this analysis to assign it to G3 or G4? What confidence would you have?
+
+4. What additional data (isotope analysis, hoard context, absolute dates) would strengthen the interpretation of any shape patterns you found?
+
+---
+
+## Assignment 4 Due This Week
+
+::: {.callout-note}
+Submit Colab notebook link + 600-word PDF + map image.
+
+[→ Assignment 4: Bronze Age Axes Outline Analysis](../assignments/04-axes.qmd)
+:::
+
+[→ Module 10: Case Study III — Pottery and Ceramic Traditions](10-pottery.qmd)

@@ -1,0 +1,199 @@
+---
+title: "Module 7: Case Study I — Roman Coins and Imperial Standardization"
+subtitle: "Week 7 — Case Studies"
+---
+
+## Archaeological Background
+
+### Roman Coinage: Mass Production and Imperial Identity
+
+The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.
+
+Coins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.
+
+### Our Two Emperors
+
+**Hadrian** (r. 117–138 CE)
+- Known for traveling the empire, fortifying its borders (Hadrian's Wall)
+- Iconic portraiture: philosophical beard, often shown with idealized Greek features
+- Reformed the coinage: new portrait types introduced at different points in his reign
+
+**Antoninus Pius** (r. 138–161 CE)
+- Succeeded Hadrian; reign known for stability
+- Portrait more Roman in character: clean-shaven early, then bearded
+- Some of the most artistically refined denarii in the Imperial sequence
+
+### The Research Question
+
+*Do coins of Hadrian and Antoninus Pius cluster separately in shape space?*
+
+Sub-questions:
+- Is the shape difference between the emperors larger than the variation *within* each reign?
+- Which specific shape features (captured by which PCs) best separate the two groups?
+- What does any difference — or similarity — tell us about mint standardization?
+
+---
+
+## Full Analysis Pipeline
+
+::: {.callout-important}
+## Open the Week 7 Notebook
+[→ Week 7 Colab Notebook](https://colab.research.google.com) *(link active Week 7)*
+:::
+
+### Step 1: Load both datasets and combine
+
+```python
+# Load both coin datasets
+hadrian_lms = read_tps("data/coins/DEN_Hadrian/Hadrian.TPS")
+aplus_lms   = read_tps("data/coins/DEN_AntoniusPius/AntoniusPius.TPS")
+
+n_had  = hadrian_lms.shape[0]
+n_apl  = aplus_lms.shape[0]
+
+# Combine into one array
+all_coins = np.vstack([hadrian_lms, aplus_lms])
+labels = ['Hadrian'] * n_had + ['AntoniusPius'] * n_apl
+
+print(f"Total specimens: {all_coins.shape[0]}")
+print(f"  Hadrian: {n_had}, Antoninus Pius: {n_apl}")
+```
+
+### Step 2: GPA on combined dataset
+
+```python
+aligned_all, csizes, _ = mops.procrustes_fit(all_coins, allow_reflection=False)
+```
+
+### Step 3: PCA color-coded by emperor
+
+```python
+from sklearn.decomposition import PCA
+import pandas as pd
+
+X = aligned_all.reshape(len(all_coins), -1)
+pca = PCA()
+scores = pca.fit_transform(X)
+var_exp = pca.explained_variance_ratio_ * 100
+
+df = pd.DataFrame({
+    'PC1': scores[:, 0],
+    'PC2': scores[:, 1],
+    'Emperor': labels
+})
+
+# Plot
+fig, ax = plt.subplots(figsize=(9, 7))
+colors = {'Hadrian': '#2196F3', 'AntoniusPius': '#E53935'}
+
+for emperor, group in df.groupby('Emperor'):
+    ax.scatter(group['PC1'], group['PC2'],
+               label=emperor, color=colors[emperor],
+               s=60, alpha=0.8, edgecolor='white')
+
+ax.axhline(0, color='gray', linewidth=0.5, linestyle='--')
+ax.axvline(0, color='gray', linewidth=0.5, linestyle='--')
+ax.set_xlabel(f"PC1 ({var_exp[0]:.1f}%)")
+ax.set_ylabel(f"PC2 ({var_exp[1]:.1f}%)")
+ax.set_title("Shape Space: Hadrian vs. Antoninus Pius Denarii")
+ax.legend(title="Emperor", framealpha=0.9)
+plt.tight_layout()
+plt.show()
+```
+
+### Step 4: Statistical test — permutation MANOVA
+
+```python
+from scipy.spatial.distance import cdist
+from scipy.stats import f
+
+def permutation_manova(scores, labels, n_perm=999, n_pcs=5):
+    """
+    Permutation-based MANOVA on PC scores.
+    Tests whether group centroids differ more than expected by chance.
+    """
+    X = scores[:, :n_pcs]
+    labels = np.array(labels)
+    groups = np.unique(labels)
+
+    # Observed F-statistic (ratio of between-group to within-group variance)
+    grand_mean = X.mean(axis=0)
+    ss_between = sum(
+        (X[labels == g].mean(axis=0) - grand_mean)**2 * (labels == g).sum()
+        for g in groups
+    ).sum()
+    ss_within = sum(
+        ((X[labels == g] - X[labels == g].mean(axis=0))**2).sum()
+        for g in groups
+    )
+    n, k = len(labels), len(groups)
+    f_obs = (ss_between / (k - 1)) / (ss_within / (n - k))
+
+    # Permutation distribution
+    f_perm = []
+    for _ in range(n_perm):
+        perm_labels = np.random.permutation(labels)
+        ss_b = sum(
+            (X[perm_labels == g].mean(axis=0) - grand_mean)**2 * (perm_labels == g).sum()
+            for g in groups
+        ).sum()
+        ss_w = sum(
+            ((X[perm_labels == g] - X[perm_labels == g].mean(axis=0))**2).sum()
+            for g in groups
+        )
+        f_perm.append((ss_b / (k - 1)) / (ss_w / (n - k)))
+
+    p_value = (np.sum(np.array(f_perm) >= f_obs) + 1) / (n_perm + 1)
+    return f_obs, p_value
+
+f_stat, p_val = permutation_manova(scores, labels)
+print(f"Permutation MANOVA: F = {f_stat:.3f}, p = {p_val:.3f}")
+```
+
+---
+
+## Interpreting the Results
+
+### If the groups separate:
+
+The two emperors' coins occupy different regions of shape space. This could indicate:
+- Portrait style was deliberately differentiated by reign
+- Die-cutters changed their conventions between reigns
+- Different workshops produced the two series
+
+### If the groups overlap substantially:
+
+Shape variation *within* each reign is larger than variation *between* reigns. This could indicate:
+- Consistent mint conventions that persisted across reigns
+- Strong iconographic standards imposed by the central mint
+- Our landmark protocol doesn't capture the features that actually differ
+
+### Neither outcome is "wrong":
+
+Both tell us something real about Roman mint organization.
+
+---
+
+## Discussion: What Shape Can and Cannot Tell Us
+
+Shape analysis of coins has real limitations:
+
+1. **We can only measure what we digitize.** If portrait style differs in surface detail (texture, modelling depth) but not in overall proportion, landmark analysis misses it.
+
+2. **Die variation within a reign is large.** Many different pairs of dies were used for each emperor. Is our sample large enough to characterize each reign's "typical" shape?
+
+3. **What counts as the same "type"?** Hadrian's portraiture changed significantly over his long reign. Should we subdivide by portrait type before comparing?
+
+These are not reasons to dismiss GM — they are reasons to design studies carefully and interpret results with appropriate caution.
+
+---
+
+## Assignment 3 Due This Week
+
+::: {.callout-note}
+Submit your Colab notebook link + 500-word interpretation as PDF.
+
+[→ Assignment 3: Coins Shape Analysis](../assignments/03-coins.qmd)
+:::
+
+[→ Module 8: Outline Analysis — Elliptic Fourier Analysis](08-axes.qmd)

@@ -1,0 +1,145 @@
+---
+title: "Final Project"
+subtitle: "50% of final grade | Written report due one week after Week 12"
+---
+
+## Overview
+
+The final project is your opportunity to apply everything you have learned to a shape question of your own choosing. It culminates the course's progressive build from individual assignments into an original, small-scale research investigation.
+
+---
+
+## Choose Your Track
+
+### Track A: Extended Dataset Analysis (recommended for most students)
+
+Take one of the three course datasets — coins, axes, or pottery — and go deeper than the corresponding assignment. Extensions could include:
+
+- Testing additional grouping variables from the metadata (chronological phase, geographic region, deposition context)
+- Allometric analysis: does shape change with size?
+- Comparing results of two methods on the same objects (e.g., landmarks vs. outlines on the coins)
+- Comparing your results to a published analysis of the same or similar material
+
+**Why this track:** You already know the data. You can focus on asking a better question rather than learning a new dataset.
+
+---
+
+### Track B: New Open-Access Dataset
+
+Find an open-access GM dataset from a published paper (2020–2025) on an artefact type **not covered in the course**. Replicate or extend the published analysis.
+
+**Where to find datasets:**
+- [Zenodo.org](https://zenodo.org) — search "geometric morphometrics archaeology"
+- [OSF (Open Science Framework)](https://osf.io)
+- [Figshare](https://figshare.com)
+- Journal supplementary data: *Journal of Archaeological Science*, *Journal of Archaeological Science: Reports*, *Archaeological and Anthropological Sciences*
+
+**What counts as a valid dataset:**
+- Open-access coordinates (TPS, CSV, or similar) from a peer-reviewed paper
+- Minimum 20 specimens
+- At least one grouping variable (period, region, type, etc.)
+
+**What to submit along with your report:** Full citation of the paper you are using, DOI of the dataset, and confirmation that it is genuinely open-access.
+
+---
+
+### Track C: Research Proposal (writing-only option)
+
+For students who prefer writing to data analysis: write a detailed research proposal for a GM study on an artefact type of your choice.
+
+**Required sections:**
+1. Introduction — what is the archaeological problem?
+2. Research question — specific and answerable
+3. Dataset design — what objects, from where, how many, in which collections?
+4. Methodology — which GM method, how many landmarks or which outline, what software?
+5. Expected results — what do you predict and why?
+6. Possible complications — what could go wrong, and how would you handle it?
+7. Significance — what would a positive result tell us about the past?
+8. References — minimum 10 peer-reviewed sources
+
+**Length:** 3000 words (excluding references)
+
+---
+
+## Report Requirements (Tracks A and B)
+
+**Length:** 2000–3000 words (excluding figures and references)
+
+**Structure:**
+1. **Introduction** — the archaeological problem and why shape matters
+2. **Research Question** — stated explicitly and concisely
+3. **Data and Methods** — dataset description, GM method, statistical approach
+4. **Results** — present figures and statistics, no interpretation yet
+5. **Discussion** — interpret results in archaeological terms; compare to existing literature
+6. **Conclusion** — main finding in 3–4 sentences; one future direction
+7. **References** — minimum 8 peer-reviewed sources (APA or Chicago author-date)
+
+**Figures:** Minimum 3:
+- A PCA scatter plot (labeled, with group color-coding)
+- A shape visualization (deformation grid or reconstructed EFA shapes)
+- One additional figure of your choice (allometry plot, map, dendrogram, etc.)
+
+**Code:** Submit your Colab notebook link as an appendix. It must be set to "Anyone with link can view."
+
+---
+
+## Presentation (Week 12)
+
+**Format:** 8 minutes + 2 minutes Q&A
+
+**What to cover:**
+1. Research question (1 min)
+2. Dataset and method (1 min)
+3. Your key result — your best figure (3 min)
+4. Archaeological interpretation (2 min)
+5. One limitation and one future direction (1 min)
+
+**Slides:** Optional but recommended. Maximum 8 slides.
+
+---
+
+## Grading Rubric (Tracks A and B)
+
+| Criterion | Points |
+|-----------|--------|
+| **Research question** — clarity, originality, archaeological relevance | 20 |
+| **Analysis** — correct and complete GM analysis with appropriate statistics | 25 |
+| **Figures** — quality, clarity, appropriate labeling | 20 |
+| **Interpretation** — connects shape data to archaeological question; engages with literature | 25 |
+| **Writing** — clear, well-organized, properly referenced | 10 |
+| **Total** | **100** |
+
+### Grading Rubric (Track C — Proposal)
+
+| Criterion | Points |
+|-----------|--------|
+| Research question — specific and answerable | 20 |
+| Dataset design — realistic and well-justified | 20 |
+| Methodology — correct and appropriate | 25 |
+| Critical reflection — complications and limitations addressed | 20 |
+| Writing quality and referencing | 15 |
+| **Total** | **100** |
+
+---
+
+## Final Project Timeline
+
+| Date | Milestone |
+|------|-----------|
+| Week 7 | Choose your track and topic — notify instructor |
+| Week 9 | Brief check-in (5 min per student) — confirm dataset and question |
+| Week 11 | Draft results (figures) ready for in-class feedback |
+| Week 12 | In-class presentations |
+| One week later | Written report due |
+
+---
+
+## Tips for Success
+
+1. **Start with a clear, answerable question.** The most common mistake is a question too vague to test with shape data. "I will analyze pottery shape" is not a question. "Do pottery vessels from Site A differ in outline shape from vessels of the same period at Site B, and if so, does the difference suggest distinct production communities?" is a question.
+
+2. **Don't over-analyze.** A clear, well-interpreted result with one PCA and one statistical test is better than five tests you can't explain.
+
+3. **Engage with the existing literature.** What does the paper that published your dataset say? What can you add, confirm, or contest?
+
+4. **Let AI write the code, but don't let AI write the text.** Your interpretation is the entire point.

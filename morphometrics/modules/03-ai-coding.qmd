@@ -1,0 +1,153 @@
+---
+title: "Module 3: Seeing Shape — Digitizing Landmarks"
+subtitle: "Week 3 — Foundations | One-time FIJI install required"
+---
+
+## Before You Begin
+
+This is the **one week** in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.
+
+::: {.callout-important}
+## Install FIJI Now
+1. Go to [fiji.sc](https://fiji.sc)
+2. Download for your operating system
+3. Unzip and open — no installer needed
+4. You only need this for today's lab session
+:::
+
+---
+
+## Why We Digitize
+
+Before we can analyze shapes statistically, we need to capture them as coordinates. The process of placing landmark points on images and recording their $(x, y)$ positions is called **digitizing**.
+
+The quality of every downstream analysis depends entirely on the quality of digitizing. Sloppy landmark placement = unreliable results. This is why we spend a full week on it.
+
+---
+
+## Image Preparation
+
+Good digitizing starts with good images. The requirements:
+
+### Scale Bar
+Every image must have a **scale bar** — a line of known length that lets you convert pixel distances to real-world measurements. Without a scale bar, you can compare shapes but not sizes.
+
+The coin images in our dataset have scale bars embedded. The axe images in our dataset are calibrated via the TPS file metadata.
+
+### Orientation Convention
+All specimens must be oriented the same way before digitizing. For coins: portrait facing right, die axis vertical. For axes: blade pointing down, flat face toward the viewer.
+
+Inconsistent orientation is corrected by Procrustes alignment — but it's still good practice to standardize before digitizing.
+
+### Image Quality
+- Sufficient resolution to place landmarks accurately
+- Consistent lighting (shadows create false edges)
+- Clean background (no visual noise near the object outline)
+
+---
+
+## Landmark Protocol: Hadrian Coins
+
+For the Assignment 2 digitizing exercise, we use 8 landmarks on each coin:
+
+| LM | Location | Type |
+|----|---------|------|
+| 1 | Tip of portrait nose | Type II (extremum) |
+| 2 | Back of skull (most posterior point) | Type II (extremum) |
+| 3 | Base of chin | Type II (extremum) |
+| 4 | Top of forehead (most anterior point) | Type II (extremum) |
+| 5 | Edge of die at 12 o'clock | Type III (constructed) |
+| 6 | Edge of die at 6 o'clock | Type III (constructed) |
+| 7 | Edge of die at 3 o'clock | Type III (constructed) |
+| 8 | Edge of die at 9 o'clock | Type III (constructed) |
+
+Landmarks 5–8 are on the coin edge at cardinal positions. They capture the oval vs. circular geometry of the flan (the blank metal disc).
+
+---
+
+## Step-by-Step: Digitizing in FIJI
+
+### Step 1: Open the image
+- File → Open → select the coin image (e.g., `175D.jpg` from the Hadrian folder)
+
+### Step 2: Set scale
+- Draw a line over the scale bar using the Line tool
+- Analyze → Set Scale
+- Enter the known length of the scale bar
+
+### Step 3: Place landmarks
+- Select the **Point tool** (press `.` or `>`)
+- Click on landmark position 1 (nose tip)
+- Hold Shift and click each subsequent landmark in order
+- You should see a count of 8 points when done
+
+### Step 4: Record coordinates
+- Analyze → Measure (Ctrl+M) — this records the x,y of the last point
+- **Better:** Use the **ROI Manager** to record all 8 points at once
+  - After placing all 8 points, Edit → Selection → Add to Manager
+  - In the ROI Manager: More → Multi Measure
+  - Copy the output table
+
+### Step 5: Assemble TPS file
+After digitizing all specimens, use the provided Week 3 Colab notebook to convert your FIJI output to TPS format automatically.
+
+---
+
+## Inter-Observer Error
+
+One of the most important exercises in any GM study is quantifying **inter-observer error** — how much do two different digitizers disagree on landmark placement?
+
+In this lab:
+1. Each student digitizes the same 5 coin images independently
+2. We compare the results in the Week 3 Colab notebook
+3. We calculate the mean Procrustes distance between observers for each landmark
+
+Large inter-observer error means:
+- The landmark protocol is ambiguous and needs to be refined
+- The landmark may not be meaningful (Type III landmarks are usually more reproducible than Type I/II)
+
+::: {.callout-tip}
+## Rule of Thumb
+Inter-observer error should be much smaller than the biological/archaeological variation you are trying to detect. If your observers disagree more than specimens differ, the analysis is meaningless.
+:::
+
+---
+
+## Converting FIJI Output to TPS Format
+
+A TPS file has a simple text format:
+
+```
+LM=8
+123.4 456.7
+234.5 567.8
+...
+IMAGE=175D.jpg
+ID=Hadrian_001
+```
+
+- `LM=8` — number of landmarks
+- One line per landmark: `x y`
+- `IMAGE=` — filename of the image
+- `ID=` — specimen identifier
+
+The Week 3 Colab notebook contains a Python function to do this conversion automatically from a FIJI measurements table. You just paste your data and run one cell.
+
+---
+
+## Assignment 2: Landmark Exercise
+
+::: {.callout-note}
+## Due: Week 4
+Digitize all 20 Hadrian coin images. Assess inter-observer consistency with a partner.
+
+See [Assignment 2](../assignments/02-landmarks.qmd) for full instructions.
+:::
+
+---
+
+## After This Week
+
+You now understand how shape data is collected. Starting next week, we shift entirely to **Google Colab** for all analysis. No more FIJI unless you choose to use it for your final project.
+
+[→ Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis](04-procrustes.qmd)

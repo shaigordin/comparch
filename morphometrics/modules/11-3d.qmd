@@ -1,0 +1,149 @@
+---
+title: "Module 11: Testing Hypotheses — Statistics in Shape Space"
+subtitle: "Week 11 — Pottery, Statistics, and Synthesis"
+---
+
+## Why Standard Tests Don't Work for Shape Data
+
+Shape data from GM is **multivariate**: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.
+
+Furthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.
+
+The solution used in modern GM: **permutation-based tests**.
+
+---
+
+## The Logic of Permutation Tests
+
+A permutation test asks: *how often would we see a difference this large (or larger) between groups if the group labels were just randomly assigned?*
+
+### Step-by-step:
+
+1. Calculate the *observed* test statistic (e.g., F-ratio comparing within-group to between-group variation)
+2. Randomly permute the group labels among specimens, keeping the data fixed
+3. Re-calculate the test statistic
+4. Repeat steps 2–3 many times (999 or 9999 permutations)
+5. The **p-value** = the proportion of permuted statistics ≥ the observed statistic
+
+No distributional assumptions. Works with small samples. Widely accepted in the GM literature.
+
+---
+
+## MANOVA in Shape Space
+
+**MANOVA** (Multivariate Analysis of Variance) tests whether group centroids (mean shapes) differ more than expected by chance.
+
+In GM, we typically apply MANOVA to the first several PC scores (capturing, say, 90% of shape variance). This is what our `permutation_manova()` function does.
+
+```python
+# Applied to any of our three datasets
+f_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=10)
+r2 = f_stat / (f_stat + (len(labels) - 2))  # approx effect size
+
+print(f"F = {f_stat:.3f}, p = {p_val:.3f}, R² = {r2:.3f}")
+```
+
+---
+
+## Effect Size: R²
+
+The p-value tells us *whether* groups differ. The **effect size** tells us *how much* they differ.
+
+In GM, the standard effect size is **R²** — the proportion of total shape variance explained by group membership:
+
+$$R^2 = \frac{SS_{between}}{SS_{total}}$$
+
+An analysis can be statistically significant with a tiny R². For example: if p = 0.001 but R² = 0.04, groups differ reliably but the group difference accounts for only 4% of total shape variation. The other 96% is variation within groups.
+
+::: {.callout-tip}
+## Always report both p and R²
+In archaeology, where sample sizes are often small and variation is high, R² is often more informative than the p-value alone.
+:::
+
+---
+
+## Allometry: When Size Predicts Shape
+
+**Allometry** is the relationship between size and shape. In biology, larger organisms often have proportionally different shapes from smaller ones (think of how a puppy's head looks different from an adult dog's).
+
+In archaeology:
+- Larger coins may have different portrait proportions than smaller ones
+- Larger pottery vessels may have proportionally narrower necks
+- Larger axes may have relatively wider blades
+
+Testing allometry:
+
+```python
+# Test: does centroid size predict shape?
+from scipy.stats import pearsonr
+
+# Correlate centroid sizes with PC1 scores
+r, p = pearsonr(centroid_sizes, scores[:, 0])
+print(f"Allometry (size vs. PC1): r = {r:.3f}, p = {p:.3f}")
+
+# Scatter plot
+plt.figure(figsize=(7, 5))
+plt.scatter(np.log(centroid_sizes), scores[:, 0], alpha=0.7)
+plt.xlabel("Log centroid size")
+plt.ylabel("PC1 score (shape)")
+plt.title("Allometric plot: size vs. shape PC1")
+# Add regression line
+m, b = np.polyfit(np.log(centroid_sizes), scores[:, 0], 1)
+x = np.linspace(np.log(centroid_sizes).min(), np.log(centroid_sizes).max(), 100)
+plt.plot(x, m*x + b, 'r--')
+plt.tight_layout()
+plt.show()
+```
+
+If allometry is significant: you may want to remove the size effect before comparing groups (using residuals from the allometric regression).
+
+---
+
+## Multiple Comparisons
+
+If you are comparing 5 pottery periods against each other pairwise, you run 10 comparisons. By chance, you expect at least one to be "significant" at p < 0.05 — even if there is no real difference anywhere.
+
+**Solutions:**
+
+1. **Bonferroni correction**: divide your α threshold by the number of tests. For 10 tests, use p < 0.005 instead of p < 0.05.
+
+2. **Benjamini-Hochberg FDR**: less conservative, controls the *false discovery rate* rather than the family-wise error rate.
+
+3. **A priori hypotheses**: only test comparisons you predicted before looking at the data. This is the most principled approach.
+
+```python
+from statsmodels.stats.multitest import multipletests
+
+p_values = [0.03, 0.04, 0.001, 0.08, 0.02]  # example: 5 pairwise tests
+reject, p_corrected, _, _ = multipletests(p_values, method='bonferroni')
+
+for orig, corr, rej in zip(p_values, p_corrected, reject):
+    print(f"p = {orig:.3f} → corrected p = {corr:.3f} → {'SIGNIFICANT' if rej else 'ns'}")
+```
+
+---
+
+## Summary: Statistical Reporting in a GM Study
+
+A complete statistical report should include:
+
+| Element | What to report |
+|---------|---------------|
+| **Test** | What test (permutation MANOVA, etc.) |
+| **Parameters** | Number of PCs used, number of permutations |
+| **F-statistic** | The observed F ratio |
+| **p-value** | From permutation distribution |
+| **Effect size** | R² |
+| **Multiple comparisons** | Correction method used (if any) |
+
+---
+
+## Lab: Apply Statistics to Your Final Project Dataset
+
+This week's lab is open: use the Week 11 Colab notebook to run the full statistical suite on whichever dataset you are using for your final project (or a preview of it).
+
+---
+
+## Next Week: Synthesis and Final Presentations
+
+[→ Module 12: Big Questions + Final Presentations](12-big-questions.qmd)

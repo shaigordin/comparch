@@ -1,0 +1,65 @@
+---
+title: "Assignment 1: Shape Journal"
+subtitle: "5% of final grade | Due: Week 3"
+---
+
+## Overview
+
+This assignment asks you to look at archaeological artefacts with new eyes — focusing on **shape** rather than function, date, or cultural label.
+
+---
+
+## Instructions
+
+Find **3 archaeological objects** in online databases or published papers. Good sources:
+
+- [British Museum Collection](https://www.britishmuseum.org/collection)
+- [Metropolitan Museum of Art Open Access](https://www.metmuseum.org/art/collection)
+- [Europeana](https://www.europeana.eu)
+- [JSTOR Global Plants / any open-access archaeology journal](https://www.jstor.org)
+
+The objects must be from at least **2 different artefact categories** (e.g., two coins and one vessel; or one axe, one fibula, and one ceramic).
+
+---
+
+## For Each Object, Write:
+
+### 1. Identification (1–2 sentences)
+Provide the object's museum number (or DOI if from a publication), type, date, and place of origin. Include a clear image.
+
+> Example: *BM 1867,0101.447 — Roman bronze fibula (brooch), 2nd century CE, found in Roman Britain.*
+
+### 2. Shape Description (3–5 sentences)
+Describe the shape in **purely geometric terms**. Avoid typological labels ("Type A," "carinated") and functional descriptions ("used for fastening"). Think like a geometer: what curves, angles, proportions, and symmetries do you see?
+
+> Example (bad): *"This is a type B fibula used for fastening garments."*
+> Example (good): *"The object has a bow-shaped upper arc that rises to approximately 0.4 of the total length before curving back down. The footplate is wider than the head, giving the outline a slight trapezoid asymmetry. The catch-plate is a rectangular projection at the base."*
+
+### 3. Research Question (2–3 sentences)
+Write one specific question that **shape analysis** could help answer for this type of object. Be concrete.
+
+> Example (bad): *"I would study the shape of these fibulae."*
+> Example (good): *"Do fibulae from the western provinces of the Roman Empire show consistent shape differences from those of the eastern provinces? A landmark GM study of 100+ specimens could test whether shape variation follows provincial boundaries or trade routes."*
+
+### 4. Method Choice (2–3 sentences)
+Which GM method would you use — landmarks, outlines, or both? Why? What specific landmarks would you place, or what outline would you trace?
+
+---
+
+## Format
+
+- **Length:** 600–800 words total (across all three objects) + 3 images
+- **Format:** PDF
+- **Submission:** Course portal
+
+---
+
+## Grading
+
+| Criterion | Points |
+|-----------|--------|
+| Objects appropriately sourced with proper citations | 10 |
+| Shape descriptions are genuinely geometric (not typological) | 30 |
+| Research questions are specific and answerable with GM | 40 |
+| Method choices are appropriate and explained | 20 |
+| **Total** | **100** |

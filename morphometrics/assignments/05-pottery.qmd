@@ -1,0 +1,52 @@
+---
+title: "Assignment 5: Pottery PCA"
+subtitle: "5% of final grade | Due: Week 10"
+---
+
+## Overview
+
+This is a lightweight assignment focused on **interpretation** rather than code. The analysis pipeline is pre-built; your job is to run it and explain what you see.
+
+---
+
+## Instructions
+
+1. Open the [Week 10 Colab notebook](https://colab.research.google.com) *(link active Week 10)*
+2. Run all cells (Shift+Enter through the notebook, or Runtime → Run All)
+3. The notebook will automatically load the pottery dataset, run EFA + PCA, and produce a labeled scatter plot
+
+**You do not need to write any code for this assignment.**
+
+---
+
+## Required Output
+
+1. **One PCA scatter plot** — already produced by the notebook, colored by period or site (whichever variable produces the most interesting pattern)
+
+2. **300-word written interpretation** in which you address:
+
+   - What does the scatter plot show? Are groups separated, overlapping, or randomly distributed?
+   - Look at the reconstructed vessel shapes at opposite ends of PC1 (produced in the notebook). What is actually different about the vessel forms?
+   - Connect the shape pattern to the archaeological context of the dataset. Does the shape variation make archaeological sense? What might explain it?
+   - One question that the shape data raises that cannot be answered from shape alone.
+
+---
+
+## Deliverables
+
+- One PCA plot (PNG, embedded in your PDF)
+- 300-word interpretation
+
+**Submit as a single PDF.**
+
+---
+
+## Grading
+
+| Criterion | Points |
+|-----------|--------|
+| Plot produced correctly | 30 |
+| Interpretation addresses shape patterns specifically | 40 |
+| Archaeological context engaged | 20 |
+| Writing quality | 10 |
+| **Total** | **100** |

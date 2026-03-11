@@ -1,0 +1,132 @@
+---
+title: "Module 12: Big Questions + Course Synthesis"
+subtitle: "Week 12 — Synthesis and Final Presentations"
+---
+
+## From Shapes to Stories
+
+In this final module we step back and ask: *what have we actually been doing?*
+
+Shape analysis is not an end in itself. It is a tool for answering questions that matter — about how human communities organized production, how ideas and objects spread across networks, how material culture changed over time, and what those changes meant to the people who made and used the objects.
+
+---
+
+## What We Have Learned
+
+Look back at the three case studies:
+
+### Roman Coins
+- **Method:** Landmark GM → Procrustes → PCA → permutation test
+- **Question:** Do coins of different emperors cluster by shape?
+- **The deeper question:** How consistent was Roman imperial mint organization? Did changes in regime affect production standards? Can we detect individual die-cutters or workshops through shape?
+
+### Bronze Age Flanged Axes
+- **Method:** Outline extraction → EFA → PCA → permutation test → geographic mapping
+- **Question:** Do typological groups correspond to genuine morphological clusters? Is there geographic patterning?
+- **The deeper question:** How did metalworking knowledge spread in Bronze Age Europe? Were shape templates maintained through master-apprentice networks or through copying from objects? What does shape variation tell us about the scale of Bronze Age exchange?
+
+### Pottery
+- **Method:** Vessel profile EFA → PCA → statistical tests
+- **Question:** Can we separate production traditions or periods from outline shape alone?
+- **The deeper question:** How did potters learn and transmit their craft? How sensitive is shape to cultural boundaries? Can shape tell us about migration, colonization, or trade without chemical analysis?
+
+---
+
+## Scale of Analysis
+
+One of the most important decisions in any GM study is the *scale* at which you ask questions:
+
+| Scale | Example question | Challenge |
+|-------|-----------------|-----------|
+| **Within a site** | Do vessels from different areas of the same site differ in shape? | Small sample sizes |
+| **Between sites** | Do production traditions cluster geographically? | Need comparable sampling strategies |
+| **Regional** | Can we detect broad cultural zones from shape? | Confounded by chronology |
+| **Continental/Empire** | Did Roman standardization homogenize material culture? | Enormous datasets needed |
+
+---
+
+## What GM Cannot Do
+
+Geometric morphometrics is a powerful tool, but it has real limits:
+
+1. **It only captures what you digitize.** If the important variation is in surface texture, decoration, or color — shape analysis misses it entirely.
+
+2. **It requires comparable images.** Poor photography, inconsistent orientation, or low resolution introduce error that can swamp real variation.
+
+3. **It does not explain.** A significant group difference in shape space tells you that groups differ. It does not tell you *why*.
+
+4. **Small samples are risky.** Permutation tests can detect large differences with small samples, but false discoveries are a real risk.
+
+5. **The landmark protocol is a hypothesis.** The choice of which landmarks to place encodes assumptions about what variation matters. Different protocols can give different results on the same objects.
+
+---
+
+## Reproducibility and Open Data
+
+Science advances through reproducibility — the ability to check and extend each other's work. Modern archaeology increasingly recognizes this. The most important practical habits:
+
+1. **Share your data.** Upload your TPS files and metadata to Zenodo or OSF with a DOI.
+2. **Share your code.** Post your Colab notebook publicly (or via GitHub).
+3. **Document your protocol.** Write up your landmark placement rules clearly enough that someone else can replicate them.
+4. **Report effect sizes, not just p-values.**
+
+The datasets in this course (coins, axes) were made available by researchers who followed these principles. Future archaeologists will be able to re-analyze and extend this work.
+
+---
+
+## 3D Morphometrics: A Preview
+
+The frontier of archaeological GM is **three-dimensional analysis**. Instead of a 2D outline or a set of 2D landmarks, 3D GM captures the full surface geometry of an object.
+
+### How 3D data is acquired:
+- **Structured light scanning** (Artec, NextEngine): fast, accurate, expensive
+- **CT scanning**: for complex internal shapes (lithic flaking, pottery walls)
+- **Photogrammetry** (Meshroom, Agisoft): free or cheap, requires 30–100 overlapping photos, works on any phone
+
+### Why 3D matters for archaeology:
+- A coin has depth — the relief of the portrait is 3D information we lose in 2D
+- An axe has two faces that may differ
+- A pot has a 3D surface, not just a profile
+
+The `auto3dgm` package (used in our source course materials — see `Morphometrics-course/auto3dgm_example.zip`) automates 3D GPA without requiring manual landmark placement, using Minimum Description Length principles.
+
+If you are interested in pursuing 3D GM for your final project or future research, speak with the instructor.
+
+---
+
+## Where the Field Is Going
+
+Exciting developments in 2024–2025:
+
+- **Machine learning + GM**: using deep learning to automate landmark placement on thousands of objects
+- **Geometric morphometrics of microscopic traces**: use-wear on lithics, residues on ceramics
+- **Population-level GM studies**: thousands of specimens from museum collections
+- **Multiscale analysis**: combining 2D and 3D data
+- **Open databases**: platforms like MorphoSource and Zenodo making 3D scan data globally available
+
+---
+
+## Final Project Presentations
+
+Each student (or pair) has **8 minutes** to present + 2 minutes Q&A.
+
+**Structure:**
+1. What is your research question? (1 min)
+2. What dataset did you use and how? (1 min)
+3. Your key result — show your best figure (3 min)
+4. Archaeological interpretation — what does the shape pattern mean? (2 min)
+5. One limitation and one future direction (1 min)
+
+**Written report** is due **one week after the final class**.
+
+---
+
+## Thank You
+
+Shape is one of the most fundamental properties of material culture. You have learned to measure it, analyze it, and connect it to historical and archaeological questions. That is a genuinely useful skill — in academic research, in museum practice, and in cultural heritage management.
+
+The tools you have learned (Python, Colab, AI-assisted coding) will keep evolving. The conceptual framework — shape as a variable, Procrustes alignment, PCA, statistical comparison — is stable and will remain central to archaeological science for decades.
+
+---
+
+## [→ Final Project Instructions](../assignments/final-project.qmd)

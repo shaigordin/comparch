@@ -1,0 +1,94 @@
+---
+title: "Assignment 3: Coins Shape Analysis"
+subtitle: "15% of final grade | Due: Week 7"
+---
+
+## Overview
+
+Run a complete landmark GM analysis comparing Hadrian and Antoninus Pius denarii. Interpret the results archaeologically.
+
+---
+
+## Tools
+
+- **Colab notebook:** Use the Week 7 notebook (link on the Data page)
+- **Data:** `DEN_Hadrian/Hadrian.TPS` and `DEN_AntoniusPius/AntoniusPius.TPS` from the course dataset
+- **AI:** Use Claude or ChatGPT to generate any additional code you need
+
+---
+
+## Required Analysis Steps
+
+Complete all five steps in your Colab notebook:
+
+### Step 1: Load and combine the datasets
+Load both TPS files, note the number of specimens in each, and combine into a single array with group labels.
+
+### Step 2: Generalized Procrustes Analysis
+Run GPA on the combined dataset. Report:
+- Total number of specimens
+- Number of landmarks
+- Range of centroid sizes
+- Whether size differs significantly between the two groups (a quick t-test or plot is sufficient)
+
+### Step 3: PCA with group labels
+Run PCA on the Procrustes-aligned coordinates. Produce a **clearly labeled scatter plot**:
+- X axis: PC1 with % variance explained
+- Y axis: PC2 with % variance explained
+- Colors: one per emperor
+- Legend: clearly labeled
+- Title: informative
+
+### Step 4: Permutation test
+Run the `permutation_manova()` function (from Module 7) on the first 8 PC scores. Report F, p, and R².
+
+### Step 5: Mean shape deformation grids
+Produce deformation grids (or shape plots) showing:
+- Mean shape of Hadrian coins
+- Mean shape of Antoninus Pius coins
+- The difference between them (or annotate which landmarks shift most)
+
+This step can use the deformation visualization code from Module 6.
+
+---
+
+## Written Interpretation (500 words)
+
+Your interpretation must address:
+
+1. **Do the groups separate?** Describe what you see in the PCA plot. Are they fully separated, partially overlapping, or completely mixed?
+
+2. **Statistical support:** What do your F, p, and R² values tell you? Explain these numbers in plain language (not just "p < 0.05, therefore significant").
+
+3. **Shape features:** Based on the deformation grids or shape plots, *which specific parts of the coin change* between Hadrian and Antoninus Pius? Are the differences in the portrait? The coin edge? Both?
+
+4. **Archaeological interpretation:** What might explain the shape pattern you found? Consider:
+   - Changes in imperial portraiture conventions
+   - Different die-cutters or workshops
+   - Chronological change within a long reign
+   - The limits of your analysis (sample size, landmark placement error)
+
+5. **One follow-up question:** What question does your result raise that would require additional data or analysis to answer?
+
+---
+
+## Deliverables
+
+1. **Colab notebook link** — your copy, set to "Anyone with the link can view"
+2. **PDF report** — 500-word interpretation + all required figures embedded (not separate files)
+   - PCA scatter plot
+   - Deformation grids or mean shape comparison
+   - Statistical output (screenshot or table)
+
+---
+
+## Grading
+
+| Criterion | Points |
+|-----------|--------|
+| All 5 analysis steps completed correctly | 35 |
+| PCA plot is well-labeled and legible | 15 |
+| Statistical output reported correctly with interpretation | 15 |
+| Archaeological interpretation is substantive and specific | 30 |
+| Writing quality and referencing | 5 |
+| **Total** | **100** |

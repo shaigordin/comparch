@@ -1,0 +1,133 @@
+---
+title: "Course Datasets"
+subtitle: "All data used in this course — sources, formats, and download links"
+---
+
+## Overview
+
+All datasets used in this course are either:
+1. **Provided directly** in the course repository (coins and axes)
+2. **Open-access** from published peer-reviewed research (pottery)
+
+For every dataset, the original source is fully cited. All data must be used for educational purposes only and cited appropriately in any work derived from this course.
+
+---
+
+## Dataset 1: Roman Imperial Denarii
+
+**Artefact type:** Roman silver coins (denarii)
+
+**Specimens:**
+- Hadrian (r. 117–138 CE): 20 specimens
+- Antoninus Pius (r. 138–161 CE): 15 specimens
+
+**Format:** TPS (landmark coordinates, 8 landmarks per coin)
+
+**Images:** JPEG, standardized orientation (portrait right, die axis vertical)
+
+**Landmarks:** 8 per coin (4 portrait points + 4 edge points at cardinal positions)
+
+**Source:** UHK (Univerzita Hradec Králové) E-Learning Course — *Modern Quantitative Methods and Shape Analysis in Archaeology* (EU Operational Programme, reg. č. CZ.02.2.69/0.0/0.0/16_015/0002427)
+
+**Files in repository:**
+```
+data/coins/
+├── DEN_Hadrian/
+│   ├── Hadrian.TPS
+│   └── [20 JPEG images]
+└── DEN_AntoniusPius/
+    ├── AntoniusPius.TPS
+    └── [15 JPEG images]
+```
+
+**Used in:** [Assignment 2](../assignments/02-landmarks.qmd), [Assignment 3](../assignments/03-coins.qmd), [Module 5](../modules/05-pca.qmd), [Module 6](../modules/06-coins.qmd), [Module 7](../modules/07-outlines-theory.qmd)
+
+---
+
+## Dataset 2: European Bronze Age Flanged Axes
+
+**Artefact type:** Bronze Age flanged axes, Central Europe
+
+**Specimens:**
+- G3 group: ~30 specimens (images in `G3/` folder)
+- G4 group: ~35 specimens (images in `G4/` folder)
+
+**Format:** TIF images (white background) + TPS files + EFA coefficient files
+
+**Landmark data:** `Flanged_axes.TPS`
+
+**Outline data:** `Flanged_axes_efa.dat` (pre-computed EFA coefficients), `Flanged_axes_efa_pca.dat` (pre-computed PCA scores)
+
+**Source:** UHK E-Learning Course (same as above)
+
+**Files in repository:**
+```
+data/flanged_axes/
+├── G3/
+│   ├── [30 TIF images]
+│   └── G3.TPS
+├── G4/
+│   ├── [35 TIF images]
+│   └── G4.TPS
+├── Flanged_axes.TPS
+├── Flanged_axes.dat
+├── Flanged_axes_efa.dat
+├── Flanged_axes_efa_pca.dat
+└── axes_metadata.csv   ← geographic and typological metadata
+```
+
+**Used in:** [Assignment 4](../assignments/04-axes.qmd), [Module 8](../modules/08-axes.qmd), [Module 9](../modules/09-statistics.qmd)
+
+---
+
+## Dataset 3: Ancient Pottery (Open-Access)
+
+::: {.callout-note}
+## Dataset to be confirmed before course launch
+
+We are finalizing the pottery dataset from open-access publications (2023–2025). The dataset will be added here before Week 1, with full citation, DOI, and license information.
+
+**Candidate sources being evaluated:**
+- Open-access datasets on Zenodo matching query: "geometric morphometrics pottery archaeology"
+- Supplementary data from *Journal of Archaeological Science: Reports* 2023–2025
+- OSF projects tagged with "ceramic morphometrics"
+
+**Requirements:** Open-access license (CC-BY or equivalent), minimum 50 vessels, includes grouping variable (period, site, or vessel type), image format compatible with `scikit-image` outline extraction.
+:::
+
+**Used in:** [Assignment 5](../assignments/05-pottery.qmd), [Module 10](../modules/10-pottery.qmd)
+
+---
+
+## How to Access Data in Colab
+
+All data is available as a shared Google Drive folder. Instructions to mount it in Colab:
+
+```python
+# Mount Google Drive (run once per session)
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Set the data path
+DATA_PATH = "/content/drive/MyDrive/ShapeInTime_Data/"
+
+# Example: load Hadrian TPS
+hadrian = read_tps(DATA_PATH + "coins/DEN_Hadrian/Hadrian.TPS")
+```
+
+Alternatively, you can upload data files directly to your Colab session:
+```python
+from google.colab import files
+uploaded = files.upload()  # opens a file picker
+```
+
+---
+
+## Citing the Data
+
+When using course datasets in your assignments or final project, cite the original source:
+
+**For coins and axes:**
+> Morphometrics course materials. *Modern Quantitative Methods and Shape Analysis in Archaeology*. Univerzita Hradec Králové, Filozofická Fakulta. Project CZ.02.2.69/0.0/0.0/16_015/0002427.
+
+**For pottery:** Full citation will be provided when the dataset is confirmed.

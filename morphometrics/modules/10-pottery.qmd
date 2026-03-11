@@ -1,0 +1,134 @@
+---
+title: "Module 10: Case Study III — Pottery and Ceramic Traditions"
+subtitle: "Week 10 — Pottery, Statistics, and Synthesis"
+---
+
+## Why Pottery?
+
+Pottery is the most ubiquitous artefact in archaeological sites almost everywhere in the world. It survives well, is highly sensitive to cultural traditions, and has been classified typologically for over a century. It is also **the ideal object for outline analysis**: vessel profiles are smooth curves with no discrete landmark points.
+
+Pottery shape reflects:
+- **Production technique** — wheel-thrown vs. hand-built produces different profile shapes
+- **Function** — storage jars, cooking pots, and serving bowls have characteristic morphologies
+- **Chronology** — vessel forms changed over time in most traditions
+- **Cultural identity** — potters learned their craft within communities; shape encodes that transmission
+- **Exchange** — when pottery moved between communities, shapes were copied (and subtly transformed)
+
+---
+
+## The Dataset
+
+::: {.callout-note}
+## Dataset Confirmation
+The specific dataset used in this module will be confirmed before the course launches, with full citation and DOI published on the [Data page](../data/index.qmd).
+
+We are targeting an open-access dataset from a publication between 2023–2025 covering Neolithic, Bronze Age, Iron Age, or Islamic-period ceramics from the Near East or Mediterranean. Candidate sources: Zenodo, OSF, journal supplementary data (JAS, JASR, Archaeological and Anthropological Sciences).
+:::
+
+For the analysis pipeline below, the data format is a set of vessel profile images (one profile per vessel, standardized orientation: rim at top, base at bottom) from which we extract the external outline.
+
+---
+
+## The Research Questions
+
+This module explores two nested questions:
+
+**Question 1 (chronological):** Can we separate pottery from different periods using shape alone? If yes, what shape features drive the change?
+
+**Question 2 (spatial):** Within a single period, can we detect regional or site-level production traditions from vessel shape?
+
+---
+
+## The Pottery Pipeline
+
+::: {.callout-important}
+## Open the Week 10 Notebook
+[→ Week 10 Colab Notebook](https://colab.research.google.com) *(link active Week 10)*
+
+This notebook is **pre-built** — you run it cell by cell without writing any new code. The focus this week is on interpretation, not coding.
+:::
+
+The pipeline is identical to the axes analysis:
+
+1. Load vessel profile images
+2. Extract outlines (using the same `extract_outline()` function)
+3. Fit EFA (15 harmonics for vessels — slightly more detail needed)
+4. PCA on EFA coefficients
+5. Color-code by period / site / vessel type
+6. Statistical tests
+
+```python
+# The Week 10 notebook runs this automatically —
+# shown here for reference
+
+pottery_coeffs, pottery_labels, pottery_names = process_all_vessels(
+    folder="data/pottery/",
+    metadata_csv="data/pottery/pottery_metadata.csv",
+    label_column="period"  # or 'site', or 'vessel_type'
+)
+
+# PCA
+pca_pottery = PCA()
+scores_pottery = pca_pottery.fit_transform(pottery_coeffs)
+
+# Visualize
+plot_pca_by_group(scores_pottery, pottery_labels,
+                  var_exp=pca_pottery.explained_variance_ratio_,
+                  title="Pottery Shape Space by Period")
+```
+
+---
+
+## Reading the Pottery PCA Plot
+
+Look at your PCA output and consider:
+
+1. **Do periods cluster separately?** Or is variation continuous?
+
+2. **Which PC axis captures the most meaningful archaeological variation?** Look at the reconstructed vessel shapes at the extremes of PC1 and PC2.
+
+3. **What shape features characterize each group?** Examples:
+   - Tall vs. wide vessels
+   - Narrow vs. wide neck
+   - Convex vs. straight body
+   - Carinated (angular) vs. rounded shoulders
+
+4. **Are there outliers?** What might explain a vessel that falls far from its group's cluster?
+
+---
+
+## Connecting Shape to Function
+
+One of the most powerful applications of vessel GM is linking shape to function. Use this rough guide as a starting point:
+
+| Shape feature | Common functional association |
+|--------------|-------------------------------|
+| Narrow neck, wide body | Storage (reduces evaporation) |
+| Wide opening, flat base | Serving / open containers |
+| S-shaped profile | Cooking pots (thermal shock resistance) |
+| Very thin walls, tall neck | Pouring vessels, transport amphorae |
+| Carinated shoulder | Often prestige/serving ware |
+
+::: {.callout-warning}
+## Caution
+Shape-function associations are generalizations. Always check against excavation context, residue analysis, and ethnographic parallels before drawing strong functional conclusions.
+:::
+
+---
+
+## Assignment 5 Due This Week
+
+::: {.callout-note}
+## Assignment 5: Pottery PCA (5%)
+Run the Week 10 notebook. Produce one PCA plot labeled by period or site. Write 300 words connecting the shape pattern to the archaeological context.
+
+[→ Assignment 5](../assignments/05-pottery.qmd)
+:::
+
+---
+
+## Next Week: Statistics and Testing
+
+We formalize the statistical tools we have been using intuitively: permutation tests, effect sizes, allometry, and multiple comparisons.
+
+[→ Module 11: Testing Hypotheses — Statistics in Shape Space](11-3d.qmd)

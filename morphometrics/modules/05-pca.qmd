@@ -1,0 +1,162 @@
+---
+title: "Module 5: Procrustes Alignment — Putting Shapes in the Same Space"
+subtitle: "Week 5 — The Toolkit"
+---
+
+## The Problem We Are Solving
+
+Last week, you saw the raw coin landmarks scattered across the plot. Each coin image was scanned at a different size, with the coin in a different position and orientation. Before we can compare shapes, we need to remove these irrelevant differences.
+
+**Procrustes alignment** is the mathematical solution.
+
+---
+
+## What GPA Does: Three Steps
+
+Generalized Procrustes Analysis (GPA) removes three sources of non-shape variation:
+
+### Step 1: Translation
+Move every configuration so its centroid (geometric center) sits at the origin $(0, 0)$.
+
+### Step 2: Scaling
+Resize every configuration so its **centroid size** equals 1.
+
+**Centroid size** = the square root of the sum of squared distances from each landmark to the centroid:
+
+$$CS = \sqrt{\sum_{i=1}^{k} d_i^2}$$
+
+where $d_i$ is the distance from landmark $i$ to the centroid.
+
+This is the standard size measure in GM because it is statistically independent of shape (unlike length or width, which are correlated with shape).
+
+### Step 3: Rotation
+Rotate each configuration to minimize the total squared distance between its landmarks and the **mean configuration** (consensus shape).
+
+After all three steps, all configurations are superimposed in the same coordinate system. What remains is **shape**.
+
+---
+
+## The Consensus Shape
+
+After GPA, we can calculate the **mean shape** (consensus) — the average position of each landmark across all aligned specimens. This is our reference shape for visualization.
+
+Shape variation in the dataset is then measured as deviations from this consensus.
+
+---
+
+## Running GPA in Colab
+
+::: {.callout-important}
+## Open the Week 5 Notebook
+[→ Week 5 Colab Notebook](https://colab.research.google.com) *(link active Week 5)*
+:::
+
+```python
+# Cell 1: Setup
+!pip install morphops -q
+import morphops as mops
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load data (using the read_tps function from Week 4)
+hadrian = read_tps("data/coins/DEN_Hadrian/Hadrian.TPS")
+print(f"Loaded {hadrian.shape[0]} coins, {hadrian.shape[1]} landmarks each")
+```
+
+```python
+# Cell 2: Generalized Procrustes Analysis
+# morphops.procrustes_fit() returns aligned coordinates and centroid sizes
+
+aligned, centroid_sizes, transforms = mops.procrustes_fit(hadrian,
+                                                            allow_reflection=False)
+print(f"Aligned shape: {aligned.shape}")
+print(f"Centroid sizes (first 5): {centroid_sizes[:5].round(3)}")
+```
+
+```python
+# Cell 3: Plot aligned configurations
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+# Before alignment
+ax1.set_title("Before GPA (raw coordinates)")
+for coin in hadrian:
+    # Normalize for plotting only
+    c = coin - coin.mean(axis=0)
+    ax1.scatter(c[:, 0], c[:, 1], alpha=0.2, s=10, color='gray')
+
+# After alignment
+ax2.set_title("After GPA (Procrustes coordinates)")
+for coin in aligned:
+    ax2.scatter(coin[:, 0], coin[:, 1], alpha=0.2, s=10, color='steelblue')
+
+# Mean shape
+mean_shape = aligned.mean(axis=0)
+ax2.scatter(mean_shape[:, 0], mean_shape[:, 1],
+            s=100, color='red', zorder=5, label='Mean shape')
+ax2.legend()
+
+for ax in (ax1, ax2):
+    ax.set_aspect('equal')
+    ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## What Does Centroid Size Tell Us?
+
+Centroid size is a by-product of GPA. It tells us about the *relative size* of each specimen. We can ask:
+
+- Is size correlated with shape? (This is called **allometry**)
+- Were some coins produced from larger flans than others?
+- Did coin size change over time?
+
+```python
+# Cell 4: Size distribution
+plt.figure(figsize=(8, 4))
+plt.hist(centroid_sizes, bins=10, edgecolor='black', color='steelblue')
+plt.xlabel("Centroid Size")
+plt.ylabel("Count")
+plt.title("Distribution of Hadrian coin sizes")
+plt.show()
+
+print(f"Mean centroid size: {centroid_sizes.mean():.4f}")
+print(f"Std dev: {centroid_sizes.std():.4f}")
+print(f"CV (coefficient of variation): {centroid_sizes.std()/centroid_sizes.mean()*100:.1f}%")
+```
+
+A low CV means coins were produced to a consistent size — strong standardization. A high CV suggests less quality control.
+
+---
+
+## A Visual Intuition for Shape Space
+
+After GPA, all configurations exist in a high-dimensional **shape space** (Kendall's shape space). Each specimen is a single point in this space.
+
+The dimensions of shape space = (number of landmarks × 2) − 4 for 2D data
+(We subtract 4 for the 2 translation, 1 scale, and 1 rotation degrees of freedom removed by GPA.)
+
+For our 8-landmark coin dataset: $(8 \times 2) - 4 = 12$ dimensions.
+
+Twelve dimensions is too many to visualize directly. That is what PCA is for — next week.
+
+---
+
+## Key Concepts Check
+
+Before Module 6, confirm you understand:
+
+1. What three sources of variation does GPA remove?
+2. Why is centroid size preferred over linear measurements as a size variable?
+3. After GPA, how many dimensions does shape space have for 8 landmarks in 2D?
+4. What is the consensus shape and how is it used?
+
+---
+
+## Looking Ahead
+
+Next week: PCA reduces the 12-dimensional shape space to 2–3 dimensions we can actually see — and connects the dimensions to visible shape features using deformation grids.
+
+[→ Module 6: PCA — Exploring the Shape Space](06-coins.qmd)

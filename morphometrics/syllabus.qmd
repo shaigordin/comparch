@@ -1,0 +1,543 @@
+---
+title: "Syllabus"
+subtitle: "Shape in Time: Geometric Morphometrics for Archaeologists — Spring 2026"
+---
+
+## Course Description
+
+This course introduces undergraduate students in archaeology and history to the theory and practice of **geometric morphometrics (GM)** — the quantitative study of shape in objects made by human hands. Students work with published open-access datasets of Roman coins, Bronze Age flanged axes, and ancient pottery, using AI-written code in **Google Colab** (no installation required) to run all analyses.
+
+No prior programming experience is assumed or required. A computer with internet access is all you need.
+
+---
+
+## Learning Outcomes
+
+By the end of the semester, students will be able to:
+
+1. Explain what geometric morphometrics is and how it differs from traditional typological description
+2. Distinguish between landmark, semi-landmark, and outline methods, and know when to apply each
+3. Use AI tools (Claude, ChatGPT) to generate, run, and annotate Python code for shape analysis in Google Colab
+4. Perform Generalized Procrustes Analysis (GPA) and interpret aligned shape configurations
+5. Run and interpret Principal Components Analysis (PCA) on shape data, including deformation grids
+6. Apply Elliptic Fourier Analysis (EFA) to outline data
+7. Apply basic permutation-based statistical tests to compare shape groups
+8. Connect shape patterns to archaeological questions of production, exchange, identity, and chronology
+9. Present and critically evaluate GM-based archaeological research
+
+---
+
+## Tools (All Browser-Based — No Installation Required)
+
+| Tool | Purpose | Access |
+|------|---------|--------|
+| **Google Colab** | All coding and analysis | colab.research.google.com (free, browser) |
+| **Claude / ChatGPT** | AI code generation | claude.ai / chat.openai.com (free) |
+| **FIJI (ImageJ)** | Landmark digitizing — one session only | fiji.sc (small download, Week 3 only) |
+| **Google Drive** | Storing datasets and notebooks | drive.google.com (free) |
+
+**Python packages used (all pre-installed in Colab or installed in the notebook):**
+
+- `morphops` — Procrustes alignment, thin-plate splines
+- `pyefd` — Elliptic Fourier Descriptors for outlines
+- `scikit-learn` — PCA
+- `matplotlib` / `seaborn` — visualization
+- `numpy` / `pandas` — data handling
+
+All package installs are handled by a single line in each notebook that students run once:
+```python
+!pip install morphops pyefd -q
+```
+
+---
+
+## 12-Week Schedule
+
+### Unit I — Foundations (Weeks 1–3)
+
+---
+
+#### Week 1: What Is Shape? Why Does It Matter?
+
+**Lecture (90 min):**
+
+- The difference between *size* and *shape* — the key distinction of GM
+- Kendall's definition: *"Shape is all the geometric information that remains when location, scale, and rotation effects are filtered out from an object"* (Kendall 1977)
+- From description to measurement: why quantification matters for archaeology
+- What shape can and cannot tell us
+- Tour of the three case studies: coins, axes, pottery
+
+**Archaeological framing:**
+
+- Coins: Roman Imperial standardization and mint identity
+- Axes: Bronze Age craft networks and typological groupings
+- Pottery: ceramic production traditions and exchange
+
+**Reading (light — provided as excerpts):**
+
+- Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–265 [introduction only]
+- Broodbank, C. (2013). *The Making of the Middle Sea*, pp. 1–10 [context: why typology matters]
+
+**No lab this week.** Bring an object to class next week.
+
+---
+
+#### Week 2: A Short History — From Calipers to Coordinates
+
+**Lecture (90 min):**
+
+- Traditional morphometrics: measurements, ratios, indices — and their limits
+- The morphometric revolution of the 1980s–90s: coordinates instead of distances
+- Three methods introduced: **landmarks**, **semi-landmarks**, **outlines**
+- When to use which method (illustrated with archaeological examples)
+- The software landscape: what exists, why we use Python in Colab
+
+**Lab (30 min — in class, no software needed):**
+
+Using printed images of coins and axes, students manually place landmark points on paper and discuss: What counts as a homologous point? What choices are you making?
+
+**Assignment 1 distributed:** Shape Journal
+
+---
+
+#### Week 3: Seeing Shape — Digitizing Landmarks
+
+**Lecture (60 min):**
+
+- Image preparation: scale bars, orientation conventions, image quality
+- Landmark types: Type I (biologically/archaeologically homologous), Type II (geometric extrema), Type III (constructed points)
+- Semi-landmarks and sliding
+- Outline tracing: when and how
+- Inter-observer error — the hidden problem in all landmark studies
+
+**Lab (60 min — FIJI required, one-time install):**
+
+> **This is the only session requiring a download.** Students install FIJI once and use it to place landmarks on 5 Hadrian coin images. Full step-by-step instructions provided.
+
+Step-by-step protocol:
+1. Open FIJI → open coin image
+2. Set scale (Analyze → Set Scale)
+3. Point tool → place 8 landmarks following the course landmark protocol
+4. Save as .txt and convert to TPS format using the provided Python script in Colab
+
+**Assignment 1 due. Assignment 2 distributed:** Landmark Exercise
+
+---
+
+### Unit II — The Toolkit (Weeks 4–7)
+
+---
+
+#### Week 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis
+
+**Lecture (60 min):**
+
+- What is Google Colab? How to use it (live demonstration)
+- How to talk to AI: writing effective prompts for data analysis
+- The PEAR prompt framework:
+  - **P**urpose — what analysis do you need?
+  - **E**xample — show the AI a sample of your data structure
+  - **A**ction — what specific operation?
+  - **R**esult — what output format do you want?
+- Reading and understanding AI-generated code without writing it yourself
+- The golden rule: *you interpret the results, the AI writes the code*
+
+**Lab (60 min — first Colab session):**
+
+Students open the **Week 4 Colab notebook** (link provided) and follow along:
+
+```python
+# AI-generated code: Load TPS data and inspect it
+!pip install morphops pyefd -q
+import morphops as mops
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load the coin TPS file
+lms = mops.read_tps("Coins.TPS")
+print(f"Dataset shape: {lms.shape}")
+# (n_specimens, n_landmarks, 2)
+```
+
+Students then write their own AI prompt for the next step and share results.
+
+**Assignment 2 due. Assignment 3 distributed:** Coins Shape Analysis
+
+---
+
+#### Week 5: Procrustes Alignment — Putting Shapes in the Same Space
+
+**Lecture (90 min):**
+
+- The core problem: before we can compare shapes, we must remove the effect of size, position, and rotation
+- Generalized Procrustes Analysis (GPA): the algorithm in plain language
+  1. Translate all configurations to the same centroid
+  2. Scale to unit centroid size
+  3. Rotate to minimize total squared distance between corresponding landmarks
+- Centroid size: what it is and why it's the measure of scale in GM
+- The Kendall shape space and why we work in its tangent plane
+- Visualizing aligned configurations: the consensus (mean) shape
+
+**Lab (30 min):**
+
+Open the **Week 5 Colab notebook**. AI generates the GPA code:
+
+```python
+# Generalized Procrustes Analysis on all coins
+gpa_result = mops.procrustes_fit(lms)
+aligned = gpa_result[0]    # aligned coordinates
+centroid_sizes = gpa_result[1]  # one size value per specimen
+
+# Plot all aligned configurations
+fig, ax = plt.subplots(figsize=(8, 8))
+for config in aligned:
+    ax.scatter(config[:, 0], config[:, 1], alpha=0.3, s=10, color='gray')
+mean_shape = aligned.mean(axis=0)
+ax.scatter(mean_shape[:, 0], mean_shape[:, 1], s=80, color='red', zorder=5)
+ax.set_title("GPA-aligned coin landmarks (red = mean shape)")
+plt.show()
+```
+
+---
+
+#### Week 6: PCA — Exploring the Shape Space
+
+**Lecture (90 min):**
+
+- What PCA does: finding the axes of maximum variation in a high-dimensional dataset
+- PC axes are directions in shape space; PC scores tell us where each specimen sits
+- How to read a PCA scatter plot: clusters, gradients, outliers
+- **Shape deformation grids:** thin-plate splines to visualize what PC1 and PC2 actually mean morphologically
+- Common mistakes: over-interpreting PCA, treating PC axes as "real" biological factors
+
+**Lab (30 min):**
+
+AI-generated PCA code in the **Week 6 Colab notebook**:
+
+```python
+from sklearn.decomposition import PCA
+import pandas as pd
+
+# Reshape aligned landmarks for PCA (each specimen = one row)
+n = aligned.shape[0]
+X = aligned.reshape(n, -1)
+
+# PCA
+pca = PCA(n_components=10)
+scores = pca.fit_transform(X)
+
+print("Variance explained per PC:")
+for i, v in enumerate(pca.explained_variance_ratio_[:5]):
+    print(f"  PC{i+1}: {v*100:.1f}%")
+
+# Plot PC1 vs PC2
+plt.figure(figsize=(8, 6))
+plt.scatter(scores[:, 0], scores[:, 1], alpha=0.7)
+plt.xlabel(f"PC1 ({pca.explained_variance_ratio_[0]*100:.1f}%)")
+plt.ylabel(f"PC2 ({pca.explained_variance_ratio_[1]*100:.1f}%)")
+plt.title("PCA of Roman coin shapes")
+plt.show()
+```
+
+---
+
+#### Week 7: Case Study I — Roman Coins and Imperial Standardization
+
+**Lecture (60 min):**
+
+- Roman coin production: mints, dies, and imperial oversight
+- Why coins are ideal for GM: mass-produced objects with intentional standardization
+- The Hadrian (r. 117–138 CE) and Antoninus Pius (r. 138–161 CE) denarii: context
+- Research question: *Did die cutters maintain consistent shape standards across emperors? Do portrait types cluster by issuer?*
+- Reading a GM paper critically: what to look for in methods and results
+
+**Lab (60 min):**
+
+Full coin analysis in the **Week 7 Colab notebook**:
+- Color-code PCA by emperor
+- Statistical test (permutation MANOVA)
+- Deformation grid for mean shape difference between groups
+
+**Assignment 3 due. Assignment 4 distributed:** Bronze Age Axes Outline Analysis
+
+---
+
+### Unit III — Outlines and the Bronze Age (Weeks 8–9)
+
+---
+
+#### Week 8: Outline Analysis — Elliptic Fourier Analysis
+
+**Lecture (90 min):**
+
+- When landmarks aren't enough: objects without discrete homologous points
+- What an outline is: a closed contour captured as a sequence of x,y coordinates
+- Elliptic Fourier Analysis: decomposing an outline into a sum of elliptic harmonics
+  - Analogy: like breaking down a musical chord into individual notes
+  - The first harmonic captures basic size/shape; higher harmonics add detail
+- Choosing the number of harmonics: the variance explained criterion
+- Normalizing for size, position, rotation, and starting point
+- How EFA + PCA gives us the same kind of shape space as landmark GM
+
+**Reading (provided):**
+
+- Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24. [Introduction and methods sections]
+
+**Lab (30 min):**
+
+First look at the flanged axes dataset. Load outlines in the **Week 8 Colab notebook**:
+
+```python
+import pyefd
+from skimage import io, measure, color
+import numpy as np
+
+# Load a single axe outline image and extract contour
+img = io.imread("axes/ALT.tif", as_gray=True)
+contours = measure.find_contours(img, 0.5)
+outline = contours[0]  # largest contour
+
+# Fit EFA (12 harmonics)
+coeffs = pyefd.elliptic_fourier_descriptors(outline, order=12, normalize=True)
+print(f"EFA coefficients shape: {coeffs.shape}")  # (12, 4)
+```
+
+---
+
+#### Week 9: Case Study II — Bronze Age Axes and Craft Networks
+
+**Lecture (60 min):**
+
+- European Bronze Age metallurgy: what flanged axes are, how they were cast
+- The G3 and G4 typological groups in the archaeological literature: what traditional typology says
+- Research question: *Do G3 and G4 axes represent genuinely distinct morphological groups? Is there geographic patterning in shape variation? What does this tell us about Bronze Age craft networks and exchange?*
+- Connecting shape to social questions: technology, exchange, identity, imitation
+
+**Lab (60 min):**
+
+Full EFA + PCA pipeline for the axes dataset in the **Week 9 Colab notebook**. Students produce a group-coded PCA plot and run a permutation test.
+
+**Assignment 4 due. Assignment 5 distributed:** Pottery PCA
+
+---
+
+### Unit IV — Pottery, Statistics, and Synthesis (Weeks 10–12)
+
+---
+
+#### Week 10: Case Study III — Pottery and Ceramic Traditions
+
+**Lecture (60 min):**
+
+- Why pottery is the most-studied artefact in archaeology — and in GM
+- Vessel form classes and their archaeological meanings (storage, cooking, serving, burial)
+- Production techniques and their morphological signatures: wheel vs. hand-building
+- The pottery dataset for this course: [open-access dataset — confirmed source and DOI published in course Data page]
+- Research question: *Can we distinguish pottery production traditions or chronological periods from vessel outline shape alone?*
+
+**Reading:**
+
+- Karasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.
+- [2024 open-access pottery GM paper — confirmed before course launch]
+
+**Lab (60 min):**
+
+Full EFA + PCA pipeline for pottery outlines. **Week 10 Colab notebook** provided.
+
+**Assignment 5 due.**
+
+---
+
+#### Week 11: Testing Hypotheses — Statistics in Shape Space
+
+**Lecture (90 min):**
+
+- Why standard t-tests and ANOVAs don't work for shape data
+- Permutation tests: the logic and why they are appropriate for GM
+- MANOVA in shape space: testing for group differences
+- Effect sizes: R² and what it means
+- Allometry: does shape change with size? How to test this
+- Multiple comparisons: what to do when you have many groups
+- What "statistically significant" actually means — and what it doesn't
+
+**Lab (30 min):**
+
+Statistical comparison pipeline in **Week 11 Colab notebook** — applied to whichever dataset students are using for their final project.
+
+---
+
+#### Week 12: Final Project Presentations + Course Synthesis
+
+**Synthesis lecture (30 min):**
+
+- From shapes to stories: connecting GM results to historical and archaeological questions
+- Scale of analysis: site → region → period → network
+- What GM cannot do: the importance of integrating typology, isotopes, context, text
+- Reproducibility and open data: why sharing your data and code matters
+- Where GM is heading: 3D photogrammetry, machine learning, automated digitizing
+
+**Final project presentations (90 min):**
+
+Each student or pair presents 8 minutes + 2 minutes Q&A.
+
+**Final Project due: one week after Week 12.**
+
+---
+
+## Assignments Summary
+
+| # | Assignment | Weight | Due |
+|---|-----------|--------|-----|
+| 1 | Shape Journal | 5% | Week 3 |
+| 2 | Landmark Exercise | 10% | Week 4 |
+| 3 | Coins Shape Analysis | 15% | Week 7 |
+| 4 | Bronze Age Axes EFA | 15% | Week 9 |
+| 5 | Pottery PCA | 5% | Week 10 |
+| — | Final Project | 50% | Week 12 + 1 week |
+
+---
+
+## Detailed Assignment Descriptions
+
+### Assignment 1 — Shape Journal (5%)
+
+Find 3 archaeological artefacts in online museum databases or published papers. For each:
+
+1. Provide an image with its full citation (museum number or DOI)
+2. Describe the shape in your own words — no typological jargon, just geometry
+3. Write one research question that GM could help answer
+4. Explain what method you would use (landmarks, outlines, 3D) and why
+
+**Format:** 600–800 words + 3 images. Submit as PDF via the course portal.
+
+---
+
+### Assignment 2 — Landmark Exercise (10%)
+
+Using FIJI, digitize the 20 Hadrian coin images from the course dataset following the provided 8-landmark protocol.
+
+1. Produce a TPS file with all 20 specimens
+2. Upload to the Week 4 Colab notebook and run the provided consistency check
+3. Compare your placements with a partner: calculate mean inter-observer distance per landmark
+4. Write a 400-word reflection: Which landmarks were hardest to place consistently? What does this tell you about landmark-based methods as a scientific tool?
+
+**Deliverables:** TPS file + 400-word reflection. Submit both.
+
+---
+
+### Assignment 3 — Coins Shape Analysis (15%)
+
+Using the **Week 7 Colab notebook** and AI-generated code:
+
+1. Load the Hadrian + Antoninus Pius TPS files into a single dataset
+2. Run GPA on the combined dataset
+3. Run PCA — produce a scatter plot color-coded by emperor
+4. Run a permutation-based shape comparison
+5. Produce mean shape deformation grids for each group
+
+**Write a 500-word interpretation:**
+- Do the two emperors' coins cluster separately in shape space?
+- What specific shape differences do you see in the deformation grids?
+- What might explain any similarities or differences? Think about: die standardization, mint organization, imperial conventions.
+
+**Deliverables:** Link to your Colab notebook + 500-word interpretation as PDF.
+
+---
+
+### Assignment 4 — Bronze Age Axes Outline Analysis (15%)
+
+Using the **Week 9 Colab notebook** and AI-generated code:
+
+1. Load and process all flanged axe outline images
+2. Run EFA (12 harmonics) and normalize
+3. Run PCA on EFA coefficients — produce a plot color-coded by G3/G4 group
+4. Run a permutation test for group differences
+5. Produce a simple map (hand-drawn or using the provided template) with specimens colored by PC1 score
+
+**Write a 600-word interpretation:**
+- Do G3 and G4 separate morphologically? Is the separation clean or fuzzy?
+- Is there a geographic gradient in shape?
+- What does this tell us about Bronze Age metal-working traditions and exchange?
+
+**Deliverables:** Link to Colab notebook + 600-word PDF + map image.
+
+---
+
+### Assignment 5 — Pottery PCA (5%)
+
+A deliberately lighter exercise — focus on interpretation, not code.
+
+Using the **Week 10 Colab notebook** (pre-built pipeline), load the pottery dataset, run EFA + PCA, and produce one well-labeled scatter plot. Write a **300-word interpretation** connecting the shape patterns to what you know about the archaeological context.
+
+**Deliverable:** One plot (PNG) + 300-word interpretation as PDF.
+
+---
+
+### Final Project (50%)
+
+The final project asks you to go deeper on a shape question of your choice.
+
+#### Option A: Extended Dataset Analysis
+Take one of the course datasets (coins, axes, or pottery) and conduct a more in-depth analysis. Possible extensions:
+- Test additional variables (chronology, geography, fabric)
+- Allometric analysis
+- Compare two methods (e.g., landmarks vs. outlines on the same objects)
+- Compare your results with published findings
+
+#### Option B: New Open-Access Dataset
+Find an open-access GM dataset from a published paper (2020–2025) on an artefact type not covered in the course. Replicate or extend the published analysis using Colab. Good sources: Zenodo, OSF, Figshare, journal supplementary data.
+
+#### Option C: Research Proposal (writing-only option)
+For students who prefer writing over data analysis: write a detailed research proposal (3000 words) for a GM study on an artefact type of your choice. Must include: research question, dataset design, expected methods, predicted results, and critical reflection on limitations. Minimum 8 references.
+
+#### Report Requirements (Options A & B)
+- **Length:** 2000–3000 words (excluding figures and references)
+- **Structure:** Introduction → Research Question → Data & Methods → Results → Discussion → Conclusion → References
+- **Figures:** Minimum 3 (PCA plot, deformation/EFA shape visualization, one additional)
+- **Code:** Submit your Colab notebook link as an appendix
+- **References:** Minimum 8 peer-reviewed sources
+
+#### Grading Rubric
+
+| Criterion | Points |
+|-----------|--------|
+| Research question — clarity and archaeological relevance | 20 |
+| Correct and complete GM analysis | 25 |
+| Quality and clarity of figures | 20 |
+| Archaeological interpretation | 25 |
+| Writing quality and referencing | 10 |
+| **Total** | **100** |
+
+---
+
+## AI Policy
+
+This course **explicitly encourages** AI tools for code writing. You are expected to:
+
+1. Use Claude or ChatGPT to generate Python code in Colab — this is part of the design
+2. Understand the analysis conceptually (not line-by-line syntax)
+3. Be able to explain your results in your own words
+4. Annotate AI-generated code with brief comments explaining what each block does
+5. **Never** use AI to write your interpretation or essay text
+
+**AI is your lab assistant. You are the archaeologist.**
+
+---
+
+## Key References
+
+### Foundational Works
+- Kendall, D.G. (1977). The diffusion of shape. *Advances in Applied Probability* 9:428–430.
+- Bookstein, F.L. (1991). *Morphometric Tools for Landmark Data*. Cambridge University Press.
+- Zelditch, M.L. et al. (2012). *Geometric Morphometrics for Biologists* (2nd ed.). Academic Press.
+- Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–281.
+
+### Python Tools
+- `morphops`: github.com/tpgillam/morphops
+- `pyefd`: github.com/hbldh/pyefd
+- Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13) [conceptual reference for EFA].
+
+### Datasets Used in This Course
+- **Coins:** Roman Imperial denarii — Hadrian & Antoninus Pius. TPS format. Source: UHK Morphometrics Course.
+- **Flanged Axes:** European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.
+- **Pottery:** Open-access dataset (DOI and full citation on the [Data page](data/index.qmd)).

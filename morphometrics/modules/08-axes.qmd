@@ -1,0 +1,238 @@
+---
+title: "Module 8: Outline Analysis — Elliptic Fourier Analysis"
+subtitle: "Week 8 — Outlines and the Bronze Age"
+---
+
+## When Landmarks Aren't Enough
+
+Our coin analysis used discrete landmarks — identifiable points on the portrait. But many archaeological objects don't have obvious landmark points. Consider a Bronze Age flanged axe: its outline is a smooth curve with no biologically or archaeologically "homologous" points along the edge.
+
+For objects like these, we use **outline analysis** — and the most widely used method is **Elliptic Fourier Analysis (EFA)**.
+
+---
+
+## The Core Idea: Decomposing a Shape
+
+EFA treats an outline as a mathematical function and decomposes it into a sum of simpler components — **elliptic harmonics** — in exactly the same way that a complex musical chord can be decomposed into individual sine waves (Fourier analysis).
+
+### The Musical Analogy
+
+- A musical note is a complex wave
+- Fourier analysis breaks it into pure sine waves at different frequencies
+- Low frequencies = the overall character of the sound
+- High frequencies = fine detail and texture
+
+For outlines:
+- **1st harmonic** = the overall elliptical shape (elongated vs. round)
+- **2nd–4th harmonics** = major proportional features (where is the widest point? how asymmetric is the base?)
+- **Higher harmonics** = finer details (edge serrations, small bumps)
+
+---
+
+## How EFA Works
+
+An outline is represented as a closed sequence of $(x_i, y_i)$ coordinates. EFA decomposes the $x$ and $y$ coordinates separately as Fourier series, then recombines them as ellipses.
+
+Each harmonic $n$ produces **4 coefficients**: $(a_n, b_n, c_n, d_n)$.
+
+For $N$ harmonics, we get $4N$ coefficients total. These coefficients *are* the shape — they can be used directly in PCA just like landmark coordinates.
+
+### Normalization
+EFA coefficients must be normalized to remove the effects of size, position, rotation, and starting point. After normalization, only shape information remains.
+
+### Choosing N (number of harmonics)
+More harmonics = more detail captured, but also more noise. The standard criterion:
+
+> Choose the minimum $N$ that explains ≥ 99% of the outline shape variation in your sample.
+
+For axes like ours, 8–12 harmonics is typically sufficient.
+
+---
+
+## Step-by-Step: EFA in Colab
+
+::: {.callout-important}
+## Open the Week 8 Notebook
+[→ Week 8 Colab Notebook](https://colab.research.google.com) *(link active Week 8)*
+:::
+
+### Step 1: Load and preprocess one axe image
+
+```python
+!pip install pyefd scikit-image -q
+
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import io, color, filters, measure
+import pyefd
+
+def extract_outline(image_path, threshold_method='otsu'):
+    """
+    Load an axe image and extract its largest outline contour.
+    Returns: array of (x, y) coordinates
+    """
+    img = io.imread(image_path, as_gray=True)
+
+    # Threshold to binary
+    thresh = filters.threshold_otsu(img)
+    binary = img > thresh  # background = True, object = False
+
+    # Find contours of the object
+    contours = measure.find_contours(~binary, 0.5)
+
+    # Keep the largest contour (= the axe)
+    largest = max(contours, key=len)
+    return largest  # shape: (n_points, 2)
+
+# Test on one axe
+outline = extract_outline("data/flanged_axes/G3/ALT.tif")
+print(f"Outline has {len(outline)} points")
+
+# Plot
+plt.figure(figsize=(6, 8))
+plt.plot(outline[:, 1], -outline[:, 0], 'b-', linewidth=1)
+plt.fill(outline[:, 1], -outline[:, 0], alpha=0.2)
+plt.title("ALT axe outline")
+plt.axis('equal')
+plt.show()
+```
+
+### Step 2: Fit EFA
+
+```python
+# Fit EFA with 12 harmonics, normalized
+coeffs = pyefd.elliptic_fourier_descriptors(
+    outline, order=12, normalize=True
+)
+print(f"EFA coefficients shape: {coeffs.shape}")  # (12, 4)
+# Each row = one harmonic: (a_n, b_n, c_n, d_n)
+```
+
+### Step 3: Reconstruct the shape from EFA (sanity check)
+
+```python
+# Reconstruct the outline from EFA coefficients (should match original)
+locus = pyefd.reconstruct_contour(coeffs, num_points=300)
+
+plt.figure(figsize=(6, 8))
+plt.plot(outline[:, 1], -outline[:, 0], 'gray', linewidth=2, alpha=0.5, label='Original')
+plt.plot(locus[:, 0], -locus[:, 1], 'r-', linewidth=2, label='EFA reconstruction')
+plt.legend()
+plt.axis('equal')
+plt.title("EFA reconstruction (12 harmonics)")
+plt.show()
+```
+
+### Step 4: Process all axes and stack into a matrix
+
+```python
+import os
+
+def process_all_axes(folder_g3, folder_g4):
+    """Load all axe images, extract outlines, and fit EFA."""
+    all_coeffs = []
+    all_labels = []
+    all_names = []
+
+    for folder, group in [(folder_g3, 'G3'), (folder_g4, 'G4')]:
+        for fname in sorted(os.listdir(folder)):
+            if fname.endswith('.tif'):
+                path = os.path.join(folder, fname)
+                try:
+                    outline = extract_outline(path)
+                    coeffs = pyefd.elliptic_fourier_descriptors(
+                        outline, order=12, normalize=True
+                    )
+                    # Flatten: 12 harmonics × 4 coefficients = 48 values
+                    all_coeffs.append(coeffs.flatten())
+                    all_labels.append(group)
+                    all_names.append(fname.replace('.tif', ''))
+                except Exception as e:
+                    print(f"Skipped {fname}: {e}")
+
+    return np.array(all_coeffs), np.array(all_labels), np.array(all_names)
+
+coeff_matrix, labels, names = process_all_axes(
+    "data/flanged_axes/G3/",
+    "data/flanged_axes/G4/"
+)
+print(f"Matrix shape: {coeff_matrix.shape}")
+# Expected: (n_axes, 48)
+print(f"Groups: {dict(zip(*np.unique(labels, return_counts=True)))}")
+```
+
+### Step 5: PCA on EFA coefficients
+
+```python
+from sklearn.decomposition import PCA
+import pandas as pd
+
+pca = PCA()
+scores = pca.fit_transform(coeff_matrix)
+var_exp = pca.explained_variance_ratio_ * 100
+
+df = pd.DataFrame({
+    'PC1': scores[:, 0],
+    'PC2': scores[:, 1],
+    'Group': labels,
+    'Name': names
+})
+
+# Plot
+fig, ax = plt.subplots(figsize=(9, 7))
+colors = {'G3': '#1976D2', 'G4': '#C62828'}
+
+for group, grp_df in df.groupby('Group'):
+    ax.scatter(grp_df['PC1'], grp_df['PC2'],
+               color=colors[group], label=group,
+               s=60, alpha=0.85, edgecolor='white')
+
+ax.set_xlabel(f"PC1 ({var_exp[0]:.1f}%)")
+ax.set_ylabel(f"PC2 ({var_exp[1]:.1f}%)")
+ax.set_title("EFA Shape Space: Bronze Age Flanged Axes")
+ax.legend(title="Typological Group")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## Reading the EFA PCA Plot
+
+Unlike landmark PCA, EFA PCA axes don't directly map to shifts in specific landmark positions. Instead, we visualize the *reconstructed outlines* at the extremes of each PC:
+
+```python
+# Reconstruct mean shape and ±2SD shapes along PC1
+mean_coeffs = pca.mean_.reshape(12, 4)
+pc1_vector  = pca.components_[0].reshape(12, 4)
+std1        = np.sqrt(pca.explained_variance_[0])
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 7))
+for ax, scale, title in zip(axes, [-2, 0, 2], ['PC1 min (−2SD)', 'Mean shape', 'PC1 max (+2SD)']):
+    shape_coeffs = mean_coeffs + scale * std1 * pc1_vector
+    locus = pyefd.reconstruct_contour(shape_coeffs, num_points=400)
+    ax.fill(locus[:, 0], locus[:, 1], alpha=0.3, color='steelblue')
+    ax.plot(locus[:, 0], locus[:, 1], 'steelblue', linewidth=2)
+    ax.set_title(title)
+    ax.set_aspect('equal')
+    ax.axis('off')
+
+plt.suptitle("Shape variation along PC1 — Bronze Age Axes", fontsize=13)
+plt.tight_layout()
+plt.show()
+```
+
+**What to look for:** Do the reconstructed shapes at PC1 min and max show the same morphological features that distinguish G3 from G4 in the traditional typology?
+
+---
+
+## Assignment 4 Distributed This Week
+
+::: {.callout-note}
+## Assignment 4: Bronze Age Axes EFA — Due Week 9
+Full EFA + PCA of G3 vs G4 axes, with statistical test and geographic map.
+
+[→ Assignment 4](../assignments/04-axes.qmd)
+:::
+
+[→ Module 9: Case Study II — Bronze Age Axes and Craft Networks](09-statistics.qmd)

@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: ../../docs/morphometrics
+
+website:
+  title: "Shape in Time"
+  subtitle: "Geometric Morphometrics for Archaeologists"
+  navbar:
+    background: dark
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Syllabus"
+        href: syllabus.qmd
+      - text: "Modules"
+        menu:
+          - text: "Week 1 — What is Shape?"
+            href: modules/01-what-is-shape.qmd
+          - text: "Week 2 — From Calipers to Coordinates"
+            href: modules/02-data-collection.qmd
+          - text: "Week 3 — Digitizing Landmarks (FIJI)"
+            href: modules/03-ai-coding.qmd
+          - text: "Week 4 — AI Lab Partner & Colab"
+            href: modules/04-procrustes.qmd
+          - text: "Week 5 — Procrustes Alignment"
+            href: modules/05-pca.qmd
+          - text: "Week 6 — PCA & Shape Space"
+            href: modules/06-coins.qmd
+          - text: "Week 7 — Case Study I: Roman Coins"
+            href: modules/07-outlines-theory.qmd
+          - text: "Week 8 — Outline Analysis (EFA)"
+            href: modules/08-axes.qmd
+          - text: "Week 9 — Case Study II: Bronze Age Axes"
+            href: modules/09-statistics.qmd
+          - text: "Week 10 — Case Study III: Pottery"
+            href: modules/10-pottery.qmd
+          - text: "Week 11 — Testing Hypotheses"
+            href: modules/11-3d.qmd
+          - text: "Week 12 — Synthesis & Presentations"
+            href: modules/12-big-questions.qmd
+      - text: "Assignments"
+        menu:
+          - text: "Assignment 1 — Shape Journal (5%)"
+            href: assignments/01-shape-journal.qmd
+          - text: "Assignment 2 — Landmark Exercise (10%)"
+            href: assignments/02-landmarks.qmd
+          - text: "Assignment 3 — Coins Analysis (15%)"
+            href: assignments/03-coins.qmd
+          - text: "Assignment 4 — Axes EFA (15%)"
+            href: assignments/04-axes.qmd
+          - text: "Assignment 5 — Pottery PCA (5%)"
+            href: assignments/05-pottery.qmd
+          - text: "Final Project (50%)"
+            href: assignments/final-project.qmd
+      - text: "Data"
+        href: data/index.qmd
+      - text: "Resources"
+        href: resources.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-fold: true
+    code-tools: true
+    highlight-style: github
+    link-external-icon: true
+    link-external-newwindow: true

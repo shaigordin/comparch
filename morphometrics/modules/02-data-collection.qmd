@@ -1,0 +1,154 @@
+---
+title: "Module 2: A Short History — From Calipers to Coordinates"
+subtitle: "Week 2 — Foundations"
+---
+
+## How Did We Get Here?
+
+The history of morphometrics in archaeology mirrors a broader shift in how scientists think about biological and material form — from verbal description to measurement, and from measurement to coordinate geometry.
+
+---
+
+## Stage 1: Typology and Description (19th–early 20th century)
+
+The earliest approach to artefact shape was pure description: "This is a Type IIb axe." Typologies classified objects into categories based on a researcher's judgment of meaningful shape features.
+
+**The strengths:** Fast, accessible, connects to cultural history.
+
+**The weaknesses:**
+- Different researchers draw type boundaries differently
+- Impossible to test: *how* different do two shapes have to be to belong to different types?
+- Loses gradational variation: what about the object that sits between two types?
+
+Typology is not wrong — it is still useful. But it is qualitative and subjective.
+
+---
+
+## Stage 2: Traditional (Multivariate) Morphometrics (1960s–1980s)
+
+The response was to measure objects with calipers and treat the measurements statistically. Length, width, height, diameter, ratio of length to width — these are **traditional morphometric variables**.
+
+Multivariate statistics (PCA, discriminant analysis, cluster analysis) were applied to these measurements.
+
+**The improvement:** Objective, reproducible, testable.
+
+**The remaining problem:** Which measurements to take? Measurements depend on the researcher's choice. They also lose geometric information: knowing the length and width of a coin doesn't tell you the shape of the portrait.
+
+---
+
+## Stage 3: The Morphometric Revolution (1980s–1990s)
+
+A group of biologists and statisticians — David Kendall, Fred Bookstein, F. James Rohlf, and others — developed a fundamentally new approach: instead of measuring distances *between* landmarks, record the **coordinates of the landmarks themselves**.
+
+This seems like a small change but has profound consequences:
+- The full geometry of the configuration is preserved
+- All specimens can be brought into a common coordinate system (Procrustes alignment)
+- Shape can be visualized as continuous deformation
+- The mathematics is rigorous and well-understood
+
+This is **geometric morphometrics**.
+
+---
+
+## The Three Data Types in GM
+
+### Type 1: Landmarks
+
+A **landmark** is a discrete, identifiable point that corresponds to the same location across all specimens in the study.
+
+There are three classical types (Bookstein 1991):
+
+| Type | Definition | Example on a coin |
+|------|-----------|-------------------|
+| **Type I** | Biologically/archaeologically meaningful intersection point | Corner of die border at 12 o'clock |
+| **Type II** | Point of maximum curvature or extremum | Tip of portrait nose |
+| **Type III** | Constructed from other points | Midpoint of the coin diameter |
+
+::: {.callout-warning}
+## The Homology Problem
+A landmark must correspond to the *same* location in all specimens — not just geometrically similar, but *biologically or archaeologically homologous*. This is the hardest conceptual problem in landmark GM.
+
+On a coin: is the "corner of the chin" always the same point across portraits of different emperors? This requires archaeological judgment, not just geometry.
+:::
+
+**When to use landmarks:** Objects with discrete, identifiable reference points. Coins with portrait features, skulls, arrowheads with defined tip/base/notch points.
+
+---
+
+### Type 2: Semi-Landmarks
+
+**Semi-landmarks** are placed along curves where there are no discrete homologous points. They are allowed to "slide" along the curve during analysis to minimize bending energy.
+
+**When to use:** Curved outlines of objects like pots or axes, where there is no single identifiable point but you want to capture the curve geometry.
+
+---
+
+### Type 3: Outlines
+
+An **outline** is a complete contour of the object — a closed curve represented as a sequence of $(x, y)$ coordinates.
+
+Unlike landmarks, outlines don't require you to identify specific homologous points. Instead, the outline is decomposed mathematically into a series of components using **Elliptic Fourier Analysis (EFA)**.
+
+**When to use:** Smooth, rounded objects without clear landmark points — pottery profiles, axe outlines, coins (as a simpler alternative to portrait landmarks).
+
+---
+
+## In-Class Exercise: Landmarks on Paper
+
+Look at the printed images of the Hadrian coin and the flanged axe provided in class.
+
+**For the coin:**
+1. Mark the tip of the portrait nose
+2. Mark the back of the skull
+3. Mark the chin point
+4. Mark two points on the coin edge (top and bottom)
+
+**For the axe:**
+1. Mark the tip of the blade (cutting edge midpoint)
+2. Mark the widest point of the blade
+3. Mark the butt of the axe (top midpoint)
+4. Mark the narrowest point of the neck
+
+**Discussion:** Which points were easy to place? Which were ambiguous? If you compared your placements with a classmate's, where would they differ?
+
+---
+
+## The Software Landscape
+
+For this course, we use the simplest possible toolkit:
+
+| Task | Tool |
+|------|------|
+| Landmark digitizing | FIJI (ImageJ) — Week 3 only |
+| All analysis | Google Colab (browser, no install) |
+| Code generation | AI (Claude or ChatGPT) |
+
+Other software you may encounter in the literature:
+- **tpsDig2**: Classic Windows landmark digitizer (James Rohlf, Stony Brook)
+- **MorphoJ**: GUI-based GM software (excellent for learning concepts)
+- **R + geomorph**: R package for landmark analysis (the research standard)
+- **R + Momocs**: R package for outline analysis
+
+We use Python in Colab because it requires zero installation and AI can generate the code very effectively.
+
+---
+
+## Key Concepts Check
+
+Before Week 3, make sure you can answer:
+
+1. What is the difference between a landmark and a semi-landmark?
+2. Why can't you just compare raw (x,y) coordinates without Procrustes alignment?
+3. When would you use outline analysis rather than landmarks?
+4. What does it mean for a landmark to be "homologous"?
+
+---
+
+## Assignment 1: Shape Journal
+
+::: {.callout-note}
+## Due: Week 3
+See the [Assignment 1 page](../assignments/01-shape-journal.qmd) for full instructions.
+:::
+
+[→ Module 3: Seeing Shape — Digitizing Landmarks](03-ai-coding.qmd)
