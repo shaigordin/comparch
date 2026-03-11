@@ -1,0 +1,1290 @@
+[
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Tool\nWhat it does\nLink\n\n\n\n\nGoogle Colab\nRun Python code in the browser\ncolab.research.google.com\n\n\nClaude\nAI for code generation and explanation\nclaude.ai\n\n\nChatGPT\nAlternative AI for code\nchat.openai.com\n\n\nGoogle Drive\nStore your data and notebooks\ndrive.google.com\n\n\n\n\n\n\n\n\n\nTool\nWhat it does\nLink\n\n\n\n\nFIJI / ImageJ\nLandmark digitizing from images\nfiji.sc"
+  },
+  {
+    "objectID": "resources.html#essential-tools",
+    "href": "resources.html#essential-tools",
+    "title": "Resources",
+    "section": "",
+    "text": "Tool\nWhat it does\nLink\n\n\n\n\nGoogle Colab\nRun Python code in the browser\ncolab.research.google.com\n\n\nClaude\nAI for code generation and explanation\nclaude.ai\n\n\nChatGPT\nAlternative AI for code\nchat.openai.com\n\n\nGoogle Drive\nStore your data and notebooks\ndrive.google.com\n\n\n\n\n\n\n\n\n\nTool\nWhat it does\nLink\n\n\n\n\nFIJI / ImageJ\nLandmark digitizing from images\nfiji.sc"
+  },
+  {
+    "objectID": "resources.html#python-packages",
+    "href": "resources.html#python-packages",
+    "title": "Resources",
+    "section": "Python Packages",
+    "text": "Python Packages\nAll installed in Colab with !pip install:\n\n\n\nPackage\nPurpose\nDocumentation\n\n\n\n\nmorphops\nProcrustes alignment, thin-plate splines\ngithub.com/tpgillam/morphops\n\n\npyefd\nElliptic Fourier Descriptors\ngithub.com/hbldh/pyefd\n\n\nscikit-learn\nPCA and other ML tools\nscikit-learn.org\n\n\nscikit-image\nImage processing (outline extraction)\nscikit-image.org\n\n\nmatplotlib\nPlotting\nmatplotlib.org\n\n\nseaborn\nStatistical visualization\nseaborn.pydata.org\n\n\nnumpy\nNumerical arrays\nnumpy.org\n\n\npandas\nData tables\npandas.pydata.org\n\n\nstatsmodels\nStatistical tests\nstatsmodels.org"
+  },
+  {
+    "objectID": "resources.html#readings",
+    "href": "resources.html#readings",
+    "title": "Resources",
+    "section": "Readings",
+    "text": "Readings\n\nFoundational Texts (Provided as Excerpts)\n\nKendall, D.G. (1977). The diffusion of shape. Advances in Applied Probability 9:428–430.\nBookstein, F.L. (1991). Morphometric Tools for Landmark Data, Chapter 2. Cambridge University Press.\nSlice, D.E. (2007). Geometric morphometrics. Annual Review of Anthropology 36:261–281.\nZelditch, M.L. et al. (2012). Geometric Morphometrics for Biologists (2nd ed.), Chapter 1. Academic Press.\n\n\n\nKey Archaeological Applications\n\nKarasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. Journal of Archaeological Science 38(10):2644–2657.\nWilczek, J. et al. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. Journal of Archaeological Science 50:39–50. [Course pottery dataset]\nMonna, F. et al. (2013). Morphometry of Middle Bronze Age palstaves. Journal of Archaeological Science 40:507–516. [Background to course axes dataset]\nWilczek, J. et al. (2015). Unsupervised model-based clustering for typological classification of Middle Bronze Age flanged axes. Journal of Archaeological Science: Reports 2:523–532. [Course axes dataset]\nBonhomme, V. et al. (2014). Momocs: Outline analysis using R. Journal of Statistical Software 56(13):1–24.\nSelden, R.Z. (2018). Ceramic morphological organisation in the Southern Caddo Area. Journal of Cultural Heritage 32:215–223.\n\n\n\nOn AI in Research and Writing\n\nCourse handout: “How to Use AI for Data Analysis” (provided Week 4)"
+  },
+  {
+    "objectID": "resources.html#open-data-resources",
+    "href": "resources.html#open-data-resources",
+    "title": "Resources",
+    "section": "Open Data Resources",
+    "text": "Open Data Resources\n\n\n\nRepository\nBest for\nLink\n\n\n\n\nZenodo\nPublished datasets with DOI\nzenodo.org\n\n\nOSF\nPreregistrations and replication data\nosf.io\n\n\nFigshare\nSupplementary data from journals\nfigshare.com\n\n\nMorphoSource\n3D scans of biological and archaeological specimens\nmorphosource.org\n\n\ntDAR\nArchaeology-specific data archive\ntdar.org\n\n\nADS (UK)\nUK archaeology data\narchaeologydataservice.ac.uk\n\n\n\nSearch tip for finding GM datasets: &gt; On Zenodo: search \"tps file\" archaeology or \"geometric morphometrics\" landmarks archaeology"
+  },
+  {
+    "objectID": "resources.html#museum-databases-for-assignment-1",
+    "href": "resources.html#museum-databases-for-assignment-1",
+    "title": "Resources",
+    "section": "Museum Databases for Assignment 1",
+    "text": "Museum Databases for Assignment 1\n\n\n\nCollection\nCoverage\nLink\n\n\n\n\nBritish Museum\nGlobal, excellent for coins\nbritishmuseum.org/collection\n\n\nMetropolitan Museum\nGlobal, strong Near East\nmetmuseum.org/art/collection\n\n\nEuropeana\nEuropean collections aggregated\neuropeana.eu\n\n\nARACHNE\nGerman archaeological database\narachne.uni-koeln.de\n\n\nAmerican Numismatic Society\nCoins\nnumismatics.org\n\n\nFinds.org.uk\nRoman Britain metal objects\nfinds.org.uk"
+  },
+  {
+    "objectID": "resources.html#how-to-write-good-ai-prompts-quick-reference",
+    "href": "resources.html#how-to-write-good-ai-prompts-quick-reference",
+    "title": "Resources",
+    "section": "How to Write Good AI Prompts (Quick Reference)",
+    "text": "How to Write Good AI Prompts (Quick Reference)\nUse the PEAR framework:\nP — Purpose: \"I want to compare two groups of coin shapes...\"\nE — Example: \"My data looks like this: [paste first 5 rows or array shape]\"\nA — Action: \"Write Python code that...\"\nR — Result: \"...and produce a labeled scatter plot with legend\"\nIteration is normal. Your first AI-generated code may need debugging. Paste the error message back to the AI and ask it to fix the problem."
+  },
+  {
+    "objectID": "resources.html#if-you-get-stuck",
+    "href": "resources.html#if-you-get-stuck",
+    "title": "Resources",
+    "section": "If You Get Stuck",
+    "text": "If You Get Stuck\n\nRe-read the module page — the code examples there work on the course data\nAsk the AI to explain the error message to you\nGoogle the error — Stack Overflow has solutions to almost every Python error\nPost in the course forum — include your error message and a screenshot of the relevant cells\nCome to office hours"
+  },
+  {
+    "objectID": "resources.html#recommended-further-reading-for-the-curious",
+    "href": "resources.html#recommended-further-reading-for-the-curious",
+    "title": "Resources",
+    "section": "Recommended Further Reading (For the Curious)",
+    "text": "Recommended Further Reading (For the Curious)\n\nClaude, J. (2008). Morphometrics with R. Springer. [Most accessible R-based GM textbook]\nAdams, D.C. et al. (2013). geomorph: An R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4(4):393–399.\nWilczek, J. (2015). Applying Geometric Morphometrics to Study Protohistoric European Metal Objects. [Thesis, provides thorough coverage of the flanged axe problem]\nRohlf, F.J. & Slice, D.E. (1990). Extensions of the Procrustes method for the optimal superimposition of landmarks. Systematic Biology 39(1):40–59. [The original GPA paper]"
+  },
+  {
+    "objectID": "modules/02-data-collection.html",
+    "href": "modules/02-data-collection.html",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "",
+    "text": "The history of morphometrics in archaeology mirrors a broader shift in how scientists think about biological and material form — from verbal description to measurement, and from measurement to coordinate geometry."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#how-did-we-get-here",
+    "href": "modules/02-data-collection.html#how-did-we-get-here",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "",
+    "text": "The history of morphometrics in archaeology mirrors a broader shift in how scientists think about biological and material form — from verbal description to measurement, and from measurement to coordinate geometry."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#stage-1-typology-and-description-19thearly-20th-century",
+    "href": "modules/02-data-collection.html#stage-1-typology-and-description-19thearly-20th-century",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "Stage 1: Typology and Description (19th–early 20th century)",
+    "text": "Stage 1: Typology and Description (19th–early 20th century)\nThe earliest approach to artefact shape was pure description: “This is a Type IIb axe.” Typologies classified objects into categories based on a researcher’s judgment of meaningful shape features.\nThe strengths: Fast, accessible, connects to cultural history.\nThe weaknesses: - Different researchers draw type boundaries differently - Impossible to test: how different do two shapes have to be to belong to different types? - Loses gradational variation: what about the object that sits between two types?\nTypology is not wrong — it is still useful. But it is qualitative and subjective."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#stage-2-traditional-multivariate-morphometrics-1960s1980s",
+    "href": "modules/02-data-collection.html#stage-2-traditional-multivariate-morphometrics-1960s1980s",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "Stage 2: Traditional (Multivariate) Morphometrics (1960s–1980s)",
+    "text": "Stage 2: Traditional (Multivariate) Morphometrics (1960s–1980s)\nThe response was to measure objects with calipers and treat the measurements statistically. Length, width, height, diameter, ratio of length to width — these are traditional morphometric variables.\nMultivariate statistics (PCA, discriminant analysis, cluster analysis) were applied to these measurements.\nThe improvement: Objective, reproducible, testable.\nThe remaining problem: Which measurements to take? Measurements depend on the researcher’s choice. They also lose geometric information: knowing the length and width of a coin doesn’t tell you the shape of the portrait."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#stage-3-the-morphometric-revolution-1980s1990s",
+    "href": "modules/02-data-collection.html#stage-3-the-morphometric-revolution-1980s1990s",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "Stage 3: The Morphometric Revolution (1980s–1990s)",
+    "text": "Stage 3: The Morphometric Revolution (1980s–1990s)\nA group of biologists and statisticians — David Kendall, Fred Bookstein, F. James Rohlf, and others — developed a fundamentally new approach: instead of measuring distances between landmarks, record the coordinates of the landmarks themselves.\nThis seems like a small change but has profound consequences: - The full geometry of the configuration is preserved - All specimens can be brought into a common coordinate system (Procrustes alignment) - Shape can be visualized as continuous deformation - The mathematics is rigorous and well-understood\nThis is geometric morphometrics."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#the-three-data-types-in-gm",
+    "href": "modules/02-data-collection.html#the-three-data-types-in-gm",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "The Three Data Types in GM",
+    "text": "The Three Data Types in GM\n\nType 1: Landmarks\nA landmark is a discrete, identifiable point that corresponds to the same location across all specimens in the study.\nThere are three classical types (Bookstein 1991):\n\n\n\n\n\n\n\n\nType\nDefinition\nExample on a coin\n\n\n\n\nType I\nBiologically/archaeologically meaningful intersection point\nCorner of die border at 12 o’clock\n\n\nType II\nPoint of maximum curvature or extremum\nTip of portrait nose\n\n\nType III\nConstructed from other points\nMidpoint of the coin diameter\n\n\n\n\n\n\n\n\n\nThe Homology Problem\n\n\n\nA landmark must correspond to the same location in all specimens — not just geometrically similar, but biologically or archaeologically homologous. This is the hardest conceptual problem in landmark GM.\nOn a coin: is the “corner of the chin” always the same point across portraits of different emperors? This requires archaeological judgment, not just geometry.\n\n\nWhen to use landmarks: Objects with discrete, identifiable reference points. Coins with portrait features, skulls, arrowheads with defined tip/base/notch points.\n\n\n\nType 2: Semi-Landmarks\nSemi-landmarks are placed along curves where there are no discrete homologous points. They are allowed to “slide” along the curve during analysis to minimize bending energy.\nWhen to use: Curved outlines of objects like pots or axes, where there is no single identifiable point but you want to capture the curve geometry.\n\n\n\nType 3: Outlines\nAn outline is a complete contour of the object — a closed curve represented as a sequence of \\((x, y)\\) coordinates.\nUnlike landmarks, outlines don’t require you to identify specific homologous points. Instead, the outline is decomposed mathematically into a series of components using Elliptic Fourier Analysis (EFA).\nWhen to use: Smooth, rounded objects without clear landmark points — pottery profiles, axe outlines, coins (as a simpler alternative to portrait landmarks)."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#in-class-exercise-landmarks-on-paper",
+    "href": "modules/02-data-collection.html#in-class-exercise-landmarks-on-paper",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "In-Class Exercise: Landmarks on Paper",
+    "text": "In-Class Exercise: Landmarks on Paper\nLook at the printed images of the Hadrian coin and the flanged axe provided in class.\nFor the coin: 1. Mark the tip of the portrait nose 2. Mark the back of the skull 3. Mark the chin point 4. Mark two points on the coin edge (top and bottom)\nFor the axe: 1. Mark the tip of the blade (cutting edge midpoint) 2. Mark the widest point of the blade 3. Mark the butt of the axe (top midpoint) 4. Mark the narrowest point of the neck\nDiscussion: Which points were easy to place? Which were ambiguous? If you compared your placements with a classmate’s, where would they differ?"
+  },
+  {
+    "objectID": "modules/02-data-collection.html#the-software-landscape",
+    "href": "modules/02-data-collection.html#the-software-landscape",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "The Software Landscape",
+    "text": "The Software Landscape\nFor this course, we use the simplest possible toolkit:\n\n\n\nTask\nTool\n\n\n\n\nLandmark digitizing\nFIJI (ImageJ) — Week 3 only\n\n\nAll analysis\nGoogle Colab (browser, no install)\n\n\nCode generation\nAI (Claude or ChatGPT)\n\n\n\nOther software you may encounter in the literature: - tpsDig2: Classic Windows landmark digitizer (James Rohlf, Stony Brook) - MorphoJ: GUI-based GM software (excellent for learning concepts) - R + geomorph: R package for landmark analysis (the research standard) - R + Momocs: R package for outline analysis\nWe use Python in Colab because it requires zero installation and AI can generate the code very effectively."
+  },
+  {
+    "objectID": "modules/02-data-collection.html#key-concepts-check",
+    "href": "modules/02-data-collection.html#key-concepts-check",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "Key Concepts Check",
+    "text": "Key Concepts Check\nBefore Week 3, make sure you can answer:\n\nWhat is the difference between a landmark and a semi-landmark?\nWhy can’t you just compare raw (x,y) coordinates without Procrustes alignment?\nWhen would you use outline analysis rather than landmarks?\nWhat does it mean for a landmark to be “homologous”?"
+  },
+  {
+    "objectID": "modules/02-data-collection.html#assignment-1-shape-journal",
+    "href": "modules/02-data-collection.html#assignment-1-shape-journal",
+    "title": "Module 2: A Short History — From Calipers to Coordinates",
+    "section": "Assignment 1: Shape Journal",
+    "text": "Assignment 1: Shape Journal\n\n\n\n\n\n\nDue: Week 3\n\n\n\nSee the Assignment 1 page for full instructions.\n\n\n→ Module 3: Seeing Shape — Digitizing Landmarks"
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html",
+    "href": "modules/07-outlines-theory.html",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "",
+    "text": "The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.\nCoins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.\n\n\n\nHadrian (r. 117–138 CE) - Known for traveling the empire, fortifying its borders (Hadrian’s Wall) - Iconic portraiture: philosophical beard, often shown with idealized Greek features - Reformed the coinage: new portrait types introduced at different points in his reign\nAntoninus Pius (r. 138–161 CE) - Succeeded Hadrian; reign known for stability - Portrait more Roman in character: clean-shaven early, then bearded - Some of the most artistically refined denarii in the Imperial sequence\n\n\n\nDo coins of Hadrian and Antoninus Pius cluster separately in shape space?\nSub-questions: - Is the shape difference between the emperors larger than the variation within each reign? - Which specific shape features (captured by which PCs) best separate the two groups? - What does any difference — or similarity — tell us about mint standardization?"
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html#archaeological-background",
+    "href": "modules/07-outlines-theory.html#archaeological-background",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "",
+    "text": "The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.\nCoins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.\n\n\n\nHadrian (r. 117–138 CE) - Known for traveling the empire, fortifying its borders (Hadrian’s Wall) - Iconic portraiture: philosophical beard, often shown with idealized Greek features - Reformed the coinage: new portrait types introduced at different points in his reign\nAntoninus Pius (r. 138–161 CE) - Succeeded Hadrian; reign known for stability - Portrait more Roman in character: clean-shaven early, then bearded - Some of the most artistically refined denarii in the Imperial sequence\n\n\n\nDo coins of Hadrian and Antoninus Pius cluster separately in shape space?\nSub-questions: - Is the shape difference between the emperors larger than the variation within each reign? - Which specific shape features (captured by which PCs) best separate the two groups? - What does any difference — or similarity — tell us about mint standardization?"
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html#full-analysis-pipeline",
+    "href": "modules/07-outlines-theory.html#full-analysis-pipeline",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "Full Analysis Pipeline",
+    "text": "Full Analysis Pipeline\n\n\n\n\n\n\nOpen the Week 7 Notebook\n\n\n\n→ Week 7 Colab Notebook (link active Week 7)\n\n\n\nStep 1: Load both datasets and combine\n# Load both coin datasets\nhadrian_lms = read_tps(\"data/coins/DEN_Hadrian/Hadrian.TPS\")\naplus_lms   = read_tps(\"data/coins/DEN_AntoniusPius/AntoniusPius.TPS\")\n\nn_had  = hadrian_lms.shape[0]\nn_apl  = aplus_lms.shape[0]\n\n# Combine into one array\nall_coins = np.vstack([hadrian_lms, aplus_lms])\nlabels = ['Hadrian'] * n_had + ['AntoniusPius'] * n_apl\n\nprint(f\"Total specimens: {all_coins.shape[0]}\")\nprint(f\"  Hadrian: {n_had}, Antoninus Pius: {n_apl}\")\n\n\nStep 2: GPA on combined dataset\naligned_all, csizes, _ = mops.procrustes_fit(all_coins, allow_reflection=False)\n\n\nStep 3: PCA color-coded by emperor\nfrom sklearn.decomposition import PCA\nimport pandas as pd\n\nX = aligned_all.reshape(len(all_coins), -1)\npca = PCA()\nscores = pca.fit_transform(X)\nvar_exp = pca.explained_variance_ratio_ * 100\n\ndf = pd.DataFrame({\n    'PC1': scores[:, 0],\n    'PC2': scores[:, 1],\n    'Emperor': labels\n})\n\n# Plot\nfig, ax = plt.subplots(figsize=(9, 7))\ncolors = {'Hadrian': '#2196F3', 'AntoniusPius': '#E53935'}\n\nfor emperor, group in df.groupby('Emperor'):\n    ax.scatter(group['PC1'], group['PC2'],\n               label=emperor, color=colors[emperor],\n               s=60, alpha=0.8, edgecolor='white')\n\nax.axhline(0, color='gray', linewidth=0.5, linestyle='--')\nax.axvline(0, color='gray', linewidth=0.5, linestyle='--')\nax.set_xlabel(f\"PC1 ({var_exp[0]:.1f}%)\")\nax.set_ylabel(f\"PC2 ({var_exp[1]:.1f}%)\")\nax.set_title(\"Shape Space: Hadrian vs. Antoninus Pius Denarii\")\nax.legend(title=\"Emperor\", framealpha=0.9)\nplt.tight_layout()\nplt.show()\n\n\nStep 4: Statistical test — permutation MANOVA\nfrom scipy.spatial.distance import cdist\nfrom scipy.stats import f\n\ndef permutation_manova(scores, labels, n_perm=999, n_pcs=5):\n    \"\"\"\n    Permutation-based MANOVA on PC scores.\n    Tests whether group centroids differ more than expected by chance.\n    \"\"\"\n    X = scores[:, :n_pcs]\n    labels = np.array(labels)\n    groups = np.unique(labels)\n\n    # Observed F-statistic (ratio of between-group to within-group variance)\n    grand_mean = X.mean(axis=0)\n    ss_between = sum(\n        (X[labels == g].mean(axis=0) - grand_mean)**2 * (labels == g).sum()\n        for g in groups\n    ).sum()\n    ss_within = sum(\n        ((X[labels == g] - X[labels == g].mean(axis=0))**2).sum()\n        for g in groups\n    )\n    n, k = len(labels), len(groups)\n    f_obs = (ss_between / (k - 1)) / (ss_within / (n - k))\n\n    # Permutation distribution\n    f_perm = []\n    for _ in range(n_perm):\n        perm_labels = np.random.permutation(labels)\n        ss_b = sum(\n            (X[perm_labels == g].mean(axis=0) - grand_mean)**2 * (perm_labels == g).sum()\n            for g in groups\n        ).sum()\n        ss_w = sum(\n            ((X[perm_labels == g] - X[perm_labels == g].mean(axis=0))**2).sum()\n            for g in groups\n        )\n        f_perm.append((ss_b / (k - 1)) / (ss_w / (n - k)))\n\n    p_value = (np.sum(np.array(f_perm) &gt;= f_obs) + 1) / (n_perm + 1)\n    return f_obs, p_value\n\nf_stat, p_val = permutation_manova(scores, labels)\nprint(f\"Permutation MANOVA: F = {f_stat:.3f}, p = {p_val:.3f}\")"
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html#interpreting-the-results",
+    "href": "modules/07-outlines-theory.html#interpreting-the-results",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "Interpreting the Results",
+    "text": "Interpreting the Results\n\nIf the groups separate:\nThe two emperors’ coins occupy different regions of shape space. This could indicate: - Portrait style was deliberately differentiated by reign - Die-cutters changed their conventions between reigns - Different workshops produced the two series\n\n\nIf the groups overlap substantially:\nShape variation within each reign is larger than variation between reigns. This could indicate: - Consistent mint conventions that persisted across reigns - Strong iconographic standards imposed by the central mint - Our landmark protocol doesn’t capture the features that actually differ\n\n\nNeither outcome is “wrong”:\nBoth tell us something real about Roman mint organization."
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html#discussion-what-shape-can-and-cannot-tell-us",
+    "href": "modules/07-outlines-theory.html#discussion-what-shape-can-and-cannot-tell-us",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "Discussion: What Shape Can and Cannot Tell Us",
+    "text": "Discussion: What Shape Can and Cannot Tell Us\nShape analysis of coins has real limitations:\n\nWe can only measure what we digitize. If portrait style differs in surface detail (texture, modelling depth) but not in overall proportion, landmark analysis misses it.\nDie variation within a reign is large. Many different pairs of dies were used for each emperor. Is our sample large enough to characterize each reign’s “typical” shape?\nWhat counts as the same “type”? Hadrian’s portraiture changed significantly over his long reign. Should we subdivide by portrait type before comparing?\n\nThese are not reasons to dismiss GM — they are reasons to design studies carefully and interpret results with appropriate caution."
+  },
+  {
+    "objectID": "modules/07-outlines-theory.html#assignment-3-due-this-week",
+    "href": "modules/07-outlines-theory.html#assignment-3-due-this-week",
+    "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
+    "section": "Assignment 3 Due This Week",
+    "text": "Assignment 3 Due This Week\n\n\n\n\n\n\nNote\n\n\n\nSubmit your Colab notebook link + 500-word interpretation as PDF.\n→ Assignment 3: Coins Shape Analysis\n\n\n→ Module 8: Outline Analysis — Elliptic Fourier Analysis"
+  },
+  {
+    "objectID": "modules/06-coins.html",
+    "href": "modules/06-coins.html",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "",
+    "text": "After Procrustes alignment, each coin exists as a point in a 12-dimensional shape space. We cannot visualize 12 dimensions. Principal Components Analysis (PCA) solves this.\nPCA finds the directions in shape space that capture the most variation. The first principal component (PC1) is the single axis that explains the most shape variation in the dataset. PC2 explains the most of what is left, and so on."
+  },
+  {
+    "objectID": "modules/06-coins.html#from-12-dimensions-to-2",
+    "href": "modules/06-coins.html#from-12-dimensions-to-2",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "",
+    "text": "After Procrustes alignment, each coin exists as a point in a 12-dimensional shape space. We cannot visualize 12 dimensions. Principal Components Analysis (PCA) solves this.\nPCA finds the directions in shape space that capture the most variation. The first principal component (PC1) is the single axis that explains the most shape variation in the dataset. PC2 explains the most of what is left, and so on."
+  },
+  {
+    "objectID": "modules/06-coins.html#what-pca-is-conceptually",
+    "href": "modules/06-coins.html#what-pca-is-conceptually",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "What PCA Is (Conceptually)",
+    "text": "What PCA Is (Conceptually)\nImagine all your coins lying in a cloud of points in shape space. PCA finds the longest axis through this cloud (PC1), then the longest axis perpendicular to that (PC2), and so on.\nBy plotting PC1 vs. PC2, we capture the majority of shape variation in two dimensions we can see.\n\n\n\n\n\n\nWhat PC scores mean\n\n\n\nEach specimen gets a score on each PC axis. A high positive score on PC1 means the specimen has a lot of the shape variation described by PC1 (in the positive direction). A near-zero score means the specimen is close to the mean shape on that axis."
+  },
+  {
+    "objectID": "modules/06-coins.html#shape-deformation-grids",
+    "href": "modules/06-coins.html#shape-deformation-grids",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "Shape Deformation Grids",
+    "text": "Shape Deformation Grids\nThe most powerful tool for interpreting PCA results is the thin-plate spline deformation grid.\nA deformation grid shows how the mean shape must be deformed to produce the shape at any point in shape space. It is a visual map of the geometric transformation between two shapes.\nReading a deformation grid: - Regions where the grid is compressed → relative contraction toward the target shape - Regions where the grid is stretched → relative expansion toward the target shape - Grid lines that curve sharply → strong local deformation\nWe generate deformation grids using the morphops thin-plate spline functions."
+  },
+  {
+    "objectID": "modules/06-coins.html#full-pca-pipeline-in-colab",
+    "href": "modules/06-coins.html#full-pca-pipeline-in-colab",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "Full PCA Pipeline in Colab",
+    "text": "Full PCA Pipeline in Colab\n\n\n\n\n\n\nOpen the Week 6 Notebook\n\n\n\n→ Week 6 Colab Notebook (link active Week 6)\n\n\n# Cell 1: Import and setup\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n# Assume 'aligned' is our GPA result from Week 5\n# Reshape: each specimen becomes one row\nn = aligned.shape[0]\nX = aligned.reshape(n, -1)  # shape: (n_coins, 16)\n\n# PCA\npca = PCA()\nscores = pca.fit_transform(X)\nloadings = pca.components_  # shape: (16, 16)\n\n# Variance explained\nvar_exp = pca.explained_variance_ratio_ * 100\nprint(\"Variance explained by first 5 PCs:\")\nfor i, v in enumerate(var_exp[:5]):\n    print(f\"  PC{i+1}: {v:.1f}%\")\n# Cell 2: Scree plot — how many PCs matter?\nplt.figure(figsize=(8, 4))\nplt.bar(range(1, 8), var_exp[:7], color='steelblue', edgecolor='black')\nplt.plot(range(1, 8), np.cumsum(var_exp[:7]), 'ro-', label='Cumulative %')\nplt.xlabel(\"Principal Component\")\nplt.ylabel(\"Variance Explained (%)\")\nplt.title(\"Scree Plot — Hadrian Coins\")\nplt.legend()\nplt.show()\n# Cell 3: PCA scatter plot (PC1 vs PC2)\nplt.figure(figsize=(8, 7))\nplt.scatter(scores[:, 0], scores[:, 1],\n            s=60, alpha=0.8, color='steelblue', edgecolor='white')\n\n# Label outliers (bottom 5% and top 5% on PC1)\nthreshold = np.percentile(np.abs(scores[:, 0]), 95)\nfor i, (x, y) in enumerate(scores[:, :2]):\n    if abs(x) &gt; threshold:\n        plt.annotate(f\"Coin {i+1}\", (x, y), fontsize=8,\n                     xytext=(5, 5), textcoords='offset points')\n\nplt.axhline(0, color='gray', linewidth=0.5, linestyle='--')\nplt.axvline(0, color='gray', linewidth=0.5, linestyle='--')\nplt.xlabel(f\"PC1 ({var_exp[0]:.1f}% of variance)\")\nplt.ylabel(f\"PC2 ({var_exp[1]:.1f}% of variance)\")\nplt.title(\"Shape Space: Hadrian Denarii\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "modules/06-coins.html#interpreting-the-pca-plot",
+    "href": "modules/06-coins.html#interpreting-the-pca-plot",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "Interpreting the PCA Plot",
+    "text": "Interpreting the PCA Plot\nLook at your scatter plot and answer these questions:\n\nSpread: Do coins spread more along PC1 or PC2? What does this tell you about the dominant axis of shape variation?\nClusters: Do you see any distinct groups, or is variation continuous?\nOutliers: Are there coins far from the main cloud? Go back and look at those coin images — is there something visually unusual about them?\nWhat does PC1 mean? We need a deformation grid to answer this properly — but make a visual guess based on coins at the positive vs. negative end of PC1."
+  },
+  {
+    "objectID": "modules/06-coins.html#shape-deformation-what-pc1-actually-means",
+    "href": "modules/06-coins.html#shape-deformation-what-pc1-actually-means",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "Shape Deformation: What PC1 Actually Means",
+    "text": "Shape Deformation: What PC1 Actually Means\n# Cell 4: Visualize shape at extreme PC1 values\nimport morphops as mops\n\nmean_shape = aligned.mean(axis=0)\n\n# Reconstruct shape at -2 SD and +2 SD on PC1\npc1_vector = loadings[0].reshape(-1, 2)  # PC1 as (8, 2) landmark shifts\nstd1 = np.sqrt(pca.explained_variance_[0])\n\nshape_minus = mean_shape - 2 * std1 * pc1_vector\nshape_plus  = mean_shape + 2 * std1 * pc1_vector\n\n# Plot\nfig, axes = plt.subplots(1, 3, figsize=(15, 5))\n\nfor ax, shape, title in zip(axes,\n                              [shape_minus, mean_shape, shape_plus],\n                              [\"PC1 min (−2 SD)\", \"Mean shape\", \"PC1 max (+2 SD)\"]):\n    ax.scatter(shape[:, 0], shape[:, 1], s=80, color='steelblue')\n    # Connect landmarks with lines (requires defining connectivity)\n    ax.set_title(title)\n    ax.set_aspect('equal')\n    ax.set_xlim(-0.4, 0.4)\n    ax.set_ylim(-0.4, 0.4)\n\nplt.suptitle(\"Shape variation along PC1\", fontsize=14)\nplt.tight_layout()\nplt.show()\nWhat to look for: How do the landmark positions shift from the min to max shape? Which landmarks move most? What does this correspond to on the coin image?"
+  },
+  {
+    "objectID": "modules/06-coins.html#assignment-3-distributed-this-week",
+    "href": "modules/06-coins.html#assignment-3-distributed-this-week",
+    "title": "Module 6: PCA — Exploring the Shape Space",
+    "section": "Assignment 3 Distributed This Week",
+    "text": "Assignment 3 Distributed This Week\n\n\n\n\n\n\nAssignment 3: Coins Shape Analysis — Due Week 7\n\n\n\nFull GPA + PCA of Hadrian vs. Antoninus Pius coins. Color-code the PCA by emperor, run a permutation test, and write a 500-word interpretation.\nSee Assignment 3 for full details.\n\n\n→ Module 7: Case Study I — Roman Coins and Imperial Standardization"
+  },
+  {
+    "objectID": "modules/08-axes.html",
+    "href": "modules/08-axes.html",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "",
+    "text": "Our coin analysis used discrete landmarks — identifiable points on the portrait. But many archaeological objects don’t have obvious landmark points. Consider a Bronze Age flanged axe: its outline is a smooth curve with no biologically or archaeologically “homologous” points along the edge.\nFor objects like these, we use outline analysis — and the most widely used method is Elliptic Fourier Analysis (EFA)."
+  },
+  {
+    "objectID": "modules/08-axes.html#when-landmarks-arent-enough",
+    "href": "modules/08-axes.html#when-landmarks-arent-enough",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "",
+    "text": "Our coin analysis used discrete landmarks — identifiable points on the portrait. But many archaeological objects don’t have obvious landmark points. Consider a Bronze Age flanged axe: its outline is a smooth curve with no biologically or archaeologically “homologous” points along the edge.\nFor objects like these, we use outline analysis — and the most widely used method is Elliptic Fourier Analysis (EFA)."
+  },
+  {
+    "objectID": "modules/08-axes.html#the-core-idea-decomposing-a-shape",
+    "href": "modules/08-axes.html#the-core-idea-decomposing-a-shape",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "The Core Idea: Decomposing a Shape",
+    "text": "The Core Idea: Decomposing a Shape\nEFA treats an outline as a mathematical function and decomposes it into a sum of simpler components — elliptic harmonics — in exactly the same way that a complex musical chord can be decomposed into individual sine waves (Fourier analysis).\n\nThe Musical Analogy\n\nA musical note is a complex wave\nFourier analysis breaks it into pure sine waves at different frequencies\nLow frequencies = the overall character of the sound\nHigh frequencies = fine detail and texture\n\nFor outlines: - 1st harmonic = the overall elliptical shape (elongated vs. round) - 2nd–4th harmonics = major proportional features (where is the widest point? how asymmetric is the base?) - Higher harmonics = finer details (edge serrations, small bumps)"
+  },
+  {
+    "objectID": "modules/08-axes.html#how-efa-works",
+    "href": "modules/08-axes.html#how-efa-works",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "How EFA Works",
+    "text": "How EFA Works\nAn outline is represented as a closed sequence of \\((x_i, y_i)\\) coordinates. EFA decomposes the \\(x\\) and \\(y\\) coordinates separately as Fourier series, then recombines them as ellipses.\nEach harmonic \\(n\\) produces 4 coefficients: \\((a_n, b_n, c_n, d_n)\\).\nFor \\(N\\) harmonics, we get \\(4N\\) coefficients total. These coefficients are the shape — they can be used directly in PCA just like landmark coordinates.\n\nNormalization\nEFA coefficients must be normalized to remove the effects of size, position, rotation, and starting point. After normalization, only shape information remains.\n\n\nChoosing N (number of harmonics)\nMore harmonics = more detail captured, but also more noise. The standard criterion:\n\nChoose the minimum \\(N\\) that explains ≥ 99% of the outline shape variation in your sample.\n\nFor axes like ours, 8–12 harmonics is typically sufficient."
+  },
+  {
+    "objectID": "modules/08-axes.html#step-by-step-efa-in-colab",
+    "href": "modules/08-axes.html#step-by-step-efa-in-colab",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "Step-by-Step: EFA in Colab",
+    "text": "Step-by-Step: EFA in Colab\n\n\n\n\n\n\nOpen the Week 8 Notebook\n\n\n\n→ Week 8 Colab Notebook (link active Week 8)\n\n\n\nStep 1: Load and preprocess one axe image\n!pip install pyefd scikit-image -q\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom skimage import io, color, filters, measure\nimport pyefd\n\ndef extract_outline(image_path, threshold_method='otsu'):\n    \"\"\"\n    Load an axe image and extract its largest outline contour.\n    Returns: array of (x, y) coordinates\n    \"\"\"\n    img = io.imread(image_path, as_gray=True)\n\n    # Threshold to binary\n    thresh = filters.threshold_otsu(img)\n    binary = img &gt; thresh  # background = True, object = False\n\n    # Find contours of the object\n    contours = measure.find_contours(~binary, 0.5)\n\n    # Keep the largest contour (= the axe)\n    largest = max(contours, key=len)\n    return largest  # shape: (n_points, 2)\n\n# Test on one axe\noutline = extract_outline(\"data/flanged_axes/G3/ALT.tif\")\nprint(f\"Outline has {len(outline)} points\")\n\n# Plot\nplt.figure(figsize=(6, 8))\nplt.plot(outline[:, 1], -outline[:, 0], 'b-', linewidth=1)\nplt.fill(outline[:, 1], -outline[:, 0], alpha=0.2)\nplt.title(\"ALT axe outline\")\nplt.axis('equal')\nplt.show()\n\n\nStep 2: Fit EFA\n# Fit EFA with 12 harmonics, normalized\ncoeffs = pyefd.elliptic_fourier_descriptors(\n    outline, order=12, normalize=True\n)\nprint(f\"EFA coefficients shape: {coeffs.shape}\")  # (12, 4)\n# Each row = one harmonic: (a_n, b_n, c_n, d_n)\n\n\nStep 3: Reconstruct the shape from EFA (sanity check)\n# Reconstruct the outline from EFA coefficients (should match original)\nlocus = pyefd.reconstruct_contour(coeffs, num_points=300)\n\nplt.figure(figsize=(6, 8))\nplt.plot(outline[:, 1], -outline[:, 0], 'gray', linewidth=2, alpha=0.5, label='Original')\nplt.plot(locus[:, 0], -locus[:, 1], 'r-', linewidth=2, label='EFA reconstruction')\nplt.legend()\nplt.axis('equal')\nplt.title(\"EFA reconstruction (12 harmonics)\")\nplt.show()\n\n\nStep 4: Process all axes and stack into a matrix\nimport os\n\ndef process_all_axes(folder_g3, folder_g4):\n    \"\"\"Load all axe images, extract outlines, and fit EFA.\"\"\"\n    all_coeffs = []\n    all_labels = []\n    all_names = []\n\n    for folder, group in [(folder_g3, 'G3'), (folder_g4, 'G4')]:\n        for fname in sorted(os.listdir(folder)):\n            if fname.endswith('.tif'):\n                path = os.path.join(folder, fname)\n                try:\n                    outline = extract_outline(path)\n                    coeffs = pyefd.elliptic_fourier_descriptors(\n                        outline, order=12, normalize=True\n                    )\n                    # Flatten: 12 harmonics × 4 coefficients = 48 values\n                    all_coeffs.append(coeffs.flatten())\n                    all_labels.append(group)\n                    all_names.append(fname.replace('.tif', ''))\n                except Exception as e:\n                    print(f\"Skipped {fname}: {e}\")\n\n    return np.array(all_coeffs), np.array(all_labels), np.array(all_names)\n\ncoeff_matrix, labels, names = process_all_axes(\n    \"data/flanged_axes/G3/\",\n    \"data/flanged_axes/G4/\"\n)\nprint(f\"Matrix shape: {coeff_matrix.shape}\")\n# Expected: (n_axes, 48)\nprint(f\"Groups: {dict(zip(*np.unique(labels, return_counts=True)))}\")\n\n\nStep 5: PCA on EFA coefficients\nfrom sklearn.decomposition import PCA\nimport pandas as pd\n\npca = PCA()\nscores = pca.fit_transform(coeff_matrix)\nvar_exp = pca.explained_variance_ratio_ * 100\n\ndf = pd.DataFrame({\n    'PC1': scores[:, 0],\n    'PC2': scores[:, 1],\n    'Group': labels,\n    'Name': names\n})\n\n# Plot\nfig, ax = plt.subplots(figsize=(9, 7))\ncolors = {'G3': '#1976D2', 'G4': '#C62828'}\n\nfor group, grp_df in df.groupby('Group'):\n    ax.scatter(grp_df['PC1'], grp_df['PC2'],\n               color=colors[group], label=group,\n               s=60, alpha=0.85, edgecolor='white')\n\nax.set_xlabel(f\"PC1 ({var_exp[0]:.1f}%)\")\nax.set_ylabel(f\"PC2 ({var_exp[1]:.1f}%)\")\nax.set_title(\"EFA Shape Space: Bronze Age Flanged Axes\")\nax.legend(title=\"Typological Group\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "modules/08-axes.html#reading-the-efa-pca-plot",
+    "href": "modules/08-axes.html#reading-the-efa-pca-plot",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "Reading the EFA PCA Plot",
+    "text": "Reading the EFA PCA Plot\nUnlike landmark PCA, EFA PCA axes don’t directly map to shifts in specific landmark positions. Instead, we visualize the reconstructed outlines at the extremes of each PC:\n# Reconstruct mean shape and ±2SD shapes along PC1\nmean_coeffs = pca.mean_.reshape(12, 4)\npc1_vector  = pca.components_[0].reshape(12, 4)\nstd1        = np.sqrt(pca.explained_variance_[0])\n\nfig, axes = plt.subplots(1, 3, figsize=(15, 7))\nfor ax, scale, title in zip(axes, [-2, 0, 2], ['PC1 min (−2SD)', 'Mean shape', 'PC1 max (+2SD)']):\n    shape_coeffs = mean_coeffs + scale * std1 * pc1_vector\n    locus = pyefd.reconstruct_contour(shape_coeffs, num_points=400)\n    ax.fill(locus[:, 0], locus[:, 1], alpha=0.3, color='steelblue')\n    ax.plot(locus[:, 0], locus[:, 1], 'steelblue', linewidth=2)\n    ax.set_title(title)\n    ax.set_aspect('equal')\n    ax.axis('off')\n\nplt.suptitle(\"Shape variation along PC1 — Bronze Age Axes\", fontsize=13)\nplt.tight_layout()\nplt.show()\nWhat to look for: Do the reconstructed shapes at PC1 min and max show the same morphological features that distinguish G3 from G4 in the traditional typology?"
+  },
+  {
+    "objectID": "modules/08-axes.html#assignment-4-distributed-this-week",
+    "href": "modules/08-axes.html#assignment-4-distributed-this-week",
+    "title": "Module 8: Outline Analysis — Elliptic Fourier Analysis",
+    "section": "Assignment 4 Distributed This Week",
+    "text": "Assignment 4 Distributed This Week\n\n\n\n\n\n\nAssignment 4: Bronze Age Axes EFA — Due Week 9\n\n\n\nFull EFA + PCA of G3 vs G4 axes, with statistical test and geographic map.\n→ Assignment 4\n\n\n→ Module 9: Case Study II — Bronze Age Axes and Craft Networks"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html",
+    "href": "modules/01-what-is-shape.html",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "",
+    "text": "Every object ever made by human hands has a shape. Archaeologists have always described shape — “biconical,” “carinated,” “leaf-shaped” — but what if we could measure it? What if we could compare the shapes of hundreds of objects objectively, statistically, and reproducibly?\nThat is what geometric morphometrics (GM) does."
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#the-central-question",
+    "href": "modules/01-what-is-shape.html#the-central-question",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "",
+    "text": "Every object ever made by human hands has a shape. Archaeologists have always described shape — “biconical,” “carinated,” “leaf-shaped” — but what if we could measure it? What if we could compare the shapes of hundreds of objects objectively, statistically, and reproducibly?\nThat is what geometric morphometrics (GM) does."
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#size-vs.-shape-the-fundamental-distinction",
+    "href": "modules/01-what-is-shape.html#size-vs.-shape-the-fundamental-distinction",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "Size vs. Shape: The Fundamental Distinction",
+    "text": "Size vs. Shape: The Fundamental Distinction\nThe most important concept in this course is the difference between size and shape.\n\n\n\n\n\n\nKendall’s Definition (1977)\n\n\n\nShape is “all the geometric information that remains when location, scale and rotation effects are filtered out from an object.”\nIn other words: shape is what’s left when you remove where it is, how big it is, and which way it’s pointing.\n\n\nThink of a wine bottle. Two bottles can have the same shape but be different sizes (a regular bottle vs. a magnum). Two bottles can be the same size but different shapes (Bordeaux vs. Burgundy style). We are interested in shape — independent of size.\nFor archaeology, this distinction is fundamental: - A Roman denarius from mint A and mint B might weigh the same (same size) but have subtly different portrait proportions (different shape) - Two Bronze Age axes from different regions might be the same length (same size) but have different blade geometries (different shape)"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#what-shape-can-tell-us",
+    "href": "modules/01-what-is-shape.html#what-shape-can-tell-us",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "What Shape Can Tell Us",
+    "text": "What Shape Can Tell Us\nShape in archaeological objects is not accidental. It encodes:\n\n\n\n\n\n\n\nSignal\nExample\n\n\n\n\nTechnological tradition\nBronze Age axes made by the same tradition share outline shape\n\n\nChronological change\nCoin portrait conventions evolved over time — shape records this\n\n\nRegional identity\nPottery production traditions leave shape signatures\n\n\nFunction\nStorage jars have different shape profiles than cooking pots\n\n\nExchange and copying\nImitated objects share shape with their originals\n\n\nStandardization\nMass-produced objects (coins) show low shape variation when quality control was high"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#three-case-studies-we-will-explore",
+    "href": "modules/01-what-is-shape.html#three-case-studies-we-will-explore",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "Three Case Studies We Will Explore",
+    "text": "Three Case Studies We Will Explore\n\n1. Roman Imperial Coins\n\n\nRoman denarii of Hadrian (r. 117–138 CE) and Antoninus Pius (r. 138–161 CE).\nThe question: did Roman die-cutters maintain consistent shape standards? Can we detect differences between emperors’ coinages from shape alone?\nThe Roman Empire produced coins in enormous quantities. Die-cutters were skilled artisans working under imperial oversight. Every coin was intended to look the same — but did they? And if there are subtle shape differences, what do they mean?\n\n\n\n2. European Bronze Age Flanged Axes\nBronze Age metalworkers cast flanged axes according to visual templates — there were no written instructions, no blueprints. Shape was transmitted through apprenticeship and observation.\nThe dataset includes two typological groups (G3 and G4) from across Central Europe. The question: do these typological groups reflect genuine morphological distinctions, or is shape variation continuous? And can we detect regional craft traditions from shape alone?\n\n\n\n3. Ancient Pottery\nPottery is the most common archaeological find almost everywhere in the world. Its shape reflects the potter’s training, the community’s traditions, the vessel’s function, and the period of production.\nThe pottery dataset (published open-access 2023–2025) will let us ask: can we identify production traditions or chronological periods purely from outline shape?"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#traditional-morphometrics-vs.-geometric-morphometrics",
+    "href": "modules/01-what-is-shape.html#traditional-morphometrics-vs.-geometric-morphometrics",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "Traditional Morphometrics vs. Geometric Morphometrics",
+    "text": "Traditional Morphometrics vs. Geometric Morphometrics\nBefore GM, archaeologists measured objects with calipers: length, width, height, diameter. These measurements are called traditional morphometrics or multivariate morphometrics.\nThe problem: measurements depend on where you put the caliper. They don’t capture shape — they capture specific distances that may or may not represent the shape differences you care about.\nGM solves this by working directly with coordinates — the \\((x, y)\\) positions of specific points on the object. This captures the full geometry of the shape, not just a few distances.\n\n\n\n\n\n\n\nTraditional Morphometrics\nGeometric Morphometrics\n\n\n\n\nDistances and ratios\nCoordinates of points\n\n\nLoses geometric information\nPreserves full geometry\n\n\nHard to visualize\nVisualization via deformation grids\n\n\nNo standard alignment\nProcrustes alignment removes size/position/rotation\n\n\nMany variables, unclear meaning\nShape as a single multivariate variable"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#the-three-methods-we-will-use",
+    "href": "modules/01-what-is-shape.html#the-three-methods-we-will-use",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "The Three Methods We Will Use",
+    "text": "The Three Methods We Will Use\n\n1. Landmark Analysis\nPlace discrete points — landmarks — at biologically or archaeologically meaningful locations on the object. This is the main method for the coin analysis.\n\n\n2. Outline Analysis (Elliptic Fourier Analysis)\nTrace the outline (contour) of the object and decompose it into mathematical functions. This is the main method for the flanged axes and pottery.\n\n\n3. 3D Morphometrics (Week 11 overview)\nExtend landmarks and surfaces into three dimensions using photogrammetry or scanning. We will not do a full 3D analysis but will understand the principles."
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#discussion-questions",
+    "href": "modules/01-what-is-shape.html#discussion-questions",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "Discussion Questions",
+    "text": "Discussion Questions\n\nThink of an artefact type you find interesting. What shape features would you want to capture? Would you use landmarks or outlines?\nThe slides from our source course show a coin, a vessel, and a bronze axe, and list their attributes. Which attributes are size and which are shape?\n“Shape is all the geometric information remaining after location, scale, and rotation are removed.” — Can you think of any information about a shape that this definition misses?"
+  },
+  {
+    "objectID": "modules/01-what-is-shape.html#looking-ahead",
+    "href": "modules/01-what-is-shape.html#looking-ahead",
+    "title": "Module 1: What Is Shape? Why Does It Matter?",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nNext week, we trace the history of morphometrics from caliper measurements to coordinates. In Week 3, you will digitize your first landmarks.\n→ Module 2: A Short History — From Calipers to Coordinates"
+  },
+  {
+    "objectID": "modules/05-pca.html",
+    "href": "modules/05-pca.html",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "",
+    "text": "Last week, you saw the raw coin landmarks scattered across the plot. Each coin image was scanned at a different size, with the coin in a different position and orientation. Before we can compare shapes, we need to remove these irrelevant differences.\nProcrustes alignment is the mathematical solution."
+  },
+  {
+    "objectID": "modules/05-pca.html#the-problem-we-are-solving",
+    "href": "modules/05-pca.html#the-problem-we-are-solving",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "",
+    "text": "Last week, you saw the raw coin landmarks scattered across the plot. Each coin image was scanned at a different size, with the coin in a different position and orientation. Before we can compare shapes, we need to remove these irrelevant differences.\nProcrustes alignment is the mathematical solution."
+  },
+  {
+    "objectID": "modules/05-pca.html#what-gpa-does-three-steps",
+    "href": "modules/05-pca.html#what-gpa-does-three-steps",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "What GPA Does: Three Steps",
+    "text": "What GPA Does: Three Steps\nGeneralized Procrustes Analysis (GPA) removes three sources of non-shape variation:\n\nStep 1: Translation\nMove every configuration so its centroid (geometric center) sits at the origin \\((0, 0)\\).\n\n\nStep 2: Scaling\nResize every configuration so its centroid size equals 1.\nCentroid size = the square root of the sum of squared distances from each landmark to the centroid:\n\\[CS = \\sqrt{\\sum_{i=1}^{k} d_i^2}\\]\nwhere \\(d_i\\) is the distance from landmark \\(i\\) to the centroid.\nThis is the standard size measure in GM because it is statistically independent of shape (unlike length or width, which are correlated with shape).\n\n\nStep 3: Rotation\nRotate each configuration to minimize the total squared distance between its landmarks and the mean configuration (consensus shape).\nAfter all three steps, all configurations are superimposed in the same coordinate system. What remains is shape."
+  },
+  {
+    "objectID": "modules/05-pca.html#the-consensus-shape",
+    "href": "modules/05-pca.html#the-consensus-shape",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "The Consensus Shape",
+    "text": "The Consensus Shape\nAfter GPA, we can calculate the mean shape (consensus) — the average position of each landmark across all aligned specimens. This is our reference shape for visualization.\nShape variation in the dataset is then measured as deviations from this consensus."
+  },
+  {
+    "objectID": "modules/05-pca.html#running-gpa-in-colab",
+    "href": "modules/05-pca.html#running-gpa-in-colab",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "Running GPA in Colab",
+    "text": "Running GPA in Colab\n\n\n\n\n\n\nOpen the Week 5 Notebook\n\n\n\n→ Week 5 Colab Notebook (link active Week 5)\n\n\n# Cell 1: Setup\n!pip install morphops -q\nimport morphops as mops\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Load data (using the read_tps function from Week 4)\nhadrian = read_tps(\"data/coins/DEN_Hadrian/Hadrian.TPS\")\nprint(f\"Loaded {hadrian.shape[0]} coins, {hadrian.shape[1]} landmarks each\")\n# Cell 2: Generalized Procrustes Analysis\n# morphops.procrustes_fit() returns aligned coordinates and centroid sizes\n\naligned, centroid_sizes, transforms = mops.procrustes_fit(hadrian,\n                                                            allow_reflection=False)\nprint(f\"Aligned shape: {aligned.shape}\")\nprint(f\"Centroid sizes (first 5): {centroid_sizes[:5].round(3)}\")\n# Cell 3: Plot aligned configurations\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))\n\n# Before alignment\nax1.set_title(\"Before GPA (raw coordinates)\")\nfor coin in hadrian:\n    # Normalize for plotting only\n    c = coin - coin.mean(axis=0)\n    ax1.scatter(c[:, 0], c[:, 1], alpha=0.2, s=10, color='gray')\n\n# After alignment\nax2.set_title(\"After GPA (Procrustes coordinates)\")\nfor coin in aligned:\n    ax2.scatter(coin[:, 0], coin[:, 1], alpha=0.2, s=10, color='steelblue')\n\n# Mean shape\nmean_shape = aligned.mean(axis=0)\nax2.scatter(mean_shape[:, 0], mean_shape[:, 1],\n            s=100, color='red', zorder=5, label='Mean shape')\nax2.legend()\n\nfor ax in (ax1, ax2):\n    ax.set_aspect('equal')\n    ax.grid(True, alpha=0.3)\n\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "modules/05-pca.html#what-does-centroid-size-tell-us",
+    "href": "modules/05-pca.html#what-does-centroid-size-tell-us",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "What Does Centroid Size Tell Us?",
+    "text": "What Does Centroid Size Tell Us?\nCentroid size is a by-product of GPA. It tells us about the relative size of each specimen. We can ask:\n\nIs size correlated with shape? (This is called allometry)\nWere some coins produced from larger flans than others?\nDid coin size change over time?\n\n# Cell 4: Size distribution\nplt.figure(figsize=(8, 4))\nplt.hist(centroid_sizes, bins=10, edgecolor='black', color='steelblue')\nplt.xlabel(\"Centroid Size\")\nplt.ylabel(\"Count\")\nplt.title(\"Distribution of Hadrian coin sizes\")\nplt.show()\n\nprint(f\"Mean centroid size: {centroid_sizes.mean():.4f}\")\nprint(f\"Std dev: {centroid_sizes.std():.4f}\")\nprint(f\"CV (coefficient of variation): {centroid_sizes.std()/centroid_sizes.mean()*100:.1f}%\")\nA low CV means coins were produced to a consistent size — strong standardization. A high CV suggests less quality control."
+  },
+  {
+    "objectID": "modules/05-pca.html#a-visual-intuition-for-shape-space",
+    "href": "modules/05-pca.html#a-visual-intuition-for-shape-space",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "A Visual Intuition for Shape Space",
+    "text": "A Visual Intuition for Shape Space\nAfter GPA, all configurations exist in a high-dimensional shape space (Kendall’s shape space). Each specimen is a single point in this space.\nThe dimensions of shape space = (number of landmarks × 2) − 4 for 2D data (We subtract 4 for the 2 translation, 1 scale, and 1 rotation degrees of freedom removed by GPA.)\nFor our 8-landmark coin dataset: \\((8 \\times 2) - 4 = 12\\) dimensions.\nTwelve dimensions is too many to visualize directly. That is what PCA is for — next week."
+  },
+  {
+    "objectID": "modules/05-pca.html#key-concepts-check",
+    "href": "modules/05-pca.html#key-concepts-check",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "Key Concepts Check",
+    "text": "Key Concepts Check\nBefore Module 6, confirm you understand:\n\nWhat three sources of variation does GPA remove?\nWhy is centroid size preferred over linear measurements as a size variable?\nAfter GPA, how many dimensions does shape space have for 8 landmarks in 2D?\nWhat is the consensus shape and how is it used?"
+  },
+  {
+    "objectID": "modules/05-pca.html#looking-ahead",
+    "href": "modules/05-pca.html#looking-ahead",
+    "title": "Module 5: Procrustes Alignment — Putting Shapes in the Same Space",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nNext week: PCA reduces the 12-dimensional shape space to 2–3 dimensions we can actually see — and connects the dimensions to visible shape features using deformation grids.\n→ Module 6: PCA — Exploring the Shape Space"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "This course introduces undergraduate students in archaeology and history to the theory and practice of geometric morphometrics (GM) — the quantitative study of shape in objects made by human hands. Students work with published open-access datasets of Roman coins, Bronze Age flanged axes, and ancient pottery, using AI-written code in Google Colab (no installation required) to run all analyses.\nNo prior programming experience is assumed or required. A computer with internet access is all you need."
+  },
+  {
+    "objectID": "syllabus.html#course-description",
+    "href": "syllabus.html#course-description",
+    "title": "Syllabus",
+    "section": "",
+    "text": "This course introduces undergraduate students in archaeology and history to the theory and practice of geometric morphometrics (GM) — the quantitative study of shape in objects made by human hands. Students work with published open-access datasets of Roman coins, Bronze Age flanged axes, and ancient pottery, using AI-written code in Google Colab (no installation required) to run all analyses.\nNo prior programming experience is assumed or required. A computer with internet access is all you need."
+  },
+  {
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nBy the end of the semester, students will be able to:\n\nExplain what geometric morphometrics is and how it differs from traditional typological description\nDistinguish between landmark, semi-landmark, and outline methods, and know when to apply each\nUse AI tools (Claude, ChatGPT) to generate, run, and annotate Python code for shape analysis in Google Colab\nPerform Generalized Procrustes Analysis (GPA) and interpret aligned shape configurations\nRun and interpret Principal Components Analysis (PCA) on shape data, including deformation grids\nApply Elliptic Fourier Analysis (EFA) to outline data\nApply basic permutation-based statistical tests to compare shape groups\nConnect shape patterns to archaeological questions of production, exchange, identity, and chronology\nPresent and critically evaluate GM-based archaeological research"
+  },
+  {
+    "objectID": "syllabus.html#tools-all-browser-based-no-installation-required",
+    "href": "syllabus.html#tools-all-browser-based-no-installation-required",
+    "title": "Syllabus",
+    "section": "Tools (All Browser-Based — No Installation Required)",
+    "text": "Tools (All Browser-Based — No Installation Required)\n\n\n\n\n\n\n\n\nTool\nPurpose\nAccess\n\n\n\n\nGoogle Colab\nAll coding and analysis\ncolab.research.google.com (free, browser)\n\n\nClaude / ChatGPT\nAI code generation\nclaude.ai / chat.openai.com (free)\n\n\nFIJI (ImageJ)\nLandmark digitizing — one session only\nfiji.sc (small download, Week 3 only)\n\n\nGoogle Drive\nStoring datasets and notebooks\ndrive.google.com (free)\n\n\n\nPython packages used (all pre-installed in Colab or installed in the notebook):\n\nmorphops — Procrustes alignment, thin-plate splines\npyefd — Elliptic Fourier Descriptors for outlines\nscikit-learn — PCA\nmatplotlib / seaborn — visualization\nnumpy / pandas — data handling\n\nAll package installs are handled by a single line in each notebook that students run once:\n!pip install morphops pyefd -q"
+  },
+  {
+    "objectID": "syllabus.html#week-schedule",
+    "href": "syllabus.html#week-schedule",
+    "title": "Syllabus",
+    "section": "12-Week Schedule",
+    "text": "12-Week Schedule\n\nUnit I — Foundations (Weeks 1–3)\n\n\nWeek 1: What Is Shape? Why Does It Matter?\nLecture (90 min):\n\nThe difference between size and shape — the key distinction of GM\nKendall’s definition: “Shape is all the geometric information that remains when location, scale, and rotation effects are filtered out from an object” (Kendall 1977)\nFrom description to measurement: why quantification matters for archaeology\nWhat shape can and cannot tell us\nTour of the three case studies: coins, axes, pottery\n\nArchaeological framing:\n\nCoins: Roman Imperial standardization and mint identity\nAxes: Bronze Age craft networks and typological groupings\nPottery: ceramic production traditions and exchange\n\nReading (light — provided as excerpts):\n\nSlice, D.E. (2007). Geometric morphometrics. Annual Review of Anthropology 36:261–265 [introduction only]\nBroodbank, C. (2013). The Making of the Middle Sea, pp. 1–10 [context: why typology matters]\n\nNo lab this week. Bring an object to class next week.\n\n\n\nWeek 2: A Short History — From Calipers to Coordinates\nLecture (90 min):\n\nTraditional morphometrics: measurements, ratios, indices — and their limits\nThe morphometric revolution of the 1980s–90s: coordinates instead of distances\nThree methods introduced: landmarks, semi-landmarks, outlines\nWhen to use which method (illustrated with archaeological examples)\nThe software landscape: what exists, why we use Python in Colab\n\nLab (30 min — in class, no software needed):\nUsing printed images of coins and axes, students manually place landmark points on paper and discuss: What counts as a homologous point? What choices are you making?\nAssignment 1 distributed: Shape Journal\n\n\n\nWeek 3: Seeing Shape — Digitizing Landmarks\nLecture (60 min):\n\nImage preparation: scale bars, orientation conventions, image quality\nLandmark types: Type I (biologically/archaeologically homologous), Type II (geometric extrema), Type III (constructed points)\nSemi-landmarks and sliding\nOutline tracing: when and how\nInter-observer error — the hidden problem in all landmark studies\n\nLab (60 min — FIJI required, one-time install):\n\nThis is the only session requiring a download. Students install FIJI once and use it to place landmarks on 5 Hadrian coin images. Full step-by-step instructions provided.\n\nStep-by-step protocol: 1. Open FIJI → open coin image 2. Set scale (Analyze → Set Scale) 3. Point tool → place 8 landmarks following the course landmark protocol 4. Save as .txt and convert to TPS format using the provided Python script in Colab\nAssignment 1 due. Assignment 2 distributed: Landmark Exercise\n\n\n\n\nUnit II — The Toolkit (Weeks 4–7)\n\n\nWeek 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis\nLecture (60 min):\n\nWhat is Google Colab? How to use it (live demonstration)\nHow to talk to AI: writing effective prompts for data analysis\nThe PEAR prompt framework:\n\nPurpose — what analysis do you need?\nExample — show the AI a sample of your data structure\nAction — what specific operation?\nResult — what output format do you want?\n\nReading and understanding AI-generated code without writing it yourself\nThe golden rule: you interpret the results, the AI writes the code\n\nLab (60 min — first Colab session):\nStudents open the Week 4 Colab notebook (link provided) and follow along:\n# AI-generated code: Load TPS data and inspect it\n!pip install morphops pyefd -q\nimport morphops as mops\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Load the coin TPS file\nlms = mops.read_tps(\"Coins.TPS\")\nprint(f\"Dataset shape: {lms.shape}\")\n# (n_specimens, n_landmarks, 2)\nStudents then write their own AI prompt for the next step and share results.\nAssignment 2 due. Assignment 3 distributed: Coins Shape Analysis\n\n\n\nWeek 5: Procrustes Alignment — Putting Shapes in the Same Space\nLecture (90 min):\n\nThe core problem: before we can compare shapes, we must remove the effect of size, position, and rotation\nGeneralized Procrustes Analysis (GPA): the algorithm in plain language\n\nTranslate all configurations to the same centroid\nScale to unit centroid size\nRotate to minimize total squared distance between corresponding landmarks\n\nCentroid size: what it is and why it’s the measure of scale in GM\nThe Kendall shape space and why we work in its tangent plane\nVisualizing aligned configurations: the consensus (mean) shape\n\nLab (30 min):\nOpen the Week 5 Colab notebook. AI generates the GPA code:\n# Generalized Procrustes Analysis on all coins\ngpa_result = mops.procrustes_fit(lms)\naligned = gpa_result[0]    # aligned coordinates\ncentroid_sizes = gpa_result[1]  # one size value per specimen\n\n# Plot all aligned configurations\nfig, ax = plt.subplots(figsize=(8, 8))\nfor config in aligned:\n    ax.scatter(config[:, 0], config[:, 1], alpha=0.3, s=10, color='gray')\nmean_shape = aligned.mean(axis=0)\nax.scatter(mean_shape[:, 0], mean_shape[:, 1], s=80, color='red', zorder=5)\nax.set_title(\"GPA-aligned coin landmarks (red = mean shape)\")\nplt.show()\n\n\n\nWeek 6: PCA — Exploring the Shape Space\nLecture (90 min):\n\nWhat PCA does: finding the axes of maximum variation in a high-dimensional dataset\nPC axes are directions in shape space; PC scores tell us where each specimen sits\nHow to read a PCA scatter plot: clusters, gradients, outliers\nShape deformation grids: thin-plate splines to visualize what PC1 and PC2 actually mean morphologically\nCommon mistakes: over-interpreting PCA, treating PC axes as “real” biological factors\n\nLab (30 min):\nAI-generated PCA code in the Week 6 Colab notebook:\nfrom sklearn.decomposition import PCA\nimport pandas as pd\n\n# Reshape aligned landmarks for PCA (each specimen = one row)\nn = aligned.shape[0]\nX = aligned.reshape(n, -1)\n\n# PCA\npca = PCA(n_components=10)\nscores = pca.fit_transform(X)\n\nprint(\"Variance explained per PC:\")\nfor i, v in enumerate(pca.explained_variance_ratio_[:5]):\n    print(f\"  PC{i+1}: {v*100:.1f}%\")\n\n# Plot PC1 vs PC2\nplt.figure(figsize=(8, 6))\nplt.scatter(scores[:, 0], scores[:, 1], alpha=0.7)\nplt.xlabel(f\"PC1 ({pca.explained_variance_ratio_[0]*100:.1f}%)\")\nplt.ylabel(f\"PC2 ({pca.explained_variance_ratio_[1]*100:.1f}%)\")\nplt.title(\"PCA of Roman coin shapes\")\nplt.show()\n\n\n\nWeek 7: Case Study I — Roman Coins and Imperial Standardization\nLecture (60 min):\n\nRoman coin production: mints, dies, and imperial oversight\nWhy coins are ideal for GM: mass-produced objects with intentional standardization\nThe Hadrian (r. 117–138 CE) and Antoninus Pius (r. 138–161 CE) denarii: context\nResearch question: Did die cutters maintain consistent shape standards across emperors? Do portrait types cluster by issuer?\nReading a GM paper critically: what to look for in methods and results\n\nLab (60 min):\nFull coin analysis in the Week 7 Colab notebook: - Color-code PCA by emperor - Statistical test (permutation MANOVA) - Deformation grid for mean shape difference between groups\nAssignment 3 due. Assignment 4 distributed: Bronze Age Axes Outline Analysis\n\n\n\n\nUnit III — Outlines and the Bronze Age (Weeks 8–9)\n\n\nWeek 8: Outline Analysis — Elliptic Fourier Analysis\nLecture (90 min):\n\nWhen landmarks aren’t enough: objects without discrete homologous points\nWhat an outline is: a closed contour captured as a sequence of x,y coordinates\nElliptic Fourier Analysis: decomposing an outline into a sum of elliptic harmonics\n\nAnalogy: like breaking down a musical chord into individual notes\nThe first harmonic captures basic size/shape; higher harmonics add detail\n\nChoosing the number of harmonics: the variance explained criterion\nNormalizing for size, position, rotation, and starting point\nHow EFA + PCA gives us the same kind of shape space as landmark GM\n\nReading (provided):\n\nBonhomme, V. et al. (2014). Momocs: Outline analysis using R. Journal of Statistical Software 56(13):1–24. [Introduction and methods sections]\n\nLab (30 min):\nFirst look at the flanged axes dataset. Load outlines in the Week 8 Colab notebook:\nimport pyefd\nfrom skimage import io, measure, color\nimport numpy as np\n\n# Load a single axe outline image and extract contour\nimg = io.imread(\"axes/ALT.tif\", as_gray=True)\ncontours = measure.find_contours(img, 0.5)\noutline = contours[0]  # largest contour\n\n# Fit EFA (12 harmonics)\ncoeffs = pyefd.elliptic_fourier_descriptors(outline, order=12, normalize=True)\nprint(f\"EFA coefficients shape: {coeffs.shape}\")  # (12, 4)\n\n\n\nWeek 9: Case Study II — Bronze Age Axes and Craft Networks\nLecture (60 min):\n\nEuropean Bronze Age metallurgy: what flanged axes are, how they were cast\nThe G3 and G4 typological groups in the archaeological literature: what traditional typology says\nResearch question: Do G3 and G4 axes represent genuinely distinct morphological groups? Is there geographic patterning in shape variation? What does this tell us about Bronze Age craft networks and exchange?\nConnecting shape to social questions: technology, exchange, identity, imitation\n\nLab (60 min):\nFull EFA + PCA pipeline for the axes dataset in the Week 9 Colab notebook. Students produce a group-coded PCA plot and run a permutation test.\nAssignment 4 due. Assignment 5 distributed: Pottery PCA\n\n\n\n\nUnit IV — Pottery, Statistics, and Synthesis (Weeks 10–12)\n\n\nWeek 10: Case Study III — Pottery and Ceramic Traditions\nLecture (60 min):\n\nWhy pottery is the most-studied artefact in archaeology — and in GM\nVessel form classes and their archaeological meanings (storage, cooking, serving, burial)\nProduction techniques and their morphological signatures: wheel vs. hand-building\nThe pottery dataset for this course: [open-access dataset — confirmed source and DOI published in course Data page]\nResearch question: Can we distinguish pottery production traditions or chronological periods from vessel outline shape alone?\n\nReading:\n\nKarasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. Journal of Archaeological Science 38(10):2644–2657.\n[2024 open-access pottery GM paper — confirmed before course launch]\n\nLab (60 min):\nFull EFA + PCA pipeline for pottery outlines. Week 10 Colab notebook provided.\nAssignment 5 due.\n\n\n\nWeek 11: Testing Hypotheses — Statistics in Shape Space\nLecture (90 min):\n\nWhy standard t-tests and ANOVAs don’t work for shape data\nPermutation tests: the logic and why they are appropriate for GM\nMANOVA in shape space: testing for group differences\nEffect sizes: R² and what it means\nAllometry: does shape change with size? How to test this\nMultiple comparisons: what to do when you have many groups\nWhat “statistically significant” actually means — and what it doesn’t\n\nLab (30 min):\nStatistical comparison pipeline in Week 11 Colab notebook — applied to whichever dataset students are using for their final project.\n\n\n\nWeek 12: Final Project Presentations + Course Synthesis\nSynthesis lecture (30 min):\n\nFrom shapes to stories: connecting GM results to historical and archaeological questions\nScale of analysis: site → region → period → network\nWhat GM cannot do: the importance of integrating typology, isotopes, context, text\nReproducibility and open data: why sharing your data and code matters\nWhere GM is heading: 3D photogrammetry, machine learning, automated digitizing\n\nFinal project presentations (90 min):\nEach student or pair presents 8 minutes + 2 minutes Q&A.\nFinal Project due: one week after Week 12."
+  },
+  {
+    "objectID": "syllabus.html#assignments-summary",
+    "href": "syllabus.html#assignments-summary",
+    "title": "Syllabus",
+    "section": "Assignments Summary",
+    "text": "Assignments Summary\n\n\n\n#\nAssignment\nWeight\nDue\n\n\n\n\n1\nShape Journal\n5%\nWeek 3\n\n\n2\nLandmark Exercise\n10%\nWeek 4\n\n\n3\nCoins Shape Analysis\n15%\nWeek 7\n\n\n4\nBronze Age Axes EFA\n15%\nWeek 9\n\n\n5\nPottery PCA\n5%\nWeek 10\n\n\n—\nFinal Project\n50%\nWeek 12 + 1 week"
+  },
+  {
+    "objectID": "syllabus.html#detailed-assignment-descriptions",
+    "href": "syllabus.html#detailed-assignment-descriptions",
+    "title": "Syllabus",
+    "section": "Detailed Assignment Descriptions",
+    "text": "Detailed Assignment Descriptions\n\nAssignment 1 — Shape Journal (5%)\nFind 3 archaeological artefacts in online museum databases or published papers. For each:\n\nProvide an image with its full citation (museum number or DOI)\nDescribe the shape in your own words — no typological jargon, just geometry\nWrite one research question that GM could help answer\nExplain what method you would use (landmarks, outlines, 3D) and why\n\nFormat: 600–800 words + 3 images. Submit as PDF via the course portal.\n\n\n\nAssignment 2 — Landmark Exercise (10%)\nUsing FIJI, digitize the 20 Hadrian coin images from the course dataset following the provided 8-landmark protocol.\n\nProduce a TPS file with all 20 specimens\nUpload to the Week 4 Colab notebook and run the provided consistency check\nCompare your placements with a partner: calculate mean inter-observer distance per landmark\nWrite a 400-word reflection: Which landmarks were hardest to place consistently? What does this tell you about landmark-based methods as a scientific tool?\n\nDeliverables: TPS file + 400-word reflection. Submit both.\n\n\n\nAssignment 3 — Coins Shape Analysis (15%)\nUsing the Week 7 Colab notebook and AI-generated code:\n\nLoad the Hadrian + Antoninus Pius TPS files into a single dataset\nRun GPA on the combined dataset\nRun PCA — produce a scatter plot color-coded by emperor\nRun a permutation-based shape comparison\nProduce mean shape deformation grids for each group\n\nWrite a 500-word interpretation: - Do the two emperors’ coins cluster separately in shape space? - What specific shape differences do you see in the deformation grids? - What might explain any similarities or differences? Think about: die standardization, mint organization, imperial conventions.\nDeliverables: Link to your Colab notebook + 500-word interpretation as PDF.\n\n\n\nAssignment 4 — Bronze Age Axes Outline Analysis (15%)\nUsing the Week 9 Colab notebook and AI-generated code:\n\nLoad and process all flanged axe outline images\nRun EFA (12 harmonics) and normalize\nRun PCA on EFA coefficients — produce a plot color-coded by G3/G4 group\nRun a permutation test for group differences\nProduce a simple map (hand-drawn or using the provided template) with specimens colored by PC1 score\n\nWrite a 600-word interpretation: - Do G3 and G4 separate morphologically? Is the separation clean or fuzzy? - Is there a geographic gradient in shape? - What does this tell us about Bronze Age metal-working traditions and exchange?\nDeliverables: Link to Colab notebook + 600-word PDF + map image.\n\n\n\nAssignment 5 — Pottery PCA (5%)\nA deliberately lighter exercise — focus on interpretation, not code.\nUsing the Week 10 Colab notebook (pre-built pipeline), load the pottery dataset, run EFA + PCA, and produce one well-labeled scatter plot. Write a 300-word interpretation connecting the shape patterns to what you know about the archaeological context.\nDeliverable: One plot (PNG) + 300-word interpretation as PDF.\n\n\n\nFinal Project (50%)\nThe final project asks you to go deeper on a shape question of your choice.\n\nOption A: Extended Dataset Analysis\nTake one of the course datasets (coins, axes, or pottery) and conduct a more in-depth analysis. Possible extensions: - Test additional variables (chronology, geography, fabric) - Allometric analysis - Compare two methods (e.g., landmarks vs. outlines on the same objects) - Compare your results with published findings\n\n\nOption B: New Open-Access Dataset\nFind an open-access GM dataset from a published paper (2020–2025) on an artefact type not covered in the course. Replicate or extend the published analysis using Colab. Good sources: Zenodo, OSF, Figshare, journal supplementary data.\n\n\nOption C: Research Proposal (writing-only option)\nFor students who prefer writing over data analysis: write a detailed research proposal (3000 words) for a GM study on an artefact type of your choice. Must include: research question, dataset design, expected methods, predicted results, and critical reflection on limitations. Minimum 8 references.\n\n\nReport Requirements (Options A & B)\n\nLength: 2000–3000 words (excluding figures and references)\nStructure: Introduction → Research Question → Data & Methods → Results → Discussion → Conclusion → References\nFigures: Minimum 3 (PCA plot, deformation/EFA shape visualization, one additional)\nCode: Submit your Colab notebook link as an appendix\nReferences: Minimum 8 peer-reviewed sources\n\n\n\nGrading Rubric\n\n\n\nCriterion\nPoints\n\n\n\n\nResearch question — clarity and archaeological relevance\n20\n\n\nCorrect and complete GM analysis\n25\n\n\nQuality and clarity of figures\n20\n\n\nArchaeological interpretation\n25\n\n\nWriting quality and referencing\n10\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "syllabus.html#ai-policy",
+    "href": "syllabus.html#ai-policy",
+    "title": "Syllabus",
+    "section": "AI Policy",
+    "text": "AI Policy\nThis course explicitly encourages AI tools for code writing. You are expected to:\n\nUse Claude or ChatGPT to generate Python code in Colab — this is part of the design\nUnderstand the analysis conceptually (not line-by-line syntax)\nBe able to explain your results in your own words\nAnnotate AI-generated code with brief comments explaining what each block does\nNever use AI to write your interpretation or essay text\n\nAI is your lab assistant. You are the archaeologist."
+  },
+  {
+    "objectID": "syllabus.html#key-references",
+    "href": "syllabus.html#key-references",
+    "title": "Syllabus",
+    "section": "Key References",
+    "text": "Key References\n\nFoundational Works\n\nKendall, D.G. (1977). The diffusion of shape. Advances in Applied Probability 9:428–430.\nBookstein, F.L. (1991). Morphometric Tools for Landmark Data. Cambridge University Press.\nZelditch, M.L. et al. (2012). Geometric Morphometrics for Biologists (2nd ed.). Academic Press.\nSlice, D.E. (2007). Geometric morphometrics. Annual Review of Anthropology 36:261–281.\n\n\n\nPython Tools\n\nmorphops: github.com/tpgillam/morphops\npyefd: github.com/hbldh/pyefd\nBonhomme, V. et al. (2014). Momocs: Outline analysis using R. Journal of Statistical Software 56(13) [conceptual reference for EFA].\n\n\n\nDatasets Used in This Course\n\nCoins: Roman Imperial denarii — Hadrian & Antoninus Pius. TPS format. Source: UHK Morphometrics Course.\nFlanged Axes: European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.\nPottery: Open-access dataset (DOI and full citation on the Data page)."
+  },
+  {
+    "objectID": "assignments/05-pottery.html",
+    "href": "assignments/05-pottery.html",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "",
+    "text": "This is a lightweight assignment focused on interpretation rather than code. The analysis pipeline is pre-built; your job is to run it, read the results, and explain what you see archaeologically.\nThe data this week comes from real Edo-period Japanese storage jars (Ogame vessels, from Loftus 2025). The key question: do jars from kiln sites (where they were produced) differ in shape from jars deposited in burial contexts?"
+  },
+  {
+    "objectID": "assignments/05-pottery.html#overview",
+    "href": "assignments/05-pottery.html#overview",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "",
+    "text": "This is a lightweight assignment focused on interpretation rather than code. The analysis pipeline is pre-built; your job is to run it, read the results, and explain what you see archaeologically.\nThe data this week comes from real Edo-period Japanese storage jars (Ogame vessels, from Loftus 2025). The key question: do jars from kiln sites (where they were produced) differ in shape from jars deposited in burial contexts?"
+  },
+  {
+    "objectID": "assignments/05-pottery.html#background-read-before-running-the-notebook",
+    "href": "assignments/05-pottery.html#background-read-before-running-the-notebook",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "Background (read before running the notebook)",
+    "text": "Background (read before running the notebook)\nOgame jars are large stoneware vessels made in northern Kyushu, Japan, during the Edo period (AD 1600–1800). They served as storage containers for soy sauce, sake, and fertilizer — and also as burial containers for human remains. The dataset contains 243 standardized jar profile images from 12 sites: 2 kiln sites where jars were manufactured, and 9 mortuary sites where jars were found in burials.\nPublished comparison: Before running the notebook, read the summary of the Bibracte case study in Module 10. That study showed that EFA can reliably recover ceramic typological groups from shape alone. Your assignment tests a different question: not what type a vessel is, but what context it came from."
+  },
+  {
+    "objectID": "assignments/05-pottery.html#instructions",
+    "href": "assignments/05-pottery.html#instructions",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "Instructions",
+    "text": "Instructions\n\nOpen the Week 10 Colab notebook (link active Week 10)\nRun all cells (Shift+Enter through the notebook, or Runtime → Run All)\nThe notebook downloads the Ogame dataset from Zenodo automatically, extracts outlines, computes EFA, runs PCA, and produces labeled scatter plots\n\nYou do not need to write any code."
+  },
+  {
+    "objectID": "assignments/05-pottery.html#required-output",
+    "href": "assignments/05-pottery.html#required-output",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "Required Output",
+    "text": "Required Output\n\nOne PCA scatter plot coloured by depositional context (Kiln vs. Burial) — produced automatically by the notebook\n300-word written interpretation addressing all four of the following:\n\nDescribe the pattern: Are kiln jars and burial jars separated in shape space, overlapping, or mixed? Where do they fall on PC1 and PC2?\nDescribe the shape variation: What does PC1 appear to capture? (Look at jars at opposite extremes of the axis — what is visually different about them?)\nInterpret archaeologically: What does the shape pattern — or the lack of a pattern — suggest about production practices and funerary selection in Edo-period Kyushu? Connect to what you know about craft production and burial archaeology.\nOne unanswerable question: Name one thing the shape data alone cannot tell you, and what additional evidence you would need to answer it."
+  },
+  {
+    "objectID": "assignments/05-pottery.html#deliverables",
+    "href": "assignments/05-pottery.html#deliverables",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nOne PCA plot (PNG, embedded in your PDF)\n300-word interpretation\n\nSubmit as a single PDF."
+  },
+  {
+    "objectID": "assignments/05-pottery.html#grading",
+    "href": "assignments/05-pottery.html#grading",
+    "title": "Assignment 5: Pottery PCA",
+    "section": "Grading",
+    "text": "Grading\n\n\n\n\n\n\n\nCriterion\nPoints\n\n\n\n\nPlot produced correctly (Kiln vs. Burial colour-coded, axes labelled with % variance)\n30\n\n\nInterpretation describes the shape pattern specifically\n40\n\n\nArchaeological context engaged (production, funerary selection, Edo-period Kyushu)\n20\n\n\nWriting quality\n10\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/02-landmarks.html",
+    "href": "assignments/02-landmarks.html",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "",
+    "text": "You will digitize 20 Hadrian coin images using FIJI, assess the consistency of your landmark placement, and reflect on what this experience reveals about GM as a method."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#overview",
+    "href": "assignments/02-landmarks.html#overview",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "",
+    "text": "You will digitize 20 Hadrian coin images using FIJI, assess the consistency of your landmark placement, and reflect on what this experience reveals about GM as a method."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-1-download-the-data",
+    "href": "assignments/02-landmarks.html#step-1-download-the-data",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 1: Download the Data",
+    "text": "Step 1: Download the Data\nDownload the Hadrian coin dataset from the course Data page: → Data\nThe folder DEN_Hadrian/ contains 20 JPEG images of Hadrian denarii, all standardized to the same orientation (portrait facing right)."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-2-the-8-landmark-protocol",
+    "href": "assignments/02-landmarks.html#step-2-the-8-landmark-protocol",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 2: The 8-Landmark Protocol",
+    "text": "Step 2: The 8-Landmark Protocol\nPlace landmarks in this exact order on every coin:\n\n\n\n#\nLocation\nNotes\n\n\n\n\n1\nTip of nose (most anterior point of portrait)\nType II\n\n\n2\nBack of skull (most posterior point)\nType II\n\n\n3\nBase of chin (most inferior point of face)\nType II\n\n\n4\nTop of forehead (most superior point of portrait)\nType II\n\n\n5\nCoin edge at 12 o’clock (top)\nType III\n\n\n6\nCoin edge at 6 o’clock (bottom)\nType III\n\n\n7\nCoin edge at 3 o’clock (rightmost point)\nType III\n\n\n8\nCoin edge at 9 o’clock (leftmost point)\nType III\n\n\n\n\n\n\n\n\n\nConsistency is more important than “correctness”\n\n\n\nUse the same definition for each landmark on every coin. A landmark placed slightly off is less damaging than a landmark placed inconsistently. Write a brief note before you start digitizing, describing exactly how you will define each landmark."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-3-digitize-with-fiji",
+    "href": "assignments/02-landmarks.html#step-3-digitize-with-fiji",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 3: Digitize with FIJI",
+    "text": "Step 3: Digitize with FIJI\nFull step-by-step FIJI instructions are in Module 3.\nFor each coin: 1. Open the image 2. Set scale using the scale bar (or leave in pixels — just be consistent) 3. Place 8 landmarks using the Point tool + Shift-click 4. Record coordinates via Analyze → Measure or ROI Manager"
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-4-convert-to-tps-format",
+    "href": "assignments/02-landmarks.html#step-4-convert-to-tps-format",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 4: Convert to TPS Format",
+    "text": "Step 4: Convert to TPS Format\nOpen the Week 4 Colab notebook and run the TPS conversion cell. Paste your FIJI measurements table into the provided input area."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-5-inter-observer-comparison",
+    "href": "assignments/02-landmarks.html#step-5-inter-observer-comparison",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 5: Inter-Observer Comparison",
+    "text": "Step 5: Inter-Observer Comparison\nFind a partner in the class. Exchange your TPS files. Open the Week 4 notebook, load both TPS files, and run the inter-observer error analysis cell:\n# Provided in the notebook:\n# Calculates mean Procrustes distance between two digitizers\n# per landmark and overall\ncompare_digitizers(your_tps, partner_tps)\nThe output will show which landmarks had the highest disagreement."
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#step-6-written-reflection-400-words",
+    "href": "assignments/02-landmarks.html#step-6-written-reflection-400-words",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Step 6: Written Reflection (400 words)",
+    "text": "Step 6: Written Reflection (400 words)\nAnswer these questions in your reflection:\n\nWhich landmarks were easiest to place consistently? Why?\nWhich were hardest? What made them ambiguous?\nWhat was your inter-observer error? How does it compare to the variation between coins?\nIf you were designing this landmark protocol from scratch, what would you change? Would you add, remove, or redefine any landmarks?\nWhat does this experience tell you about the subjectivity embedded in supposedly “objective” quantitative methods?"
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#deliverables",
+    "href": "assignments/02-landmarks.html#deliverables",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nYour TPS file (attach as .tps)\nA screenshot of the inter-observer error output\n400-word written reflection (in the same PDF)\n\nSubmit as: one PDF (reflection + screenshot) + one TPS file"
+  },
+  {
+    "objectID": "assignments/02-landmarks.html#grading",
+    "href": "assignments/02-landmarks.html#grading",
+    "title": "Assignment 2: Landmark Exercise",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCriterion\nPoints\n\n\n\n\nTPS file complete (all 20 specimens, 8 landmarks each)\n30\n\n\nInter-observer comparison completed correctly\n20\n\n\nReflection addresses all 5 questions substantively\n40\n\n\nWriting quality\n10\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/03-coins.html",
+    "href": "assignments/03-coins.html",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "",
+    "text": "Run a complete landmark GM analysis comparing Hadrian and Antoninus Pius denarii. Interpret the results archaeologically."
+  },
+  {
+    "objectID": "assignments/03-coins.html#overview",
+    "href": "assignments/03-coins.html#overview",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "",
+    "text": "Run a complete landmark GM analysis comparing Hadrian and Antoninus Pius denarii. Interpret the results archaeologically."
+  },
+  {
+    "objectID": "assignments/03-coins.html#tools",
+    "href": "assignments/03-coins.html#tools",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "Tools",
+    "text": "Tools\n\nColab notebook: Use the Week 7 notebook (link on the Data page)\nData: DEN_Hadrian/Hadrian.TPS and DEN_AntoniusPius/AntoniusPius.TPS from the course dataset\nAI: Use Claude or ChatGPT to generate any additional code you need"
+  },
+  {
+    "objectID": "assignments/03-coins.html#required-analysis-steps",
+    "href": "assignments/03-coins.html#required-analysis-steps",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "Required Analysis Steps",
+    "text": "Required Analysis Steps\nComplete all five steps in your Colab notebook:\n\nStep 1: Load and combine the datasets\nLoad both TPS files, note the number of specimens in each, and combine into a single array with group labels.\n\n\nStep 2: Generalized Procrustes Analysis\nRun GPA on the combined dataset. Report: - Total number of specimens - Number of landmarks - Range of centroid sizes - Whether size differs significantly between the two groups (a quick t-test or plot is sufficient)\n\n\nStep 3: PCA with group labels\nRun PCA on the Procrustes-aligned coordinates. Produce a clearly labeled scatter plot: - X axis: PC1 with % variance explained - Y axis: PC2 with % variance explained - Colors: one per emperor - Legend: clearly labeled - Title: informative\n\n\nStep 4: Permutation test\nRun the permutation_manova() function (from Module 7) on the first 8 PC scores. Report F, p, and R².\n\n\nStep 5: Mean shape deformation grids\nProduce deformation grids (or shape plots) showing: - Mean shape of Hadrian coins - Mean shape of Antoninus Pius coins - The difference between them (or annotate which landmarks shift most)\nThis step can use the deformation visualization code from Module 6."
+  },
+  {
+    "objectID": "assignments/03-coins.html#written-interpretation-500-words",
+    "href": "assignments/03-coins.html#written-interpretation-500-words",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "Written Interpretation (500 words)",
+    "text": "Written Interpretation (500 words)\nYour interpretation must address:\n\nDo the groups separate? Describe what you see in the PCA plot. Are they fully separated, partially overlapping, or completely mixed?\nStatistical support: What do your F, p, and R² values tell you? Explain these numbers in plain language (not just “p &lt; 0.05, therefore significant”).\nShape features: Based on the deformation grids or shape plots, which specific parts of the coin change between Hadrian and Antoninus Pius? Are the differences in the portrait? The coin edge? Both?\nArchaeological interpretation: What might explain the shape pattern you found? Consider:\n\nChanges in imperial portraiture conventions\nDifferent die-cutters or workshops\nChronological change within a long reign\nThe limits of your analysis (sample size, landmark placement error)\n\nOne follow-up question: What question does your result raise that would require additional data or analysis to answer?"
+  },
+  {
+    "objectID": "assignments/03-coins.html#deliverables",
+    "href": "assignments/03-coins.html#deliverables",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nColab notebook link — your copy, set to “Anyone with the link can view”\nPDF report — 500-word interpretation + all required figures embedded (not separate files)\n\nPCA scatter plot\nDeformation grids or mean shape comparison\nStatistical output (screenshot or table)"
+  },
+  {
+    "objectID": "assignments/03-coins.html#grading",
+    "href": "assignments/03-coins.html#grading",
+    "title": "Assignment 3: Coins Shape Analysis",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCriterion\nPoints\n\n\n\n\nAll 5 analysis steps completed correctly\n35\n\n\nPCA plot is well-labeled and legible\n15\n\n\nStatistical output reported correctly with interpretation\n15\n\n\nArchaeological interpretation is substantive and specific\n30\n\n\nWriting quality and referencing\n5\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/04-axes.html",
+    "href": "assignments/04-axes.html",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "",
+    "text": "Run a full EFA + PCA outline analysis on the Bronze Age flanged axe dataset, test for group differences, and produce a geographic visualization. Interpret the results in terms of Bronze Age craft networks."
+  },
+  {
+    "objectID": "assignments/04-axes.html#overview",
+    "href": "assignments/04-axes.html#overview",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "",
+    "text": "Run a full EFA + PCA outline analysis on the Bronze Age flanged axe dataset, test for group differences, and produce a geographic visualization. Interpret the results in terms of Bronze Age craft networks."
+  },
+  {
+    "objectID": "assignments/04-axes.html#data",
+    "href": "assignments/04-axes.html#data",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Data",
+    "text": "Data\n\nImages: data/flanged_axes/G3/ (30 axes) and data/flanged_axes/G4/ (35 axes)\nColab notebook: Week 9 notebook (link on Data page)\n\nThe images are .tif files showing single axe specimens against a white background. Your outline extraction code should work directly on these images."
+  },
+  {
+    "objectID": "assignments/04-axes.html#required-analysis-steps",
+    "href": "assignments/04-axes.html#required-analysis-steps",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Required Analysis Steps",
+    "text": "Required Analysis Steps\n\nStep 1: Outline extraction\nUsing the extract_outline() function from Module 8, process all axe images. Report: - How many axes were successfully processed? - Did any images fail? If so, why (look at the images)?\n\n\nStep 2: EFA\nFit EFA with 12 harmonics, normalized. Produce a variance explained plot showing how many harmonics are needed to explain 99% of outline shape variation in your sample.\n\n\nStep 3: PCA on EFA coefficients\nRun PCA. Report variance explained by PC1, PC2, PC3. Produce: - Scatter plot color-coded by group (G3/G4) - Reconstructed outline shapes at −2 SD and +2 SD on PC1 and PC2\n\n\nStep 4: Statistical test\nRun the permutation MANOVA on the first 10 PC scores. Report: F, p, R².\n\n\nStep 5: Geographic visualization\nUsing the provided metadata CSV (data/flanged_axes/axes_metadata.csv), plot specimen locations on a map colored by PC1 score."
+  },
+  {
+    "objectID": "assignments/04-axes.html#written-interpretation-600-words",
+    "href": "assignments/04-axes.html#written-interpretation-600-words",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Written Interpretation (600 words)",
+    "text": "Written Interpretation (600 words)\nYour interpretation must address:\n\nMorphological separation: Do G3 and G4 separate in shape space? Describe the PCA plot. Is separation clean, partial, or absent?\nWhat drives the difference: Based on the reconstructed outline shapes, what is actually different about the axe shapes at opposite ends of PC1? Be specific: blade width? Proportion of butt to blade? Shape of flanges?\nStatistical support: Report and explain your F, p, and R². Does the statistical significance match what you see visually in the PCA plot?\nGeographic pattern: What do you see in the map? Does PC1 variation correlate with geography? Do specimens from the same region cluster together in shape space?\nArchaeological interpretation: Based on your results, what would you say about Bronze Age craft networks? Choose one of the following positions (or argue for a nuance):\n\nG3 and G4 represent distinct production traditions with limited interaction\nG3 and G4 represent a continuous temporal evolution of the same tradition\nShape variation is primarily geographic, not typological\nYour data cannot distinguish between these models (explain why)\n\nOne limitation: Identify one specific limitation of this analysis that could affect your conclusions, and suggest how future research could address it."
+  },
+  {
+    "objectID": "assignments/04-axes.html#map-requirements",
+    "href": "assignments/04-axes.html#map-requirements",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Map Requirements",
+    "text": "Map Requirements\nThe map must show: - Specimen locations as dots - Dots colored by PC1 score (use a diverging colormap, e.g., blue-to-red) - Group membership indicated (by symbol shape or border color) - A colorbar labeled “PC1 score” - Basic geographic reference (country borders or major rivers — even a hand-sketched map on paper, photographed, is acceptable)"
+  },
+  {
+    "objectID": "assignments/04-axes.html#deliverables",
+    "href": "assignments/04-axes.html#deliverables",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Deliverables",
+    "text": "Deliverables\n\nColab notebook link (viewable)\nPDF report — 600-word interpretation + figures embedded:\n\nVariance explained plot (scree plot)\nPCA scatter plot\nReconstructed outline shapes (PC1 extremes minimum)\nStatistical output\nMap image"
+  },
+  {
+    "objectID": "assignments/04-axes.html#grading",
+    "href": "assignments/04-axes.html#grading",
+    "title": "Assignment 4: Bronze Age Axes Outline Analysis",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCriterion\nPoints\n\n\n\n\nAll 5 analysis steps completed correctly\n30\n\n\nReconstructed shapes produced and discussed\n15\n\n\nMap produced with correct coloring\n10\n\n\nStatistical output reported and explained\n10\n\n\nArchaeological interpretation is substantive\n30\n\n\nWriting quality\n5\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html",
+    "href": "assignments/01-shape-journal.html",
+    "title": "Assignment 1: Shape Journal",
+    "section": "",
+    "text": "This assignment asks you to look at archaeological artefacts with new eyes — focusing on shape rather than function, date, or cultural label."
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html#overview",
+    "href": "assignments/01-shape-journal.html#overview",
+    "title": "Assignment 1: Shape Journal",
+    "section": "",
+    "text": "This assignment asks you to look at archaeological artefacts with new eyes — focusing on shape rather than function, date, or cultural label."
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html#instructions",
+    "href": "assignments/01-shape-journal.html#instructions",
+    "title": "Assignment 1: Shape Journal",
+    "section": "Instructions",
+    "text": "Instructions\nFind 3 archaeological objects in online databases or published papers. Good sources:\n\nBritish Museum Collection\nMetropolitan Museum of Art Open Access\nEuropeana\nJSTOR Global Plants / any open-access archaeology journal\n\nThe objects must be from at least 2 different artefact categories (e.g., two coins and one vessel; or one axe, one fibula, and one ceramic)."
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html#for-each-object-write",
+    "href": "assignments/01-shape-journal.html#for-each-object-write",
+    "title": "Assignment 1: Shape Journal",
+    "section": "For Each Object, Write:",
+    "text": "For Each Object, Write:\n\n1. Identification (1–2 sentences)\nProvide the object’s museum number (or DOI if from a publication), type, date, and place of origin. Include a clear image.\n\nExample: BM 1867,0101.447 — Roman bronze fibula (brooch), 2nd century CE, found in Roman Britain.\n\n\n\n2. Shape Description (3–5 sentences)\nDescribe the shape in purely geometric terms. Avoid typological labels (“Type A,” “carinated”) and functional descriptions (“used for fastening”). Think like a geometer: what curves, angles, proportions, and symmetries do you see?\n\nExample (bad): “This is a type B fibula used for fastening garments.” Example (good): “The object has a bow-shaped upper arc that rises to approximately 0.4 of the total length before curving back down. The footplate is wider than the head, giving the outline a slight trapezoid asymmetry. The catch-plate is a rectangular projection at the base.”\n\n\n\n3. Research Question (2–3 sentences)\nWrite one specific question that shape analysis could help answer for this type of object. Be concrete.\n\nExample (bad): “I would study the shape of these fibulae.” Example (good): “Do fibulae from the western provinces of the Roman Empire show consistent shape differences from those of the eastern provinces? A landmark GM study of 100+ specimens could test whether shape variation follows provincial boundaries or trade routes.”\n\n\n\n4. Method Choice (2–3 sentences)\nWhich GM method would you use — landmarks, outlines, or both? Why? What specific landmarks would you place, or what outline would you trace?"
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html#format",
+    "href": "assignments/01-shape-journal.html#format",
+    "title": "Assignment 1: Shape Journal",
+    "section": "Format",
+    "text": "Format\n\nLength: 600–800 words total (across all three objects) + 3 images\nFormat: PDF\nSubmission: Course portal"
+  },
+  {
+    "objectID": "assignments/01-shape-journal.html#grading",
+    "href": "assignments/01-shape-journal.html#grading",
+    "title": "Assignment 1: Shape Journal",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCriterion\nPoints\n\n\n\n\nObjects appropriately sourced with proper citations\n10\n\n\nShape descriptions are genuinely geometric (not typological)\n30\n\n\nResearch questions are specific and answerable with GM\n40\n\n\nMethod choices are appropriate and explained\n20\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/final-project.html",
+    "href": "assignments/final-project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "The final project is your opportunity to apply everything you have learned to a shape question of your own choosing. It culminates the course’s progressive build from individual assignments into an original, small-scale research investigation."
+  },
+  {
+    "objectID": "assignments/final-project.html#overview",
+    "href": "assignments/final-project.html#overview",
+    "title": "Final Project",
+    "section": "",
+    "text": "The final project is your opportunity to apply everything you have learned to a shape question of your own choosing. It culminates the course’s progressive build from individual assignments into an original, small-scale research investigation."
+  },
+  {
+    "objectID": "assignments/final-project.html#choose-your-track",
+    "href": "assignments/final-project.html#choose-your-track",
+    "title": "Final Project",
+    "section": "Choose Your Track",
+    "text": "Choose Your Track\n\nTrack A: Extended Dataset Analysis (recommended for most students)\nTake one of the three course datasets — coins, axes, or pottery — and go deeper than the corresponding assignment. Extensions could include:\n\nTesting additional grouping variables from the metadata (chronological phase, geographic region, deposition context)\nAllometric analysis: does shape change with size?\nComparing results of two methods on the same objects (e.g., landmarks vs. outlines on the coins)\nComparing your results to a published analysis of the same or similar material\n\nWhy this track: You already know the data. You can focus on asking a better question rather than learning a new dataset.\n\n\n\nTrack B: New Open-Access Dataset\nFind an open-access GM dataset from a published paper (2020–2025) on an artefact type not covered in the course. Replicate or extend the published analysis.\nWhere to find datasets: - Zenodo.org — search “geometric morphometrics archaeology” - OSF (Open Science Framework) - Figshare - Journal supplementary data: Journal of Archaeological Science, Journal of Archaeological Science: Reports, Archaeological and Anthropological Sciences\nWhat counts as a valid dataset: - Open-access coordinates (TPS, CSV, or similar) from a peer-reviewed paper - Minimum 20 specimens - At least one grouping variable (period, region, type, etc.)\nWhat to submit along with your report: Full citation of the paper you are using, DOI of the dataset, and confirmation that it is genuinely open-access.\n\n\n\nTrack C: Research Proposal (writing-only option)\nFor students who prefer writing to data analysis: write a detailed research proposal for a GM study on an artefact type of your choice.\nRequired sections: 1. Introduction — what is the archaeological problem? 2. Research question — specific and answerable 3. Dataset design — what objects, from where, how many, in which collections? 4. Methodology — which GM method, how many landmarks or which outline, what software? 5. Expected results — what do you predict and why? 6. Possible complications — what could go wrong, and how would you handle it? 7. Significance — what would a positive result tell us about the past? 8. References — minimum 10 peer-reviewed sources\nLength: 3000 words (excluding references)"
+  },
+  {
+    "objectID": "assignments/final-project.html#report-requirements-tracks-a-and-b",
+    "href": "assignments/final-project.html#report-requirements-tracks-a-and-b",
+    "title": "Final Project",
+    "section": "Report Requirements (Tracks A and B)",
+    "text": "Report Requirements (Tracks A and B)\nLength: 2000–3000 words (excluding figures and references)\nStructure: 1. Introduction — the archaeological problem and why shape matters 2. Research Question — stated explicitly and concisely 3. Data and Methods — dataset description, GM method, statistical approach 4. Results — present figures and statistics, no interpretation yet 5. Discussion — interpret results in archaeological terms; compare to existing literature 6. Conclusion — main finding in 3–4 sentences; one future direction 7. References — minimum 8 peer-reviewed sources (APA or Chicago author-date)\nFigures: Minimum 3: - A PCA scatter plot (labeled, with group color-coding) - A shape visualization (deformation grid or reconstructed EFA shapes) - One additional figure of your choice (allometry plot, map, dendrogram, etc.)\nCode: Submit your Colab notebook link as an appendix. It must be set to “Anyone with link can view.”"
+  },
+  {
+    "objectID": "assignments/final-project.html#presentation-week-12",
+    "href": "assignments/final-project.html#presentation-week-12",
+    "title": "Final Project",
+    "section": "Presentation (Week 12)",
+    "text": "Presentation (Week 12)\nFormat: 8 minutes + 2 minutes Q&A\nWhat to cover: 1. Research question (1 min) 2. Dataset and method (1 min) 3. Your key result — your best figure (3 min) 4. Archaeological interpretation (2 min) 5. One limitation and one future direction (1 min)\nSlides: Optional but recommended. Maximum 8 slides."
+  },
+  {
+    "objectID": "assignments/final-project.html#grading-rubric-tracks-a-and-b",
+    "href": "assignments/final-project.html#grading-rubric-tracks-a-and-b",
+    "title": "Final Project",
+    "section": "Grading Rubric (Tracks A and B)",
+    "text": "Grading Rubric (Tracks A and B)\n\n\n\n\n\n\n\nCriterion\nPoints\n\n\n\n\nResearch question — clarity, originality, archaeological relevance\n20\n\n\nAnalysis — correct and complete GM analysis with appropriate statistics\n25\n\n\nFigures — quality, clarity, appropriate labeling\n20\n\n\nInterpretation — connects shape data to archaeological question; engages with literature\n25\n\n\nWriting — clear, well-organized, properly referenced\n10\n\n\nTotal\n100\n\n\n\n\nGrading Rubric (Track C — Proposal)\n\n\n\nCriterion\nPoints\n\n\n\n\nResearch question — specific and answerable\n20\n\n\nDataset design — realistic and well-justified\n20\n\n\nMethodology — correct and appropriate\n25\n\n\nCritical reflection — complications and limitations addressed\n20\n\n\nWriting quality and referencing\n15\n\n\nTotal\n100"
+  },
+  {
+    "objectID": "assignments/final-project.html#final-project-timeline",
+    "href": "assignments/final-project.html#final-project-timeline",
+    "title": "Final Project",
+    "section": "Final Project Timeline",
+    "text": "Final Project Timeline\n\n\n\n\n\n\n\nDate\nMilestone\n\n\n\n\nWeek 7\nChoose your track and topic — notify instructor\n\n\nWeek 9\nBrief check-in (5 min per student) — confirm dataset and question\n\n\nWeek 11\nDraft results (figures) ready for in-class feedback\n\n\nWeek 12\nIn-class presentations\n\n\nOne week later\nWritten report due"
+  },
+  {
+    "objectID": "assignments/final-project.html#tips-for-success",
+    "href": "assignments/final-project.html#tips-for-success",
+    "title": "Final Project",
+    "section": "Tips for Success",
+    "text": "Tips for Success\n\nStart with a clear, answerable question. The most common mistake is a question too vague to test with shape data. “I will analyze pottery shape” is not a question. “Do pottery vessels from Site A differ in outline shape from vessels of the same period at Site B, and if so, does the difference suggest distinct production communities?” is a question.\nDon’t over-analyze. A clear, well-interpreted result with one PCA and one statistical test is better than five tests you can’t explain.\nEngage with the existing literature. What does the paper that published your dataset say? What can you add, confirm, or contest?\nLet AI write the code, but don’t let AI write the text. Your interpretation is the entire point."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shape in Time",
+    "section": "",
+    "text": "Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?"
+  },
+  {
+    "objectID": "index.html#geometric-morphometrics-for-archaeologists",
+    "href": "index.html#geometric-morphometrics-for-archaeologists",
+    "title": "Shape in Time",
+    "section": "",
+    "text": "Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?"
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Shape in Time",
+    "section": "Course Overview",
+    "text": "Course Overview\nGeometric morphometrics (GM) is one of the most powerful methods in modern archaeology. It gives us a rigorous, quantitative way to study shape — the very thing that makes a Roman coin look like a Roman coin, or a Bronze Age axe look older than an Iron Age one.\nIn this course you will learn to:\n\nCapture the shape of archaeological objects using digital images and landmark coordinates\nUse AI tools to write all the code you need — no prior programming experience required\nPerform real analyses on published datasets of coins, axes, and pottery\nConnect shape patterns to big historical and archaeological questions\n\nNo coding background needed. AI writes the code; you ask the questions."
+  },
+  {
+    "objectID": "index.html#the-big-questions-we-will-answer",
+    "href": "index.html#the-big-questions-we-will-answer",
+    "title": "Shape in Time",
+    "section": "The Big Questions We Will Answer",
+    "text": "The Big Questions We Will Answer\n\n\nCoins\n\n\n\nRoman denarii of Hadrian and Antoninus Pius\n\n\nDid Roman mints in different provinces produce coins with subtly different shapes? Can we detect this from shape alone?\n\n\nAxes\nWere Bronze Age flanged axes made according to a single design, or do regional traditions show up in their shape? What does this tell us about craft networks?\n\n\nPottery\nCan we distinguish pottery production traditions from vessel shape alone, without knowing the clay source? What does shape variation in pots tell us about trade and cultural contact?"
+  },
+  {
+    "objectID": "index.html#how-this-course-works",
+    "href": "index.html#how-this-course-works",
+    "title": "Shape in Time",
+    "section": "How This Course Works",
+    "text": "How This Course Works\n\n\n\n\n\n\n\n\nWeek\nTopic\nMethod\n\n\n\n\n1–2\nWhat is shape? Why does it matter?\nConcepts\n\n\n3–4\nCapturing shape: landmarks & outlines\nData collection\n\n\n5–6\nYour AI lab partner: writing R code with Claude\nAI-assisted coding\n\n\n7–8\nShape space: Procrustes & PCA\nLandmark GM\n\n\n9–10\nOutlines and Bronze Age axes\nElliptic Fourier\n\n\n11–12\nTesting hypotheses, pottery case study\nStatistics\n\n\n13\n3D morphometrics — the frontier\n3D GM\n\n\n14\nFinal project presentations\nSynthesis"
+  },
+  {
+    "objectID": "index.html#instructor-format",
+    "href": "index.html#instructor-format",
+    "title": "Shape in Time",
+    "section": "Instructor & Format",
+    "text": "Instructor & Format\n\nFormat: 2 hours lecture + 1 hour lab per week\nTools: R (via AI-generated code), ImageJ/FIJI, tpsDig2, MorphoJ\nAssessment: 5 short assignments (50%) + Final project (50%)\nLanguage of instruction: English\nPrerequisites: None beyond basic computer literacy\n\n\n\n\n\n\n\n\nFirst Step\n\n\n\nStart with Module 1 — What is Shape? and the Shape Journal assignment before the first class."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html",
+    "href": "modules/03-ai-coding.html",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "",
+    "text": "This is the one week in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.\n\n\n\n\n\n\nInstall FIJI Now\n\n\n\n\nGo to fiji.sc\nDownload for your operating system\nUnzip and open — no installer needed\nYou only need this for today’s lab session"
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#before-you-begin",
+    "href": "modules/03-ai-coding.html#before-you-begin",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "",
+    "text": "This is the one week in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.\n\n\n\n\n\n\nInstall FIJI Now\n\n\n\n\nGo to fiji.sc\nDownload for your operating system\nUnzip and open — no installer needed\nYou only need this for today’s lab session"
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#why-we-digitize",
+    "href": "modules/03-ai-coding.html#why-we-digitize",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Why We Digitize",
+    "text": "Why We Digitize\nBefore we can analyze shapes statistically, we need to capture them as coordinates. The process of placing landmark points on images and recording their \\((x, y)\\) positions is called digitizing.\nThe quality of every downstream analysis depends entirely on the quality of digitizing. Sloppy landmark placement = unreliable results. This is why we spend a full week on it."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#image-preparation",
+    "href": "modules/03-ai-coding.html#image-preparation",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Image Preparation",
+    "text": "Image Preparation\nGood digitizing starts with good images. The requirements:\n\nScale Bar\nEvery image must have a scale bar — a line of known length that lets you convert pixel distances to real-world measurements. Without a scale bar, you can compare shapes but not sizes.\nThe coin images in our dataset have scale bars embedded. The axe images in our dataset are calibrated via the TPS file metadata.\n\n\nOrientation Convention\nAll specimens must be oriented the same way before digitizing. For coins: portrait facing right, die axis vertical. For axes: blade pointing down, flat face toward the viewer.\nInconsistent orientation is corrected by Procrustes alignment — but it’s still good practice to standardize before digitizing.\n\n\nImage Quality\n\nSufficient resolution to place landmarks accurately\nConsistent lighting (shadows create false edges)\nClean background (no visual noise near the object outline)"
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#landmark-protocol-hadrian-coins",
+    "href": "modules/03-ai-coding.html#landmark-protocol-hadrian-coins",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Landmark Protocol: Hadrian Coins",
+    "text": "Landmark Protocol: Hadrian Coins\nFor the Assignment 2 digitizing exercise, we use 8 landmarks on each coin:\n\n\n\nLM\nLocation\nType\n\n\n\n\n1\nTip of portrait nose\nType II (extremum)\n\n\n2\nBack of skull (most posterior point)\nType II (extremum)\n\n\n3\nBase of chin\nType II (extremum)\n\n\n4\nTop of forehead (most anterior point)\nType II (extremum)\n\n\n5\nEdge of die at 12 o’clock\nType III (constructed)\n\n\n6\nEdge of die at 6 o’clock\nType III (constructed)\n\n\n7\nEdge of die at 3 o’clock\nType III (constructed)\n\n\n8\nEdge of die at 9 o’clock\nType III (constructed)\n\n\n\nLandmarks 5–8 are on the coin edge at cardinal positions. They capture the oval vs. circular geometry of the flan (the blank metal disc)."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#step-by-step-digitizing-in-fiji",
+    "href": "modules/03-ai-coding.html#step-by-step-digitizing-in-fiji",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Step-by-Step: Digitizing in FIJI",
+    "text": "Step-by-Step: Digitizing in FIJI\n\nStep 1: Open the image\n\nFile → Open → select the coin image (e.g., 175D.jpg from the Hadrian folder)\n\n\n\nStep 2: Set scale\n\nDraw a line over the scale bar using the Line tool\nAnalyze → Set Scale\nEnter the known length of the scale bar\n\n\n\nStep 3: Place landmarks\n\nSelect the Point tool (press . or &gt;)\nClick on landmark position 1 (nose tip)\nHold Shift and click each subsequent landmark in order\nYou should see a count of 8 points when done\n\n\n\nStep 4: Record coordinates\n\nAnalyze → Measure (Ctrl+M) — this records the x,y of the last point\nBetter: Use the ROI Manager to record all 8 points at once\n\nAfter placing all 8 points, Edit → Selection → Add to Manager\nIn the ROI Manager: More → Multi Measure\nCopy the output table\n\n\n\n\nStep 5: Assemble TPS file\nAfter digitizing all specimens, use the provided Week 3 Colab notebook to convert your FIJI output to TPS format automatically."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#inter-observer-error",
+    "href": "modules/03-ai-coding.html#inter-observer-error",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Inter-Observer Error",
+    "text": "Inter-Observer Error\nOne of the most important exercises in any GM study is quantifying inter-observer error — how much do two different digitizers disagree on landmark placement?\nIn this lab: 1. Each student digitizes the same 5 coin images independently 2. We compare the results in the Week 3 Colab notebook 3. We calculate the mean Procrustes distance between observers for each landmark\nLarge inter-observer error means: - The landmark protocol is ambiguous and needs to be refined - The landmark may not be meaningful (Type III landmarks are usually more reproducible than Type I/II)\n\n\n\n\n\n\nRule of Thumb\n\n\n\nInter-observer error should be much smaller than the biological/archaeological variation you are trying to detect. If your observers disagree more than specimens differ, the analysis is meaningless."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#converting-fiji-output-to-tps-format",
+    "href": "modules/03-ai-coding.html#converting-fiji-output-to-tps-format",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Converting FIJI Output to TPS Format",
+    "text": "Converting FIJI Output to TPS Format\nA TPS file has a simple text format:\nLM=8\n123.4 456.7\n234.5 567.8\n...\nIMAGE=175D.jpg\nID=Hadrian_001\n\nLM=8 — number of landmarks\nOne line per landmark: x y\nIMAGE= — filename of the image\nID= — specimen identifier\n\nThe Week 3 Colab notebook contains a Python function to do this conversion automatically from a FIJI measurements table. You just paste your data and run one cell."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#assignment-2-landmark-exercise",
+    "href": "modules/03-ai-coding.html#assignment-2-landmark-exercise",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "Assignment 2: Landmark Exercise",
+    "text": "Assignment 2: Landmark Exercise\n\n\n\n\n\n\nDue: Week 4\n\n\n\nDigitize all 20 Hadrian coin images. Assess inter-observer consistency with a partner.\nSee Assignment 2 for full instructions."
+  },
+  {
+    "objectID": "modules/03-ai-coding.html#after-this-week",
+    "href": "modules/03-ai-coding.html#after-this-week",
+    "title": "Module 3: Seeing Shape — Digitizing Landmarks",
+    "section": "After This Week",
+    "text": "After This Week\nYou now understand how shape data is collected. Starting next week, we shift entirely to Google Colab for all analysis. No more FIJI unless you choose to use it for your final project.\n→ Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis"
+  },
+  {
+    "objectID": "modules/09-statistics.html",
+    "href": "modules/09-statistics.html",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "",
+    "text": "The Bronze Age in Europe (c. 2300–800 BCE) was defined by metallurgy. Bronze — an alloy of copper and tin — required long-distance exchange networks, because copper and tin deposits are rarely found together. The very existence of Bronze Age material culture implies connectivity.\nFlanged axes are among the most common Bronze Age metal finds. They were functional tools (woodworking, combat) but also prestige objects, hoarded in deposits, and possibly used as currency-like valuables.\nThe “flanged” design — raised ridges along the sides to help hafting — was a technological solution that spread across Europe in the Middle Bronze Age. But how did this spread happen?\n\n\n\nOur dataset comes from Central European flanged axes classified into two typological groups (designations following standard Bronze Age typo-chronology):\n\nG3: Earlier group, c. 1600–1400 BCE. Primarily found in western Central Europe.\nG4: Later group, c. 1400–1200 BCE. Wider geographic distribution.\n\nTraditional typology classifies them by a combination of proportions (flange height, blade width relative to total length) and decorative features. But typology is always a simplification.\nThe question: does shape variation in these axes respect the G3/G4 boundary? Is there a continuous morphological gradient? Are there regional variants within each group?"
+  },
+  {
+    "objectID": "modules/09-statistics.html#archaeological-background",
+    "href": "modules/09-statistics.html#archaeological-background",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "",
+    "text": "The Bronze Age in Europe (c. 2300–800 BCE) was defined by metallurgy. Bronze — an alloy of copper and tin — required long-distance exchange networks, because copper and tin deposits are rarely found together. The very existence of Bronze Age material culture implies connectivity.\nFlanged axes are among the most common Bronze Age metal finds. They were functional tools (woodworking, combat) but also prestige objects, hoarded in deposits, and possibly used as currency-like valuables.\nThe “flanged” design — raised ridges along the sides to help hafting — was a technological solution that spread across Europe in the Middle Bronze Age. But how did this spread happen?\n\n\n\nOur dataset comes from Central European flanged axes classified into two typological groups (designations following standard Bronze Age typo-chronology):\n\nG3: Earlier group, c. 1600–1400 BCE. Primarily found in western Central Europe.\nG4: Later group, c. 1400–1200 BCE. Wider geographic distribution.\n\nTraditional typology classifies them by a combination of proportions (flange height, blade width relative to total length) and decorative features. But typology is always a simplification.\nThe question: does shape variation in these axes respect the G3/G4 boundary? Is there a continuous morphological gradient? Are there regional variants within each group?"
+  },
+  {
+    "objectID": "modules/09-statistics.html#why-this-matters-historically",
+    "href": "modules/09-statistics.html#why-this-matters-historically",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "Why This Matters Historically",
+    "text": "Why This Matters Historically\nThree possible outcomes:\n\nOutcome A: Clean separation\nG3 and G4 form distinct, non-overlapping clusters in shape space. This supports the idea that each group represents a coherent production tradition — perhaps a specific workshop, region, or period with its own design template.\nImplication: Bronze Age metalworkers maintained strict shape standards within each tradition, possibly through apprenticeship networks with limited cross-transmission.\n\n\nOutcome B: Overlapping clusters\nG3 and G4 overlap substantially in shape space. Shape variation is continuous, not categorical.\nImplication: The G3/G4 typological boundary may be a modern analytical construct rather than an emic (insider) category recognized by Bronze Age communities. Shape changed gradually, not in a discrete step.\n\n\nOutcome C: Geographic gradient cuts across typological groups\nPC axes that capture most variation correlate with geographic position, not with G3/G4 group membership.\nImplication: Shape variation reflects local production traditions that don’t align with the typological sequence — regional craft identity was stronger than temporal change.\nNone of these outcomes is “right” or “wrong.” Each tells us something important about Bronze Age social and technological organization."
+  },
+  {
+    "objectID": "modules/09-statistics.html#full-analysis-assignment-4-walkthrough",
+    "href": "modules/09-statistics.html#full-analysis-assignment-4-walkthrough",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "Full Analysis: Assignment 4 Walkthrough",
+    "text": "Full Analysis: Assignment 4 Walkthrough\n\n\n\n\n\n\nOpen the Week 9 Notebook\n\n\n\n→ Week 9 Colab Notebook (link active Week 9)\n\n\nThis notebook extends the EFA from Week 8 with group comparison, statistical testing, and geographic visualization.\n\nThe Statistical Test\nWe use a permutation-based MANOVA (the same logic as for coins, applied to EFA+PCA scores):\n# Permutation MANOVA on EFA PCA scores\nf_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=8)\n\nprint(f\"\\nPermutation MANOVA (G3 vs G4):\")\nprint(f\"  F = {f_stat:.3f}\")\nprint(f\"  p = {p_val:.3f}\")\nprint(f\"  {'SIGNIFICANT' if p_val &lt; 0.05 else 'NOT SIGNIFICANT'} at α = 0.05\")\n\n# Effect size: proportion of variance explained\nr2 = f_stat / (f_stat + (len(labels) - 2))\nprint(f\"  R² ≈ {r2:.3f} ({r2*100:.1f}% of variance explained by group)\")\n\n\nInterpreting Effect Size\n\n\n\nR² value\nInterpretation\n\n\n\n\n&lt; 0.05\nVery small effect — groups barely differ\n\n\n0.05–0.15\nSmall effect\n\n\n0.15–0.35\nMedium effect\n\n\n&gt; 0.35\nLarge effect — groups strongly differ\n\n\n\nEven if the test is significant (p &lt; 0.05), a small R² means groups differ reliably but not dramatically."
+  },
+  {
+    "objectID": "modules/09-statistics.html#geographic-visualization",
+    "href": "modules/09-statistics.html#geographic-visualization",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "Geographic Visualization",
+    "text": "Geographic Visualization\nThe geographic metadata for the axes is provided as a CSV file. Here we link PC scores to find-spot locations:\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport matplotlib.cm as cm\nimport matplotlib.colors as mcolors\n\n# Load geographic metadata\ngeo = pd.read_csv(\"data/flanged_axes/axes_metadata.csv\")\n# Columns: name, group, latitude, longitude, country, site_name\n\n# Merge with PCA scores\ndf_geo = pd.merge(df, geo, on='name')\n\n# Map PC1 score to color (blue = negative, red = positive)\nnorm = mcolors.TwoSlopeNorm(vcenter=0,\n                              vmin=df_geo['PC1'].min(),\n                              vmax=df_geo['PC1'].max())\ncolors_map = cm.RdBu_r(norm(df_geo['PC1']))\n\n# Simple scatter map (approximate)\nfig, ax = plt.subplots(figsize=(10, 8))\nsc = ax.scatter(df_geo['longitude'], df_geo['latitude'],\n                c=df_geo['PC1'], cmap='RdBu_r', s=80,\n                edgecolor='black', linewidth=0.5, norm=norm)\n\n# Label markers with group\nfor _, row in df_geo.iterrows():\n    ax.annotate(row['group'], (row['longitude'], row['latitude']),\n                fontsize=6, ha='center', va='bottom')\n\nplt.colorbar(sc, label='PC1 score (shape axis)')\nax.set_xlabel(\"Longitude\")\nax.set_ylabel(\"Latitude\")\nax.set_title(\"Geographic distribution of PC1 shape scores — Flanged Axes\")\nplt.tight_layout()\nplt.show()\nNote: The axes_metadata.csv will be provided. If geographic data is not available for all specimens in the dataset, we will work with the subset that has coordinates."
+  },
+  {
+    "objectID": "modules/09-statistics.html#discussion-questions",
+    "href": "modules/09-statistics.html#discussion-questions",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "Discussion Questions",
+    "text": "Discussion Questions\n\nDo the reconstructed EFA shapes at PC1 extremes match what you would expect from looking at G3 vs. G4 axes visually?\nIf G3 and G4 overlap in shape space but your permutation test is significant — how do you reconcile these two results?\nImagine you found a new Bronze Age axe from an unknown site. How would you use this analysis to assign it to G3 or G4? What confidence would you have?\nWhat additional data (isotope analysis, hoard context, absolute dates) would strengthen the interpretation of any shape patterns you found?"
+  },
+  {
+    "objectID": "modules/09-statistics.html#assignment-4-due-this-week",
+    "href": "modules/09-statistics.html#assignment-4-due-this-week",
+    "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
+    "section": "Assignment 4 Due This Week",
+    "text": "Assignment 4 Due This Week\n\n\n\n\n\n\nNote\n\n\n\nSubmit Colab notebook link + 600-word PDF + map image.\n→ Assignment 4: Bronze Age Axes Outline Analysis\n\n\n→ Module 10: Case Study III — Pottery and Ceramic Traditions"
+  },
+  {
+    "objectID": "modules/04-procrustes.html",
+    "href": "modules/04-procrustes.html",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "",
+    "text": "Open the Week 4 Notebook\n\n\n\n→ Week 4 Colab Notebook (link will be active by Week 4)\nTo use it: click the link, sign in with a Google account, and click Copy to Drive. You now have your own editable copy.\n\n\nGoogle Colab is a free, browser-based Python notebook. It runs on Google’s servers — nothing is installed on your computer. All you need is a Google account."
+  },
+  {
+    "objectID": "modules/04-procrustes.html#your-first-colab-session",
+    "href": "modules/04-procrustes.html#your-first-colab-session",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "",
+    "text": "Open the Week 4 Notebook\n\n\n\n→ Week 4 Colab Notebook (link will be active by Week 4)\nTo use it: click the link, sign in with a Google account, and click Copy to Drive. You now have your own editable copy.\n\n\nGoogle Colab is a free, browser-based Python notebook. It runs on Google’s servers — nothing is installed on your computer. All you need is a Google account."
+  },
+  {
+    "objectID": "modules/04-procrustes.html#how-colab-works",
+    "href": "modules/04-procrustes.html#how-colab-works",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "How Colab Works",
+    "text": "How Colab Works\nA Colab notebook is made of cells. There are two types:\n\nText cells (like this module page) — explanations, instructions\nCode cells — Python code that you can run by clicking the play button or pressing Shift+Enter\n\nThe output of each code cell appears directly below it.\n\n\n\n\n\n\nThe most important skill in this course\n\n\n\nYou do not need to write code. You need to: 1. Understand what analysis you want to run 2. Ask AI clearly to write that code 3. Paste it into a Colab code cell 4. Run it and interpret the output"
+  },
+  {
+    "objectID": "modules/04-procrustes.html#the-pear-prompt-framework",
+    "href": "modules/04-procrustes.html#the-pear-prompt-framework",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "The PEAR Prompt Framework",
+    "text": "The PEAR Prompt Framework\nTalking to AI for data analysis works best when you are specific. The PEAR framework:\n\n\n\n\n\n\n\n\nLetter\nMeaning\nExample\n\n\n\n\nP\nPurpose — what are you trying to do?\n“I want to load a TPS file and run PCA on the landmark coordinates”\n\n\nE\nExample — show the AI what your data looks like\nPaste the first few lines of your TPS file\n\n\nA\nAction — what specific step do you need?\n“Write Python code to read this TPS file into a numpy array”\n\n\nR\nResult — what output do you want?\n“And plot the landmarks as a scatter plot”\n\n\n\n\nExample Prompt (bad):\n\n“How do I analyze shape data?”\n\n\n\nExample Prompt (good):\n\n“I have a TPS file containing 2D landmark coordinates for 20 Roman coins, each with 8 landmarks. The file starts with: LM=8 / 123.4 456.7 / .... Write Python code using numpy to read this file and return a 3D array of shape (20, 8, 2).”"
+  },
+  {
+    "objectID": "modules/04-procrustes.html#your-first-analysis-loading-the-coin-data",
+    "href": "modules/04-procrustes.html#your-first-analysis-loading-the-coin-data",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "Your First Analysis: Loading the Coin Data",
+    "text": "Your First Analysis: Loading the Coin Data\nOpen the Week 4 notebook and run the following AI-generated code:\n# Cell 1: Install required packages (run once)\n!pip install morphops pyefd -q\n# Cell 2: Load TPS data\n# This code was generated by Claude when asked:\n# \"Write a Python function to read a TPS file and return a numpy array\n#  of shape (n_specimens, n_landmarks, 2)\"\n\nimport numpy as np\n\ndef read_tps(filepath):\n    \"\"\"Read a TPS file and return landmarks as (n, p, 2) array.\"\"\"\n    specimens = []\n    current_lms = []\n    n_lm = 0\n\n    with open(filepath, 'r') as f:\n        for line in f:\n            line = line.strip()\n            if line.startswith('LM='):\n                n_lm = int(line.split('=')[1])\n                current_lms = []\n            elif line.startswith('IMAGE=') or line.startswith('ID='):\n                if len(current_lms) == n_lm and n_lm &gt; 0:\n                    specimens.append(current_lms)\n            elif line and not line.startswith('SCALE=') and not line.startswith('CURVES='):\n                try:\n                    coords = list(map(float, line.split()))\n                    if len(coords) == 2:\n                        current_lms.append(coords)\n                except:\n                    pass\n\n    # Add last specimen\n    if len(current_lms) == n_lm and n_lm &gt; 0:\n        specimens.append(current_lms)\n\n    return np.array(specimens)\n\n# Load Hadrian coins\nhadrian = read_tps(\"data/coins/DEN_Hadrian/Hadrian.TPS\")\nprint(f\"Hadrian dataset: {hadrian.shape}\")\n# Expected output: (n_coins, 8, 2)\n# Cell 3: Quick visualization of raw (unaligned) landmarks\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(8, 8))\nfor coin in hadrian:\n    ax.scatter(coin[:, 0], coin[:, 1], alpha=0.3, s=15, color='steelblue')\nax.set_title(\"Raw (unaligned) Hadrian coin landmarks\")\nax.set_aspect('equal')\nplt.show()\nWhat you will see: A cloud of points, messily scattered. Every coin is at a different position, size, and rotation. This is exactly why we need Procrustes alignment."
+  },
+  {
+    "objectID": "modules/04-procrustes.html#what-you-should-notice",
+    "href": "modules/04-procrustes.html#what-you-should-notice",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "What You Should Notice",
+    "text": "What You Should Notice\nRun the above cells and answer these questions in your notebook:\n\nWhat is the shape of the hadrian array? What does each dimension represent?\nWhy are the raw landmarks scattered all over the plot instead of overlapping?\nWhat would the plot look like after Procrustes alignment? (Predict before we run it next week.)"
+  },
+  {
+    "objectID": "modules/04-procrustes.html#writing-your-own-ai-prompts",
+    "href": "modules/04-procrustes.html#writing-your-own-ai-prompts",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "Writing Your Own AI Prompts",
+    "text": "Writing Your Own AI Prompts\nTry asking AI (Claude or ChatGPT) to extend the code:\nPrompt to try: &gt; “I have a numpy array called hadrian with shape (20, 8, 2) containing 2D landmark coordinates for 20 Roman coins, each with 8 landmarks. Write Python code to calculate the centroid (geometric center) of each coin and plot a histogram of the x-coordinates of all centroids.”\nPaste the result into a new cell and run it."
+  },
+  {
+    "objectID": "modules/04-procrustes.html#the-golden-rule",
+    "href": "modules/04-procrustes.html#the-golden-rule",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "The Golden Rule",
+    "text": "The Golden Rule\n\n\n\n\n\n\nImportant\n\n\n\nAI writes the code. You interpret the results.\nIf the code runs but you don’t understand what the output means archaeologically — that is the problem to solve. Not the code."
+  },
+  {
+    "objectID": "modules/04-procrustes.html#assignment-2-due-today",
+    "href": "modules/04-procrustes.html#assignment-2-due-today",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "Assignment 2 Due Today",
+    "text": "Assignment 2 Due Today\nSubmit your TPS file and 400-word reflection from the landmark digitizing exercise.\n→ Assignment 2"
+  },
+  {
+    "objectID": "modules/04-procrustes.html#next-week-procrustes-alignment",
+    "href": "modules/04-procrustes.html#next-week-procrustes-alignment",
+    "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
+    "section": "Next Week: Procrustes Alignment",
+    "text": "Next Week: Procrustes Alignment\nWe will fix the scattered landmark problem and put all coins into the same coordinate system.\n→ Module 5: Procrustes Alignment"
+  },
+  {
+    "objectID": "modules/12-big-questions.html",
+    "href": "modules/12-big-questions.html",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "",
+    "text": "In this final module we step back and ask: what have we actually been doing?\nShape analysis is not an end in itself. It is a tool for answering questions that matter — about how human communities organized production, how ideas and objects spread across networks, how material culture changed over time, and what those changes meant to the people who made and used the objects."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#from-shapes-to-stories",
+    "href": "modules/12-big-questions.html#from-shapes-to-stories",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "",
+    "text": "In this final module we step back and ask: what have we actually been doing?\nShape analysis is not an end in itself. It is a tool for answering questions that matter — about how human communities organized production, how ideas and objects spread across networks, how material culture changed over time, and what those changes meant to the people who made and used the objects."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#what-we-have-learned",
+    "href": "modules/12-big-questions.html#what-we-have-learned",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "What We Have Learned",
+    "text": "What We Have Learned\nLook back at the three case studies:\n\nRoman Coins\n\nMethod: Landmark GM → Procrustes → PCA → permutation test\nQuestion: Do coins of different emperors cluster by shape?\nThe deeper question: How consistent was Roman imperial mint organization? Did changes in regime affect production standards? Can we detect individual die-cutters or workshops through shape?\n\n\n\nBronze Age Flanged Axes\n\nMethod: Outline extraction → EFA → PCA → permutation test → geographic mapping\nQuestion: Do typological groups correspond to genuine morphological clusters? Is there geographic patterning?\nThe deeper question: How did metalworking knowledge spread in Bronze Age Europe? Were shape templates maintained through master-apprentice networks or through copying from objects? What does shape variation tell us about the scale of Bronze Age exchange?\n\n\n\nPottery\n\nMethod: Vessel profile EFA → PCA → statistical tests\nQuestion: Can we separate production traditions or periods from outline shape alone?\nThe deeper question: How did potters learn and transmit their craft? How sensitive is shape to cultural boundaries? Can shape tell us about migration, colonization, or trade without chemical analysis?"
+  },
+  {
+    "objectID": "modules/12-big-questions.html#scale-of-analysis",
+    "href": "modules/12-big-questions.html#scale-of-analysis",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "Scale of Analysis",
+    "text": "Scale of Analysis\nOne of the most important decisions in any GM study is the scale at which you ask questions:\n\n\n\n\n\n\n\n\nScale\nExample question\nChallenge\n\n\n\n\nWithin a site\nDo vessels from different areas of the same site differ in shape?\nSmall sample sizes\n\n\nBetween sites\nDo production traditions cluster geographically?\nNeed comparable sampling strategies\n\n\nRegional\nCan we detect broad cultural zones from shape?\nConfounded by chronology\n\n\nContinental/Empire\nDid Roman standardization homogenize material culture?\nEnormous datasets needed"
+  },
+  {
+    "objectID": "modules/12-big-questions.html#what-gm-cannot-do",
+    "href": "modules/12-big-questions.html#what-gm-cannot-do",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "What GM Cannot Do",
+    "text": "What GM Cannot Do\nGeometric morphometrics is a powerful tool, but it has real limits:\n\nIt only captures what you digitize. If the important variation is in surface texture, decoration, or color — shape analysis misses it entirely.\nIt requires comparable images. Poor photography, inconsistent orientation, or low resolution introduce error that can swamp real variation.\nIt does not explain. A significant group difference in shape space tells you that groups differ. It does not tell you why.\nSmall samples are risky. Permutation tests can detect large differences with small samples, but false discoveries are a real risk.\nThe landmark protocol is a hypothesis. The choice of which landmarks to place encodes assumptions about what variation matters. Different protocols can give different results on the same objects."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#reproducibility-and-open-data",
+    "href": "modules/12-big-questions.html#reproducibility-and-open-data",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "Reproducibility and Open Data",
+    "text": "Reproducibility and Open Data\nScience advances through reproducibility — the ability to check and extend each other’s work. Modern archaeology increasingly recognizes this. The most important practical habits:\n\nShare your data. Upload your TPS files and metadata to Zenodo or OSF with a DOI.\nShare your code. Post your Colab notebook publicly (or via GitHub).\nDocument your protocol. Write up your landmark placement rules clearly enough that someone else can replicate them.\nReport effect sizes, not just p-values.\n\nThe datasets in this course (coins, axes) were made available by researchers who followed these principles. Future archaeologists will be able to re-analyze and extend this work."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#d-morphometrics-a-preview",
+    "href": "modules/12-big-questions.html#d-morphometrics-a-preview",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "3D Morphometrics: A Preview",
+    "text": "3D Morphometrics: A Preview\nThe frontier of archaeological GM is three-dimensional analysis. Instead of a 2D outline or a set of 2D landmarks, 3D GM captures the full surface geometry of an object.\n\nHow 3D data is acquired:\n\nStructured light scanning (Artec, NextEngine): fast, accurate, expensive\nCT scanning: for complex internal shapes (lithic flaking, pottery walls)\nPhotogrammetry (Meshroom, Agisoft): free or cheap, requires 30–100 overlapping photos, works on any phone\n\n\n\nWhy 3D matters for archaeology:\n\nA coin has depth — the relief of the portrait is 3D information we lose in 2D\nAn axe has two faces that may differ\nA pot has a 3D surface, not just a profile\n\nThe auto3dgm package (used in our source course materials — see Morphometrics-course/auto3dgm_example.zip) automates 3D GPA without requiring manual landmark placement, using Minimum Description Length principles.\nIf you are interested in pursuing 3D GM for your final project or future research, speak with the instructor."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#where-the-field-is-going",
+    "href": "modules/12-big-questions.html#where-the-field-is-going",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "Where the Field Is Going",
+    "text": "Where the Field Is Going\nExciting developments in 2024–2025:\n\nMachine learning + GM: using deep learning to automate landmark placement on thousands of objects\nGeometric morphometrics of microscopic traces: use-wear on lithics, residues on ceramics\nPopulation-level GM studies: thousands of specimens from museum collections\nMultiscale analysis: combining 2D and 3D data\nOpen databases: platforms like MorphoSource and Zenodo making 3D scan data globally available"
+  },
+  {
+    "objectID": "modules/12-big-questions.html#final-project-presentations",
+    "href": "modules/12-big-questions.html#final-project-presentations",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "Final Project Presentations",
+    "text": "Final Project Presentations\nEach student (or pair) has 8 minutes to present + 2 minutes Q&A.\nStructure: 1. What is your research question? (1 min) 2. What dataset did you use and how? (1 min) 3. Your key result — show your best figure (3 min) 4. Archaeological interpretation — what does the shape pattern mean? (2 min) 5. One limitation and one future direction (1 min)\nWritten report is due one week after the final class."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#thank-you",
+    "href": "modules/12-big-questions.html#thank-you",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "Thank You",
+    "text": "Thank You\nShape is one of the most fundamental properties of material culture. You have learned to measure it, analyze it, and connect it to historical and archaeological questions. That is a genuinely useful skill — in academic research, in museum practice, and in cultural heritage management.\nThe tools you have learned (Python, Colab, AI-assisted coding) will keep evolving. The conceptual framework — shape as a variable, Procrustes alignment, PCA, statistical comparison — is stable and will remain central to archaeological science for decades."
+  },
+  {
+    "objectID": "modules/12-big-questions.html#final-project-instructions",
+    "href": "modules/12-big-questions.html#final-project-instructions",
+    "title": "Module 12: Big Questions + Course Synthesis",
+    "section": "→ Final Project Instructions",
+    "text": "→ Final Project Instructions"
+  },
+  {
+    "objectID": "modules/11-3d.html",
+    "href": "modules/11-3d.html",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "",
+    "text": "Shape data from GM is multivariate: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.\nFurthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.\nThe solution used in modern GM: permutation-based tests."
+  },
+  {
+    "objectID": "modules/11-3d.html#why-standard-tests-dont-work-for-shape-data",
+    "href": "modules/11-3d.html#why-standard-tests-dont-work-for-shape-data",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "",
+    "text": "Shape data from GM is multivariate: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.\nFurthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.\nThe solution used in modern GM: permutation-based tests."
+  },
+  {
+    "objectID": "modules/11-3d.html#the-logic-of-permutation-tests",
+    "href": "modules/11-3d.html#the-logic-of-permutation-tests",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "The Logic of Permutation Tests",
+    "text": "The Logic of Permutation Tests\nA permutation test asks: how often would we see a difference this large (or larger) between groups if the group labels were just randomly assigned?\n\nStep-by-step:\n\nCalculate the observed test statistic (e.g., F-ratio comparing within-group to between-group variation)\nRandomly permute the group labels among specimens, keeping the data fixed\nRe-calculate the test statistic\nRepeat steps 2–3 many times (999 or 9999 permutations)\nThe p-value = the proportion of permuted statistics ≥ the observed statistic\n\nNo distributional assumptions. Works with small samples. Widely accepted in the GM literature."
+  },
+  {
+    "objectID": "modules/11-3d.html#manova-in-shape-space",
+    "href": "modules/11-3d.html#manova-in-shape-space",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "MANOVA in Shape Space",
+    "text": "MANOVA in Shape Space\nMANOVA (Multivariate Analysis of Variance) tests whether group centroids (mean shapes) differ more than expected by chance.\nIn GM, we typically apply MANOVA to the first several PC scores (capturing, say, 90% of shape variance). This is what our permutation_manova() function does.\n# Applied to any of our three datasets\nf_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=10)\nr2 = f_stat / (f_stat + (len(labels) - 2))  # approx effect size\n\nprint(f\"F = {f_stat:.3f}, p = {p_val:.3f}, R² = {r2:.3f}\")"
+  },
+  {
+    "objectID": "modules/11-3d.html#effect-size-r²",
+    "href": "modules/11-3d.html#effect-size-r²",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Effect Size: R²",
+    "text": "Effect Size: R²\nThe p-value tells us whether groups differ. The effect size tells us how much they differ.\nIn GM, the standard effect size is R² — the proportion of total shape variance explained by group membership:\n\\[R^2 = \\frac{SS_{between}}{SS_{total}}\\]\nAn analysis can be statistically significant with a tiny R². For example: if p = 0.001 but R² = 0.04, groups differ reliably but the group difference accounts for only 4% of total shape variation. The other 96% is variation within groups.\n\n\n\n\n\n\nAlways report both p and R²\n\n\n\nIn archaeology, where sample sizes are often small and variation is high, R² is often more informative than the p-value alone."
+  },
+  {
+    "objectID": "modules/11-3d.html#allometry-when-size-predicts-shape",
+    "href": "modules/11-3d.html#allometry-when-size-predicts-shape",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Allometry: When Size Predicts Shape",
+    "text": "Allometry: When Size Predicts Shape\nAllometry is the relationship between size and shape. In biology, larger organisms often have proportionally different shapes from smaller ones (think of how a puppy’s head looks different from an adult dog’s).\nIn archaeology: - Larger coins may have different portrait proportions than smaller ones - Larger pottery vessels may have proportionally narrower necks - Larger axes may have relatively wider blades\nTesting allometry:\n# Test: does centroid size predict shape?\nfrom scipy.stats import pearsonr\n\n# Correlate centroid sizes with PC1 scores\nr, p = pearsonr(centroid_sizes, scores[:, 0])\nprint(f\"Allometry (size vs. PC1): r = {r:.3f}, p = {p:.3f}\")\n\n# Scatter plot\nplt.figure(figsize=(7, 5))\nplt.scatter(np.log(centroid_sizes), scores[:, 0], alpha=0.7)\nplt.xlabel(\"Log centroid size\")\nplt.ylabel(\"PC1 score (shape)\")\nplt.title(\"Allometric plot: size vs. shape PC1\")\n# Add regression line\nm, b = np.polyfit(np.log(centroid_sizes), scores[:, 0], 1)\nx = np.linspace(np.log(centroid_sizes).min(), np.log(centroid_sizes).max(), 100)\nplt.plot(x, m*x + b, 'r--')\nplt.tight_layout()\nplt.show()\nIf allometry is significant: you may want to remove the size effect before comparing groups (using residuals from the allometric regression)."
+  },
+  {
+    "objectID": "modules/11-3d.html#multiple-comparisons",
+    "href": "modules/11-3d.html#multiple-comparisons",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Multiple Comparisons",
+    "text": "Multiple Comparisons\nIf you are comparing 5 pottery periods against each other pairwise, you run 10 comparisons. By chance, you expect at least one to be “significant” at p &lt; 0.05 — even if there is no real difference anywhere.\nSolutions:\n\nBonferroni correction: divide your α threshold by the number of tests. For 10 tests, use p &lt; 0.005 instead of p &lt; 0.05.\nBenjamini-Hochberg FDR: less conservative, controls the false discovery rate rather than the family-wise error rate.\nA priori hypotheses: only test comparisons you predicted before looking at the data. This is the most principled approach.\n\nfrom statsmodels.stats.multitest import multipletests\n\np_values = [0.03, 0.04, 0.001, 0.08, 0.02]  # example: 5 pairwise tests\nreject, p_corrected, _, _ = multipletests(p_values, method='bonferroni')\n\nfor orig, corr, rej in zip(p_values, p_corrected, reject):\n    print(f\"p = {orig:.3f} → corrected p = {corr:.3f} → {'SIGNIFICANT' if rej else 'ns'}\")"
+  },
+  {
+    "objectID": "modules/11-3d.html#summary-statistical-reporting-in-a-gm-study",
+    "href": "modules/11-3d.html#summary-statistical-reporting-in-a-gm-study",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Summary: Statistical Reporting in a GM Study",
+    "text": "Summary: Statistical Reporting in a GM Study\nA complete statistical report should include:\n\n\n\nElement\nWhat to report\n\n\n\n\nTest\nWhat test (permutation MANOVA, etc.)\n\n\nParameters\nNumber of PCs used, number of permutations\n\n\nF-statistic\nThe observed F ratio\n\n\np-value\nFrom permutation distribution\n\n\nEffect size\nR²\n\n\nMultiple comparisons\nCorrection method used (if any)"
+  },
+  {
+    "objectID": "modules/11-3d.html#lab-apply-statistics-to-your-final-project-dataset",
+    "href": "modules/11-3d.html#lab-apply-statistics-to-your-final-project-dataset",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Lab: Apply Statistics to Your Final Project Dataset",
+    "text": "Lab: Apply Statistics to Your Final Project Dataset\nThis week’s lab is open: use the Week 11 Colab notebook to run the full statistical suite on whichever dataset you are using for your final project (or a preview of it)."
+  },
+  {
+    "objectID": "modules/11-3d.html#next-week-synthesis-and-final-presentations",
+    "href": "modules/11-3d.html#next-week-synthesis-and-final-presentations",
+    "title": "Module 11: Testing Hypotheses — Statistics in Shape Space",
+    "section": "Next Week: Synthesis and Final Presentations",
+    "text": "Next Week: Synthesis and Final Presentations\n→ Module 12: Big Questions + Final Presentations"
+  },
+  {
+    "objectID": "modules/10-pottery.html",
+    "href": "modules/10-pottery.html",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "",
+    "text": "Pottery is the most ubiquitous artefact in archaeological sites almost everywhere in the world. It survives well, is highly sensitive to cultural traditions, and has been classified typologically for over a century. It is also the ideal object for outline analysis: vessel profiles are smooth curves with no discrete landmark points.\nPottery shape reflects: - Production technique — wheel-thrown vs. hand-built produces different profile shapes - Function — storage jars, cooking pots, and serving bowls have characteristic morphologies - Chronology — vessel forms changed over time in most traditions - Cultural identity — potters learned their craft within communities; shape encodes that transmission - Exchange — when pottery moved between communities, shapes were copied (and subtly transformed)\nThis week has two parts. First you read about a published case study. Then you run your own analysis on a real open-access dataset."
+  },
+  {
+    "objectID": "modules/10-pottery.html#why-pottery",
+    "href": "modules/10-pottery.html#why-pottery",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "",
+    "text": "Pottery is the most ubiquitous artefact in archaeological sites almost everywhere in the world. It survives well, is highly sensitive to cultural traditions, and has been classified typologically for over a century. It is also the ideal object for outline analysis: vessel profiles are smooth curves with no discrete landmark points.\nPottery shape reflects: - Production technique — wheel-thrown vs. hand-built produces different profile shapes - Function — storage jars, cooking pots, and serving bowls have characteristic morphologies - Chronology — vessel forms changed over time in most traditions - Cultural identity — potters learned their craft within communities; shape encodes that transmission - Exchange — when pottery moved between communities, shapes were copied (and subtly transformed)\nThis week has two parts. First you read about a published case study. Then you run your own analysis on a real open-access dataset."
+  },
+  {
+    "objectID": "modules/10-pottery.html#part-i-published-case-study-bibracte-celtic-ceramics",
+    "href": "modules/10-pottery.html#part-i-published-case-study-bibracte-celtic-ceramics",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Part I — Published Case Study: Bibracte Celtic Ceramics",
+    "text": "Part I — Published Case Study: Bibracte Celtic Ceramics\n\nWhat was the question?\nCeramic typology is built on the expert’s eye: an archaeologist looks at a vessel and assigns it to a type. But can a computer reach the same conclusion using shape alone? And if so, what does this tell us about whether typology captures real morphological structure?\nThis is the question that Wilczek et al. (2014) asked using 154 complete Iron Age vessels from Bibracte, a major Celtic oppidum (fortified town) in Burgundy, France. Bibracte was the capital of the Aedui tribe in the Second Iron Age (2nd century BC – 1st century AD) and is one of the most extensively excavated oppida in Europe.\n\n\nThe dataset\n154 vessels with complete, well-preserved cross-sections. Assigned to 8 functional types by the traditional typology of Barral et al. (1995):\n\n\n\nType\nN\nCharacter\n\n\n\n\nPlates\n35\nWide and flat; open form\n\n\nDishes\n20\nShallower than plates\n\n\nBowls\n24\nHemispherical; open\n\n\nCups\n18\nSmall, closed drinking vessels\n\n\nGoblets\n14\nTall, narrow; drinking\n\n\nPots\n27\nMedium, closed; cooking/storage\n\n\nVases\n9\nWide body; storage\n\n\nBottles\n7\nNarrow neck; closed\n\n\n\nOutlines were extracted from published archaeological drawings (1200 dpi scans, external half cross-section mirrored to full profile), then processed by Elliptic Fourier Analysis (EFA) using 20 harmonics.\n\n\nWhat they found\n\n\n\n\n\n\nKey result (Wilczek et al. 2014)\n\n\n\nPC1 captures ~93% of total shape variance. The main axis of shape variation is elongation: plates occupy one extreme (wide, flat) and bottles occupy the other (tall, narrow neck). Bowls, pots, cups, and goblets fall between these endpoints.\nAn unsupervised computer clustering of shape space (with no knowledge of the traditional types) produced 7 clusters that closely match the 8 traditional types — the computer and the archaeologist largely agreed. This validates that EFA captures the same morphological structure that typologists have described intuitively for decades.\nImportantly, some types show high internal shape variation (pots, goblets) while others are tightly clustered (plates, bottles). This reveals which types are morphologically coherent and which may overlap functionally.\n\n\n\n\nWhy this matters\nEFA makes typology reproducible and quantifiable. Anyone can run the same code on the same images and get the same result. The expert is still needed to interpret those results archaeologically — but the initial classification can be automated and tested statistically.\nCitation: Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. Journal of Archaeological Science 50: 39–50. DOI: 10.1016/j.jas.2014.05.033"
+  },
+  {
+    "objectID": "modules/10-pottery.html#part-ii-your-analysis-ogame-jars-from-edo-period-japan",
+    "href": "modules/10-pottery.html#part-ii-your-analysis-ogame-jars-from-edo-period-japan",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Part II — Your Analysis: Ogame Jars from Edo-Period Japan",
+    "text": "Part II — Your Analysis: Ogame Jars from Edo-Period Japan\n\nThe research question\nNot all shape questions are about typology. A different and equally important question is about production and selection:\n\nAre jars from kiln sites (where they were made) more standardized in shape than jars from burial contexts (where families chose specific vessels to inter with the dead)?\n\nIf kiln-produced jars are highly uniform, that tells us something about production organization — potters working to a standard. If burial jars show different or more varied shapes, that might mean families selected visually distinctive vessels, or that different kilns supplied different markets.\nThis question is answerable with EFA + PCA.\n\n\nThe dataset\nLoftus, J. (2025). A Geometric Morphometric Dataset of Edo-Period ‘Ogame’ Jar Profiles from Northern Kyushu, Japan. Journal of Open Archaeology Data 13:13. DOI: 10.5334/joad.159 | Data: zenodo.org/records/15781166\nOgame (大甕, “large jars”) are thick-walled stoneware vessels produced in the Hizen and Chikuzen provinces of northern Kyushu during the Edo period (c. AD 1600–1800). They served diverse functions: storing soy sauce and other goods, and also as burial containers for human remains.\n\n\n\n\n\n\n\nSpecimens\n243 jars\n\n\nSites\n12 (2 kiln sites + 9 mortuary sites + 1 museum collection)\n\n\nFormat\nStandardized PNG silhouette images, one per jar\n\n\nLicense\nCC-BY 4.0\n\n\n\n\n\n\nSite code\nSite name\nContext\nN\n\n\n\n\nFR\nFurukameyashimo\nKiln\n89\n\n\nKM\nKameya\nKiln\n48\n\n\nMR\nMaruya\nMortuary\n36\n\n\nNT\nNishitakagi\nMortuary\n21\n\n\nNS\nNarasaki\nMortuary\n11\n\n\nMD\nMukaida\nMortuary\n12\n\n\nMT\nMitsutake\nMortuary\n10\n\n\nHK\nHakozaki\nMortuary\n4\n\n\nKS, KT, TJ, TK\nOther mortuary\nMortuary\n12\n\n\n\nKiln sites (FR + KM = 137 jars) vs. Mortuary sites (106 jars) is the main comparison."
+  },
+  {
+    "objectID": "modules/10-pottery.html#the-pottery-pipeline",
+    "href": "modules/10-pottery.html#the-pottery-pipeline",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "The Pottery Pipeline",
+    "text": "The Pottery Pipeline\n\n\n\n\n\n\nOpen the Week 10 Notebook\n\n\n\n→ Week 10 Colab Notebook (link active Week 10)\nThis notebook is pre-built — run it cell by cell without writing any new code. Focus on interpretation.\n\n\n\nStep 1 — Install and import\n!pip install pyefd scikit-image --quiet\n\nimport os, zipfile, requests\nimport numpy as np\nimport pandas as pd\nfrom PIL import Image\nfrom skimage import measure\nimport pyefd\nfrom sklearn.decomposition import PCA\nimport matplotlib.pyplot as plt\nfrom scipy.stats import mannwhitneyu\n\n\nStep 2 — Download and unpack the dataset\n# Download from Zenodo (run once — ~30 MB)\nurl = \"https://zenodo.org/records/15781166/files/Ogame_GMM.zip?download=1\"\nr = requests.get(url, stream=True)\nwith open(\"Ogame_GMM.zip\", \"wb\") as f:\n    for chunk in r.iter_content(chunk_size=8192):\n        f.write(chunk)\n\nwith zipfile.ZipFile(\"Ogame_GMM.zip\") as z:\n    z.extractall(\".\")\nprint(\"Done. Files extracted to Ogame_GMM/\")\n\n\nStep 3 — Load metadata\nsamples = pd.read_csv(\"Ogame_GMM/Ogame_Samples.csv\")\n# Rename the long column for convenience\nsamples = samples.rename(columns={\n    samples.columns[3]: \"context_code\"\n})\nsamples[\"context\"] = samples[\"context_code\"].map({1: \"Burial\", 2: \"Kiln\"})\nprint(samples[\"context\"].value_counts())\nprint(samples[\"Site Code\"].value_counts())\n\n\nStep 4 — Extract outlines and compute EFA\ndef extract_outline(image_path):\n    \"\"\"Extract the external outline of a black vessel silhouette on white background.\"\"\"\n    img = np.array(Image.open(image_path).convert('L'))\n    binary = img &lt; 128                         # True where vessel is (dark pixels)\n    contours = measure.find_contours(binary.astype(float), 0.5)\n    if not contours:\n        return None\n    return max(contours, key=len)              # largest contour = vessel outline\n\nrecords = []\nimg_dir = \"Ogame_GMM/Ogame_Profiles_All\"\n\nfor _, row in samples.iterrows():\n    path = os.path.join(img_dir, f\"{row['Sample ID']}.png\")\n    if not os.path.exists(path):\n        continue\n    outline = extract_outline(path)\n    if outline is None or len(outline) &lt; 50:\n        continue\n    y, x = outline[:, 0], outline[:, 1]   # skimage returns (row, col)\n    # Compute EFA with 20 harmonics, normalised for size and orientation\n    coeffs = pyefd.elliptic_fourier_descriptors(\n        np.column_stack([x, y]), order=20, normalize=True\n    )\n    records.append({\n        \"sample_id\":  row[\"Sample ID\"],\n        \"site_code\":  row[\"Site Code\"],\n        \"context\":    row[\"context\"],\n        **{f\"c{i:03d}\": v for i, v in enumerate(coeffs.ravel())}\n    })\n\ndf = pd.DataFrame(records)\nprint(f\"Processed {len(df)} jars successfully\")\n\n\nStep 5 — PCA and visualisation\ncoeff_cols = [c for c in df.columns if c.startswith(\"c\")]\nX = df[coeff_cols].values\n\npca = PCA()\nscores = pca.fit_transform(X)\nvar1 = pca.explained_variance_ratio_[0] * 100\nvar2 = pca.explained_variance_ratio_[1] * 100\n\n# ── Plot 1: colour by depositional context ───────────────────────────────────\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\ncolors = {\"Kiln\": \"#e07b39\", \"Burial\": \"#4a90c4\"}\nfor ctx, col in colors.items():\n    mask = df[\"context\"] == ctx\n    axes[0].scatter(scores[mask, 0], scores[mask, 1],\n                    c=col, label=f\"{ctx} (n={mask.sum()})\",\n                    s=50, alpha=0.75, edgecolors=\"white\", linewidths=0.5)\n\naxes[0].set_xlabel(f\"PC1 ({var1:.1f}%)\")\naxes[0].set_ylabel(f\"PC2 ({var2:.1f}%)\")\naxes[0].set_title(\"Ogame Jar Shape Space — by Depositional Context\")\naxes[0].axhline(0, color=\"grey\", lw=0.5, ls=\"--\")\naxes[0].axvline(0, color=\"grey\", lw=0.5, ls=\"--\")\naxes[0].legend()\n\n# ── Plot 2: colour by production site (kiln sites only) ──────────────────────\nkiln_mask = df[\"context\"] == \"Kiln\"\nkiln_sites = df.loc[kiln_mask, \"site_code\"].unique()\nkiln_colors = {\"FR\": \"#d62728\", \"KM\": \"#ff7f0e\"}\nfor site in kiln_sites:\n    mask = df[\"site_code\"] == site\n    axes[1].scatter(scores[mask, 0], scores[mask, 1],\n                    c=kiln_colors.get(site, \"#aaaaaa\"),\n                    label=f\"{site} (n={mask.sum()})\",\n                    s=55, alpha=0.8, edgecolors=\"white\", linewidths=0.5)\n\naxes[1].set_xlabel(f\"PC1 ({var1:.1f}%)\")\naxes[1].set_ylabel(f\"PC2 ({var2:.1f}%)\")\naxes[1].set_title(\"Kiln Sites Compared — FR vs KM\")\naxes[1].axhline(0, color=\"grey\", lw=0.5, ls=\"--\")\naxes[1].axvline(0, color=\"grey\", lw=0.5, ls=\"--\")\naxes[1].legend()\n\nplt.tight_layout()\nplt.savefig(\"ogame_pca.png\", dpi=150, bbox_inches=\"tight\")\nplt.show()\nprint(f\"PC1: {var1:.1f}% | PC2: {var2:.1f}% | Together: {var1+var2:.1f}%\")\n\n\nStep 6 — Statistical test (kiln vs. burial)\npc1_kiln   = scores[df[\"context\"] == \"Kiln\",   0]\npc1_burial = scores[df[\"context\"] == \"Burial\",  0]\n\nstat, p = mannwhitneyu(pc1_kiln, pc1_burial, alternative=\"two-sided\")\nprint(f\"Mann-Whitney U test on PC1 scores:\")\nprint(f\"  Kiln mean PC1:   {pc1_kiln.mean():.4f}\")\nprint(f\"  Burial mean PC1: {pc1_burial.mean():.4f}\")\nprint(f\"  U = {stat:.1f}, p = {p:.4f}\")\nif p &lt; 0.05:\n    print(\"  → Significant difference in shape between kiln and burial jars.\")\nelse:\n    print(\"  → No significant difference — shapes overlap.\")"
+  },
+  {
+    "objectID": "modules/10-pottery.html#interpreting-the-results",
+    "href": "modules/10-pottery.html#interpreting-the-results",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Interpreting the Results",
+    "text": "Interpreting the Results\nWork through these questions with your PCA plots:\n\nDo kiln jars and burial jars separate in shape space? If yes, what does that mean archaeologically? If no — what might explain the lack of difference?\nDo the two kiln sites (FR and KM) cluster separately? If yes, this suggests each workshop had its own production style. If they overlap, kilns were producing to a shared regional standard.\nWhat shape features drive PC1? Look at jars plotted at the extreme left vs. extreme right of your scatter plot. Ask: what is visually different about those vessels?\nWhat is the spread within each context? High variance in burial jars could mean families chose idiosyncratic vessels; low variance in kiln jars would suggest production standardization.\nConnect to historical context: The Edo period (1600–1800) was a time of expanding commercial production in Kyushu. Large kilns like Furukameyashimo (FR) produced for regional markets. Did commercial production lead to more standardized jar forms than jars selected for burial?"
+  },
+  {
+    "objectID": "modules/10-pottery.html#connecting-back-to-bibracte",
+    "href": "modules/10-pottery.html#connecting-back-to-bibracte",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Connecting Back to Bibracte",
+    "text": "Connecting Back to Bibracte\n\n\n\n\n\n\n\n\n\nBibracte (Wilczek 2014)\nOgame jars (Loftus 2025)\n\n\n\n\nQuestion\nDoes shape separate functional types?\nDoes shape separate production/funerary contexts?\n\n\nMethod\nEFA on archaeological drawings\nEFA on standardized PNG silhouettes\n\n\nMain finding\nPC1 = elongation; types largely confirmed\nTBD — you will discover this\n\n\nArchaeological meaning\nTypology has real morphological basis\nProduction standardization and funerary selection\n\n\n\nBoth studies use the same mathematical tool — EFA — to answer fundamentally different questions. That is the power of geometric morphometrics: one method, many questions."
+  },
+  {
+    "objectID": "modules/10-pottery.html#assignment-5-due-this-week",
+    "href": "modules/10-pottery.html#assignment-5-due-this-week",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Assignment 5 Due This Week",
+    "text": "Assignment 5 Due This Week\n\n\n\n\n\n\nAssignment 5: Pottery PCA (5%)\n\n\n\nRun the Week 10 notebook on the Ogame dataset. Produce one PCA plot (coloured by context). Write 300 words connecting the shape pattern to the archaeological context of production and funerary use in Edo-period Japan.\n→ Assignment 5"
+  },
+  {
+    "objectID": "modules/10-pottery.html#next-week-testing-hypotheses",
+    "href": "modules/10-pottery.html#next-week-testing-hypotheses",
+    "title": "Module 10: Case Study III — Pottery and Ceramic Traditions",
+    "section": "Next Week: Testing Hypotheses",
+    "text": "Next Week: Testing Hypotheses\nWe formalize the statistical tools we have been using intuitively: permutation tests, effect sizes, allometry, and multiple comparisons.\n→ Module 11: Testing Hypotheses — Statistics in Shape Space"
+  },
+  {
+    "objectID": "data/index.html",
+    "href": "data/index.html",
+    "title": "Course Datasets",
+    "section": "",
+    "text": "All datasets used in this course are either: 1. Provided directly in the course repository (coins and axes) 2. Open-access with downloadable files from published peer-reviewed research (Ogame jars) 3. Referenced from published research that requires institutional access (Bibracte ceramics — case study reading only)\nFor every dataset, the original source is fully cited. All data must be used for educational purposes only and cited appropriately in any work derived from this course."
+  },
+  {
+    "objectID": "data/index.html#overview",
+    "href": "data/index.html#overview",
+    "title": "Course Datasets",
+    "section": "",
+    "text": "All datasets used in this course are either: 1. Provided directly in the course repository (coins and axes) 2. Open-access with downloadable files from published peer-reviewed research (Ogame jars) 3. Referenced from published research that requires institutional access (Bibracte ceramics — case study reading only)\nFor every dataset, the original source is fully cited. All data must be used for educational purposes only and cited appropriately in any work derived from this course."
+  },
+  {
+    "objectID": "data/index.html#dataset-1-roman-imperial-denarii",
+    "href": "data/index.html#dataset-1-roman-imperial-denarii",
+    "title": "Course Datasets",
+    "section": "Dataset 1: Roman Imperial Denarii",
+    "text": "Dataset 1: Roman Imperial Denarii\nArtefact type: Roman silver coins (denarii)\nSpecimens: - Hadrian (r. 117–138 CE): 20 specimens - Antoninus Pius (r. 138–161 CE): 15 specimens\nFormat: TPS (landmark coordinates, 8 landmarks per coin)\nImages: JPEG, standardized orientation (portrait right, die axis vertical)\nLandmarks: 8 per coin (4 portrait points + 4 edge points at cardinal positions)\nSource: UHK (Univerzita Hradec Králové) E-Learning Course — Modern Quantitative Methods and Shape Analysis in Archaeology (EU Operational Programme, reg. č. CZ.02.2.69/0.0/0.0/16_015/0002427)\nFiles in repository:\ndata/coins/\n├── DEN_Hadrian/\n│   ├── Hadrian.TPS\n│   └── [20 JPEG images]\n└── DEN_AntoniusPius/\n    ├── AntoniusPius.TPS\n    └── [15 JPEG images]\nUsed in: Assignment 2, Assignment 3, Module 5, Module 6, Module 7"
+  },
+  {
+    "objectID": "data/index.html#dataset-2-european-bronze-age-flanged-axes",
+    "href": "data/index.html#dataset-2-european-bronze-age-flanged-axes",
+    "title": "Course Datasets",
+    "section": "Dataset 2: European Bronze Age Flanged Axes",
+    "text": "Dataset 2: European Bronze Age Flanged Axes\nArtefact type: Bronze Age flanged axes, Central Europe\nSpecimens: - G3 group: ~30 specimens (images in G3/ folder) - G4 group: ~35 specimens (images in G4/ folder)\nFormat: TIF images (white background) + TPS files + EFA coefficient files\nLandmark data: Flanged_axes.TPS\nOutline data: Flanged_axes_efa.dat (pre-computed EFA coefficients), Flanged_axes_efa_pca.dat (pre-computed PCA scores)\nSource: UHK E-Learning Course (same as above)\nFiles in repository:\ndata/flanged_axes/\n├── G3/\n│   ├── [30 TIF images]\n│   └── G3.TPS\n├── G4/\n│   ├── [35 TIF images]\n│   └── G4.TPS\n├── Flanged_axes.TPS\n├── Flanged_axes.dat\n├── Flanged_axes_efa.dat\n├── Flanged_axes_efa_pca.dat\n└── axes_metadata.csv   ← geographic and typological metadata\nUsed in: Assignment 4, Module 8, Module 9"
+  },
+  {
+    "objectID": "data/index.html#dataset-3-second-iron-age-ceramics-from-bibracte",
+    "href": "data/index.html#dataset-3-second-iron-age-ceramics-from-bibracte",
+    "title": "Course Datasets",
+    "section": "Dataset 3: Second Iron Age Ceramics from Bibracte",
+    "text": "Dataset 3: Second Iron Age Ceramics from Bibracte\nArtefact type: La Tène period ceramic vessels (complete profiles)\nSite: Bibracte oppidum, Burgundy, France (capital of the Celtic Aedui tribe)\nPeriod: Second Iron Age, 2nd century BC – 1st century AD\nSpecimens: 154 complete ceramic vessels with well-preserved cross-sections\nFunctional groups (8 types):\n\n\n\nType\nN\n\n\n\n\nPlates\n35\n\n\nDishes\n20\n\n\nBowls\n24\n\n\nCups\n18\n\n\nGoblets\n14\n\n\nPots\n27\n\n\nVases\n9\n\n\nBottles\n7\n\n\n\nFormat: EFA coefficients (20 harmonics) derived from published archaeological drawings digitized at 1200 dpi. Typological metadata (vessel type) included in supplementary materials.\nSource: &gt; Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. Journal of Archaeological Science 50: 39–50. &gt; DOI: 10.1016/j.jas.2014.05.033\n\n\n\n\n\n\nData availability\n\n\n\nThe raw EFA coefficients were not publicly deposited. The supplementary materials at the DOI above contain the corpus list and typological descriptors. The Bibracte dataset is used as a published case study reading in Module 10; the hands-on student exercise uses the Ogame jars dataset (Dataset 4 below).\n\n\nUsed in: Module 10 (reading and case study)"
+  },
+  {
+    "objectID": "data/index.html#dataset-4-ogame-jars-from-edo-period-japan",
+    "href": "data/index.html#dataset-4-ogame-jars-from-edo-period-japan",
+    "title": "Course Datasets",
+    "section": "Dataset 4: Ogame Jars from Edo-Period Japan",
+    "text": "Dataset 4: Ogame Jars from Edo-Period Japan\nArtefact type: Large stoneware storage/burial jars (Ogame, 大甕)\nSite: 12 sites in northern Kyushu, Japan (Hizen and Chikuzen provinces)\nPeriod: Edo period, c. AD 1600–1800\nSpecimens: 243 jars (standardized silhouette profile images)\nContexts:\n\n\n\nSite code\nSite name\nContext\nN\n\n\n\n\nFR\nFurukameyashimo\nKiln\n89\n\n\nKM\nKameya\nKiln\n48\n\n\nMR\nMaruya\nMortuary\n36\n\n\nNT\nNishitakagi\nMortuary\n21\n\n\nNS\nNarasaki\nMortuary\n11\n\n\nMD\nMukaida\nMortuary\n12\n\n\nMT\nMitsutake\nMortuary\n10\n\n\nHK\nHakozaki\nMortuary\n4\n\n\nKS, KT, TJ, TK\nOther mortuary\nMortuary\n12\n\n\n\nKiln sites total: 137 | Mortuary sites total: 106\nFormat: Standardized PNG silhouette images, one per jar (black vessel on white background). Metadata CSV (Ogame_Samples.csv) with sample ID, site code, and depositional context code (1 = Burial, 2 = Kiln).\nLicense: CC-BY 4.0\nSource: &gt; Loftus, J. (2025). A Geometric Morphometric Dataset of Edo-Period ‘Ogame’ Jar Profiles from Northern Kyushu, Japan. Journal of Open Archaeology Data 13: 13. &gt; DOI: 10.5334/joad.159 | Data: zenodo.org/records/15781166\nFiles in repository:\ndata/ogame_jars/\n└── Ogame_GMM/\n    ├── Ogame_Profiles_All/       ← 243 PNG silhouettes (all jars)\n    ├── Ogame_Profiles_Site/\n    │   ├── FR/                   ← 89 kiln jars (Furukameyashimo)\n    │   ├── KM/                   ← 48 kiln jars (Kameya)\n    │   ├── MR/                   ← 36 mortuary jars (Maruya)\n    │   └── [9 other site folders]\n    ├── Ogame_Samples.csv         ← metadata: sample ID, site, context code\n    ├── Ogame_Sites.csv           ← site metadata: coordinates, type, excavation dates\n    └── README.txt\nThe notebook for Module 10 downloads this dataset directly from Zenodo at runtime, so students do not need to manage the files manually.\nUsed in: Assignment 5, Module 10"
+  },
+  {
+    "objectID": "data/index.html#how-to-access-data-in-colab",
+    "href": "data/index.html#how-to-access-data-in-colab",
+    "title": "Course Datasets",
+    "section": "How to Access Data in Colab",
+    "text": "How to Access Data in Colab\nAll data is available as a shared Google Drive folder. Instructions to mount it in Colab:\n# Mount Google Drive (run once per session)\nfrom google.colab import drive\ndrive.mount('/content/drive')\n\n# Set the data path\nDATA_PATH = \"/content/drive/MyDrive/ShapeInTime_Data/\"\n\n# Example: load Hadrian TPS\nhadrian = read_tps(DATA_PATH + \"coins/DEN_Hadrian/Hadrian.TPS\")\nAlternatively, you can upload data files directly to your Colab session:\nfrom google.colab import files\nuploaded = files.upload()  # opens a file picker"
+  },
+  {
+    "objectID": "data/index.html#citing-the-data",
+    "href": "data/index.html#citing-the-data",
+    "title": "Course Datasets",
+    "section": "Citing the Data",
+    "text": "Citing the Data\nWhen using course datasets in your assignments or final project, cite the original source:\nFor coins and axes: &gt; Morphometrics course materials. Modern Quantitative Methods and Shape Analysis in Archaeology. Univerzita Hradec Králové, Filozofická Fakulta. Project CZ.02.2.69/0.0/0.0/16_015/0002427.\nFor Bibracte ceramics: &gt; Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. Journal of Archaeological Science 50: 39–50. DOI: 10.1016/j.jas.2014.05.033\nFor Ogame jars: &gt; Loftus, J. (2025). A Geometric Morphometric Dataset of Edo-Period ‘Ogame’ Jar Profiles from Northern Kyushu, Japan. Journal of Open Archaeology Data 13: 13. DOI: 10.5334/joad.159"
+  }
+]

@@ -1,10 +1,9 @@
 project:
   type: website
-  output-dir: ../../docs/morphometrics
+  output-dir: ../docs/morphometrics
 
 website:
-  title: "Shape in Time"
-  subtitle: "Geometric Morphometrics for Archaeologists"
+  title: "Shape in Time: Geometric Morphometrics for Archaeologists"
   navbar:
     background: dark
     left:
