@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he" xml:lang="he" dir="rtl"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.34">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 5: Procrustes Alignment — Putting Shapes in the Same Space – Shape in Time: Geometric Morphometrics for Archaeologists</title>
+<title>Module 5: Procrustes Alignment — Putting Shapes in the Same Space – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,17 +89,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "אין תוצאות",
+    "search-matching-documents-text": "מסמכים תואמים",
+    "search-copy-link-title": "העתק קישור לחיפוש",
+    "search-hide-matches-text": "הסתר התאמות נוספות",
+    "search-more-match-text": "התאמה נוספת במסמך זה",
+    "search-more-matches-text": "התאמות נוספות במסמך זה",
+    "search-clear-button-title": "נקה",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "בטל",
+    "search-submit-button-title": "שלח",
+    "search-label": "חפש"
   }
 }</script>
 
@@ -133,6 +133,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles/rtl.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -143,116 +144,112 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Shape in Time: Geometric Morphometrics for Archaeologists</span>
+    <span class="navbar-title">צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="חפש"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="הצג/הסתר ניווט" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../syllabus.html"> 
-<span class="menu-text">Syllabus</span></a>
+<span class="menu-text">לוח זמנים</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Modules</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">שיעורים</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
         <li>
     <a class="dropdown-item" href="../modules/01-what-is-shape.html">
- <span class="dropdown-text">Week 1 — What is Shape?</span></a>
+ <span class="dropdown-text">שבוע 1 — מהי צורה?</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/02-data-collection.html">
- <span class="dropdown-text">Week 2 — From Calipers to Coordinates</span></a>
+ <span class="dropdown-text">שבוע 2 — ממדידה לקואורדינטות</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/03-ai-coding.html">
- <span class="dropdown-text">Week 3 — Digitizing Landmarks (FIJI)</span></a>
+ <span class="dropdown-text">שבוע 3 — דיגיטציה (FIJI)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/04-procrustes.html">
- <span class="dropdown-text">Week 4 — AI Lab Partner &amp; Colab</span></a>
+ <span class="dropdown-text">שבוע 4 — עוזר AI ו-Colab</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/05-pca.html">
- <span class="dropdown-text">Week 5 — Procrustes Alignment</span></a>
+ <span class="dropdown-text">שבוע 5 — יישור פרוקרוסטס</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/06-coins.html">
- <span class="dropdown-text">Week 6 — PCA &amp; Shape Space</span></a>
+ <span class="dropdown-text">שבוע 6 — PCA ומרחב הצורות</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/07-outlines-theory.html">
- <span class="dropdown-text">Week 7 — Case Study I: Roman Coins</span></a>
+ <span class="dropdown-text">שבוע 7 — מטבעות רומיים</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/08-axes.html">
- <span class="dropdown-text">Week 8 — Outline Analysis (EFA)</span></a>
+ <span class="dropdown-text">שבוע 8 — ניתוח קווי מתאר (EFA)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/09-statistics.html">
- <span class="dropdown-text">Week 9 — Case Study II: Bronze Age Axes</span></a>
+ <span class="dropdown-text">שבוע 9 — גרזני ברונזה</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/10-pottery.html">
- <span class="dropdown-text">Week 10 — Case Study III: Pottery</span></a>
+ <span class="dropdown-text">שבוע 10 — כלי חרס</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/11-3d.html">
- <span class="dropdown-text">Week 11 — Testing Hypotheses</span></a>
+ <span class="dropdown-text">שבוע 11 — בדיקת השערות</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/12-big-questions.html">
- <span class="dropdown-text">Week 12 — Synthesis &amp; Presentations</span></a>
+ <span class="dropdown-text">שבוע 12 — סינתזה והצגות</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Assignments</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">מטלות</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu--1">    
         <li>
     <a class="dropdown-item" href="../assignments/01-shape-journal.html">
- <span class="dropdown-text">Assignment 1 — Shape Journal (5%)</span></a>
+ <span class="dropdown-text">מטלה 1 — יומן צורות (5%)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../assignments/02-landmarks.html">
- <span class="dropdown-text">Assignment 2 — Landmark Exercise (10%)</span></a>
+ <span class="dropdown-text">מטלה 2 — תרגיל ציוני דרך (10%)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../assignments/03-coins.html">
- <span class="dropdown-text">Assignment 3 — Coins Analysis (15%)</span></a>
+ <span class="dropdown-text">מטלה 3 — ניתוח מטבעות (15%)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../assignments/04-axes.html">
- <span class="dropdown-text">Assignment 4 — Axes EFA (15%)</span></a>
+ <span class="dropdown-text">מטלה 4 — EFA לגרזנים (15%)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../assignments/05-pottery.html">
- <span class="dropdown-text">Assignment 5 — Pottery PCA (5%)</span></a>
+ <span class="dropdown-text">מטלה 5 — PCA לכלי חרס (5%)</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../assignments/final-project.html">
- <span class="dropdown-text">Final Project (50%)</span></a>
+ <span class="dropdown-text">פרויקט גמר (50%)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../data/index.html"> 
-<span class="menu-text">Data</span></a>
+<span class="menu-text">נתונים</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../resources.html"> 
-<span class="menu-text">Resources</span></a>
+<span class="menu-text">משאבים</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -267,7 +264,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
   <li><a href="#the-problem-we-are-solving" id="toc-the-problem-we-are-solving" class="nav-link active" data-scroll-target="#the-problem-we-are-solving">The Problem We Are Solving</a></li>
@@ -291,7 +288,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Module 5: Procrustes Alignment — Putting Shapes in the Same Space</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Module 5: Procrustes Alignment — Putting Shapes in the Same Space</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
 <p class="subtitle lead">Week 5 — The Toolkit</p>
 </div>
 
@@ -366,14 +363,14 @@ Open the Week 5 Notebook
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data (using the read_tps function from Week 4)</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>hadrian <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_Hadrian/Hadrian.TPS"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loaded </span><span class="sc">{</span>hadrian<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> coins, </span><span class="sc">{</span>hadrian<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> landmarks each"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loaded </span><span class="sc">{</span>hadrian<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> coins, </span><span class="sc">{</span>hadrian<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> landmarks each"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 2: Generalized Procrustes Analysis</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># morphops.procrustes_fit() returns aligned coordinates and centroid sizes</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>aligned, centroid_sizes, transforms <span class="op">=</span> mops.procrustes_fit(hadrian,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                                                            allow_reflection<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Aligned shape: </span><span class="sc">{</span>aligned<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Centroid sizes (first 5): </span><span class="sc">{</span>centroid_sizes[:<span class="dv">5</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Centroid sizes (first 5): </span><span class="sc">{</span>centroid_sizes[:<span class="dv">5</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 3: Plot aligned configurations</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -400,7 +397,7 @@ Open the Week 5 Notebook
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="what-does-centroid-size-tell-us" class="level2">
@@ -421,7 +418,7 @@ Open the Week 5 Notebook
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean centroid size: </span><span class="sc">{</span>centroid_sizes<span class="sc">.</span>mean()<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Std dev: </span><span class="sc">{</span>centroid_sizes<span class="sc">.</span>std()<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"CV (coefficient of variation): </span><span class="sc">{</span>centroid_sizes<span class="sc">.</span>std()<span class="op">/</span>centroid_sizes<span class="sc">.</span>mean()<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"CV (coefficient of variation): </span><span class="sc">{</span>centroid_sizes<span class="sc">.</span>std()<span class="op">/</span>centroid_sizes<span class="sc">.</span>mean()<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A low CV means coins were produced to a consistent size — strong standardization. A high CV suggests less quality control.</p>
 <hr>
 </section>
@@ -480,12 +477,12 @@ Open the Week 5 Notebook
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "הועתק!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "הועתק!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -911,7 +908,7 @@ Open the Week 5 Notebook
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">קוד מקור</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Module 5: Procrustes Alignment — Putting Shapes in the Same Space"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Week 5 — The Toolkit"</span></span>
@@ -1073,9 +1070,12 @@ Open the Week 5 Notebook
 <span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>Next week: PCA reduces the 12-dimensional shape space to 2–3 dimensions we can actually see — and connects the dimensions to visible shape features using deformation grids.</span>
 <span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 6: PCA — Exploring the Shape Space</span><span class="co">](06-coins.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 6: PCA — Exploring the Shape Space</span><span class="co">](06-coins.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+<div class="author-credit">
+  קורס מאת <strong>שי גורדין</strong> | אוניברסיטת אריאל | אביב 2026
+</div>
 
 
 

@@ -1,0 +1,142 @@
+---
+title: "מקרה בוחן II: גרזני ברונזה"
+subtitle: "שבוע 9 — EFA על נשק פרה-היסטורי"
+author: "שי גורדין | אוניברסיטת אריאל"
+format:
+  revealjs:
+    theme: night
+    direction: rtl
+    lang: he
+    slide-number: true
+    chalkboard: true
+    transition: slide
+    css: ../styles/rtl.css
+    footer: "צורה בזמן — שי גורדין, אוניברסיטת אריאל"
+---
+
+## גרזני הברונזה — רקע {.center}
+
+גרזנים בעלי כנפיים (Flanged Axes) — מרכז אירופה, ~1800–1200 לפנה"ס
+
+::: {.incremental}
+- אחד הסוגים הנפוצים ביותר של כלי ברונזה
+- נמצאים באוצרות, קבורות, הקשרים יישוביים
+- **שאלה:** האם שתי קבוצות הגרזנים (G3, G4) שונות בצורה?
+:::
+
+---
+
+## שאלת המחקר
+
+> האם קבוצה G3 וקבוצה G4 של גרזני ברונזה  
+> מייצגות **מסורות יצור שונות** או **שלבים כרונולוגיים**  
+> שניתן להבחין ביניהם מצורת הגרזן בלבד?
+
+---
+
+## הנתונים
+
+| קבוצה | N | מאפיין |
+|-------|---|--------|
+| G3 | ~30 | גרזנים מוקדמים יותר |
+| G4 | ~35 | גרזנים מאוחרים יותר |
+
+::: {.fragment}
+פורמט: תמונות TIF + קובץ TPS + מקדמי EFA מחושבים מראש  
+(`Flanged_axes_efa.dat`)
+:::
+
+---
+
+## עיבוד מלא — EFA + PCA
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
+# טעינת מקדמי EFA מחושבים מראש
+efa_data = pd.read_csv("data/flanged_axes/Flanged_axes_efa.dat",
+                        sep='\t')
+
+# הפרדה למטה-דאטה ומקדמים
+metadata = efa_data[['specimen', 'group']]
+coeff_cols = [c for c in efa_data.columns if c.startswith('EFA')]
+X = efa_data[coeff_cols].values
+
+# PCA
+pca = PCA()
+scores = pca.fit_transform(X)
+var = pca.explained_variance_ratio_ * 100
+
+print(f"PC1: {var[0]:.1f}% | PC2: {var[1]:.1f}% | ביחד: {var[:2].sum():.1f}%")
+```
+
+---
+
+## ויזואליזציה — G3 לעומת G4
+
+```python
+fig, ax = plt.subplots(figsize=(9, 7))
+
+colors = {'G3': '#d62728', 'G4': '#1f77b4'}
+for group, c in colors.items():
+    mask = metadata['group'] == group
+    ax.scatter(scores[mask, 0], scores[mask, 1],
+               c=c, label=group, s=70, alpha=0.8,
+               edgecolors='white', lw=0.5)
+
+ax.set_xlabel(f"PC1 ({var[0]:.1f}%)")
+ax.set_ylabel(f"PC2 ({var[1]:.1f}%)")
+ax.set_title("מרחב הצורות — גרזני ברונזה G3 לעומת G4")
+ax.legend(fontsize=13)
+ax.axhline(0, color='grey', lw=0.5, ls='--')
+ax.axvline(0, color='grey', lw=0.5, ls='--')
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## בדיקת מאן-וויטני על PC1
+
+```python
+from scipy.stats import mannwhitneyu
+
+g3_scores = scores[metadata['group'] == 'G3', 0]
+g4_scores = scores[metadata['group'] == 'G4', 0]
+
+stat, p = mannwhitneyu(g3_scores, g4_scores, 
+                        alternative='two-sided')
+print(f"מאן-וויטני: U={stat:.1f}, p={p:.4f}")
+print(f"ממוצע PC1 — G3: {g3_scores.mean():.4f}")
+print(f"ממוצע PC1 — G4: {g4_scores.mean():.4f}")
+
+if p < 0.05:
+    print("→ הבדל מובהק בצורה בין G3 ל-G4")
+else:
+    print("→ אין הבדל מובהק — הצורות חופפות")
+```
+
+---
+
+## שאלות לדיון
+
+::: {.incremental}
+- אם G3 ו-G4 נפרדים — מה מסביר את ההבדל? זמן? מקום? שימוש?
+- אם הם חופפים — האם הטיפולוגיה מוגזמת?
+- מה משתנה לאורך PC1? (הסתכלו על הגרזנים בקצוות)
+- איזה **מידע נוסף** היה עוזר לפרשנות?
+:::
+
+---
+
+## לשיעור הבא — כלי חרס
+
+גרזנים = קווי מתאר חיצוניים.  
+כלי חרס = **פרופיל חתך** — EFA על חצי-הפרופיל.
+
+::: {.fragment}
+קראו: [מודול 9 — סטטיסטיקה](../modules/09-statistics.qmd) ו-[מודול 10 — כלי חרס](../modules/10-pottery.qmd)
+:::

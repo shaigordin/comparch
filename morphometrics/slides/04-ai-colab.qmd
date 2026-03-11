@@ -1,0 +1,143 @@
+---
+title: "עוזר ה-AI שלך ו-Google Colab"
+subtitle: "שבוע 4 — תכנות מונחה-AI"
+author: "שי גורדין | אוניברסיטת אריאל"
+format:
+  revealjs:
+    theme: night
+    direction: rtl
+    lang: he
+    slide-number: true
+    chalkboard: true
+    transition: slide
+    css: ../styles/rtl.css
+    footer: "צורה בזמן — שי גורדין, אוניברסיטת אריאל"
+---
+
+## ה-AI כותב את הקוד; אתם שואלים את השאלות {.center}
+
+::: {.fragment}
+הפרדיגמה החדשה של מחקר מדעי:  
+**שאלה ארכאולוגית → פרומפט ל-AI → קוד Python → תוצאה**
+:::
+
+---
+
+## מה זה Google Colab?
+
+::: {.columns}
+::: {.column width="60%"}
+- מחברת Jupyter בדפדפן
+- Python מותקן מראש
+- חינמי, ללא התקנה
+- GPU חינמי לחישובים
+- שמירה אוטומטית ב-Google Drive
+:::
+::: {.column width="40%"}
+::: {.callout-tip}
+גשו ל:  
+[colab.research.google.com](https://colab.research.google.com)
+
+היכנסו עם חשבון Google שלכם.
+:::
+:::
+:::
+
+---
+
+## איך לכתוב פרומפט טוב ל-AI
+
+**פרומפט גרוע:**
+> "תכתוב קוד לניתוח מטבעות"
+
+**פרומפט טוב:**
+
+::: {.ltr-block}
+```
+I have a TPS file with 8 landmarks from 20 Roman coins.
+I want to:
+1. Load the TPS file into numpy arrays
+2. Perform Generalized Procrustes Analysis
+3. Plot the aligned landmarks overlaid
+
+Please write Python code for Google Colab with comments explaining each step.
+```
+:::
+
+---
+
+## דוגמה: AI מייצר קוד GPA
+
+```python
+# קוד שנוצר על ידי Claude — יישור פרוקרוסטס
+import numpy as np
+from morphops import procrustes_alignment
+
+# טעינת נתונים (20 מטבעות × 8 ציוני דרך × 2 קואורדינטות)
+landmarks = np.load("hadrian_landmarks.npy")
+print(f"צורת הנתונים: {landmarks.shape}")
+
+# יישור פרוקרוסטס
+aligned, mean_shape, _ = procrustes_alignment(landmarks)
+
+# ויזואליזציה
+import matplotlib.pyplot as plt
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# לפני יישור
+for specimen in landmarks:
+    axes[0].scatter(specimen[:, 0], specimen[:, 1], 
+                    alpha=0.3, c='blue', s=20)
+axes[0].set_title("לפני יישור פרוקרוסטס")
+
+# אחרי יישור
+for specimen in aligned:
+    axes[1].scatter(specimen[:, 0], specimen[:, 1], 
+                    alpha=0.3, c='red', s=20)
+axes[1].set_title("אחרי יישור פרוקרוסטס")
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## כללי זהב לעבודה עם AI
+
+::: {.incremental}
+1. **תמיד הריצו את הקוד** — AI עושה טעויות
+2. **הסבירו לAI מה הנתונים שלכם** — מבנה, גודל, פורמט
+3. **בקשו הסברים** — "הסבר מה עושה כל שורה"
+4. **בדקו פלטים** — האם המספרים הגיוניים?
+5. **שמרו גרסאות** — Colab שומר אוטומטית
+:::
+
+---
+
+## תרגיל כיתתי
+
+פתחו Colab חדש ובקשו מ-Claude:
+
+::: {.ltr-block}
+```
+Write Python code to:
+1. Create 5 random 2D shapes (8 points each)
+2. Plot them all in different colors
+3. Show how different their centroid positions are
+
+Include all imports and comments.
+```
+:::
+
+::: {.callout-tip .fragment}
+העתיקו את הקוד שקיבלתם ל-Colab והריצו. מה קיבלתם?
+:::
+
+---
+
+## לשיעור הבא
+
+::: {.incremental}
+- פתחו חשבון Colab וחשבון Claude (שניהם חינמיים)
+- השלימו את דיגיטציית המטבעות מהשבוע הקודם
+- קראו: [מודול 4](../modules/04-procrustes.qmd)
+:::

@@ -172,7 +172,7 @@
     "href": "modules/07-outlines-theory.html#assignment-3-due-this-week",
     "title": "Module 7: Case Study I — Roman Coins and Imperial Standardization",
     "section": "Assignment 3 Due This Week",
-    "text": "Assignment 3 Due This Week\n\n\n\n\n\n\nNote\n\n\n\nSubmit your Colab notebook link + 500-word interpretation as PDF.\n→ Assignment 3: Coins Shape Analysis\n\n\n→ Module 8: Outline Analysis — Elliptic Fourier Analysis"
+    "text": "Assignment 3 Due This Week\n\n\n\n\n\n\nהערה\n\n\n\nSubmit your Colab notebook link + 500-word interpretation as PDF.\n→ Assignment 3: Coins Shape Analysis\n\n\n→ Module 8: Outline Analysis — Elliptic Fourier Analysis"
   },
   {
     "objectID": "modules/06-coins.html",
@@ -467,6 +467,300 @@
     "title": "Syllabus",
     "section": "Key References",
     "text": "Key References\n\nFoundational Works\n\nKendall, D.G. (1977). The diffusion of shape. Advances in Applied Probability 9:428–430.\nBookstein, F.L. (1991). Morphometric Tools for Landmark Data. Cambridge University Press.\nZelditch, M.L. et al. (2012). Geometric Morphometrics for Biologists (2nd ed.). Academic Press.\nSlice, D.E. (2007). Geometric morphometrics. Annual Review of Anthropology 36:261–281.\n\n\n\nPython Tools\n\nmorphops: github.com/tpgillam/morphops\npyefd: github.com/hbldh/pyefd\nBonhomme, V. et al. (2014). Momocs: Outline analysis using R. Journal of Statistical Software 56(13) [conceptual reference for EFA].\n\n\n\nDatasets Used in This Course\n\nCoins: Roman Imperial denarii — Hadrian & Antoninus Pius. TPS format. Source: UHK Morphometrics Course.\nFlanged Axes: European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.\nPottery: Open-access dataset (DOI and full citation on the Data page)."
+  },
+  {
+    "objectID": "slides/10-pottery.html#צנצנות-ogame-רקע",
+    "href": "slides/10-pottery.html#צנצנות-ogame-רקע",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "צנצנות Ogame — רקע",
+    "text": "צנצנות Ogame — רקע\n大甕 — “כד גדול” — קיושו הצפונית, יפן, 1600–1800 לספירה\n\nייצור תעשייתי לאחסון רוטב סויה, סאקה, דשן\nשימוש משני: כלי קבורה לגוף האדם\nשאלה: האם כדי כבשן נבדלים מכדי קבורה בצורתם?"
+  },
+  {
+    "objectID": "slides/10-pottery.html#שאלת-המחקר",
+    "href": "slides/10-pottery.html#שאלת-המחקר",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "שאלת המחקר",
+    "text": "שאלת המחקר\n\nהאם צורת הכד מעידה על ההקשר שבו הוא שימש —\nייצור (כבשן) לעומת קבורה (בית עלמין)?\n\n\nאם כן: משפחות בחרו כדים מיוחדים לקבורה.\nאם לא: הכדים הועברו ישירות מהכבשן לקבר."
+  },
+  {
+    "objectID": "slides/10-pottery.html#הנתונים-loftus-2025",
+    "href": "slides/10-pottery.html#הנתונים-loftus-2025",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "הנתונים (Loftus 2025)",
+    "text": "הנתונים (Loftus 2025)\n\n\n\nאתר\nהקשר\nN\n\n\n\n\nFR (Furukameyashimo)\nכבשן\n89\n\n\nKM (Kameya)\nכבשן\n48\n\n\nMR, NT, NS, MD ועוד\nקבורה\n106\n\n\n\n\nSource: Loftus, J. (2025). Journal of Open Archaeology Data 13:13.\nDOI: 10.5334/joad.159 | Zenodo: 10.5281/zenodo.15781166"
+  },
+  {
+    "objectID": "slides/10-pottery.html#הורדת-הנתונים-ב-colab",
+    "href": "slides/10-pottery.html#הורדת-הנתונים-ב-colab",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "הורדת הנתונים ב-Colab",
+    "text": "הורדת הנתונים ב-Colab\nimport requests, zipfile, os\n\n# הורדה מ-Zenodo (פעם אחת)\nurl = \"https://zenodo.org/records/15781166/files/Ogame_GMM.zip?download=1\"\nr = requests.get(url, stream=True)\nwith open(\"Ogame_GMM.zip\", \"wb\") as f:\n    for chunk in r.iter_content(chunk_size=8192):\n        f.write(chunk)\n\nwith zipfile.ZipFile(\"Ogame_GMM.zip\") as z:\n    z.extractall(\".\")\nprint(\"הנתונים הורדו בהצלחה!\")\n\n# טעינת מטה-דאטה\nimport pandas as pd\nsamples = pd.read_csv(\"Ogame_GMM/Ogame_Samples.csv\")\nsamples = samples.rename(columns={samples.columns[3]: \"context_code\"})\nsamples[\"context\"] = samples[\"context_code\"].map({1: \"קבורה\", 2: \"כבשן\"})\nprint(samples[\"context\"].value_counts())"
+  },
+  {
+    "objectID": "slides/10-pottery.html#חישוב-efa-וpca",
+    "href": "slides/10-pottery.html#חישוב-efa-וpca",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "חישוב EFA וPCA",
+    "text": "חישוב EFA וPCA\nimport pyefd\nfrom PIL import Image\nfrom skimage import measure\nfrom sklearn.decomposition import PCA\n\n# EFA על כל הכדים\nrecords = []\nfor _, row in samples.iterrows():\n    path = f\"Ogame_GMM/Ogame_Profiles_All/{row['Sample ID']}.png\"\n    outline = extract_outline(path)\n    if outline is None: continue\n    y, x = outline[:, 0], outline[:, 1]\n    coeffs = pyefd.elliptic_fourier_descriptors(\n        np.column_stack([x, y]), order=20, normalize=True)\n    records.append({\"id\": row[\"Sample ID\"],\n                    \"context\": row[\"context\"],\n                    **{f\"c{i}\": v for i,v in enumerate(coeffs.ravel())}})\n\ndf = pd.DataFrame(records)\nX = df[[c for c in df.columns if c.startswith(\"c\")]].values\npca = PCA()\nscores = pca.fit_transform(X)\nvar = pca.explained_variance_ratio_ * 100"
+  },
+  {
+    "objectID": "slides/10-pottery.html#ממצאים-כבשן-לעומת-קבורה",
+    "href": "slides/10-pottery.html#ממצאים-כבשן-לעומת-קבורה",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "ממצאים — כבשן לעומת קבורה",
+    "text": "ממצאים — כבשן לעומת קבורה\nfig, ax = plt.subplots(figsize=(9, 7))\n\ncolors = {\"כבשן\": \"#e07b39\", \"קבורה\": \"#4a90c4\"}\nfor ctx, c in colors.items():\n    mask = df[\"context\"] == ctx\n    ax.scatter(scores[mask, 0], scores[mask, 1],\n               c=c, label=f\"{ctx} (n={mask.sum()})\",\n               s=50, alpha=0.75, edgecolors='white', lw=0.5)\n\nax.set_xlabel(f\"PC1 ({var[0]:.1f}%)\")\nax.set_ylabel(f\"PC2 ({var[1]:.1f}%)\")\nax.set_title(\"מרחב הצורות — כדי Ogame: כבשן לעומת קבורה\")\nax.legend(fontsize=12)\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/10-pottery.html#שאלות-לפרשנות",
+    "href": "slides/10-pottery.html#שאלות-לפרשנות",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "שאלות לפרשנות",
+    "text": "שאלות לפרשנות\n\nהאם שתי הקבוצות נפרדות, חופפות, או מעורבבות?\nמה משתנה לאורך PC1? (גובה? רוחב? צוואר?)\nמה משמעות ממצא זה על תהליך הקבורה בתקופת אדו?\nמה לא ניתן לדעת מהצורה בלבד?\n\n\n\n\n\n\n\n\nהערה\n\n\nזוהי שאלת מטלה 5 — 300 מילים, בצירוף הגרף."
+  },
+  {
+    "objectID": "slides/10-pottery.html#לשיעור-הבא-סטטיסטיקה",
+    "href": "slides/10-pottery.html#לשיעור-הבא-סטטיסטיקה",
+    "title": "מקרה בוחן III: כלי חרס מיפן",
+    "section": "לשיעור הבא — סטטיסטיקה",
+    "text": "לשיעור הבא — סטטיסטיקה\nfrom scipy.stats import mannwhitneyu\n\nkiln   = scores[df[\"context\"] == \"כבשן\",   0]\nburial = scores[df[\"context\"] == \"קבורה\",  0]\n\nstat, p = mannwhitneyu(kiln, burial, alternative='two-sided')\nprint(f\"U = {stat:.1f}, p = {p:.4f}\")\nקראו: מודול 11 — בדיקת השערות"
+  },
+  {
+    "objectID": "slides/08-efa.html#מה-אם-אין-ציוני-דרך",
+    "href": "slides/08-efa.html#מה-אם-אין-ציוני-דרך",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "מה אם אין ציוני דרך?",
+    "text": "מה אם אין ציוני דרך?\nגרזן, צנצנת חרס, פגיון — אין נקודות אנטומיות מוגדרות.\n\nפתרון: ניתוח פורייה אליפטי (EFA)\nמתאר את הצורה כסכום של אליפסות מוצנבות זו בזו."
+  },
+  {
+    "objectID": "slides/08-efa.html#הרמוניות-הבנה-אינטואיטיבית",
+    "href": "slides/08-efa.html#הרמוניות-הבנה-אינטואיטיבית",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "הרמוניות — הבנה אינטואיטיבית",
+    "text": "הרמוניות — הבנה אינטואיטיבית\n\nהרמוניה 1 — האליפסה הגדולה (צורה כללית)\nהרמוניה 2 — שיפור ראשון (מוסיף פרטים)\nהרמוניה 3–5 — פרטים עדינים\nהרמוניה 6–20 — פרטים עדינים מאוד\n\n\n\n\n\n\n\n\nהערה\n\n\n20 הרמוניות → 80 מקדמי EFA לכל פרט.\nאלה הנתונים שנכנסים ל-PCA."
+  },
+  {
+    "objectID": "slides/08-efa.html#חילוץ-קו-מתאר-מ-png",
+    "href": "slides/08-efa.html#חילוץ-קו-מתאר-מ-png",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "חילוץ קו מתאר מ-PNG",
+    "text": "חילוץ קו מתאר מ-PNG\nimport numpy as np\nfrom PIL import Image\nfrom skimage import measure\n\ndef extract_outline(image_path):\n    \"\"\"חולץ את קו המתאר החיצוני מתמונת סילואט.\"\"\"\n    # פתיחה והמרה לגווני אפור\n    img = np.array(Image.open(image_path).convert('L'))\n    \n    # סף בינארי: כהה = חפץ\n    binary = img &lt; 128\n    \n    # מציאת קווי מתאר\n    contours = measure.find_contours(binary.astype(float), 0.5)\n    \n    if not contours:\n        return None\n    \n    # הכי גדול = קו המתאר של החפץ\n    return max(contours, key=len)\n\n# בדיקה\noutline = extract_outline(\"data/axes/G3/ax001.tif\")\nprint(f\"נמצאו {len(outline)} נקודות בקו המתאר\")"
+  },
+  {
+    "objectID": "slides/08-efa.html#חישוב-מקדמי-efa",
+    "href": "slides/08-efa.html#חישוב-מקדמי-efa",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "חישוב מקדמי EFA",
+    "text": "חישוב מקדמי EFA\nimport pyefd\n\ndef compute_efa(image_path, n_harmonics=20):\n    \"\"\"מחשב מקדמי EFA מתמונה.\"\"\"\n    outline = extract_outline(image_path)\n    if outline is None:\n        return None\n    \n    y, x = outline[:, 0], outline[:, 1]  # skimage: (שורה, עמודה)\n    \n    # EFA עם נרמול (גודל + סיבוב + נקודת התחלה)\n    coeffs = pyefd.elliptic_fourier_descriptors(\n        np.column_stack([x, y]),\n        order=n_harmonics,\n        normalize=True\n    )\n    return coeffs.ravel()  # וקטור של 80 מספרים\n\n# עיבוד כל הגרזנים\nimport os\nrecords = []\nfor fname in os.listdir(\"data/axes/G3\"):\n    if fname.endswith(\".tif\"):\n        c = compute_efa(f\"data/axes/G3/{fname}\")\n        if c is not None:\n            records.append({\"file\": fname, **{f\"c{i}\": v \n                           for i,v in enumerate(c)}})"
+  },
+  {
+    "objectID": "slides/08-efa.html#שחזור-צורה-מ-efa",
+    "href": "slides/08-efa.html#שחזור-צורה-מ-efa",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "שחזור צורה מ-EFA",
+    "text": "שחזור צורה מ-EFA\nimport matplotlib.pyplot as plt\n\ndef reconstruct_shape(coeffs, n_harmonics=20, n_points=300):\n    \"\"\"משחזר קו מתאר ממקדמי EFA.\"\"\"\n    coeffs_2d = coeffs.reshape(n_harmonics, 4)\n    t = np.linspace(0, 1, n_points)\n    x = np.zeros(n_points)\n    y = np.zeros(n_points)\n    \n    for n, (a, b, c, d) in enumerate(coeffs_2d, 1):\n        phi = 2 * np.pi * n * t\n        x += a * np.cos(phi) + b * np.sin(phi)\n        y += c * np.cos(phi) + d * np.sin(phi)\n    \n    return x, y\n\n# השוואה: 5 הרמוניות לעומת 20\nfig, axes = plt.subplots(1, 2, figsize=(12, 5))\nfor ax, h, title in zip(axes, [5, 20], \n                          [\"5 הרמוניות\", \"20 הרמוניות\"]):\n    sample_coeffs = records[0]  # גרזן ראשון\n    c5 = np.array([sample_coeffs[f\"c{i}\"] for i in range(h*4)])\n    x, y = reconstruct_shape(c5, h)\n    ax.plot(x, y, 'b-', lw=2)\n    ax.set_aspect('equal')\n    ax.set_title(title)\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/08-efa.html#לשיעור-הבא",
+    "href": "slides/08-efa.html#לשיעור-הבא",
+    "title": "ניתוח קווי מתאר — EFA",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\nEFA על גרזני ברונזה — מטלה 4 פתוחה.\n\nהריצו את צינור ה-EFA על קבוצות G3 ו-G4\nבצעו PCA על המקדמים\nבדקו: האם הקבוצות נפרדות?\nקראו: מודול 8"
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#ה-ai-כותב-את-הקוד-אתם-שואלים-את-השאלות",
+    "href": "slides/04-ai-colab.html#ה-ai-כותב-את-הקוד-אתם-שואלים-את-השאלות",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "ה-AI כותב את הקוד; אתם שואלים את השאלות",
+    "text": "ה-AI כותב את הקוד; אתם שואלים את השאלות\n\nהפרדיגמה החדשה של מחקר מדעי:\nשאלה ארכאולוגית → פרומפט ל-AI → קוד Python → תוצאה"
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#מה-זה-google-colab",
+    "href": "slides/04-ai-colab.html#מה-זה-google-colab",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "מה זה Google Colab?",
+    "text": "מה זה Google Colab?\n\n\n\nמחברת Jupyter בדפדפן\nPython מותקן מראש\nחינמי, ללא התקנה\nGPU חינמי לחישובים\nשמירה אוטומטית ב-Google Drive\n\n\n\n\n\n\n\n\nעצה\n\n\nגשו ל:\ncolab.research.google.com\nהיכנסו עם חשבון Google שלכם."
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#איך-לכתוב-פרומפט-טוב-ל-ai",
+    "href": "slides/04-ai-colab.html#איך-לכתוב-פרומפט-טוב-ל-ai",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "איך לכתוב פרומפט טוב ל-AI",
+    "text": "איך לכתוב פרומפט טוב ל-AI\nפרומפט גרוע: &gt; “תכתוב קוד לניתוח מטבעות”\nפרומפט טוב:\n\nI have a TPS file with 8 landmarks from 20 Roman coins.\nI want to:\n1. Load the TPS file into numpy arrays\n2. Perform Generalized Procrustes Analysis\n3. Plot the aligned landmarks overlaid\n\nPlease write Python code for Google Colab with comments explaining each step."
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#דוגמה-ai-מייצר-קוד-gpa",
+    "href": "slides/04-ai-colab.html#דוגמה-ai-מייצר-קוד-gpa",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "דוגמה: AI מייצר קוד GPA",
+    "text": "דוגמה: AI מייצר קוד GPA\n# קוד שנוצר על ידי Claude — יישור פרוקרוסטס\nimport numpy as np\nfrom morphops import procrustes_alignment\n\n# טעינת נתונים (20 מטבעות × 8 ציוני דרך × 2 קואורדינטות)\nlandmarks = np.load(\"hadrian_landmarks.npy\")\nprint(f\"צורת הנתונים: {landmarks.shape}\")\n\n# יישור פרוקרוסטס\naligned, mean_shape, _ = procrustes_alignment(landmarks)\n\n# ויזואליזציה\nimport matplotlib.pyplot as plt\nfig, axes = plt.subplots(1, 2, figsize=(12, 5))\n\n# לפני יישור\nfor specimen in landmarks:\n    axes[0].scatter(specimen[:, 0], specimen[:, 1], \n                    alpha=0.3, c='blue', s=20)\naxes[0].set_title(\"לפני יישור פרוקרוסטס\")\n\n# אחרי יישור\nfor specimen in aligned:\n    axes[1].scatter(specimen[:, 0], specimen[:, 1], \n                    alpha=0.3, c='red', s=20)\naxes[1].set_title(\"אחרי יישור פרוקרוסטס\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#כללי-זהב-לעבודה-עם-ai",
+    "href": "slides/04-ai-colab.html#כללי-זהב-לעבודה-עם-ai",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "כללי זהב לעבודה עם AI",
+    "text": "כללי זהב לעבודה עם AI\n\nתמיד הריצו את הקוד — AI עושה טעויות\nהסבירו לAI מה הנתונים שלכם — מבנה, גודל, פורמט\nבקשו הסברים — “הסבר מה עושה כל שורה”\nבדקו פלטים — האם המספרים הגיוניים?\nשמרו גרסאות — Colab שומר אוטומטית"
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#תרגיל-כיתתי",
+    "href": "slides/04-ai-colab.html#תרגיל-כיתתי",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "תרגיל כיתתי",
+    "text": "תרגיל כיתתי\nפתחו Colab חדש ובקשו מ-Claude:\n\nWrite Python code to:\n1. Create 5 random 2D shapes (8 points each)\n2. Plot them all in different colors\n3. Show how different their centroid positions are\n\nInclude all imports and comments.\n\n\n\n\n\n\n\n\nעצה\n\n\nהעתיקו את הקוד שקיבלתם ל-Colab והריצו. מה קיבלתם?"
+  },
+  {
+    "objectID": "slides/04-ai-colab.html#לשיעור-הבא",
+    "href": "slides/04-ai-colab.html#לשיעור-הבא",
+    "title": "עוזר ה-AI שלך ו-Google Colab",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\n\nפתחו חשבון Colab וחשבון Claude (שניהם חינמיים)\nהשלימו את דיגיטציית המטבעות מהשבוע הקודם\nקראו: מודול 4"
+  },
+  {
+    "objectID": "slides/05-procrustes.html#הבעיה-איך-משווים-צורות",
+    "href": "slides/05-procrustes.html#הבעיה-איך-משווים-צורות",
+    "title": "יישור פרוקרוסטס",
+    "section": "הבעיה: איך משווים צורות?",
+    "text": "הבעיה: איך משווים צורות?\nשני מטבעות, אבל אחד גדול פי שניים ומסובב ב-45°.\n\nפתרון: יישור פרוקרוסטס (GPA — Generalized Procrustes Analysis)\nהסרת גודל + מיקום + סיבוב — ונשארת רק הצורה."
+  },
+  {
+    "objectID": "slides/05-procrustes.html#שלושה-שלבי-יישור",
+    "href": "slides/05-procrustes.html#שלושה-שלבי-יישור",
+    "title": "יישור פרוקרוסטס",
+    "section": "שלושה שלבי יישור",
+    "text": "שלושה שלבי יישור\n\nהזזה (Translation) — מרכז הכובד של כל פרט ל-(0,0)\nקנה מידה (Scaling) — גודל-צנטרואיד = 1 לכולם\nסיבוב (Rotation) — מינמום סטייה מהממוצע\n\n\n\n\n\n\n\n\nהערה\n\n\nהתהליך איטרטיבי: מחשבים ממוצע → מיישרים → מחשבים ממוצע מחדש, עד להתכנסות."
+  },
+  {
+    "objectID": "slides/05-procrustes.html#גודל-צנטרואיד-centroid-size",
+    "href": "slides/05-procrustes.html#גודל-צנטרואיד-centroid-size",
+    "title": "יישור פרוקרוסטס",
+    "section": "גודל-צנטרואיד (Centroid Size)",
+    "text": "גודל-צנטרואיד (Centroid Size)\n\\[CS = \\sqrt{\\sum_{i=1}^{k} \\left[(x_i - \\bar{x})^2 + (y_i - \\bar{y})^2\\right]}\\]\nimport numpy as np\n\ndef centroid_size(landmarks):\n    \"\"\"מחשב גודל-צנטרואיד.\"\"\"\n    centroid = landmarks.mean(axis=0)\n    return np.sqrt(np.sum((landmarks - centroid)**2))\n\n# דוגמה\ncoin = np.array([[142, 891], [378, 734], \n                  [521, 612], [489, 398]])\nprint(f\"גודל-צנטרואיד: {centroid_size(coin):.2f}\")"
+  },
+  {
+    "objectID": "slides/05-procrustes.html#gpa-ב-python",
+    "href": "slides/05-procrustes.html#gpa-ב-python",
+    "title": "יישור פרוקרוסטס",
+    "section": "GPA ב-Python",
+    "text": "GPA ב-Python\nfrom morphops import procrustes_alignment\nimport numpy as np\n\n# טעינת 20 מטבעות (8 ציוני דרך כל אחד)\nlandmarks = np.load(\"hadrian_landmarks.npy\")  # (20, 8, 2)\n\n# יישור GPA\naligned, mean_shape, _ = procrustes_alignment(landmarks)\n\nprint(\"לפני יישור — טווח x:\", \n      landmarks[:,:,0].min().round(1),\n      \"עד\", landmarks[:,:,0].max().round(1))\nprint(\"אחרי יישור — טווח x:\", \n      aligned[:,:,0].min().round(3),\n      \"עד\", aligned[:,:,0].max().round(3))"
+  },
+  {
+    "objectID": "slides/05-procrustes.html#ויזואליזציה-של-יישור",
+    "href": "slides/05-procrustes.html#ויזואליזציה-של-יישור",
+    "title": "יישור פרוקרוסטס",
+    "section": "ויזואליזציה של יישור",
+    "text": "ויזואליזציה של יישור\nimport matplotlib.pyplot as plt\n\nfig, axes = plt.subplots(1, 2, figsize=(14, 6))\n\nfor i, (title, data) in enumerate([\n    (\"לפני GPA\", landmarks), \n    (\"אחרי GPA\", aligned)\n]):\n    for specimen in data:\n        axes[i].plot(*specimen.T, 'o-', alpha=0.3, \n                     color='steelblue', ms=4)\n    axes[i].plot(*mean_shape.T, 'ro-', lw=2, ms=8,\n                  label='צורה ממוצעת', zorder=5)\n    axes[i].set_title(title, fontsize=14)\n    axes[i].set_aspect('equal')\n    axes[i].legend()\n\nplt.suptitle(\"יישור פרוקרוסטס — 20 מטבעות הדריאנוס\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/05-procrustes.html#מה-שומרים-לאחר-gpa",
+    "href": "slides/05-procrustes.html#מה-שומרים-לאחר-gpa",
+    "title": "יישור פרוקרוסטס",
+    "section": "מה שומרים לאחר GPA?",
+    "text": "מה שומרים לאחר GPA?\n\n\nנשמר: - הצורה היחסית - יחסים בין ציוני דרך - שונות הצורה בין פרטים\n\nמוסר: - גודל מוחלט - מיקום בחלל - סיבוב\n\n\n\n\n\n\n\n\nעצה\n\n\nגודל-צנטרואיד נשמר בצד — אפשר לנתח אלומטריה (קשר צורה-גודל) בנפרד."
+  },
+  {
+    "objectID": "slides/05-procrustes.html#לשיעור-הבא-pca",
+    "href": "slides/05-procrustes.html#לשיעור-הבא-pca",
+    "title": "יישור פרוקרוסטס",
+    "section": "לשיעור הבא — PCA",
+    "text": "לשיעור הבא — PCA\nלאחר GPA יש לנו נתוני צורה מיושרים.\nהשלב הבא: הפחתת ממדים — מאות ממדים → 2–3 ציר עיקריים.\n\nקראו: מודול 5 — PCA"
+  },
+  {
+    "objectID": "slides/11-statistics.html#למה-סטטיסטיקה",
+    "href": "slides/11-statistics.html#למה-סטטיסטיקה",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "למה סטטיסטיקה?",
+    "text": "למה סטטיסטיקה?\nגרף מרחב הצורות מראה דפוס. אבל:\n\n\n“האם ההפרדה בין הקבוצות יכולה להיות מקרית?”\n\n\n\nסטטיסטיקה אינה מוצאת אמת — היא מודדת כמה סביר שהדפוס מקרי."
+  },
+  {
+    "objectID": "slides/11-statistics.html#מבחן-מאן-וויטני-עקרון",
+    "href": "slides/11-statistics.html#מבחן-מאן-וויטני-עקרון",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "מבחן מאן-וויטני — עקרון",
+    "text": "מבחן מאן-וויטני — עקרון\n\nחשבו את ה-U בפועל בין שתי קבוצות\nערבבו את השיוך לקבוצות אקראית (1000 פעם)\nבכל ערבוב — חשבו U מחדש\np-value = אחוז הערבובים שנתנו U גדול יותר\n\n\n\n\n\n\n\n\nהערה\n\n\nזהו מבחן הרשאה (permutation test) — לא מניח התפלגות נורמלית."
+  },
+  {
+    "objectID": "slides/11-statistics.html#מאן-וויטני-ב-python",
+    "href": "slides/11-statistics.html#מאן-וויטני-ב-python",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "מאן-וויטני ב-Python",
+    "text": "מאן-וויטני ב-Python\nfrom scipy.stats import mannwhitneyu\nimport numpy as np\n\ndef compare_groups_pc1(scores, labels, g1, g2):\n    \"\"\"מבחן מאן-וויטני על PC1 בין שתי קבוצות.\"\"\"\n    pc1_g1 = scores[np.array(labels) == g1, 0]\n    pc1_g2 = scores[np.array(labels) == g2, 0]\n    \n    stat, p = mannwhitneyu(pc1_g1, pc1_g2, \n                            alternative='two-sided')\n    \n    print(f\"קבוצה {g1}: n={len(pc1_g1)}, \"\n          f\"חציון PC1={np.median(pc1_g1):.4f}\")\n    print(f\"קבוצה {g2}: n={len(pc1_g2)}, \"\n          f\"חציון PC1={np.median(pc1_g2):.4f}\")\n    print(f\"U = {stat:.1f}, p = {p:.4f}\")\n    \n    if p &lt; 0.05:\n        print(f\"→ הבדל מובהק (p&lt;0.05)\")\n    else:\n        print(f\"→ אין הבדל מובהק\")\n    \n    return stat, p"
+  },
+  {
+    "objectID": "slides/11-statistics.html#גודל-אפקט-cohens-d",
+    "href": "slides/11-statistics.html#גודל-אפקט-cohens-d",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "גודל אפקט — Cohen’s d",
+    "text": "גודל אפקט — Cohen’s d\ndef cohens_d(group1, group2):\n    \"\"\"מחשב גודל אפקט Cohen's d.\"\"\"\n    n1, n2 = len(group1), len(group2)\n    mean_diff = group1.mean() - group2.mean()\n    \n    # סטיית תקן משולבת\n    pooled_std = np.sqrt(\n        ((n1-1)*group1.std()**2 + (n2-1)*group2.std()**2) \n        / (n1 + n2 - 2)\n    )\n    d = mean_diff / pooled_std\n    \n    label = \"קטן\" if abs(d)&lt;0.5 else \"בינוני\" if abs(d)&lt;0.8 else \"גדול\"\n    print(f\"Cohen's d = {d:.3f} ({label})\")\n    return d\n\np &lt; 0.05 לא מספיק — צריך לדעת כמה גדול ההבדל!"
+  },
+  {
+    "objectID": "slides/11-statistics.html#השוואות-מרובות-בעיה",
+    "href": "slides/11-statistics.html#השוואות-מרובות-בעיה",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "השוואות מרובות — בעיה",
+    "text": "השוואות מרובות — בעיה\n\nבדקנו PC1 בלבד — מה אם PC2 מובהק?\nבדקנו 10 מבחנים → בממוצע, 1 יהיה מובהק במקרה (p&lt;0.05)\nפתרון: תיקון בונפרוני — מחלקים סף המובהקות ב-N המבחנים\n\n# תיקון בונפרוני\nn_tests = 5  # בדקנו 5 רכיבים עיקריים\nbonferroni_alpha = 0.05 / n_tests\nprint(f\"סף מובהקות לאחר תיקון: {bonferroni_alpha:.4f}\")"
+  },
+  {
+    "objectID": "slides/11-statistics.html#manova-כל-הממדים-ביחד",
+    "href": "slides/11-statistics.html#manova-כל-הממדים-ביחד",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "MANOVA — כל הממדים ביחד",
+    "text": "MANOVA — כל הממדים ביחד\nfrom sklearn.discriminant_analysis import LinearDiscriminantAnalysis\nfrom sklearn.model_selection import LeaveOneOut\nfrom sklearn.metrics import accuracy_score\n\n# LDA עם Leave-One-Out cross-validation\nlda = LinearDiscriminantAnalysis()\nloo = LeaveOneOut()\n\ny_true, y_pred = [], []\nfor train_idx, test_idx in loo.split(X):\n    lda.fit(X[train_idx], labels[train_idx])\n    y_true.append(labels[test_idx][0])\n    y_pred.append(lda.predict(X[test_idx])[0])\n\nacc = accuracy_score(y_true, y_pred)\nprint(f\"דיוק LOO-LDA: {acc*100:.1f}%\")\nprint(f\"(50% = מקרי לשתי קבוצות)\")"
+  },
+  {
+    "objectID": "slides/11-statistics.html#לשיעור-האחרון",
+    "href": "slides/11-statistics.html#לשיעור-האחרון",
+    "title": "בדיקת השערות בחלל הצורות",
+    "section": "לשיעור האחרון",
+    "text": "לשיעור האחרון\n\nסיימו מטלה 5 (כלי חרס — הגשה השבוע)\nהתחילו לחשוב על פרויקט הגמר\nקראו: מודול 12 — סינתזה"
+  },
+  {
+    "objectID": "slides/03-digitizing.html#מטרת-השיעור",
+    "href": "slides/03-digitizing.html#מטרת-השיעור",
+    "title": "דיגיטציה עם FIJI",
+    "section": "מטרת השיעור",
+    "text": "מטרת השיעור\nבסוף השיעור תדעו:\n\nלפתוח תמונה ב-FIJI ולכייל קנה מידה\nלסמן ציוני דרך ולשמור קובץ קואורדינטות\nלבדוק עקביות בין דיגיטציות חוזרות"
+  },
+  {
+    "objectID": "slides/03-digitizing.html#פתיחת-fiji-שלב-ראשון",
+    "href": "slides/03-digitizing.html#פתיחת-fiji-שלב-ראשון",
+    "title": "דיגיטציה עם FIJI",
+    "section": "פתיחת FIJI — שלב ראשון",
+    "text": "פתיחת FIJI — שלב ראשון\n\n1. Open FIJI\n2. Drag image file into FIJI window  \n   (or File → Open → select file)\n3. Image opens in a new window\n\n\n\n\n\n\n\n\nחשוב\n\n\nלפני שסמים ציוני דרך — יש לכייל את קנה המידה!"
+  },
+  {
+    "objectID": "slides/03-digitizing.html#כיול-קנה-מידה-ב-fiji",
+    "href": "slides/03-digitizing.html#כיול-קנה-מידה-ב-fiji",
+    "title": "דיגיטציה עם FIJI",
+    "section": "כיול קנה מידה ב-FIJI",
+    "text": "כיול קנה מידה ב-FIJI\n\n1. Select \"Straight Line\" tool (press L)\n2. Draw line along the scale bar in image\n3. Analyze → Set Scale\n4. Enter known distance (e.g. 10 mm)\n5. Check \"Global\" → OK\n\n\nכעת כל מדידה תוצג ב-mm (או ביחידות שבחרתם)."
+  },
+  {
+    "objectID": "slides/03-digitizing.html#סימון-ציוני-דרך-multi-point-tool",
+    "href": "slides/03-digitizing.html#סימון-ציוני-דרך-multi-point-tool",
+    "title": "דיגיטציה עם FIJI",
+    "section": "סימון ציוני דרך — Multi-Point Tool",
+    "text": "סימון ציוני דרך — Multi-Point Tool\n\n1. Select \"Multi-Point\" tool (press the dot icon)\n2. Click on each landmark in order (1, 2, 3...)\n3. Right-click to remove last point\n4. Analyze → Measure (Ctrl+M) to see coordinates\n5. File → Save As → Results (saves as .csv)\n\n\n\n\n\n\n\n\nאזהרה\n\n\nסדר הציוני דרך חייב להיות זהה על כל הפרטים בדגימה!"
+  },
+  {
+    "objectID": "slides/03-digitizing.html#תרגיל-דיגיטציה-של-מטבע",
+    "href": "slides/03-digitizing.html#תרגיל-דיגיטציה-של-מטבע",
+    "title": "דיגיטציה עם FIJI",
+    "section": "תרגיל: דיגיטציה של מטבע",
+    "text": "תרגיל: דיגיטציה של מטבע\n\nהורידו את תמונת המטבע מ-Moodle\nפתחו ב-FIJI\nכיילו קנה מידה (הסרגל בתמונה = 5 מ”מ)\nסמנו 8 ציוני דרך לפי הסכמה שחילקנו\nשמרו כ-hadrian_[שם_משתמש].csv\n\n\n\n\n\n\n\n\nעצה\n\n\nבצעו את הדיגיטציה פעמיים ללא הסתכלות על הניסיון הראשון — נשווה בין השניים כדי למדוד שגיאת מדידה."
+  },
+  {
+    "objectID": "slides/03-digitizing.html#שגיאת-מדידה-חשיבות",
+    "href": "slides/03-digitizing.html#שגיאת-מדידה-חשיבות",
+    "title": "דיגיטציה עם FIJI",
+    "section": "שגיאת מדידה — חשיבות",
+    "text": "שגיאת מדידה — חשיבות\nimport numpy as np\n\n# שתי דיגיטציות של אותו מטבע\nattempt1 = np.array([[142, 891], [378, 734], [521, 612]])\nattempt2 = np.array([[145, 889], [381, 731], [519, 615]])\n\n# שגיאת שורש-ממוצע-ריבועים (RMS)\ndiffs = attempt1 - attempt2\nrms = np.sqrt(np.mean(diffs**2))\nprint(f\"שגיאת מדידה (RMS): {rms:.2f} פיקסלים\")\n\nשגיאת מדידה &lt; 2% מהשונות הכוללת = מקובל."
+  },
+  {
+    "objectID": "slides/03-digitizing.html#לשיעור-הבא",
+    "href": "slides/03-digitizing.html#לשיעור-הבא",
+    "title": "דיגיטציה עם FIJI",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\n\nהשלימו את דיגיטציית המטבעות (כל 20 מטבעות הדריאנוס)\nהעלו את קבצי ה-CSV ל-Google Drive\nקראו: מודול 3"
   },
   {
     "objectID": "assignments/05-pottery.html",
@@ -793,44 +1087,366 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Shape in Time",
+    "title": "צורה בזמן",
     "section": "",
-    "text": "Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?"
+    "text": "כל חפץ שנוצר בידי אדם — יש לו צורה. הקורס הזה שואל: מה הצורה יכולה ללמד אותנו על העבר?"
   },
   {
-    "objectID": "index.html#geometric-morphometrics-for-archaeologists",
-    "href": "index.html#geometric-morphometrics-for-archaeologists",
-    "title": "Shape in Time",
+    "objectID": "index.html#מורפומטריה-גיאומטרית-לארכאולוגים",
+    "href": "index.html#מורפומטריה-גיאומטרית-לארכאולוגים",
+    "title": "צורה בזמן",
     "section": "",
-    "text": "Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?"
+    "text": "כל חפץ שנוצר בידי אדם — יש לו צורה. הקורס הזה שואל: מה הצורה יכולה ללמד אותנו על העבר?"
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Shape in Time",
-    "section": "Course Overview",
-    "text": "Course Overview\nGeometric morphometrics (GM) is one of the most powerful methods in modern archaeology. It gives us a rigorous, quantitative way to study shape — the very thing that makes a Roman coin look like a Roman coin, or a Bronze Age axe look older than an Iron Age one.\nIn this course you will learn to:\n\nCapture the shape of archaeological objects using digital images and landmark coordinates\nUse AI tools to write all the code you need — no prior programming experience required\nPerform real analyses on published datasets of coins, axes, and pottery\nConnect shape patterns to big historical and archaeological questions\n\nNo coding background needed. AI writes the code; you ask the questions."
+    "objectID": "index.html#על-הקורס",
+    "href": "index.html#על-הקורס",
+    "title": "צורה בזמן",
+    "section": "על הקורס",
+    "text": "על הקורס\nמורפומטריה גיאומטרית (GM) היא אחת השיטות החזקות ביותר בארכאולוגיה המודרנית. היא מאפשרת ניתוח כמותי ומחמיר של צורה — בדיוק מה שגורם למטבע רומאי להיראות כמו מטבע רומאי, או לגרזן מתקופת הברונזה להיראות שונה מגרזן מתקופת הברזל.\nבקורס זה נלמד:\n\nלתאר את צורת חפצים ארכאולוגיים באמצעות תמונות דיגיטליות וקואורדינטות\nלהשתמש בכלי AI לכתיבת כל הקוד הנדרש — ללא ניסיון תכנות מוקדם\nלנתח מאגרי נתונים אמיתיים של מטבעות, גרזנים וכלי חרס\nלחבר בין תבניות צורה לשאלות היסטוריות וארכאולוגיות גדולות\n\nאין צורך ברקע בתכנות — ה-AI כותב את הקוד, ואתם שואלים את השאלות."
   },
   {
-    "objectID": "index.html#the-big-questions-we-will-answer",
-    "href": "index.html#the-big-questions-we-will-answer",
-    "title": "Shape in Time",
-    "section": "The Big Questions We Will Answer",
-    "text": "The Big Questions We Will Answer\n\n\nCoins\n\n\n\nRoman denarii of Hadrian and Antoninus Pius\n\n\nDid Roman mints in different provinces produce coins with subtly different shapes? Can we detect this from shape alone?\n\n\nAxes\nWere Bronze Age flanged axes made according to a single design, or do regional traditions show up in their shape? What does this tell us about craft networks?\n\n\nPottery\nCan we distinguish pottery production traditions from vessel shape alone, without knowing the clay source? What does shape variation in pots tell us about trade and cultural contact?"
+    "objectID": "index.html#לוח-שיעורים",
+    "href": "index.html#לוח-שיעורים",
+    "title": "צורה בזמן",
+    "section": "לוח שיעורים",
+    "text": "לוח שיעורים\n\n\n\n\nשבוע\nנושא\nמצגת\n\n\n\n\n1\nמהי צורה? מדוע היא חשובה?\nמצגת\n\n\n2\nממדידה לקואורדינטות\nמצגת\n\n\n3\nדיגיטציה של ציוני דרך — FIJI\nמצגת\n\n\n4\nעוזר ה-AI שלך ו-Google Colab\nמצגת\n\n\n5\nיישור פרוקרוסטס\nמצגת\n\n\n6\nPCA ומרחב הצורות\nמצגת\n\n\n7\nמקרה בוחן I — מטבעות רומיים\nמצגת\n\n\n8\nניתוח קווי מתאר — EFA\nמצגת\n\n\n9\nמקרה בוחן II — גרזני ברונזה\nמצגת\n\n\n10\nמקרה בוחן III — כלי חרס\nמצגת\n\n\n11\nבדיקת השערות — סטטיסטיקה\nמצגת\n\n\n12\nסינתזה והצגות\nמצגת"
   },
   {
-    "objectID": "index.html#how-this-course-works",
-    "href": "index.html#how-this-course-works",
-    "title": "Shape in Time",
-    "section": "How This Course Works",
-    "text": "How This Course Works\n\n\n\n\n\n\n\n\nWeek\nTopic\nMethod\n\n\n\n\n1–2\nWhat is shape? Why does it matter?\nConcepts\n\n\n3–4\nCapturing shape: landmarks & outlines\nData collection\n\n\n5–6\nYour AI lab partner: writing R code with Claude\nAI-assisted coding\n\n\n7–8\nShape space: Procrustes & PCA\nLandmark GM\n\n\n9–10\nOutlines and Bronze Age axes\nElliptic Fourier\n\n\n11–12\nTesting hypotheses, pottery case study\nStatistics\n\n\n13\n3D morphometrics — the frontier\n3D GM\n\n\n14\nFinal project presentations\nSynthesis"
+    "objectID": "index.html#מטלות",
+    "href": "index.html#מטלות",
+    "title": "צורה בזמן",
+    "section": "מטלות",
+    "text": "מטלות\n\n\n\nמטלה\nמשקל\nמועד הגשה\n\n\n\n\nמטלה 1 — יומן צורות\n5%\nשבוע 2\n\n\nמטלה 2 — תרגיל ציוני דרך\n10%\nשבוע 5\n\n\nמטלה 3 — ניתוח מטבעות\n15%\nשבוע 8\n\n\nמטלה 4 — EFA לגרזנים\n15%\nשבוע 10\n\n\nמטלה 5 — PCA לכלי חרס\n5%\nשבוע 11\n\n\nפרויקט גמר\n50%\nסוף סמסטר\n\n\n\n\n\n\n\n\n\n\nהתחלה\n\n\n\nהתחילו עם שבוע 1 — מהי צורה? ועם מטלה 1 — יומן צורות לפני השיעור הראשון."
   },
   {
-    "objectID": "index.html#instructor-format",
-    "href": "index.html#instructor-format",
-    "title": "Shape in Time",
-    "section": "Instructor & Format",
-    "text": "Instructor & Format\n\nFormat: 2 hours lecture + 1 hour lab per week\nTools: R (via AI-generated code), ImageJ/FIJI, tpsDig2, MorphoJ\nAssessment: 5 short assignments (50%) + Final project (50%)\nLanguage of instruction: English\nPrerequisites: None beyond basic computer literacy\n\n\n\n\n\n\n\n\nFirst Step\n\n\n\nStart with Module 1 — What is Shape? and the Shape Journal assignment before the first class."
+    "objectID": "slides/01-what-is-shape.html#מהי-צורה",
+    "href": "slides/01-what-is-shape.html#מהי-צורה",
+    "title": "מהי צורה?",
+    "section": "מהי צורה?",
+    "text": "מהי צורה?\n\n“כל חפץ שנוצר בידי אדם — יש לו צורה.\nהצורה אינה קישוט — היא מידע.”\n\n\nמורפומטריה גיאומטרית (GM) היא השיטה המתמטית לכימות הצורה."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#שלוש-שאלות-יסוד",
+    "href": "slides/01-what-is-shape.html#שלוש-שאלות-יסוד",
+    "title": "מהי צורה?",
+    "section": "שלוש שאלות יסוד",
+    "text": "שלוש שאלות יסוד\n\nמה הצורה של החפץ — ואיך מדדים אותה בצורה מדויקת?\nלמה הצורה הזאת — ומה השפיע עליה?\nמה ניתן להסיק מהשוואת צורות בין חפצים, אתרים, תרבויות?"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#צורה-גודל",
+    "href": "slides/01-what-is-shape.html#צורה-גודל",
+    "title": "מהי צורה?",
+    "section": "צורה ≠ גודל",
+    "text": "צורה ≠ גודל\n\n\nגודל (Size)\n\nגובה, רוחב, נפח\nמושפע מגיל, עשירות, תפקוד\nניתן למדידה פשוטה\n\n\nצורה (Shape)\n\nהיחסים הגיאומטריים בין חלקי החפץ\nנשמרת גם לאחר שינוי גודל\nמקודד: מסורת, יצרן, שימוש\n\n\n\n\n\n\n\n\n\nהערה\n\n\nבניתוח GM מסירים תחילה את ההשפעה של גודל, מיקום וסיבוב — ואז עובדים עם הצורה הטהורה."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#דוגמה-מטבעות-רומיים",
+    "href": "slides/01-what-is-shape.html#דוגמה-מטבעות-רומיים",
+    "title": "מהי צורה?",
+    "section": "דוגמה: מטבעות רומיים",
+    "text": "דוגמה: מטבעות רומיים\n\nמטבע רומאי (דנריוס) — הפנים והגב\n\nמאות מטבעות, מאות שנים, עשרות מנטות\nניתוח GM מגלה: האם צורת הדיוקן השתנתה עם הקיסר?\nהאם מנטות שונות ייצרו מטבעות בצורה שונה?"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#שלושה-סוגי-נתוני-צורה",
+    "href": "slides/01-what-is-shape.html#שלושה-סוגי-נתוני-צורה",
+    "title": "מהי צורה?",
+    "section": "שלושה סוגי נתוני צורה",
+    "text": "שלושה סוגי נתוני צורה\n\n\n\n\n\n\n\n\nסוג\nשיטה\nמתאים ל-\n\n\n\n\nציוני דרך (Landmarks)\nנקודות מוגדרות על החפץ\nעצמות, כלי אבן, מטבעות\n\n\nקווי מתאר (Outlines)\nעקומה סביב החפץ\nכלי חרס, גרזנים\n\n\nמשטחים (Surfaces)\nרשת 3D\nגולגלות, כלי אבן\n\n\n\n\nבקורס זה נעסוק בשני הראשונים — ציוני דרך וקווי מתאר."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#תהליך-ניתוח-gm-סקירה",
+    "href": "slides/01-what-is-shape.html#תהליך-ניתוח-gm-סקירה",
+    "title": "מהי צורה?",
+    "section": "תהליך ניתוח GM — סקירה",
+    "text": "תהליך ניתוח GM — סקירה\n\nצילום / סריקה — תמונה סטנדרטית של החפץ\nדיגיטציה — סימון ציוני דרך או קו מתאר\nיישור — הסרת גודל, מיקום וסיבוב (Procrustes)\nPCA — מציאת ממדי השונות העיקריים\nפרשנות — חיבור לשאלה הארכאולוגית"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#מדוע-gm-עדיפה-על-טיפולוגיה",
+    "href": "slides/01-what-is-shape.html#מדוע-gm-עדיפה-על-טיפולוגיה",
+    "title": "מהי צורה?",
+    "section": "מדוע GM עדיפה על טיפולוגיה?",
+    "text": "מדוע GM עדיפה על טיפולוגיה?\n\n\nטיפולוגיה מסורתית\n\nמבוססת על שיפוט מומחה\nקטגורית (כן/לא)\nלא ניתנת לשחזור מלא\nקשה לבדיקה סטטיסטית\n\n\nGM\n\nמבוססת על מדידה\nרציפה (מספרים)\nניתנת לשחזור מלא\nבדיקות סטטיסטיות מובנות\n\n\n\n\n\n\n\n\n\nעצה\n\n\nGM אינה מחליפה את הארכאולוג — היא נותנת לו/לה כלים לבדוק השערות באופן אובייקטיבי."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#קוד-לדוגמה-ויזואליזציה-של-ציוני-דרך",
+    "href": "slides/01-what-is-shape.html#קוד-לדוגמה-ויזואליזציה-של-ציוני-דרך",
+    "title": "מהי צורה?",
+    "section": "קוד לדוגמה: ויזואליזציה של ציוני דרך",
+    "text": "קוד לדוגמה: ויזואליזציה של ציוני דרך\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# ציוני דרך של מטבע (x, y)\nlandmarks = np.array([\n    [0.0, 1.0],   # קצה עליון\n    [0.7, 0.7],   # ימין עליון\n    [1.0, 0.0],   # ימין\n    [0.7, -0.7],  # ימין תחתון\n    [0.0, -1.0],  # קצה תחתון\n    [-0.7, -0.7], # שמאל תחתון\n    [-1.0, 0.0],  # שמאל\n    [-0.7, 0.7],  # שמאל עליון\n])\n\nfig, ax = plt.subplots(figsize=(5, 5))\nax.scatter(landmarks[:, 0], landmarks[:, 1], \n           c='red', s=100, zorder=5)\nfor i, (x, y) in enumerate(landmarks):\n    ax.annotate(str(i+1), (x, y), \n                textcoords=\"offset points\", xytext=(5, 5))\nax.set_aspect('equal')\nax.set_title('ציוני דרך על מטבע')\nplt.show()"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#לשיעור-הבא",
+    "href": "slides/01-what-is-shape.html#לשיעור-הבא",
+    "title": "מהי צורה?",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\n\nקראו: מודול 1 — מהי צורה?\nהתחילו: מטלה 1 — יומן צורות\nבחרו חפץ אחד מהסביבה שלכם ותארו את צורתו במילים\n\n\nשאלות?"
+  },
+  {
+    "objectID": "slides/09-axes.html#גרזני-הברונזה-רקע",
+    "href": "slides/09-axes.html#גרזני-הברונזה-רקע",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "גרזני הברונזה — רקע",
+    "text": "גרזני הברונזה — רקע\nגרזנים בעלי כנפיים (Flanged Axes) — מרכז אירופה, ~1800–1200 לפנה”ס\n\nאחד הסוגים הנפוצים ביותר של כלי ברונזה\nנמצאים באוצרות, קבורות, הקשרים יישוביים\nשאלה: האם שתי קבוצות הגרזנים (G3, G4) שונות בצורה?"
+  },
+  {
+    "objectID": "slides/09-axes.html#שאלת-המחקר",
+    "href": "slides/09-axes.html#שאלת-המחקר",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "שאלת המחקר",
+    "text": "שאלת המחקר\n\nהאם קבוצה G3 וקבוצה G4 של גרזני ברונזה\nמייצגות מסורות יצור שונות או שלבים כרונולוגיים\nשניתן להבחין ביניהם מצורת הגרזן בלבד?"
+  },
+  {
+    "objectID": "slides/09-axes.html#הנתונים",
+    "href": "slides/09-axes.html#הנתונים",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "הנתונים",
+    "text": "הנתונים\n\n\n\nקבוצה\nN\nמאפיין\n\n\n\n\nG3\n~30\nגרזנים מוקדמים יותר\n\n\nG4\n~35\nגרזנים מאוחרים יותר\n\n\n\n\nפורמט: תמונות TIF + קובץ TPS + מקדמי EFA מחושבים מראש\n(Flanged_axes_efa.dat)"
+  },
+  {
+    "objectID": "slides/09-axes.html#עיבוד-מלא-efa-pca",
+    "href": "slides/09-axes.html#עיבוד-מלא-efa-pca",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "עיבוד מלא — EFA + PCA",
+    "text": "עיבוד מלא — EFA + PCA\nimport pandas as pd\nimport numpy as np\nfrom sklearn.decomposition import PCA\nimport matplotlib.pyplot as plt\n\n# טעינת מקדמי EFA מחושבים מראש\nefa_data = pd.read_csv(\"data/flanged_axes/Flanged_axes_efa.dat\",\n                        sep='\\t')\n\n# הפרדה למטה-דאטה ומקדמים\nmetadata = efa_data[['specimen', 'group']]\ncoeff_cols = [c for c in efa_data.columns if c.startswith('EFA')]\nX = efa_data[coeff_cols].values\n\n# PCA\npca = PCA()\nscores = pca.fit_transform(X)\nvar = pca.explained_variance_ratio_ * 100\n\nprint(f\"PC1: {var[0]:.1f}% | PC2: {var[1]:.1f}% | ביחד: {var[:2].sum():.1f}%\")"
+  },
+  {
+    "objectID": "slides/09-axes.html#ויזואליזציה-g3-לעומת-g4",
+    "href": "slides/09-axes.html#ויזואליזציה-g3-לעומת-g4",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "ויזואליזציה — G3 לעומת G4",
+    "text": "ויזואליזציה — G3 לעומת G4\nfig, ax = plt.subplots(figsize=(9, 7))\n\ncolors = {'G3': '#d62728', 'G4': '#1f77b4'}\nfor group, c in colors.items():\n    mask = metadata['group'] == group\n    ax.scatter(scores[mask, 0], scores[mask, 1],\n               c=c, label=group, s=70, alpha=0.8,\n               edgecolors='white', lw=0.5)\n\nax.set_xlabel(f\"PC1 ({var[0]:.1f}%)\")\nax.set_ylabel(f\"PC2 ({var[1]:.1f}%)\")\nax.set_title(\"מרחב הצורות — גרזני ברונזה G3 לעומת G4\")\nax.legend(fontsize=13)\nax.axhline(0, color='grey', lw=0.5, ls='--')\nax.axvline(0, color='grey', lw=0.5, ls='--')\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/09-axes.html#בדיקת-מאן-וויטני-על-pc1",
+    "href": "slides/09-axes.html#בדיקת-מאן-וויטני-על-pc1",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "בדיקת מאן-וויטני על PC1",
+    "text": "בדיקת מאן-וויטני על PC1\nfrom scipy.stats import mannwhitneyu\n\ng3_scores = scores[metadata['group'] == 'G3', 0]\ng4_scores = scores[metadata['group'] == 'G4', 0]\n\nstat, p = mannwhitneyu(g3_scores, g4_scores, \n                        alternative='two-sided')\nprint(f\"מאן-וויטני: U={stat:.1f}, p={p:.4f}\")\nprint(f\"ממוצע PC1 — G3: {g3_scores.mean():.4f}\")\nprint(f\"ממוצע PC1 — G4: {g4_scores.mean():.4f}\")\n\nif p &lt; 0.05:\n    print(\"→ הבדל מובהק בצורה בין G3 ל-G4\")\nelse:\n    print(\"→ אין הבדל מובהק — הצורות חופפות\")"
+  },
+  {
+    "objectID": "slides/09-axes.html#שאלות-לדיון",
+    "href": "slides/09-axes.html#שאלות-לדיון",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "שאלות לדיון",
+    "text": "שאלות לדיון\n\nאם G3 ו-G4 נפרדים — מה מסביר את ההבדל? זמן? מקום? שימוש?\nאם הם חופפים — האם הטיפולוגיה מוגזמת?\nמה משתנה לאורך PC1? (הסתכלו על הגרזנים בקצוות)\nאיזה מידע נוסף היה עוזר לפרשנות?"
+  },
+  {
+    "objectID": "slides/09-axes.html#לשיעור-הבא-כלי-חרס",
+    "href": "slides/09-axes.html#לשיעור-הבא-כלי-חרס",
+    "title": "מקרה בוחן II: גרזני ברונזה",
+    "section": "לשיעור הבא — כלי חרס",
+    "text": "לשיעור הבא — כלי חרס\nגרזנים = קווי מתאר חיצוניים.\nכלי חרס = פרופיל חתך — EFA על חצי-הפרופיל.\n\nקראו: מודול 9 — סטטיסטיקה ו-מודול 10 — כלי חרס"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#מה-השגנו",
+    "href": "slides/12-synthesis.html#מה-השגנו",
+    "title": "סינתזה והצגות",
+    "section": "מה השגנו?",
+    "text": "מה השגנו?\n12 שבועות. שלוש קבוצות חפצים. שיטה אחת.\n\nמורפומטריה גיאומטרית = הפיכת צורה למספרים שניתן לבדוק."
+  },
+  {
+    "objectID": "slides/12-synthesis.html#מפה-קונספטואלית",
+    "href": "slides/12-synthesis.html#מפה-קונספטואלית",
+    "title": "סינתזה והצגות",
+    "section": "מפה קונספטואלית",
+    "text": "מפה קונספטואלית\n\n\n\n\n\n\n\n\nשיטה\nחפץ\nשאלה\n\n\n\n\nציוני דרך + GPA + PCA\nמטבעות רומיים\nהאם הקיסר מזוהה מהדיוקן?\n\n\nEFA + PCA\nגרזני ברונזה\nהאם קבוצות G3/G4 נפרדות?\n\n\nEFA + PCA + מבחן U\nכלי חרס — Ogame\nהאם הקשר הקבורה משפיע על הצורה?"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#מה-gm-יכולה-ומה-לא",
+    "href": "slides/12-synthesis.html#מה-gm-יכולה-ומה-לא",
+    "title": "סינתזה והצגות",
+    "section": "מה GM יכולה — ומה לא",
+    "text": "מה GM יכולה — ומה לא\n\n\nGM יכולה: - לכמת הבדלי צורה - לבדוק הפרדה סטטיסטית - לגלות תבניות נסתרות - לעשות ניתוח חוזר\n\nGM לא יכולה: - להסביר מדוע הצורה שונה - להחליף הקשר ארכאולוגי - לתת תאריכים - לדעת מי יצר את החפץ"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#פרויקט-הגמר-הנחיות",
+    "href": "slides/12-synthesis.html#פרויקט-הגמר-הנחיות",
+    "title": "סינתזה והצגות",
+    "section": "פרויקט הגמר — הנחיות",
+    "text": "פרויקט הגמר — הנחיות\n\nבחרו קבוצת חפצים (מהאוסף שלנו, או חפצים שלכם)\nשאלה ארכאולוגית ברורה הניתנת לבדיקה עם GM\nניתוח מלא: איסוף → GPA/EFA → PCA → סטטיסטיקה\nהצגה: 10 דקות + 5 דקות שאלות\n\n\n\n\n\n\n\n\nעצה\n\n\nהשאלה הכי חשובה: מה תגידו אם התוצאה לא מה שציפיתם?"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#טיפים-להצגה-טובה",
+    "href": "slides/12-synthesis.html#טיפים-להצגה-טובה",
+    "title": "סינתזה והצגות",
+    "section": "טיפים להצגה טובה",
+    "text": "טיפים להצגה טובה\n\nפתחו בשאלה — לא בשיטה\nהראו את הנתונים — תמונה אחת שווה אלף מילים\nהסבירו PC1 — מה הוא מייצג פיזית?\nדברו על הגבולות — מה לא יכולתם לדעת?\nחברו לספרות — מה כבר ידוע על החפצים שלכם?"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#הרחבות-אפשריות",
+    "href": "slides/12-synthesis.html#הרחבות-אפשריות",
+    "title": "סינתזה והצגות",
+    "section": "הרחבות אפשריות",
+    "text": "הרחבות אפשריות\n\nGM תלת-ממדי — גולגלות, כלי אבן, עם סריקות Structured Light\nSemi-landmarks — על עקומות ומשטחים\nאלומטריה — קשר צורה-גודל\nGM + GIS — האם יש דפוס מרחבי לשונות הצורה?"
+  },
+  {
+    "objectID": "slides/12-synthesis.html#קדימה",
+    "href": "slides/12-synthesis.html#קדימה",
+    "title": "סינתזה והצגות",
+    "section": "קדימה",
+    "text": "קדימה\nצורה בזמן — זה רק ההתחלה\n\nכל חפץ ארכאולוגי שתפגשו — עכשיו אתם יכולים\nלשאול ממנו שאלות כמותיות.\n\n\n\n\n\n\n\n\nקישורים שימושיים\n\n\n\nMorpho-Tools.net — ספריית GM מקוונת\nMorphoJ — תוכנת GM חינמית\npyefd — EFA ב-Python"
+  },
+  {
+    "objectID": "slides/06-pca.html#pca-למה",
+    "href": "slides/06-pca.html#pca-למה",
+    "title": "PCA ומרחב הצורות",
+    "section": "PCA — למה?",
+    "text": "PCA — למה?\nאחרי GPA: לכל פרט יש 16 מספרים (8 נקודות × x,y).\nאי אפשר להציג 16 ממדים בבת אחת.\n\nPCA (ניתוח רכיבים עיקריים) מוצא את כיווני השונות הגדולים ביותר ומאפשר הצגה דו-ממדית."
+  },
+  {
+    "objectID": "slides/06-pca.html#רכיב-עיקרי-pc-מה-זה",
+    "href": "slides/06-pca.html#רכיב-עיקרי-pc-מה-זה",
+    "title": "PCA ומרחב הצורות",
+    "section": "רכיב עיקרי (PC) — מה זה?",
+    "text": "רכיב עיקרי (PC) — מה זה?\n\nPC1 — הכיוון שמסביר הכי הרבה שונות\nPC2 — הכיוון הניצב ל-PC1 שמסביר הכי הרבה מהשונות הנותרת\nוכן הלאה…\n\n\n\n\n\n\n\n\nהערה\n\n\nכל PC הוא שינוי צורה — תנועה לאורך הציר מראה כיצד הצורה משתנה בין קצות הסקאלה."
+  },
+  {
+    "objectID": "slides/06-pca.html#pca-ב-python-מטבעות",
+    "href": "slides/06-pca.html#pca-ב-python-מטבעות",
+    "title": "PCA ומרחב הצורות",
+    "section": "PCA ב-Python — מטבעות",
+    "text": "PCA ב-Python — מטבעות\nfrom sklearn.decomposition import PCA\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# aligned.shape = (20, 8, 2) → שטחו ל-(20, 16)\nX = aligned.reshape(len(aligned), -1)\n\n# PCA\npca = PCA()\nscores = pca.fit_transform(X)\n\n# אחוזי שונות\nvar_explained = pca.explained_variance_ratio_ * 100\nprint(f\"PC1: {var_explained[0]:.1f}%\")\nprint(f\"PC2: {var_explained[1]:.1f}%\")\nprint(f\"יחד: {var_explained[:2].sum():.1f}%\")"
+  },
+  {
+    "objectID": "slides/06-pca.html#גרף-פיזור-scatter-plot-מרחב-הצורות",
+    "href": "slides/06-pca.html#גרף-פיזור-scatter-plot-מרחב-הצורות",
+    "title": "PCA ומרחב הצורות",
+    "section": "גרף פיזור (Scatter Plot) — מרחב הצורות",
+    "text": "גרף פיזור (Scatter Plot) — מרחב הצורות\nfig, ax = plt.subplots(figsize=(8, 7))\n\n# צביעה לפי קיסר (Hadrian vs Antoninus)\ncolors = ['#e07b39' if i &lt; 10 else '#4a90c4' \n          for i in range(20)]\nlabels = ['הדריאנוס'] * 10 + ['אנטונינוס פיוס'] * 10\n\nscatter = ax.scatter(scores[:, 0], scores[:, 1],\n                     c=colors, s=80, alpha=0.8, \n                     edgecolors='white', lw=0.5)\n\nax.set_xlabel(f\"PC1 ({var_explained[0]:.1f}% שונות)\")\nax.set_ylabel(f\"PC2 ({var_explained[1]:.1f}% שונות)\")\nax.set_title(\"מרחב הצורות — מטבעות רומיים\")\nax.axhline(0, color='grey', lw=0.5, ls='--')\nax.axvline(0, color='grey', lw=0.5, ls='--')\n\nfrom matplotlib.patches import Patch\nlegend = [Patch(fc='#e07b39', label='הדריאנוס'),\n          Patch(fc='#4a90c4', label='אנטונינוס פיוס')]\nax.legend(handles=legend)\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/06-pca.html#קריאת-גרף-מרחב-הצורות",
+    "href": "slides/06-pca.html#קריאת-גרף-מרחב-הצורות",
+    "title": "PCA ומרחב הצורות",
+    "section": "קריאת גרף מרחב הצורות",
+    "text": "קריאת גרף מרחב הצורות\n\nנקודות קרובות = צורות דומות\nנקודות רחוקות = צורות שונות\n\nכיוון PC1 = ציר השונות הגדול ביותר\nריכוז קבוצה = אחידות יצור / בחירה\n\n\n\n\n\n\n\n\nעצה\n\n\nבדקו: האם הדריאנוס ואנטונינוס מופרדים? מה זה מסביר על יצור המטבעות?"
+  },
+  {
+    "objectID": "slides/06-pca.html#גרידי-הצורה-deformation-grids",
+    "href": "slides/06-pca.html#גרידי-הצורה-deformation-grids",
+    "title": "PCA ומרחב הצורות",
+    "section": "גרידי הצורה (Deformation Grids)",
+    "text": "גרידי הצורה (Deformation Grids)\nfrom morphops import tps_warp\nimport numpy as np\n\ndef plot_deformation(mean_shape, target_shape, ax, title):\n    \"\"\"מציג עיוות צורה בין ממוצע למטרה.\"\"\"\n    # רשת בסיס\n    grid_x, grid_y = np.meshgrid(\n        np.linspace(-0.5, 0.5, 10),\n        np.linspace(-0.5, 0.5, 10)\n    )\n    grid = np.stack([grid_x.ravel(), grid_y.ravel()], axis=1)\n    \n    # עיוות TPS\n    warped = tps_warp(mean_shape, target_shape, grid)\n    warped = warped.reshape(10, 10, 2)\n    \n    for row in warped:\n        ax.plot(row[:, 0], row[:, 1], 'b-', lw=0.5, alpha=0.5)\n    for col in warped.T.reshape(10, 10, 2):\n        ax.plot(col[:, 0], col[:, 1], 'b-', lw=0.5, alpha=0.5)\n    ax.set_title(title)"
+  },
+  {
+    "objectID": "slides/06-pca.html#לשיעור-הבא",
+    "href": "slides/06-pca.html#לשיעור-הבא",
+    "title": "PCA ומרחב הצורות",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\nמטלה 3 — ניתוח מטבעות — מועד הגשה: שבוע 8\n\nהריצו את כל צינור העיבוד (TPS → GPA → PCA)\nהסבירו: האם שני הקיסרים נפרדים בצורת המטבע?\nקראו: מודול 6"
+  },
+  {
+    "objectID": "slides/07-coins.html#הדנריוס-הרומאי-רקע",
+    "href": "slides/07-coins.html#הדנריוס-הרומאי-רקע",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "הדנריוס הרומאי — רקע",
+    "text": "הדנריוס הרומאי — רקע\nהמטבע הסטנדרטי של האימפריה הרומית, 211 לפנה”ס – המאה ה-3 לספירה.\n\nנטבע במנטות רשמיות ברחבי האימפריה\nהדיוקן על המטבע = מדיה פוליטית\nשינויי צורה = שינויים אידיאולוגיים?"
+  },
+  {
+    "objectID": "slides/07-coins.html#שאלת-המחקר",
+    "href": "slides/07-coins.html#שאלת-המחקר",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "שאלת המחקר",
+    "text": "שאלת המחקר\n\nהאם ניתן להבחין בין מטבעות הדריאנוס (117–138 לספירה)\nובין מטבעות אנטונינוס פיוס (138–161 לספירה)\nמצורת הדיוקן בלבד?\n\n\nנתוני האוסף: 35 מטבעות (20 הדריאנוס + 15 אנטונינוס)"
+  },
+  {
+    "objectID": "slides/07-coins.html#צינור-העיבוד-המלא",
+    "href": "slides/07-coins.html#צינור-העיבוד-המלא",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "צינור העיבוד המלא",
+    "text": "צינור העיבוד המלא\nimport numpy as np\nfrom morphops import procrustes_alignment\nfrom sklearn.decomposition import PCA\nimport matplotlib.pyplot as plt\n\n# 1. טעינת נתונים\nhad = read_tps(\"data/coins/DEN_Hadrian/Hadrian.TPS\")\nant = read_tps(\"data/coins/DEN_AntoniusPius/AntoniusPius.TPS\")\nall_coins = np.vstack([had, ant])\nlabels = ['הדריאנוס']*len(had) + ['אנטונינוס פיוס']*len(ant)\n\n# 2. GPA\naligned, mean_shape, _ = procrustes_alignment(all_coins)\n\n# 3. PCA\nX = aligned.reshape(len(aligned), -1)\npca = PCA(n_components=10)\nscores = pca.fit_transform(X)\nvar = pca.explained_variance_ratio_ * 100"
+  },
+  {
+    "objectID": "slides/07-coins.html#ממצאים-ויזואליזציה",
+    "href": "slides/07-coins.html#ממצאים-ויזואליזציה",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "ממצאים — ויזואליזציה",
+    "text": "ממצאים — ויזואליזציה\nfig, ax = plt.subplots(figsize=(9, 7))\n\ncolors = {'הדריאנוס': '#e07b39', 'אנטונינוס פיוס': '#4a90c4'}\nfor label, c in colors.items():\n    mask = [l == label for l in labels]\n    ax.scatter(scores[mask, 0], scores[mask, 1],\n               c=c, label=label, s=80, alpha=0.8,\n               edgecolors='white', lw=0.5)\n\nax.set_xlabel(f\"PC1 — {var[0]:.1f}% שונות\")\nax.set_ylabel(f\"PC2 — {var[1]:.1f}% שונות\")\nax.set_title(\"מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס\")\nax.legend(fontsize=12)\nplt.tight_layout()\nplt.savefig(\"coins_pca.png\", dpi=150)\nplt.show()"
+  },
+  {
+    "objectID": "slides/07-coins.html#בדיקה-סטטיסטית-manova",
+    "href": "slides/07-coins.html#בדיקה-סטטיסטית-manova",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "בדיקה סטטיסטית — MANOVA",
+    "text": "בדיקה סטטיסטית — MANOVA\nfrom sklearn.discriminant_analysis import LinearDiscriminantAnalysis\nfrom sklearn.model_selection import cross_val_score\n\n# LDA: האם הצורה מנבאת את הקיסר?\ny = [0]*len(had) + [1]*len(ant)  # 0=הדריאנוס, 1=אנטונינוס\n\nlda = LinearDiscriminantAnalysis()\nscores_cv = cross_val_score(lda, X, y, cv=5)\n\nprint(f\"דיוק סיווג (cross-validation): {scores_cv.mean()*100:.1f}%\")\nprint(f\"(50% = מקרי, 100% = הפרדה מושלמת)\")\n\nפרשנות: האם AI + LDA יכולים לזהות קיסר רומאי ממטבע לא מסומן?"
+  },
+  {
+    "objectID": "slides/07-coins.html#שאלות-להרהור",
+    "href": "slides/07-coins.html#שאלות-להרהור",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "שאלות להרהור",
+    "text": "שאלות להרהור\n\nמדוע הפרדה (או חפיפה) בצורת המטבעות?\nהאם הבדלי הצורה נובעים מכוונה אמנותית או וריאציה בתהליך היצור?\nאם היו לנו מטבעות ממנטות שונות — האם הייתה שונות גדולה יותר?"
+  },
+  {
+    "objectID": "slides/07-coins.html#לשיעור-הבא-efa",
+    "href": "slides/07-coins.html#לשיעור-הבא-efa",
+    "title": "מקרה בוחן I: מטבעות רומיים",
+    "section": "לשיעור הבא — EFA",
+    "text": "לשיעור הבא — EFA\nמטבעות = ציוני דרך (landmarks).\nכלי חרס, גרזנים = קווי מתאר (outlines).\n\nקראו: מודול 7 — ניתוח קווי מתאר"
+  },
+  {
+    "objectID": "slides/02-data-collection.html#מהיכן-מגיעים-נתוני-הצורה",
+    "href": "slides/02-data-collection.html#מהיכן-מגיעים-נתוני-הצורה",
+    "title": "ממדידה לקואורדינטות",
+    "section": "מהיכן מגיעים נתוני הצורה?",
+    "text": "מהיכן מגיעים נתוני הצורה?\n\nמדידות קליפר — אורכים, רוחבים, זוויות\nתמונות דיגיטליות — צילום סטנדרטי + תוכנה\nסריקה תלת-ממדית — ענן נקודות\n\n\nבקורס זה: תמונות דיגיטליות → ציוני דרך / קווי מתאר"
+  },
+  {
+    "objectID": "slides/02-data-collection.html#מה-הם-ציוני-דרך-landmarks",
+    "href": "slides/02-data-collection.html#מה-הם-ציוני-דרך-landmarks",
+    "title": "ממדידה לקואורדינטות",
+    "section": "מה הם ציוני דרך? (Landmarks)",
+    "text": "מה הם ציוני דרך? (Landmarks)\nציוני דרך הם נקודות הניתנות להגדרה מדויקת על כל הפרטים בדגימה.\n\n\nשלושה סוגים:\n\nסוג I — נקודות אנטומיות ברורות (חיבור עצמות)\nסוג II — נקודות גיאומטריות מקסימום/מינימום עקמומיות\nסוג III — נקודות על מרחק שווה לאורך מתאר\n\n\n\n\n\n\n\n\nאזהרה\n\n\nכל ציון דרך צריך להיות ניתן לאיתור על כל פרט בדגימה — ובאותו מיקום ביולוגי/תפקודי."
+  },
+  {
+    "objectID": "slides/02-data-collection.html#כללי-הצילום-הסטנדרטי",
+    "href": "slides/02-data-collection.html#כללי-הצילום-הסטנדרטי",
+    "title": "ממדידה לקואורדינטות",
+    "section": "כללי הצילום הסטנדרטי",
+    "text": "כללי הצילום הסטנדרטי\n\nמישור אחיד — החפץ שטוח, בניצב לעדשה\nסקאלה — סרגל מצולם לצד החפץ\nרקע אחיד — לבן או שחור\nתאורה אחידה — ללא צללים חדים\nרזולוציה גבוהה — לפחות 300 dpi\n\n\n\n\n\n\n\n\nעצה\n\n\nשגיאה בצילום = שגיאה שמתרבה על פני מאות מדידות. השקיעו זמן בפרוטוקול."
+  },
+  {
+    "objectID": "slides/02-data-collection.html#תוכנת-fiji-imagej-סקירה",
+    "href": "slides/02-data-collection.html#תוכנת-fiji-imagej-סקירה",
+    "title": "ממדידה לקואורדינטות",
+    "section": "תוכנת FIJI / ImageJ — סקירה",
+    "text": "תוכנת FIJI / ImageJ — סקירה\n\nFIJI = ImageJ + plugins pre-installed\nFree, open source, runs on all platforms\n\n\nשלבי העבודה ב-FIJI:\n\nפתחו תמונה: File → Open\nהגדירו קנה מידה: Analyze → Set Scale\nסמנו ציוני דרך: Multi-Point Tool\nשמרו: File → Save As → XY Coordinates"
+  },
+  {
+    "objectID": "slides/02-data-collection.html#דוגמה-מטבע-הדריאנוס",
+    "href": "slides/02-data-collection.html#דוגמה-מטבע-הדריאנוס",
+    "title": "ממדידה לקואורדינטות",
+    "section": "דוגמה: מטבע הדריאנוס",
+    "text": "דוגמה: מטבע הדריאנוס\n\n\n8 ציוני דרך על מטבע:\n\n\n\n#\nמיקום\n\n\n\n\n1\nקצה כתר עליון\n\n\n2\nגבת עין\n\n\n3\nקצה אף\n\n\n4\nשפה תחתונה\n\n\n5\nסנטר\n\n\n6–8\nשולי המטבע (3 כיוונים)\n\n\n\n\n\n\n\n\n\n\nהערה\n\n\nציוני דרך 1–5 הם ביולוגיים (סוג I).\nציוני דרך 6–8 הם גיאומטריים (סוג III)."
+  },
+  {
+    "objectID": "slides/02-data-collection.html#מבנה-קובץ-tps",
+    "href": "slides/02-data-collection.html#מבנה-קובץ-tps",
+    "title": "ממדידה לקואורדינטות",
+    "section": "מבנה קובץ TPS",
+    "text": "מבנה קובץ TPS\n\nLM=8\n0.142 0.891\n0.378 0.734\n0.521 0.612\n0.489 0.398\n0.401 0.287\n0.891 0.500\n0.500 0.109\n0.109 0.500\nIMAGE=hadrian_001.jpg\nID=1\n\n\nפורמט TPS הוא הפורמט הסטנדרטי לנתוני ציוני דרך בארכאולוגיה וביולוגיה."
+  },
+  {
+    "objectID": "slides/02-data-collection.html#טעינת-tps-ב-python",
+    "href": "slides/02-data-collection.html#טעינת-tps-ב-python",
+    "title": "ממדידה לקואורדינטות",
+    "section": "טעינת TPS ב-Python",
+    "text": "טעינת TPS ב-Python\nimport numpy as np\n\ndef read_tps(filepath):\n    \"\"\"קורא קובץ TPS ומחזיר מערך של ציוני דרך.\"\"\"\n    specimens = []\n    with open(filepath) as f:\n        lines = f.readlines()\n    \n    i = 0\n    while i &lt; len(lines):\n        if lines[i].startswith(\"LM=\"):\n            n = int(lines[i].split(\"=\")[1])\n            coords = []\n            for j in range(1, n + 1):\n                x, y = map(float, lines[i + j].split())\n                coords.append([x, y])\n            specimens.append(np.array(coords))\n            i += n + 1\n        else:\n            i += 1\n    return np.array(specimens)\n\n# שימוש:\nlandmarks = read_tps(\"data/coins/DEN_Hadrian/Hadrian.TPS\")\nprint(f\"נטענו {len(landmarks)} מטבעות, {landmarks.shape[1]} ציוני דרך כל אחד\")"
+  },
+  {
+    "objectID": "slides/02-data-collection.html#שגיאות-נפוצות-באיסוף-נתונים",
+    "href": "slides/02-data-collection.html#שגיאות-נפוצות-באיסוף-נתונים",
+    "title": "ממדידה לקואורדינטות",
+    "section": "שגיאות נפוצות באיסוף נתונים",
+    "text": "שגיאות נפוצות באיסוף נתונים\n\n❌ שגיאת דיגיטציה — סימון ציון דרך במיקום שגוי\n❌ הקצאה שגויה — ציון דרך 3 על פרט A = ציון דרך 4 על פרט B\n❌ שגיאת סקאלה — שכחנו לכייל לפני המדידה\n❌ זווית שונה — חפץ לא מונח אחיד בין צילומים\n\n\n\n\n\n\n\n\nאזהרה\n\n\nבדקו תמיד: האם ציוני הדרך עקביים בין כל הפרטים?"
+  },
+  {
+    "objectID": "slides/02-data-collection.html#לשיעור-הבא",
+    "href": "slides/02-data-collection.html#לשיעור-הבא",
+    "title": "ממדידה לקואורדינטות",
+    "section": "לשיעור הבא",
+    "text": "לשיעור הבא\n\nהכינו: תמונה דיגיטלית של חפץ אחד מהסביבה שלכם\nהורידו: FIJI — נשתמש בו בשבוע 3\nקראו: מודול 2 — ממדידה לקואורדינטות\n\n\nשאלות?"
   },
   {
     "objectID": "modules/03-ai-coding.html",
@@ -949,7 +1565,7 @@
     "href": "modules/09-statistics.html#assignment-4-due-this-week",
     "title": "Module 9: Case Study II — Bronze Age Axes and Craft Networks",
     "section": "Assignment 4 Due This Week",
-    "text": "Assignment 4 Due This Week\n\n\n\n\n\n\nNote\n\n\n\nSubmit Colab notebook link + 600-word PDF + map image.\n→ Assignment 4: Bronze Age Axes Outline Analysis\n\n\n→ Module 10: Case Study III — Pottery and Ceramic Traditions"
+    "text": "Assignment 4 Due This Week\n\n\n\n\n\n\nהערה\n\n\n\nSubmit Colab notebook link + 600-word PDF + map image.\n→ Assignment 4: Bronze Age Axes Outline Analysis\n\n\n→ Module 10: Case Study III — Pottery and Ceramic Traditions"
   },
   {
     "objectID": "modules/04-procrustes.html",
@@ -1005,7 +1621,7 @@
     "href": "modules/04-procrustes.html#the-golden-rule",
     "title": "Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis",
     "section": "The Golden Rule",
-    "text": "The Golden Rule\n\n\n\n\n\n\nImportant\n\n\n\nAI writes the code. You interpret the results.\nIf the code runs but you don’t understand what the output means archaeologically — that is the problem to solve. Not the code."
+    "text": "The Golden Rule\n\n\n\n\n\n\nחשוב\n\n\n\nAI writes the code. You interpret the results.\nIf the code runs but you don’t understand what the output means archaeologically — that is the problem to solve. Not the code."
   },
   {
     "objectID": "modules/04-procrustes.html#assignment-2-due-today",

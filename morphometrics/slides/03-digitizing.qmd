@@ -1,0 +1,123 @@
+---
+title: "דיגיטציה עם FIJI"
+subtitle: "שבוע 3 — מעבדה מעשית"
+author: "שי גורדין | אוניברסיטת אריאל"
+format:
+  revealjs:
+    theme: night
+    direction: rtl
+    lang: he
+    slide-number: true
+    chalkboard: true
+    transition: slide
+    css: ../styles/rtl.css
+    footer: "צורה בזמן — שי גורדין, אוניברסיטת אריאל"
+---
+
+## מטרת השיעור {.center}
+
+בסוף השיעור תדעו:
+
+::: {.incremental}
+- לפתוח תמונה ב-FIJI ולכייל קנה מידה
+- לסמן ציוני דרך ולשמור קובץ קואורדינטות
+- לבדוק עקביות בין דיגיטציות חוזרות
+:::
+
+---
+
+## פתיחת FIJI — שלב ראשון
+
+::: {.ltr-block}
+```
+1. Open FIJI
+2. Drag image file into FIJI window  
+   (or File → Open → select file)
+3. Image opens in a new window
+```
+:::
+
+::: {.callout-important .fragment}
+**לפני שסמים ציוני דרך** — יש לכייל את קנה המידה!
+:::
+
+---
+
+## כיול קנה מידה ב-FIJI
+
+::: {.ltr-block}
+```
+1. Select "Straight Line" tool (press L)
+2. Draw line along the scale bar in image
+3. Analyze → Set Scale
+4. Enter known distance (e.g. 10 mm)
+5. Check "Global" → OK
+```
+:::
+
+::: {.fragment}
+כעת כל מדידה תוצג ב-mm (או ביחידות שבחרתם).
+:::
+
+---
+
+## סימון ציוני דרך — Multi-Point Tool
+
+::: {.ltr-block}
+```
+1. Select "Multi-Point" tool (press the dot icon)
+2. Click on each landmark in order (1, 2, 3...)
+3. Right-click to remove last point
+4. Analyze → Measure (Ctrl+M) to see coordinates
+5. File → Save As → Results (saves as .csv)
+```
+:::
+
+::: {.callout-warning .fragment}
+**סדר הציוני דרך חייב להיות זהה** על כל הפרטים בדגימה!
+:::
+
+---
+
+## תרגיל: דיגיטציה של מטבע
+
+1. הורידו את תמונת המטבע מ-Moodle
+2. פתחו ב-FIJI
+3. כיילו קנה מידה (הסרגל בתמונה = 5 מ"מ)
+4. סמנו 8 ציוני דרך לפי הסכמה שחילקנו
+5. שמרו כ-`hadrian_[שם_משתמש].csv`
+
+::: {.callout-tip .fragment}
+בצעו את הדיגיטציה **פעמיים** ללא הסתכלות על הניסיון הראשון — נשווה בין השניים כדי למדוד שגיאת מדידה.
+:::
+
+---
+
+## שגיאת מדידה — חשיבות
+
+```python
+import numpy as np
+
+# שתי דיגיטציות של אותו מטבע
+attempt1 = np.array([[142, 891], [378, 734], [521, 612]])
+attempt2 = np.array([[145, 889], [381, 731], [519, 615]])
+
+# שגיאת שורש-ממוצע-ריבועים (RMS)
+diffs = attempt1 - attempt2
+rms = np.sqrt(np.mean(diffs**2))
+print(f"שגיאת מדידה (RMS): {rms:.2f} פיקסלים")
+```
+
+::: {.fragment}
+שגיאת מדידה < 2% מהשונות הכוללת = **מקובל**.
+:::
+
+---
+
+## לשיעור הבא
+
+::: {.incremental}
+- השלימו את דיגיטציית המטבעות (כל 20 מטבעות הדריאנוס)
+- העלו את קבצי ה-CSV ל-Google Drive
+- קראו: [מודול 3](../modules/03-ai-coding.qmd)
+:::

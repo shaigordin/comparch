@@ -1,86 +1,72 @@
 ---
-title: "Shape in Time"
-subtitle: "Geometric Morphometrics for Archaeologists — Spring 2026"
+title: "צורה בזמן"
+subtitle: "מורפומטריה גיאומטרית לארכאולוגים — אביב 2026"
 page-layout: full
 ---
 
 ::: {.hero-banner}
 
-# Shape in Time {.display}
-## Geometric Morphometrics for Archaeologists
+# צורה בזמן {.display}
+## מורפומטריה גיאומטרית לארכאולוגים
 
-**Every object ever made by human hands has a shape. This course asks: what can shape tell us about the past?**
-
-:::
-
----
-
-## Course Overview
-
-Geometric morphometrics (GM) is one of the most powerful methods in modern archaeology. It gives us a rigorous, quantitative way to study *shape* — the very thing that makes a Roman coin look like a Roman coin, or a Bronze Age axe look older than an Iron Age one.
-
-In this course you will learn to:
-
-- Capture the shape of archaeological objects using digital images and landmark coordinates
-- Use **AI tools to write all the code** you need — no prior programming experience required
-- Perform real analyses on published datasets of **coins, axes, and pottery**
-- Connect shape patterns to big historical and archaeological questions
-
-**No coding background needed. AI writes the code; you ask the questions.**
-
----
-
-## The Big Questions We Will Answer
-
-::: {.grid}
-
-::: {.g-col-4}
-### Coins
-![Roman denarii of Hadrian and Antoninus Pius](../images/neo_assyrian_relief_reconstruction.png){.rounded}
-
-*Did Roman mints in different provinces produce coins with subtly different shapes? Can we detect this from shape alone?*
-:::
-
-::: {.g-col-4}
-### Axes
-*Were Bronze Age flanged axes made according to a single design, or do regional traditions show up in their shape? What does this tell us about craft networks?*
-:::
-
-::: {.g-col-4}
-### Pottery
-*Can we distinguish pottery production traditions from vessel shape alone, without knowing the clay source? What does shape variation in pots tell us about trade and cultural contact?*
-:::
+**כל חפץ שנוצר בידי אדם — יש לו צורה. הקורס הזה שואל: מה הצורה יכולה ללמד אותנו על העבר?**
 
 :::
 
 ---
 
-## How This Course Works
+## על הקורס
 
-| Week | Topic | Method |
-|------|-------|--------|
-| 1–2 | What is shape? Why does it matter? | Concepts |
-| 3–4 | Capturing shape: landmarks & outlines | Data collection |
-| 5–6 | Your AI lab partner: writing R code with Claude | AI-assisted coding |
-| 7–8 | Shape space: Procrustes & PCA | Landmark GM |
-| 9–10 | Outlines and Bronze Age axes | Elliptic Fourier |
-| 11–12 | Testing hypotheses, pottery case study | Statistics |
-| 13 | 3D morphometrics — the frontier | 3D GM |
-| 14 | Final project presentations | Synthesis |
+מורפומטריה גיאומטרית (GM) היא אחת השיטות החזקות ביותר בארכאולוגיה המודרנית. היא מאפשרת ניתוח כמותי ומחמיר של צורה — בדיוק מה שגורם למטבע רומאי להיראות כמו מטבע רומאי, או לגרזן מתקופת הברונזה להיראות שונה מגרזן מתקופת הברזל.
+
+בקורס זה נלמד:
+
+- לתאר את צורת חפצים ארכאולוגיים באמצעות תמונות דיגיטליות וקואורדינטות
+- להשתמש בכלי **AI לכתיבת כל הקוד** הנדרש — ללא ניסיון תכנות מוקדם
+- לנתח מאגרי נתונים אמיתיים של **מטבעות, גרזנים וכלי חרס**
+- לחבר בין תבניות צורה לשאלות היסטוריות וארכאולוגיות גדולות
+
+**אין צורך ברקע בתכנות — ה-AI כותב את הקוד, ואתם שואלים את השאלות.**
 
 ---
 
-## Instructor & Format
+## לוח שיעורים
 
-- **Format:** 2 hours lecture + 1 hour lab per week
-- **Tools:** R (via AI-generated code), ImageJ/FIJI, tpsDig2, MorphoJ
-- **Assessment:** 5 short assignments (50%) + Final project (50%)
-- **Language of instruction:** English
-- **Prerequisites:** None beyond basic computer literacy
+::: {.schedule-table}
+
+| שבוע | נושא | מצגת |
+|------|------|-------|
+| 1 | [מהי צורה? מדוע היא חשובה?](modules/01-what-is-shape.qmd) | [מצגת](slides/01-what-is-shape.html) |
+| 2 | [ממדידה לקואורדינטות](modules/02-data-collection.qmd) | [מצגת](slides/02-data-collection.html) |
+| 3 | [דיגיטציה של ציוני דרך — FIJI](modules/03-ai-coding.qmd) | [מצגת](slides/03-digitizing.html) |
+| 4 | [עוזר ה-AI שלך ו-Google Colab](modules/04-procrustes.qmd) | [מצגת](slides/04-ai-colab.html) |
+| 5 | [יישור פרוקרוסטס](modules/05-pca.qmd) | [מצגת](slides/05-procrustes.html) |
+| 6 | [PCA ומרחב הצורות](modules/06-coins.qmd) | [מצגת](slides/06-pca.html) |
+| 7 | [מקרה בוחן I — מטבעות רומיים](modules/07-outlines-theory.qmd) | [מצגת](slides/07-coins.html) |
+| 8 | [ניתוח קווי מתאר — EFA](modules/08-axes.qmd) | [מצגת](slides/08-efa.html) |
+| 9 | [מקרה בוחן II — גרזני ברונזה](modules/09-statistics.qmd) | [מצגת](slides/09-axes.html) |
+| 10 | [מקרה בוחן III — כלי חרס](modules/10-pottery.qmd) | [מצגת](slides/10-pottery.html) |
+| 11 | [בדיקת השערות — סטטיסטיקה](modules/11-3d.qmd) | [מצגת](slides/11-statistics.html) |
+| 12 | [סינתזה והצגות](modules/12-big-questions.qmd) | [מצגת](slides/12-synthesis.html) |
+
+:::
+
+---
+
+## מטלות
+
+| מטלה | משקל | מועד הגשה |
+|------|------|-----------|
+| [מטלה 1 — יומן צורות](assignments/01-shape-journal.qmd) | 5% | שבוע 2 |
+| [מטלה 2 — תרגיל ציוני דרך](assignments/02-landmarks.qmd) | 10% | שבוע 5 |
+| [מטלה 3 — ניתוח מטבעות](assignments/03-coins.qmd) | 15% | שבוע 8 |
+| [מטלה 4 — EFA לגרזנים](assignments/04-axes.qmd) | 15% | שבוע 10 |
+| [מטלה 5 — PCA לכלי חרס](assignments/05-pottery.qmd) | 5% | שבוע 11 |
+| [פרויקט גמר](assignments/final-project.qmd) | 50% | סוף סמסטר |
 
 ---
 
 ::: {.callout-tip}
-## First Step
-Start with [Module 1 — What is Shape?](modules/01-what-is-shape.qmd) and the [Shape Journal assignment](assignments/01-shape-journal.qmd) before the first class.
+## התחלה
+התחילו עם [שבוע 1 — מהי צורה?](modules/01-what-is-shape.qmd) ועם [מטלה 1 — יומן צורות](assignments/01-shape-journal.qmd) לפני השיעור הראשון.
 :::

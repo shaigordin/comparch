@@ -1,0 +1,161 @@
+---
+title: "מקרה בוחן III: כלי חרס מיפן"
+subtitle: "שבוע 10 — צנצנות Ogame מתקופת אדו"
+author: "שי גורדין | אוניברסיטת אריאל"
+format:
+  revealjs:
+    theme: night
+    direction: rtl
+    lang: he
+    slide-number: true
+    chalkboard: true
+    transition: slide
+    css: ../styles/rtl.css
+    footer: "צורה בזמן — שי גורדין, אוניברסיטת אריאל"
+---
+
+## צנצנות Ogame — רקע {.center}
+
+大甕 — "כד גדול" — קיושו הצפונית, יפן, 1600–1800 לספירה
+
+::: {.incremental}
+- ייצור תעשייתי לאחסון רוטב סויה, סאקה, דשן
+- שימוש משני: כלי קבורה לגוף האדם
+- **שאלה:** האם כדי כבשן נבדלים מכדי קבורה בצורתם?
+:::
+
+---
+
+## שאלת המחקר
+
+> האם צורת הכד מעידה על ההקשר שבו הוא שימש —  
+> **ייצור** (כבשן) לעומת **קבורה** (בית עלמין)?
+
+::: {.fragment}
+אם כן: משפחות בחרו כדים מיוחדים לקבורה.  
+אם לא: הכדים הועברו ישירות מהכבשן לקבר.
+:::
+
+---
+
+## הנתונים (Loftus 2025)
+
+| אתר | הקשר | N |
+|-----|------|---|
+| FR (Furukameyashimo) | כבשן | 89 |
+| KM (Kameya) | כבשן | 48 |
+| MR, NT, NS, MD ועוד | קבורה | 106 |
+
+::: {.ltr-block}
+**Source:** Loftus, J. (2025). *Journal of Open Archaeology Data* 13:13.  
+DOI: 10.5334/joad.159 | Zenodo: 10.5281/zenodo.15781166
+:::
+
+---
+
+## הורדת הנתונים ב-Colab
+
+```python
+import requests, zipfile, os
+
+# הורדה מ-Zenodo (פעם אחת)
+url = "https://zenodo.org/records/15781166/files/Ogame_GMM.zip?download=1"
+r = requests.get(url, stream=True)
+with open("Ogame_GMM.zip", "wb") as f:
+    for chunk in r.iter_content(chunk_size=8192):
+        f.write(chunk)
+
+with zipfile.ZipFile("Ogame_GMM.zip") as z:
+    z.extractall(".")
+print("הנתונים הורדו בהצלחה!")
+
+# טעינת מטה-דאטה
+import pandas as pd
+samples = pd.read_csv("Ogame_GMM/Ogame_Samples.csv")
+samples = samples.rename(columns={samples.columns[3]: "context_code"})
+samples["context"] = samples["context_code"].map({1: "קבורה", 2: "כבשן"})
+print(samples["context"].value_counts())
+```
+
+---
+
+## חישוב EFA וPCA
+
+```python
+import pyefd
+from PIL import Image
+from skimage import measure
+from sklearn.decomposition import PCA
+
+# EFA על כל הכדים
+records = []
+for _, row in samples.iterrows():
+    path = f"Ogame_GMM/Ogame_Profiles_All/{row['Sample ID']}.png"
+    outline = extract_outline(path)
+    if outline is None: continue
+    y, x = outline[:, 0], outline[:, 1]
+    coeffs = pyefd.elliptic_fourier_descriptors(
+        np.column_stack([x, y]), order=20, normalize=True)
+    records.append({"id": row["Sample ID"],
+                    "context": row["context"],
+                    **{f"c{i}": v for i,v in enumerate(coeffs.ravel())}})
+
+df = pd.DataFrame(records)
+X = df[[c for c in df.columns if c.startswith("c")]].values
+pca = PCA()
+scores = pca.fit_transform(X)
+var = pca.explained_variance_ratio_ * 100
+```
+
+---
+
+## ממצאים — כבשן לעומת קבורה
+
+```python
+fig, ax = plt.subplots(figsize=(9, 7))
+
+colors = {"כבשן": "#e07b39", "קבורה": "#4a90c4"}
+for ctx, c in colors.items():
+    mask = df["context"] == ctx
+    ax.scatter(scores[mask, 0], scores[mask, 1],
+               c=c, label=f"{ctx} (n={mask.sum()})",
+               s=50, alpha=0.75, edgecolors='white', lw=0.5)
+
+ax.set_xlabel(f"PC1 ({var[0]:.1f}%)")
+ax.set_ylabel(f"PC2 ({var[1]:.1f}%)")
+ax.set_title("מרחב הצורות — כדי Ogame: כבשן לעומת קבורה")
+ax.legend(fontsize=12)
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+## שאלות לפרשנות
+
+::: {.incremental}
+- האם שתי הקבוצות נפרדות, חופפות, או מעורבבות?
+- מה משתנה לאורך PC1? (גובה? רוחב? צוואר?)
+- מה משמעות ממצא זה על **תהליך הקבורה** בתקופת אדו?
+- מה **לא ניתן לדעת** מהצורה בלבד?
+:::
+
+::: {.callout-note .fragment}
+זוהי שאלת **מטלה 5** — 300 מילים, בצירוף הגרף.
+:::
+
+---
+
+## לשיעור הבא — סטטיסטיקה
+
+```python
+from scipy.stats import mannwhitneyu
+
+kiln   = scores[df["context"] == "כבשן",   0]
+burial = scores[df["context"] == "קבורה",  0]
+
+stat, p = mannwhitneyu(kiln, burial, alternative='two-sided')
+print(f"U = {stat:.1f}, p = {p:.4f}")
+```
+
+קראו: [מודול 11 — בדיקת השערות](../modules/11-3d.qmd)

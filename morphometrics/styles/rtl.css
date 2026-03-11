@@ -1,0 +1,100 @@
+/* ── RTL / Hebrew global layout ────────────────────────── */
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+}
+
+/* Navbar: title right-aligned, items flow RTL */
+.navbar {
+  direction: rtl;
+}
+.navbar-nav {
+  flex-direction: row-reverse;
+}
+.navbar-brand {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* Table of contents on left side for RTL pages */
+#quarto-sidebar, .sidebar {
+  direction: rtl;
+}
+
+/* Code blocks always LTR */
+pre, code, .sourceCode, .cell-output {
+  direction: ltr !important;
+  text-align: left !important;
+  font-family: "Fira Code", "Courier New", monospace;
+}
+
+/* English/LTR inline spans */
+.ltr {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
+}
+
+/* Block-level LTR (citations, references) */
+.ltr-block {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+}
+
+/* Blockquotes used for citations — keep LTR */
+blockquote {
+  direction: ltr;
+  text-align: left;
+  border-right: none;
+  border-left: 4px solid #dee2e6;
+  padding-left: 1rem;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+/* Tables: RTL header and cells */
+table {
+  direction: rtl;
+}
+th, td {
+  text-align: right;
+}
+
+/* Callout boxes */
+.callout {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Hero banner on home page */
+.hero-banner {
+  text-align: center;
+  direction: rtl;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* Schedule table links */
+.schedule-table a {
+  text-decoration: none;
+  color: #0f3460;
+  font-weight: 500;
+}
+.schedule-table a:hover {
+  text-decoration: underline;
+}
+
+/* Footer / author credit */
+.author-credit {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
