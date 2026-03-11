@@ -80,20 +80,43 @@ data/flanged_axes/
 
 ---
 
-## Dataset 3: Ancient Pottery (Open-Access)
+## Dataset 3: Second Iron Age Ceramics from Bibracte
 
-::: {.callout-note}
-## Dataset to be confirmed before course launch
+**Artefact type:** La Tène period ceramic vessels (complete profiles)
 
-We are finalizing the pottery dataset from open-access publications (2023–2025). The dataset will be added here before Week 1, with full citation, DOI, and license information.
+**Site:** Bibracte oppidum, Burgundy, France (capital of the Celtic Aedui tribe)
 
-**Candidate sources being evaluated:**
-- Open-access datasets on Zenodo matching query: "geometric morphometrics pottery archaeology"
-- Supplementary data from *Journal of Archaeological Science: Reports* 2023–2025
-- OSF projects tagged with "ceramic morphometrics"
+**Period:** Second Iron Age, 2nd century BC – 1st century AD
 
-**Requirements:** Open-access license (CC-BY or equivalent), minimum 50 vessels, includes grouping variable (period, site, or vessel type), image format compatible with `scikit-image` outline extraction.
-:::
+**Specimens:** 154 complete ceramic vessels with well-preserved cross-sections
+
+**Functional groups (8 types):**
+
+| Type | N |
+|------|---|
+| Plates | 35 |
+| Dishes | 20 |
+| Bowls | 24 |
+| Cups | 18 |
+| Goblets | 14 |
+| Pots | 27 |
+| Vases | 9 |
+| Bottles | 7 |
+
+**Format:** Pre-computed EFA coefficients (20 harmonics, closed-contour normalization) stored as CSV, derived from published archaeological drawings digitized at 1200 dpi. Typological metadata (vessel type) included.
+
+**Source:**
+> Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50.
+> DOI: [10.1016/j.jas.2014.05.033](https://doi.org/10.1016/j.jas.2014.05.033)
+
+Supplementary materials (corpus list, typological descriptors, EFA coefficients) available from the publisher at the DOI above.
+
+**Files in repository:**
+```
+data/bibracte_ceramics/
+├── bibracte_efa_coefficients.csv    ← 154 vessels × EFA coefficients + vessel_type column
+└── bibracte_metadata.csv            ← vessel type, size group, vessel ID, literature ref
+```
 
 **Used in:** [Assignment 5](../assignments/05-pottery.qmd), [Module 10](../modules/10-pottery.qmd)
 
@@ -130,4 +153,5 @@ When using course datasets in your assignments or final project, cite the origin
 **For coins and axes:**
 > Morphometrics course materials. *Modern Quantitative Methods and Shape Analysis in Archaeology*. Univerzita Hradec Králové, Filozofická Fakulta. Project CZ.02.2.69/0.0/0.0/16_015/0002427.
 
-**For pottery:** Full citation will be provided when the dataset is confirmed.
+**For Bibracte ceramics:**
+> Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50. DOI: 10.1016/j.jas.2014.05.033

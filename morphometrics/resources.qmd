@@ -52,8 +52,10 @@ All installed in Colab with `!pip install`:
 ### Key Archaeological Applications
 
 - Karasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.
+- Wilczek, J. et al. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50:39–50. [**Course pottery dataset**]
+- Monna, F. et al. (2013). Morphometry of Middle Bronze Age palstaves. *Journal of Archaeological Science* 40:507–516. [**Background to course axes dataset**]
+- Wilczek, J. et al. (2015). Unsupervised model-based clustering for typological classification of Middle Bronze Age flanged axes. *Journal of Archaeological Science: Reports* 2:523–532. [**Course axes dataset**]
 - Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24.
-- Boyer, D.M. et al. (2015). A new fully automated approach for aligning and comparing shapes. *Anatomical Record* 298(1):249–276.
 - Selden, R.Z. (2018). Ceramic morphological organisation in the Southern Caddo Area. *Journal of Cultural Heritage* 32:215–223.
 
 ### On AI in Research and Writing
