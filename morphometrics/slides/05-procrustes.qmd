@@ -16,7 +16,7 @@ format:
 
 ## הבעיה: איך משווים צורות? {.center}
 
-שני מטבעות, אבל אחד גדול פי שניים ומסובב ב-45°.
+שני מטבעות — אחד גדול פי שניים ומסובב ב-45°.
 
 ::: {.fragment}
 **פתרון:** יישור פרוקרוסטס (GPA — Generalized Procrustes Analysis)
@@ -31,11 +31,11 @@ format:
 ::: {.incremental}
 1. **הזזה (Translation)** — מרכז הכובד של כל פרט ל-(0,0)
 2. **קנה מידה (Scaling)** — גודל-צנטרואיד = 1 לכולם
-3. **סיבוב (Rotation)** — מינמום סטייה מהממוצע
+3. **סיבוב (Rotation)** — מינימום סטייה מהממוצע
 :::
 
 ::: {.callout-note .fragment}
-התהליך **איטרטיבי**: מחשבים ממוצע → מיישרים → מחשבים ממוצע מחדש, עד להתכנסות.
+התהליך **איטרטיבי**: מחשבים ממוצע → מיישרים → מחשבים שוב, עד להתכנסות.
 :::
 
 ---
@@ -44,68 +44,48 @@ format:
 
 $$CS = \sqrt{\sum_{i=1}^{k} \left[(x_i - \bar{x})^2 + (y_i - \bar{y})^2\right]}$$
 
+![גודל-צנטרואיד — אותה צורה, גדלים שונים](../images/slides/05-centroid-size.png){fig-align="center" width="85%"}
+
+---
+
+## GPA ב-Python (Colab)
+
 ```python
 import numpy as np
+from morphops import gpa
 
-def centroid_size(landmarks):
-    """מחשב גודל-צנטרואיד."""
-    centroid = landmarks.mean(axis=0)
-    return np.sqrt(np.sum((landmarks - centroid)**2))
+# landmarks.shape = (35, 16, 2) — 35 מטבעות, 16 ציוני דרך
+landmarks = np.load("coins_landmarks.npy")
 
-# דוגמה
-coin = np.array([[142, 891], [378, 734], 
-                  [521, 612], [489, 398]])
-print(f"גודל-צנטרואיד: {centroid_size(coin):.2f}")
+# יישור GPA — מחזיר מילון
+result = gpa(landmarks)
+aligned    = result['aligned']   # ציוני דרך מיושרים
+mean_shape = result['mean']      # צורה ממוצעת
+
+print(f"מספר מטבעות: {len(aligned)}")
+print(f"ציוני דרך: {aligned.shape[1]}")
+print(f"טווח x לאחר GPA: {aligned[:,:,0].min():.3f} עד {aligned[:,:,0].max():.3f}")
 ```
 
 ---
 
-## GPA ב-Python
+## תוצאה — לפני ואחרי GPA
 
-```python
-from morphops import procrustes_alignment
-import numpy as np
+![יישור פרוקרוסטס — 35 מטבעות רומיים](../images/slides/05-gpa-before-after.png){fig-align="center" width="90%"}
 
-# טעינת 20 מטבעות (8 ציוני דרך כל אחד)
-landmarks = np.load("hadrian_landmarks.npy")  # (20, 8, 2)
-
-# יישור GPA
-aligned, mean_shape, _ = procrustes_alignment(landmarks)
-
-print("לפני יישור — טווח x:", 
-      landmarks[:,:,0].min().round(1),
-      "עד", landmarks[:,:,0].max().round(1))
-print("אחרי יישור — טווח x:", 
-      aligned[:,:,0].min().round(3),
-      "עד", aligned[:,:,0].max().round(3))
-```
+::: {.fragment}
+שמאל: כל מטבע במיקום ובגודל שלו. ימין: כולם מיושרים — רק הצורה נשארת.
+:::
 
 ---
 
-## ויזואליזציה של יישור
+## ציוני הדרך המיושרים
 
-```python
-import matplotlib.pyplot as plt
+![ציוני דרך מיושרים — 35 מטבעות](../images/slides/05-landmarks-aligned.png){fig-align="center" width="70%"}
 
-fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-
-for i, (title, data) in enumerate([
-    ("לפני GPA", landmarks), 
-    ("אחרי GPA", aligned)
-]):
-    for specimen in data:
-        axes[i].plot(*specimen.T, 'o-', alpha=0.3, 
-                     color='steelblue', ms=4)
-    axes[i].plot(*mean_shape.T, 'ro-', lw=2, ms=8,
-                  label='צורה ממוצעת', zorder=5)
-    axes[i].set_title(title, fontsize=14)
-    axes[i].set_aspect('equal')
-    axes[i].legend()
-
-plt.suptitle("יישור פרוקרוסטס — 20 מטבעות הדריאנוס")
-plt.tight_layout()
-plt.show()
-```
+::: {.fragment}
+כל נקודה = ציון דרך אחד על מטבע אחד. הצבע = קיסר. הנקודה הלבנה = ממוצע.
+:::
 
 ---
 
@@ -127,16 +107,16 @@ plt.show()
 :::
 
 ::: {.callout-tip .fragment}
-גודל-צנטרואיד **נשמר בצד** — אפשר לנתח אלומטריה (קשר צורה-גודל) בנפרד.
+גודל-צנטרואיד **נשמר בצד** לניתוח אלומטריה (קשר צורה-גודל) בנפרד.
 :::
 
 ---
 
 ## לשיעור הבא — PCA
 
-לאחר GPA יש לנו נתוני צורה מיושרים.  
-השלב הבא: **הפחתת ממדים** — מאות ממדים → 2–3 ציר עיקריים.
+לאחר GPA: נתוני צורה מיושרים ב-32 ממדים (16 נקודות × x,y).  
+השלב הבא: **הפחתת ממדים** → 2 צירים עיקריים.
 
 ::: {.fragment}
-קראו: [מודול 5 — PCA](../modules/05-pca.qmd)
+קראו: [מודול 5 — PCA ומרחב הצורות](../modules/05-pca.qmd)
 :::

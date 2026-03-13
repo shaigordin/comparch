@@ -1,65 +1,67 @@
 ---
-title: "Assignment 1: Shape Journal"
-subtitle: "5% of final grade | Due: Week 3"
+title: "מטלה 1: יומן צורות"
+subtitle: "5% מהציון הסופי | הגשה: שבוע 3"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-This assignment asks you to look at archaeological artefacts with new eyes — focusing on **shape** rather than function, date, or cultural label.
+מטלה זו מבקשת מכם להביט בממצאים ארכאולוגיים בעיניים חדשות — תוך התמקדות ב**צורה** ולא בפונקציה, תאריך, או תווית תרבותית.
 
 ---
 
-## Instructions
+## הוראות
 
-Find **3 archaeological objects** in online databases or published papers. Good sources:
+מצאו **3 חפצים ארכאולוגיים** ממאגרי מידע מקוונים או מאמרים מפורסמים. מקורות מומלצים:
 
 - [British Museum Collection](https://www.britishmuseum.org/collection)
 - [Metropolitan Museum of Art Open Access](https://www.metmuseum.org/art/collection)
 - [Europeana](https://www.europeana.eu)
-- [JSTOR Global Plants / any open-access archaeology journal](https://www.jstor.org)
+- [JSTOR Global Plants / כל כתב-עת ארכאולוגי בגישה פתוחה](https://www.jstor.org)
 
-The objects must be from at least **2 different artefact categories** (e.g., two coins and one vessel; or one axe, one fibula, and one ceramic).
-
----
-
-## For Each Object, Write:
-
-### 1. Identification (1–2 sentences)
-Provide the object's museum number (or DOI if from a publication), type, date, and place of origin. Include a clear image.
-
-> Example: *BM 1867,0101.447 — Roman bronze fibula (brooch), 2nd century CE, found in Roman Britain.*
-
-### 2. Shape Description (3–5 sentences)
-Describe the shape in **purely geometric terms**. Avoid typological labels ("Type A," "carinated") and functional descriptions ("used for fastening"). Think like a geometer: what curves, angles, proportions, and symmetries do you see?
-
-> Example (bad): *"This is a type B fibula used for fastening garments."*
-> Example (good): *"The object has a bow-shaped upper arc that rises to approximately 0.4 of the total length before curving back down. The footplate is wider than the head, giving the outline a slight trapezoid asymmetry. The catch-plate is a rectangular projection at the base."*
-
-### 3. Research Question (2–3 sentences)
-Write one specific question that **shape analysis** could help answer for this type of object. Be concrete.
-
-> Example (bad): *"I would study the shape of these fibulae."*
-> Example (good): *"Do fibulae from the western provinces of the Roman Empire show consistent shape differences from those of the eastern provinces? A landmark GM study of 100+ specimens could test whether shape variation follows provincial boundaries or trade routes."*
-
-### 4. Method Choice (2–3 sentences)
-Which GM method would you use — landmarks, outlines, or both? Why? What specific landmarks would you place, or what outline would you trace?
+החפצים חייבים להיות משתי **קטגוריות ממצא לפחות** (למשל, שתי מטבעות וכלי חרס אחד; או גרזן אחד, סיכה אחת, וכלי קרמי אחד).
 
 ---
 
-## Format
+## על כל חפץ, כתבו:
 
-- **Length:** 600–800 words total (across all three objects) + 3 images
-- **Format:** PDF
-- **Submission:** Course portal
+### 1. זיהוי (1–2 משפטים)
+ציינו את מספר המוזיאון של החפץ (או DOI אם מפרסום), סוג, תאריך ומקום מוצא. כללו תמונה ברורה.
+
+> דוגמה: *BM 1867,0101.447 — סיכת ברונזה רומית (fibula), המאה ה-2 לספירה, נמצאה ברומן בריטניה.*
+
+### 2. תיאור צורה (3–5 משפטים)
+תארו את הצורה **במונחים גיאומטריים גרידא**. הימנעו מתוויות טיפולוגיות ("סוג A", "מקורקר") ותיאורים פונקציונליים ("שימש לסגירה"). חשבו כמו גיאומטר: אילו עקומות, זוויות, פרופורציות וסימטריות אתם רואים?
+
+> דוגמה (גרועה): *"זוהי סיכה מסוג B ששימשה לסגירת בגדים."*
+> דוגמה (טובה): *"לחפץ קשת עליונה בצורת קשת המגיעה לגובה של כ-0.4 מהאורך הכולל לפני שהיא מתעקלת בחזרה. לוחית הרגל רחבה יותר מהראש, מה שנותן לקו המתאר אסימטריה קלה בצורת טרפז. לוחית הלכידה היא בליטה מלבנית בבסיס."*
+
+### 3. שאלת מחקר (2–3 משפטים)
+כתבו שאלה ספציפית אחת ש**ניתוח צורות** יכול לסייע במענה עליה עבור סוג חפץ זה. היו קונקרטיים.
+
+> דוגמה (גרועה): *"הייתי חוקר את צורת הסיכות האלה."*
+> דוגמה (טובה): *"האם סיכות מהפרובינקיות המערביות של האימפריה הרומית מציגות הבדלי צורה עקביים מאלה של הפרובינקיות המזרחיות? מחקר GM של ציוני דרך על יותר מ-100 פרטים יכול לבחון האם שונות הצורה עוקבת אחר גבולות פרובינקיאליים או מסלולי סחר."*
+
+### 4. בחירת שיטה (2–3 משפטים)
+איזו שיטת GM תשתמשו — ציוני דרך, קווי מתאר, או שניהם? מדוע? אילו ציוני דרך ספציפיים תציבו, או איזה קו מתאר תסרטטו?
 
 ---
 
-## Grading
+## פורמט
 
-| Criterion | Points |
-|-----------|--------|
-| Objects appropriately sourced with proper citations | 10 |
-| Shape descriptions are genuinely geometric (not typological) | 30 |
-| Research questions are specific and answerable with GM | 40 |
-| Method choices are appropriate and explained | 20 |
-| **Total** | **100** |
+- **אורך:** 600–800 מילים סך הכל (על פני שלושת החפצים) + 3 תמונות
+- **פורמט:** PDF
+- **הגשה:** פורטל הקורס
+
+---
+
+## ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| חפצים מקורם כראוי עם ציטוטים תקינים | 10 |
+| תיאורי הצורה הם גיאומטריים אמיתיים (לא טיפולוגיים) | 30 |
+| שאלות המחקר ספציפיות וניתנות למענה עם GM | 40 |
+| בחירות השיטה מתאימות ומוסברות | 20 |
+| **סך הכל** | **100** |

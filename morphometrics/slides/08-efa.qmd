@@ -100,7 +100,7 @@ for fname in os.listdir("data/axes/G3"):
     if fname.endswith(".tif"):
         c = compute_efa(f"data/axes/G3/{fname}")
         if c is not None:
-            records.append({"file": fname, **{f"c{i}": v 
+            records.append({"file": fname, **{f"e{i}": v
                            for i,v in enumerate(c)}})
 ```
 
@@ -130,7 +130,7 @@ fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 for ax, h, title in zip(axes, [5, 20], 
                           ["5 הרמוניות", "20 הרמוניות"]):
     sample_coeffs = records[0]  # גרזן ראשון
-    c5 = np.array([sample_coeffs[f"c{i}"] for i in range(h*4)])
+    c5 = np.array([sample_coeffs[f"e{i}"] for i in range(h*4)])
     x, y = reconstruct_shape(c5, h)
     ax.plot(x, y, 'b-', lw=2)
     ax.set_aspect('equal')
@@ -138,6 +138,16 @@ for ax, h, title in zip(axes, [5, 20],
 plt.tight_layout()
 plt.show()
 ```
+
+---
+
+## שחזור EFA — תוצאות אמיתיות
+
+![שחזור קו מתאר גרזן ברונזה — 1, 3, 6, 12 הרמוניות](../images/slides/08-efa-reconstruction.png){fig-align="center" width="90%"}
+
+::: {.fragment}
+12 הרמוניות מספיקות לתיאור כמעט מושלם של צורת הגרזן.
+:::
 
 ---
 

@@ -1,106 +1,108 @@
 ---
-title: "Assignment 2: Landmark Exercise"
-subtitle: "10% of final grade | Due: Week 4"
+title: "מטלה 2: תרגיל ציוני דרך"
+subtitle: "10% מהציון הסופי | הגשה: שבוע 4"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-You will digitize 20 Hadrian coin images using FIJI, assess the consistency of your landmark placement, and reflect on what this experience reveals about GM as a method.
-
----
-
-## Step 1: Download the Data
-
-Download the Hadrian coin dataset from the course Data page:
-[→ Data](../data/index.qmd)
-
-The folder `DEN_Hadrian/` contains 20 JPEG images of Hadrian denarii, all standardized to the same orientation (portrait facing right).
+תדגמו 20 תמונות מטבעות הדריאנוס באמצעות FIJI, תעריכו את עקביות הצבת ציוני הדרך שלכם, ותשקפו על מה שחוויה זו מגלה על GM כשיטה.
 
 ---
 
-## Step 2: The 8-Landmark Protocol
+## שלב 1: הורדת הנתונים
 
-Place landmarks in this exact order on every coin:
+הורידו את מאגר נתוני מטבעות הדריאנוס מדף הנתונים של הקורס:
+[← נתונים](../data/index.qmd)
 
-| # | Location | Notes |
-|---|---------|-------|
-| 1 | Tip of nose (most anterior point of portrait) | Type II |
-| 2 | Back of skull (most posterior point) | Type II |
-| 3 | Base of chin (most inferior point of face) | Type II |
-| 4 | Top of forehead (most superior point of portrait) | Type II |
-| 5 | Coin edge at 12 o'clock (top) | Type III |
-| 6 | Coin edge at 6 o'clock (bottom) | Type III |
-| 7 | Coin edge at 3 o'clock (rightmost point) | Type III |
-| 8 | Coin edge at 9 o'clock (leftmost point) | Type III |
+התיקייה `DEN_Hadrian/` מכילה 20 תמונות JPEG של דנריים של הדריאנוס, כולן מתוקננות לאותו כיוון (פורטרט פונה ימינה).
+
+---
+
+## שלב 2: פרוטוקול 8 ציוני הדרך
+
+הציבו ציוני דרך בסדר מדויק זה על כל מטבע:
+
+| מספר | מיקום | הערות |
+|------|--------|-------|
+| 1 | קצה האף (הנקודה הקדמית ביותר של הפורטרט) | סוג II |
+| 2 | גב הגולגולת (הנקודה האחורית ביותר) | סוג II |
+| 3 | בסיס הסנטר (הנקודה התחתונה ביותר של הפנים) | סוג II |
+| 4 | קמרון המצח (הנקודה העליונה ביותר של הפורטרט) | סוג II |
+| 5 | שפת המטבע ב-12 בשעון (למעלה) | סוג III |
+| 6 | שפת המטבע ב-6 בשעון (למטה) | סוג III |
+| 7 | שפת המטבע ב-3 בשעון (הנקודה הימנית ביותר) | סוג III |
+| 8 | שפת המטבע ב-9 בשעון (הנקודה השמאלית ביותר) | סוג III |
 
 ::: {.callout-warning}
-## Consistency is more important than "correctness"
-Use the same definition for each landmark on every coin. A landmark placed slightly off is less damaging than a landmark placed inconsistently. Write a brief note before you start digitizing, describing exactly how you will define each landmark.
+## עקביות חשובה יותר מ"נכונות"
+השתמשו באותה הגדרה לכל ציון דרך על כל מטבע. ציון דרך שהוצב מעט הצידה פחות מזיק מציון דרך שהוצב בצורה לא עקבית. כתבו הערה קצרה לפני שתתחילו לדגם, שמתארת בדיוק כיצד תגדירו כל ציון דרך.
 :::
 
 ---
 
-## Step 3: Digitize with FIJI
+## שלב 3: דיגיטיזציה עם FIJI
 
-Full step-by-step FIJI instructions are in [Module 3](../modules/03-ai-coding.qmd).
+הוראות FIJI מלאות שלב אחר שלב נמצאות ב[מודול 3](../modules/03-ai-coding.qmd).
 
-For each coin:
-1. Open the image
-2. Set scale using the scale bar (or leave in pixels — just be consistent)
-3. Place 8 landmarks using the Point tool + Shift-click
-4. Record coordinates via Analyze → Measure or ROI Manager
-
----
-
-## Step 4: Convert to TPS Format
-
-Open the [Week 4 Colab notebook](https://colab.research.google.com) and run the TPS conversion cell. Paste your FIJI measurements table into the provided input area.
+עבור כל מטבע:
+1. פתחו את התמונה
+2. קבעו סקאלה באמצעות סרגל הסקאלה (או השאירו בפיקסלים — פשוט היו עקביים)
+3. הציבו 8 ציוני דרך באמצעות כלי הנקודה + Shift-click
+4. רשמו קואורדינטות דרך Analyze → Measure או ROI Manager
 
 ---
 
-## Step 5: Inter-Observer Comparison
+## שלב 4: המרה לפורמט TPS
 
-Find a partner in the class. Exchange your TPS files. Open the Week 4 notebook, load both TPS files, and run the inter-observer error analysis cell:
+פתחו את [מחברת Colab של שבוע 4](https://colab.research.google.com) והריצו את תא המרת TPS. הדביקו את טבלת מדידות FIJI שלכם לאזור הקלט המסופק.
+
+---
+
+## שלב 5: השוואה בין-צופים
+
+מצאו שותף בכיתה. החליפו קבצי TPS. פתחו את מחברת שבוע 4, טענו את שני קבצי ה-TPS, והריצו את תא ניתוח שגיאת בין-צופים:
 
 ```python
-# Provided in the notebook:
-# Calculates mean Procrustes distance between two digitizers
-# per landmark and overall
+# מסופק במחברת:
+# מחשב מרחק פרוקרוסטס ממוצע בין שני מדגמים
+# לכל ציון דרך ובכלל
 compare_digitizers(your_tps, partner_tps)
 ```
 
-The output will show which landmarks had the highest disagreement.
+הפלט יראה אילו ציוני דרך הציגו את אי-ההסכמה הגבוהה ביותר.
 
 ---
 
-## Step 6: Written Reflection (400 words)
+## שלב 6: הרהור כתוב (400 מילים)
 
-Answer these questions in your reflection:
+ענו על שאלות אלה בהרהור שלכם:
 
-1. **Which landmarks were easiest to place consistently?** Why?
-2. **Which were hardest?** What made them ambiguous?
-3. **What was your inter-observer error?** How does it compare to the variation between coins?
-4. **If you were designing this landmark protocol from scratch**, what would you change? Would you add, remove, or redefine any landmarks?
-5. **What does this experience tell you** about the subjectivity embedded in supposedly "objective" quantitative methods?
-
----
-
-## Deliverables
-
-1. Your TPS file (attach as `.tps`)
-2. A screenshot of the inter-observer error output
-3. 400-word written reflection (in the same PDF)
-
-**Submit as: one PDF (reflection + screenshot) + one TPS file**
+1. **אילו ציוני דרך היה קל ביותר להציב בעקביות?** מדוע?
+2. **אילו היו הקשים ביותר?** מה גרם לאי-בהירות?
+3. **מה הייתה שגיאת בין-הצופים שלכם?** כיצד היא משתווה לשונות בין מטבעות?
+4. **אילו הייתם מעצבים פרוטוקול ציוני דרך זה מאפס**, מה הייתם משנים? האם הייתם מוסיפים, מסירים, או מגדירים מחדש ציוני דרך כלשהם?
+5. **מה חוויה זו אומרת לכם** על הסובייקטיביות המוטמעת בשיטות כמותיות "אובייקטיביות" לכאורה?
 
 ---
 
-## Grading
+## מה להגיש
 
-| Criterion | Points |
-|-----------|--------|
-| TPS file complete (all 20 specimens, 8 landmarks each) | 30 |
-| Inter-observer comparison completed correctly | 20 |
-| Reflection addresses all 5 questions substantively | 40 |
-| Writing quality | 10 |
-| **Total** | **100** |
+1. קובץ ה-TPS שלכם (מצורף כ-`.tps`)
+2. צילום מסך של פלט שגיאת בין-הצופים
+3. הרהור כתוב של 400 מילים (באותו PDF)
+
+**הגישו כ: PDF אחד (הרהור + צילום מסך) + קובץ TPS אחד**
+
+---
+
+## ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| קובץ TPS שלם (כל 20 הפרטים, 8 ציוני דרך כל אחד) | 30 |
+| השוואת בין-צופים הושלמה כראוי | 20 |
+| ההרהור מתייחס לכל 5 השאלות באופן מהותי | 40 |
+| איכות כתיבה | 10 |
+| **סך הכל** | **100** |

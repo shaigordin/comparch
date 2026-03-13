@@ -1,145 +1,147 @@
 ---
-title: "Final Project"
-subtitle: "50% of final grade | Written report due one week after Week 12"
+title: "פרויקט סופי"
+subtitle: "50% מהציון הסופי | דוח כתוב יוגש שבוע לאחר שבוע 12"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-The final project is your opportunity to apply everything you have learned to a shape question of your own choosing. It culminates the course's progressive build from individual assignments into an original, small-scale research investigation.
-
----
-
-## Choose Your Track
-
-### Track A: Extended Dataset Analysis (recommended for most students)
-
-Take one of the three course datasets — coins, axes, or pottery — and go deeper than the corresponding assignment. Extensions could include:
-
-- Testing additional grouping variables from the metadata (chronological phase, geographic region, deposition context)
-- Allometric analysis: does shape change with size?
-- Comparing results of two methods on the same objects (e.g., landmarks vs. outlines on the coins)
-- Comparing your results to a published analysis of the same or similar material
-
-**Why this track:** You already know the data. You can focus on asking a better question rather than learning a new dataset.
+הפרויקט הסופי הוא הזדמנותכם ליישם את כל מה שלמדתם על שאלת צורה בבחירתכם. הוא מסכם את הבניה ההדרגתית של הקורס ממטלות בודדות לחקירה מחקרית מקורית בקנה-מידה קטן.
 
 ---
 
-### Track B: New Open-Access Dataset
+## בחרו את המסלול שלכם
 
-Find an open-access GM dataset from a published paper (2020–2025) on an artefact type **not covered in the course**. Replicate or extend the published analysis.
+### מסלול א: ניתוח מורחב של מאגר נתונים (מומלץ לרוב הסטודנטים)
 
-**Where to find datasets:**
-- [Zenodo.org](https://zenodo.org) — search "geometric morphometrics archaeology"
+קחו אחד משלושת מאגרי הנתונים של הקורס — מטבעות, גרזנים, או כלי חרס — והעמיקו מעבר למטלה המקבילה. הרחבות אפשריות כוללות:
+
+- בחינת משתני קיבוץ נוספים מהמטה-דאטה (שלב כרונולוגי, אזור גיאוגרפי, הקשר הפקדה)
+- ניתוח אלומטרי: האם הצורה משתנה עם הגודל?
+- השוואת תוצאות של שתי שיטות על אותם חפצים (למשל, ציוני דרך לעומת קווי מתאר על המטבעות)
+- השוואת תוצאותיכם לניתוח שפורסם של אותו חומר או חומר דומה
+
+**מדוע מסלול זה:** אתם כבר מכירים את הנתונים. תוכלו להתמקד בשאלה טובה יותר במקום ללמוד מאגר נתונים חדש.
+
+---
+
+### מסלול ב: מאגר נתונים חדש בגישה פתוחה
+
+מצאו מאגר נתוני GM בגישה פתוחה ממאמר שפורסם (2020–2025) על סוג ממצא **שלא כוסה בקורס**. שחזרו או הרחיבו את הניתוח שפורסם.
+
+**היכן למצוא מאגרי נתונים:**
+- [Zenodo.org](https://zenodo.org) — חפשו "geometric morphometrics archaeology"
 - [OSF (Open Science Framework)](https://osf.io)
 - [Figshare](https://figshare.com)
-- Journal supplementary data: *Journal of Archaeological Science*, *Journal of Archaeological Science: Reports*, *Archaeological and Anthropological Sciences*
+- נתוני נספח של כתבי-עת: *Journal of Archaeological Science*, *Journal of Archaeological Science: Reports*, *Archaeological and Anthropological Sciences*
 
-**What counts as a valid dataset:**
-- Open-access coordinates (TPS, CSV, or similar) from a peer-reviewed paper
-- Minimum 20 specimens
-- At least one grouping variable (period, region, type, etc.)
+**מה נחשב מאגר נתונים תקין:**
+- קואורדינטות בגישה פתוחה (TPS, CSV, או דומה) ממאמר שנסקר עמיתים
+- לפחות 20 פרטים
+- לפחות משתנה קיבוץ אחד (תקופה, אזור, סוג, וכו')
 
-**What to submit along with your report:** Full citation of the paper you are using, DOI of the dataset, and confirmation that it is genuinely open-access.
-
----
-
-### Track C: Research Proposal (writing-only option)
-
-For students who prefer writing to data analysis: write a detailed research proposal for a GM study on an artefact type of your choice.
-
-**Required sections:**
-1. Introduction — what is the archaeological problem?
-2. Research question — specific and answerable
-3. Dataset design — what objects, from where, how many, in which collections?
-4. Methodology — which GM method, how many landmarks or which outline, what software?
-5. Expected results — what do you predict and why?
-6. Possible complications — what could go wrong, and how would you handle it?
-7. Significance — what would a positive result tell us about the past?
-8. References — minimum 10 peer-reviewed sources
-
-**Length:** 3000 words (excluding references)
+**מה להגיש יחד עם הדוח שלכם:** ציטוט מלא של המאמר שאתם משתמשים בו, DOI של מאגר הנתונים, ואישור שהוא בגישה פתוחה אמיתית.
 
 ---
 
-## Report Requirements (Tracks A and B)
+### מסלול ג: הצעת מחקר (אפשרות כתיבה בלבד)
 
-**Length:** 2000–3000 words (excluding figures and references)
+לסטודנטים המעדיפים כתיבה על ניתוח נתונים: כתבו הצעת מחקר מפורטת למחקר GM על סוג ממצא בבחירתכם.
 
-**Structure:**
-1. **Introduction** — the archaeological problem and why shape matters
-2. **Research Question** — stated explicitly and concisely
-3. **Data and Methods** — dataset description, GM method, statistical approach
-4. **Results** — present figures and statistics, no interpretation yet
-5. **Discussion** — interpret results in archaeological terms; compare to existing literature
-6. **Conclusion** — main finding in 3–4 sentences; one future direction
-7. **References** — minimum 8 peer-reviewed sources (APA or Chicago author-date)
+**חלקים נדרשים:**
+1. מבוא — מהי הבעיה הארכאולוגית?
+2. שאלת מחקר — ספציפית וניתנת לבחינה
+3. עיצוב מאגר הנתונים — אילו חפצים, מאיפה, כמה, באילו אוספים?
+4. מתודולוגיה — איזו שיטת GM, כמה ציוני דרך או איזה קו מתאר, איזה תוכנה?
+5. תוצאות צפויות — מה אתם מנבאים ומדוע?
+6. סיבוכים אפשריים — מה יכול להשתבש, וכיצד תתמודדו?
+7. משמעות — מה תגיד לנו תוצאה חיובית על העבר?
+8. הפניות — לפחות 10 מקורות שנסקרו עמיתים
 
-**Figures:** Minimum 3:
-- A PCA scatter plot (labeled, with group color-coding)
-- A shape visualization (deformation grid or reconstructed EFA shapes)
-- One additional figure of your choice (allometry plot, map, dendrogram, etc.)
-
-**Code:** Submit your Colab notebook link as an appendix. It must be set to "Anyone with link can view."
+**אורך:** 3000 מילים (ללא הפניות)
 
 ---
 
-## Presentation (Week 12)
+## דרישות הדוח (מסלולים א ו-ב)
 
-**Format:** 8 minutes + 2 minutes Q&A
+**אורך:** 2000–3000 מילים (ללא דמויות והפניות)
 
-**What to cover:**
-1. Research question (1 min)
-2. Dataset and method (1 min)
-3. Your key result — your best figure (3 min)
-4. Archaeological interpretation (2 min)
-5. One limitation and one future direction (1 min)
+**מבנה:**
+1. **מבוא** — הבעיה הארכאולוגית ומדוע הצורה חשובה
+2. **שאלת מחקר** — מוצגת במפורש ובתמציתיות
+3. **נתונים ושיטות** — תיאור מאגר הנתונים, שיטת GM, גישה סטטיסטית
+4. **תוצאות** — הצגת דמויות וסטטיסטיקות, ללא פרשנות עדיין
+5. **דיון** — פרשנות תוצאות במונחים ארכאולוגיים; השוואה לספרות הקיימת
+6. **מסקנה** — ממצא עיקרי ב-3–4 משפטים; כיוון עתידי אחד
+7. **הפניות** — לפחות 8 מקורות שנסקרו עמיתים (APA או Chicago author-date)
 
-**Slides:** Optional but recommended. Maximum 8 slides.
+**דמויות:** לפחות 3:
+- גרף פיזור PCA (מסומן, עם קידוד צבע קבוצתי)
+- ויזואליזציית צורה (רשת עיוות או צורות EFA משוחזרות)
+- דמות נוספת אחת לבחירתכם (גרף אלומטריה, מפה, דנדרוגרם, וכו')
 
----
-
-## Grading Rubric (Tracks A and B)
-
-| Criterion | Points |
-|-----------|--------|
-| **Research question** — clarity, originality, archaeological relevance | 20 |
-| **Analysis** — correct and complete GM analysis with appropriate statistics | 25 |
-| **Figures** — quality, clarity, appropriate labeling | 20 |
-| **Interpretation** — connects shape data to archaeological question; engages with literature | 25 |
-| **Writing** — clear, well-organized, properly referenced | 10 |
-| **Total** | **100** |
-
-### Grading Rubric (Track C — Proposal)
-
-| Criterion | Points |
-|-----------|--------|
-| Research question — specific and answerable | 20 |
-| Dataset design — realistic and well-justified | 20 |
-| Methodology — correct and appropriate | 25 |
-| Critical reflection — complications and limitations addressed | 20 |
-| Writing quality and referencing | 15 |
-| **Total** | **100** |
+**קוד:** הגישו את קישור מחברת ה-Colab שלכם כנספח. היא חייבת להיות מוגדרת כ"כל בעל הקישור יכול לצפות."
 
 ---
 
-## Final Project Timeline
+## מצגת (שבוע 12)
 
-| Date | Milestone |
-|------|-----------|
-| Week 7 | Choose your track and topic — notify instructor |
-| Week 9 | Brief check-in (5 min per student) — confirm dataset and question |
-| Week 11 | Draft results (figures) ready for in-class feedback |
-| Week 12 | In-class presentations |
-| One week later | Written report due |
+**פורמט:** 8 דקות + 2 דקות שאלות ותשובות
+
+**מה לכסות:**
+1. שאלת מחקר (דקה 1)
+2. מאגר נתונים ושיטה (דקה 1)
+3. תוצאתכם המרכזית — הדמות הטובה ביותר שלכם (3 דקות)
+4. פרשנות ארכאולוגית (2 דקות)
+5. מגבלה אחת וכיוון עתידי אחד (דקה 1)
+
+**שקפים:** אופציונלי אך מומלץ. עד 8 שקפים.
 
 ---
 
-## Tips for Success
+## רובריקת ציון (מסלולים א ו-ב)
 
-1. **Start with a clear, answerable question.** The most common mistake is a question too vague to test with shape data. "I will analyze pottery shape" is not a question. "Do pottery vessels from Site A differ in outline shape from vessels of the same period at Site B, and if so, does the difference suggest distinct production communities?" is a question.
+| קריטריון | נקודות |
+|----------|---------|
+| **שאלת מחקר** — בהירות, מקוריות, רלוונטיות ארכאולוגית | 20 |
+| **ניתוח** — ניתוח GM נכון ושלם עם סטטיסטיקה מתאימה | 25 |
+| **דמויות** — איכות, בהירות, סימון מתאים | 20 |
+| **פרשנות** — מחברת נתוני צורה לשאלה ארכאולוגית; מעורבת עם ספרות | 25 |
+| **כתיבה** — ברורה, מאורגנת היטב, עם הפניות תקינות | 10 |
+| **סך הכל** | **100** |
 
-2. **Don't over-analyze.** A clear, well-interpreted result with one PCA and one statistical test is better than five tests you can't explain.
+### רובריקת ציון (מסלול ג — הצעה)
 
-3. **Engage with the existing literature.** What does the paper that published your dataset say? What can you add, confirm, or contest?
+| קריטריון | נקודות |
+|----------|---------|
+| שאלת מחקר — ספציפית וניתנת לבחינה | 20 |
+| עיצוב מאגר הנתונים — ריאלי ומנומק היטב | 20 |
+| מתודולוגיה — נכונה ומתאימה | 25 |
+| הרהור ביקורתי — סיבוכים ומגבלות טופלו | 20 |
+| איכות כתיבה והפניות | 15 |
+| **סך הכל** | **100** |
 
-4. **Let AI write the code, but don't let AI write the text.** Your interpretation is the entire point.
+---
+
+## לוח זמנים לפרויקט הסופי
+
+| תאריך | אבן דרך |
+|-------|---------|
+| שבוע 7 | בחרו את מסלולכם ונושאכם — הודיעו למדריך |
+| שבוע 9 | צ'ק-אין קצר (5 דקות לסטודנט) — אשרו מאגר נתונים ושאלה |
+| שבוע 11 | טיוטת תוצאות (דמויות) מוכנה למשוב בכיתה |
+| שבוע 12 | מצגות בכיתה |
+| שבוע לאחר מכן | הגשת דוח כתוב |
+
+---
+
+## טיפים להצלחה
+
+1. **התחילו עם שאלה ברורה וניתנת לבחינה.** הטעות הנפוצה ביותר היא שאלה עמומה מדי לבחינה עם נתוני צורה. "אנתח את צורת כלי החרס" אינה שאלה. "האם כלי חרס מאתר א שונים בצורת קו מתארם מכלים מאותה תקופה באתר ב, ואם כן, האם ההבדל מרמז על קהילות ייצור נפרדות?" היא שאלה.
+
+2. **אל תנתחו יתר על המידה.** תוצאה ברורה ומפורשת היטב עם PCA אחד ובדיקה סטטיסטית אחת טובה משתי בדיקות שאינכם מסוגלים להסביר.
+
+3. **עסקו בספרות הקיימת.** מה אומר המאמר שפרסם את מאגר הנתונים שלכם? מה תוכלו להוסיף, לאשר, או לערער?
+
+4. **תנו ל-AI לכתוב את הקוד, אך אל תנו ל-AI לכתוב את הטקסט.** הפרשנות שלכם היא כל הנקודה.

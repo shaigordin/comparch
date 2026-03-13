@@ -1,94 +1,96 @@
 ---
-title: "Assignment 3: Coins Shape Analysis"
-subtitle: "15% of final grade | Due: Week 7"
+title: "מטלה 3: ניתוח צורות מטבעות"
+subtitle: "15% מהציון הסופי | הגשה: שבוע 7"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-Run a complete landmark GM analysis comparing Hadrian and Antoninus Pius denarii. Interpret the results archaeologically.
-
----
-
-## Tools
-
-- **Colab notebook:** Use the Week 7 notebook (link on the Data page)
-- **Data:** `DEN_Hadrian/Hadrian.TPS` and `DEN_AntoniusPius/AntoniusPius.TPS` from the course dataset
-- **AI:** Use Claude or ChatGPT to generate any additional code you need
+הריצו ניתוח GM מלא של ציוני דרך המשווה בין דנריים של הדריאנוס ואנטונינוס פיוס. פרשו את התוצאות ארכאולוגית.
 
 ---
 
-## Required Analysis Steps
+## כלים
 
-Complete all five steps in your Colab notebook:
-
-### Step 1: Load and combine the datasets
-Load both TPS files, note the number of specimens in each, and combine into a single array with group labels.
-
-### Step 2: Generalized Procrustes Analysis
-Run GPA on the combined dataset. Report:
-- Total number of specimens
-- Number of landmarks
-- Range of centroid sizes
-- Whether size differs significantly between the two groups (a quick t-test or plot is sufficient)
-
-### Step 3: PCA with group labels
-Run PCA on the Procrustes-aligned coordinates. Produce a **clearly labeled scatter plot**:
-- X axis: PC1 with % variance explained
-- Y axis: PC2 with % variance explained
-- Colors: one per emperor
-- Legend: clearly labeled
-- Title: informative
-
-### Step 4: Permutation test
-Run the `permutation_manova()` function (from Module 7) on the first 8 PC scores. Report F, p, and R².
-
-### Step 5: Mean shape deformation grids
-Produce deformation grids (or shape plots) showing:
-- Mean shape of Hadrian coins
-- Mean shape of Antoninus Pius coins
-- The difference between them (or annotate which landmarks shift most)
-
-This step can use the deformation visualization code from Module 6.
+- **מחברת Colab:** השתמשו במחברת שבוע 7 (קישור בדף הנתונים)
+- **נתונים:** `DEN_Hadrian/Hadrian.TPS` ו-`DEN_AntoniusPius/AntoniusPius.TPS` ממאגר הקורס
+- **AI:** השתמשו ב-Claude או ChatGPT ליצירת כל קוד נוסף הדרוש לכם
 
 ---
 
-## Written Interpretation (500 words)
+## שלבי הניתוח הנדרשים
 
-Your interpretation must address:
+השלימו את כל חמשת השלבים במחברת Colab שלכם:
 
-1. **Do the groups separate?** Describe what you see in the PCA plot. Are they fully separated, partially overlapping, or completely mixed?
+### שלב 1: טעינה ואיחוד מאגרי הנתונים
+טענו את שני קבצי ה-TPS, שימו לב למספר הפרטים בכל אחד, ואחדו למערך יחיד עם סימוני קבוצות.
 
-2. **Statistical support:** What do your F, p, and R² values tell you? Explain these numbers in plain language (not just "p < 0.05, therefore significant").
+### שלב 2: ניתוח פרוקרוסטס מוכלל
+הריצו GPA על מאגר הנתונים המאוחד. דווחו:
+- סך הפרטים
+- מספר ציוני הדרך
+- טווח גדלי-הצנטרואיד
+- האם הגודל שונה באופן מובהק בין שתי הקבוצות (t-test מהיר או גרף מספיקים)
 
-3. **Shape features:** Based on the deformation grids or shape plots, *which specific parts of the coin change* between Hadrian and Antoninus Pius? Are the differences in the portrait? The coin edge? Both?
+### שלב 3: PCA עם סימוני קבוצות
+הריצו PCA על הקואורדינטות המיושרות של פרוקרוסטס. הפיקו **גרף פיזור מסומן בבירור**:
+- ציר X: PC1 עם % השונות המוסברת
+- ציר Y: PC2 עם % השונות המוסברת
+- צבעים: אחד לכל קיסר
+- מקרא: מסומן בבירור
+- כותרת: אינפורמטיבית
 
-4. **Archaeological interpretation:** What might explain the shape pattern you found? Consider:
-   - Changes in imperial portraiture conventions
-   - Different die-cutters or workshops
-   - Chronological change within a long reign
-   - The limits of your analysis (sample size, landmark placement error)
+### שלב 4: בדיקת תמורה
+הריצו את פונקציית `permutation_manova()` (ממודול 7) על 8 ציוני ה-PC הראשונים. דווחו F, p ו-R².
 
-5. **One follow-up question:** What question does your result raise that would require additional data or analysis to answer?
+### שלב 5: רשתות עיוות צורה ממוצעת
+הפיקו רשתות עיוות (או גרפי צורה) המציגים:
+- צורת המטבע הממוצעת של הדריאנוס
+- צורת המטבע הממוצעת של אנטונינוס פיוס
+- ההבדל ביניהן (או סמנו אילו ציוני דרך עוברים שינוי הגדול ביותר)
+
+שלב זה יכול להשתמש בקוד ויזואליזציית העיוות ממודול 6.
 
 ---
 
-## Deliverables
+## פרשנות כתובה (500 מילים)
 
-1. **Colab notebook link** — your copy, set to "Anyone with the link can view"
-2. **PDF report** — 500-word interpretation + all required figures embedded (not separate files)
-   - PCA scatter plot
-   - Deformation grids or mean shape comparison
-   - Statistical output (screenshot or table)
+הפרשנות שלכם חייבת להתייחס ל:
+
+1. **האם הקבוצות נפרדות?** תארו מה אתם רואים בגרף ה-PCA. האם הן מופרדות לחלוטין, חופפות חלקית, או מעורבבות לגמרי?
+
+2. **אישוש סטטיסטי:** מה ערכי F, p ו-R² שלכם אומרים לכם? הסבירו מספרים אלה בשפה פשוטה (לא רק "p < 0.05, לכן מובהק").
+
+3. **מאפייני צורה:** בהתבסס על רשתות העיוות או גרפי הצורה, *אילו חלקים ספציפיים של המטבע משתנים* בין הדריאנוס לאנטונינוס פיוס? האם ההבדלים בפורטרט? בשפת המטבע? בשניהם?
+
+4. **פרשנות ארכאולוגית:** מה עשוי להסביר את תבנית הצורה שמצאתם? שקלו:
+   - שינויים במוסכמות הפורטרט האימפריאלי
+   - חרתי-חותם או בתי-מלאכה שונים
+   - שינוי כרונולוגי בתוך שלטון ממושך
+   - מגבלות הניתוח שלכם (גודל מדגם, שגיאת הצבת ציוני דרך)
+
+5. **שאלת המשך אחת:** איזו שאלה מעלה תוצאתכם שתדרוש נתונים או ניתוח נוספים למענה?
 
 ---
 
-## Grading
+## מה להגיש
 
-| Criterion | Points |
-|-----------|--------|
-| All 5 analysis steps completed correctly | 35 |
-| PCA plot is well-labeled and legible | 15 |
-| Statistical output reported correctly with interpretation | 15 |
-| Archaeological interpretation is substantive and specific | 30 |
-| Writing quality and referencing | 5 |
-| **Total** | **100** |
+1. **קישור למחברת Colab** — העתק שלכם, מוגדר כ"כל בעל הקישור יכול לצפות"
+2. **דוח PDF** — פרשנות של 500 מילים + כל הדמויות הנדרשות מוטמעות (לא קבצים נפרדים)
+   - גרף פיזור PCA
+   - רשתות עיוות או השוואת צורה ממוצעת
+   - פלט סטטיסטי (צילום מסך או טבלה)
+
+---
+
+## ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| כל 5 שלבי הניתוח הושלמו כראוי | 35 |
+| גרף ה-PCA מסומן היטב וקריא | 15 |
+| פלט סטטיסטי מדווח כראוי עם פרשנות | 15 |
+| הפרשנות הארכאולוגית מהותית וספציפית | 30 |
+| איכות כתיבה והפניות | 5 |
+| **סך הכל** | **100** |

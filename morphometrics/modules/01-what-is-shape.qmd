@@ -1,123 +1,124 @@
 ---
-title: "Module 1: What Is Shape? Why Does It Matter?"
-subtitle: "Week 1 — Foundations"
+title: "מודול 1: מהי צורה? מדוע היא חשובה?"
+subtitle: "שבוע 1 — יסודות"
+lang: he
 ---
 
-## The Central Question
+## השאלה המרכזית
 
-Every object ever made by human hands has a shape. Archaeologists have always described shape — "biconical," "carinated," "leaf-shaped" — but what if we could *measure* it? What if we could compare the shapes of hundreds of objects objectively, statistically, and reproducibly?
+לכל חפץ שנוצר בידי אדם יש צורה. ארכאולוגים תמיד תיארו צורה — "דו-חרוטי", "מקושת", "בצורת עלה" — אבל מה אם ניתן היה *למדוד* אותה? מה אם ניתן היה להשוות צורות של מאות חפצים באופן אובייקטיבי, סטטיסטי וניתן לשכפול?
 
-That is what geometric morphometrics (GM) does.
+זה בדיוק מה שמורפומטריה גיאומטרית (GM) עושה.
 
 ---
 
-## Size vs. Shape: The Fundamental Distinction
+## גודל לעומת צורה: ההבחנה הבסיסית
 
-The most important concept in this course is the difference between **size** and **shape**.
+המושג החשוב ביותר בקורס זה הוא ההבדל בין **גודל** לבין **צורה**.
 
 ::: {.callout-important}
-## Kendall's Definition (1977)
-**Shape** is *"all the geometric information that remains when location, scale and rotation effects are filtered out from an object."*
+## הגדרת קנדל (1977)
+**צורה** היא *"כל המידע הגיאומטרי הנותר לאחר שמסננים מושא את אפקטי המיקום, הקנה-מידה והסיבוב."*
 
-In other words: shape is what's left when you remove where it is, how big it is, and which way it's pointing.
+במילים אחרות: צורה היא מה שנותר אחרי שמוציאים היכן נמצא החפץ, כמה גדול הוא, ולאיזה כיוון הוא פונה.
 :::
 
-Think of a wine bottle. Two bottles can have the same shape but be different sizes (a regular bottle vs. a magnum). Two bottles can be the same size but different shapes (Bordeaux vs. Burgundy style). We are interested in **shape** — independent of size.
+חשבו על בקבוק יין. שני בקבוקות יכולים להיות בעלי אותה צורה אך גדלים שונים (בקבוק רגיל לעומת מגנום). שני בקבוקות יכולים להיות באותו גודל אך בצורות שונות (סגנון בורדו לעומת בורגון). אנחנו עוסקים ב**צורה** — ללא תלות בגודל.
 
-For archaeology, this distinction is fundamental:
-- A Roman denarius from mint A and mint B might weigh the same (same size) but have subtly different portrait proportions (different shape)
-- Two Bronze Age axes from different regions might be the same length (same size) but have different blade geometries (different shape)
-
----
-
-## What Shape Can Tell Us
-
-Shape in archaeological objects is not accidental. It encodes:
-
-| Signal | Example |
-|--------|---------|
-| **Technological tradition** | Bronze Age axes made by the same tradition share outline shape |
-| **Chronological change** | Coin portrait conventions evolved over time — shape records this |
-| **Regional identity** | Pottery production traditions leave shape signatures |
-| **Function** | Storage jars have different shape profiles than cooking pots |
-| **Exchange and copying** | Imitated objects share shape with their originals |
-| **Standardization** | Mass-produced objects (coins) show low shape variation when quality control was high |
+בארכאולוגיה, הבחנה זו היא יסודית:
+- דנריוס רומאי ממנטה א' וממנטה ב' עשוי לשקול אותו דבר (גודל זהה), אך יהיו לו פרופורציות דיוקן שונות במקצת (צורה שונה)
+- שני גרזני ברונזה מאזורים שונים עשויים להיות באותו אורך (גודל זהה) אך בגיאומטריית להב שונה (צורה שונה)
 
 ---
 
-## Three Case Studies We Will Explore
+## מה הצורה יכולה ללמד אותנו
 
-### 1. Roman Imperial Coins
+צורת חפצים ארכאולוגיים אינה מקרית. היא מקודדת:
+
+| אות | דוגמה |
+|-----|-------|
+| **מסורת טכנולוגית** | גרזני ברונזה שיוצרו באותה מסורת חולקים צורת מתאר |
+| **שינוי כרונולוגי** | מוסכמות דיוקן מטבעות התפתחו עם הזמן — הצורה מתעדת זאת |
+| **זהות אזורית** | מסורות ייצור כלי חרס משאירות חתימות צורה |
+| **תפקוד** | לצנצנות אחסון יש פרופיל צורה שונה מסירי בישול |
+| **חליפין והעתקה** | חפצים מועתקים חולקים צורה עם מקורם |
+| **תקנון** | חפצים מיוצרים בסדרה (מטבעות) מראים שונות צורה נמוכה כשבקרת האיכות גבוהה |
+
+---
+
+## שלושה מקרי בוחן שנלמד
+
+### 1. מטבעות האימפריה הרומית
 
 ::: {.column-margin}
-Roman denarii of **Hadrian** (r. 117–138 CE) and **Antoninus Pius** (r. 138–161 CE).
+דנריים רומיים של **הדריאנוס** (שלט 117–138 לספירה) ו**אנטונינוס פיוס** (שלט 138–161 לספירה).
 
-The question: did Roman die-cutters maintain consistent shape standards? Can we detect differences between emperors' coinages from shape alone?
+השאלה: האם חותכי הדייס הרומיים שמרו על תקני צורה עקביים? האם ניתן לזהות הבדלים בין מטבעות קיסרים שונים מהצורה בלבד?
 :::
 
-The Roman Empire produced coins in enormous quantities. Die-cutters were skilled artisans working under imperial oversight. Every coin was intended to look the same — but did they? And if there are subtle shape differences, what do they mean?
+האימפריה הרומית ייצרה מטבעות בכמויות עצומות. חותכי הדייס היו אומנים מיומנים שעבדו תחת פיקוח אימפריאלי. כל מטבע נועד להיראות אותו דבר — אבל האם כך היה? ואם יש הבדלי צורה עדינים, מה הם אומרים?
 
 ---
 
-### 2. European Bronze Age Flanged Axes
+### 2. גרזני ברונזה אירופיים עם כנפיים
 
-Bronze Age metalworkers cast flanged axes according to visual templates — there were no written instructions, no blueprints. Shape was transmitted through apprenticeship and observation.
+מתכנאי תקופת הברונזה יצרו גרזני כנפיים לפי תבניות ויזואליות — לא היו הוראות כתובות ולא שרטוטים. הצורה הועברה דרך שוליות ותצפית.
 
-The dataset includes two typological groups (G3 and G4) from across Central Europe. The question: do these typological groups reflect genuine morphological distinctions, or is shape variation continuous? And can we detect regional craft traditions from shape alone?
-
----
-
-### 3. Ancient Pottery
-
-Pottery is the most common archaeological find almost everywhere in the world. Its shape reflects the potter's training, the community's traditions, the vessel's function, and the period of production.
-
-The pottery dataset (published open-access 2023–2025) will let us ask: can we identify production traditions or chronological periods purely from outline shape?
+מאגר הנתונים כולל שתי קבוצות טיפולוגיות (G3 ו-G4) ממרכז אירופה. השאלה: האם קבוצות טיפולוגיות אלה משקפות הבדלים מורפולוגיים אמיתיים, או שהשונות בצורה היא רציפה? והאם ניתן לזהות מסורות יצור אזוריות מהצורה בלבד?
 
 ---
 
-## Traditional Morphometrics vs. Geometric Morphometrics
+### 3. כלי חרס עתיקים
 
-Before GM, archaeologists measured objects with calipers: length, width, height, diameter. These measurements are called **traditional morphometrics** or **multivariate morphometrics**.
+כלי חרס הם הממצא הארכאולוגי הנפוץ ביותר כמעט בכל מקום בעולם. צורתם משקפת את הכשרת הקדר, מסורות הקהילה, תפקוד הכלי ותקופת הייצור.
 
-The problem: measurements depend on where you put the caliper. They don't capture *shape* — they capture specific distances that may or may not represent the shape differences you care about.
-
-GM solves this by working directly with **coordinates** — the $(x, y)$ positions of specific points on the object. This captures the full geometry of the shape, not just a few distances.
-
-| Traditional Morphometrics | Geometric Morphometrics |
-|--------------------------|------------------------|
-| Distances and ratios | Coordinates of points |
-| Loses geometric information | Preserves full geometry |
-| Hard to visualize | Visualization via deformation grids |
-| No standard alignment | Procrustes alignment removes size/position/rotation |
-| Many variables, unclear meaning | Shape as a single multivariate variable |
+מאגר כלי החרס (פורסם בגישה פתוחה 2023–2025) יאפשר לנו לשאול: האם ניתן לזהות מסורות ייצור או תקופות כרונולוגיות מהצורה המתאר בלבד?
 
 ---
 
-## The Three Methods We Will Use
+## מורפומטריה מסורתית לעומת מורפומטריה גיאומטרית
 
-### 1. Landmark Analysis
-Place discrete points — **landmarks** — at biologically or archaeologically meaningful locations on the object. This is the main method for the **coin** analysis.
+לפני GM, ארכאולוגים מדדו חפצים עם מחוגות: אורך, רוחב, גובה, קוטר. מדידות אלה נקראות **מורפומטריה מסורתית** או **מורפומטריה רב-משתנית**.
 
-### 2. Outline Analysis (Elliptic Fourier Analysis)
-Trace the outline (contour) of the object and decompose it into mathematical functions. This is the main method for the **flanged axes** and **pottery**.
+הבעיה: המדידות תלויות היכן שמים את המחוגה. הן אינן לוכדות *צורה* — הן לוכדות מרחקים ספציפיים שאולי מייצגים, ואולי לא, את הבדלי הצורה שמעניינים אותנו.
 
-### 3. 3D Morphometrics (Week 11 overview)
-Extend landmarks and surfaces into three dimensions using photogrammetry or scanning. We will not do a full 3D analysis but will understand the principles.
+GM פותרת זאת על ידי עבודה ישירה עם **קואורדינטות** — מיקומי $(x, y)$ של נקודות ספציפיות על החפץ. זה לוכד את הגיאומטריה המלאה של הצורה, לא רק כמה מרחקים.
 
----
-
-## Discussion Questions
-
-1. Think of an artefact type you find interesting. What shape features would you want to capture? Would you use landmarks or outlines?
-
-2. The slides from our source course show a coin, a vessel, and a bronze axe, and list their attributes. Which attributes are *size* and which are *shape*?
-
-3. "Shape is all the geometric information remaining after location, scale, and rotation are removed." — Can you think of any information about a shape that this definition *misses*?
+| מורפומטריה מסורתית | מורפומטריה גיאומטרית |
+|--------------------|---------------------|
+| מרחקים ויחסים | קואורדינטות של נקודות |
+| מאבדת מידע גיאומטרי | שומרת גיאומטריה מלאה |
+| קשה לויזואליזציה | ויזואליזציה דרך רשתות עיוות |
+| אין יישור סטנדרטי | יישור פרוקרוסטס מסיר גודל/מיקום/סיבוב |
+| משתנים רבים, משמעות לא ברורה | צורה כמשתנה רב-ממדי יחיד |
 
 ---
 
-## Looking Ahead
+## שלוש השיטות שנשתמש בהן
 
-Next week, we trace the history of morphometrics from caliper measurements to coordinates. In Week 3, you will digitize your first landmarks.
+### 1. ניתוח ציוני דרך
+הנחת נקודות בדידות — **ציוני דרך** — במיקומים בעלי משמעות ביולוגית או ארכאולוגית על החפץ. זוהי השיטה העיקרית לניתוח **מטבעות**.
 
-[→ Module 2: A Short History — From Calipers to Coordinates](02-data-collection.qmd)
+### 2. ניתוח קווי מתאר (ניתוח פורייה אליפטי)
+עקיבה אחר קו המתאר (קונטור) של החפץ ופירוקו לפונקציות מתמטיות. זוהי השיטה העיקרית ל**גרזני ברונזה** ו**כלי חרס**.
+
+### 3. מורפומטריה תלת-ממדית (סקירת שבוע 11)
+הרחבת ציוני דרך ומשטחים לשלושה ממדים באמצעות פוטוגרמטריה או סריקה. לא נבצע ניתוח תלת-ממדי מלא, אבל נבין את העקרונות.
+
+---
+
+## שאלות לדיון
+
+1. חשבו על סוג חפץ המעניין אתכם. אילו תכונות צורה הייתם רוצים ללכוד? האם הייתם משתמשים בציוני דרך או בקווי מתאר?
+
+2. מצגות מהקורס המקורי מציגות מטבע, כלי ו-גרזן ברונזה, ומפרטות את תכונותיהם. אילו תכונות הן *גודל* ואילו הן *צורה*?
+
+3. "צורה היא כל המידע הגיאומטרי הנותר לאחר הסרת מיקום, קנה-מידה וסיבוב." — האם תוכלו לחשוב על מידע כלשהו על צורה שהגדרה זו *מחמיצה*?
+
+---
+
+## לשבוע הבא
+
+בשבוע הבא נעקוב אחר ההיסטוריה של המורפומטריה ממדידות מחוגה לקואורדינטות. בשבוע 3 תדגיטו את ציוני הדרך הראשונים שלכם.
+
+[→ מודול 2: היסטוריה קצרה — ממחוגות לקואורדינטות](02-data-collection.qmd)

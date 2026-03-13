@@ -73,6 +73,16 @@ def compare_groups_pc1(scores, labels, g1, g2):
 
 ---
 
+## מאן-וויטני — תוצאות אמיתיות (Ogame)
+
+![מבחן מאן-וויטני: כבשן לעומת קבורה](../images/slides/10-mann-whitney.png){fig-align="center" width="85%"}
+
+::: {.fragment}
+p < 0.001 — ההבדל מובהק מאוד. גודל האפקט?
+:::
+
+---
+
 ## גודל אפקט — Cohen's d
 
 ```python

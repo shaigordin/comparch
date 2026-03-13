@@ -1,126 +1,134 @@
 ---
-title: "Resources"
-subtitle: "Tools, readings, datasets, and helpful links"
+title: "משאבים"
+subtitle: "כלים, קריאות, מאגרי נתונים וקישורים שימושיים"
+lang: he
+dir: rtl
 ---
 
-## Essential Tools
+## כלים חיוניים
 
-### All-Session Tools (Browser-Based)
+### כלים לכל מפגש (מבוססי דפדפן)
 
-| Tool | What it does | Link |
-|------|-------------|------|
-| **Google Colab** | Run Python code in the browser | [colab.research.google.com](https://colab.research.google.com) |
-| **Claude** | AI for code generation and explanation | [claude.ai](https://claude.ai) |
-| **ChatGPT** | Alternative AI for code | [chat.openai.com](https://chat.openai.com) |
-| **Google Drive** | Store your data and notebooks | [drive.google.com](https://drive.google.com) |
+| כלי | מה הוא עושה | קישור |
+|-----|------------|-------|
+| **Google Colab** | הרצת קוד Python בדפדפן | [colab.research.google.com](https://colab.research.google.com) |
+| **Claude** | AI ליצירת קוד והסבר | [claude.ai](https://claude.ai) |
+| **ChatGPT** | AI חלופי לקוד | [chat.openai.com](https://chat.openai.com) |
+| **Google Drive** | שמירת נתונים ומחברות | [drive.google.com](https://drive.google.com) |
 
-### One-Time Download (Week 3 Only)
+### הורדה חד-פעמית (שבוע 3 בלבד)
 
-| Tool | What it does | Link |
-|------|-------------|------|
-| **FIJI / ImageJ** | Landmark digitizing from images | [fiji.sc](https://fiji.sc) |
-
----
-
-## Python Packages
-
-All installed in Colab with `!pip install`:
-
-| Package | Purpose | Documentation |
-|---------|---------|---------------|
-| `morphops` | Procrustes alignment, thin-plate splines | [github.com/tpgillam/morphops](https://github.com/tpgillam/morphops) |
-| `pyefd` | Elliptic Fourier Descriptors | [github.com/hbldh/pyefd](https://github.com/hbldh/pyefd) |
-| `scikit-learn` | PCA and other ML tools | [scikit-learn.org](https://scikit-learn.org) |
-| `scikit-image` | Image processing (outline extraction) | [scikit-image.org](https://scikit-image.org) |
-| `matplotlib` | Plotting | [matplotlib.org](https://matplotlib.org) |
-| `seaborn` | Statistical visualization | [seaborn.pydata.org](https://seaborn.pydata.org) |
-| `numpy` | Numerical arrays | [numpy.org](https://numpy.org) |
-| `pandas` | Data tables | [pandas.pydata.org](https://pandas.pydata.org) |
-| `statsmodels` | Statistical tests | [statsmodels.org](https://www.statsmodels.org) |
+| כלי | מה הוא עושה | קישור |
+|-----|------------|-------|
+| **FIJI / ImageJ** | דיגיטיזציה של ציוני דרך מתמונות | [fiji.sc](https://fiji.sc) |
 
 ---
 
-## Readings
+## חבילות Python
 
-### Foundational Texts (Provided as Excerpts)
+כולן מותקנות ב-Colab עם `!pip install`:
 
+| חבילה | מטרה | תיעוד |
+|-------|-------|--------|
+| `morphops` | יישור פרוקרוסטס, splinesלוחות דקים | [github.com/tpgillam/morphops](https://github.com/tpgillam/morphops) |
+| `pyefd` | מתארים פורייה אליפטיים | [github.com/hbldh/pyefd](https://github.com/hbldh/pyefd) |
+| `scikit-learn` | PCA וכלי ML אחרים | [scikit-learn.org](https://scikit-learn.org) |
+| `scikit-image` | עיבוד תמונה (חילוץ קו מתאר) | [scikit-image.org](https://scikit-image.org) |
+| `matplotlib` | ציור גרפים | [matplotlib.org](https://matplotlib.org) |
+| `seaborn` | ויזואליזציה סטטיסטית | [seaborn.pydata.org](https://seaborn.pydata.org) |
+| `numpy` | מערכים מספריים | [numpy.org](https://numpy.org) |
+| `pandas` | טבלאות נתונים | [pandas.pydata.org](https://pandas.pydata.org) |
+| `statsmodels` | בדיקות סטטיסטיות | [statsmodels.org](https://www.statsmodels.org) |
+
+---
+
+## קריאות
+
+### טקסטים יסודיים (מסופקים כקטעים)
+
+::: {.ltr-block}
 - Kendall, D.G. (1977). The diffusion of shape. *Advances in Applied Probability* 9:428–430.
 - Bookstein, F.L. (1991). *Morphometric Tools for Landmark Data*, Chapter 2. Cambridge University Press.
 - Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–281.
 - Zelditch, M.L. et al. (2012). *Geometric Morphometrics for Biologists* (2nd ed.), Chapter 1. Academic Press.
+:::
 
-### Key Archaeological Applications
+### יישומים ארכאולוגיים מרכזיים
 
+::: {.ltr-block}
 - Karasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.
-- Wilczek, J. et al. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50:39–50. [**Course pottery dataset**]
-- Monna, F. et al. (2013). Morphometry of Middle Bronze Age palstaves. *Journal of Archaeological Science* 40:507–516. [**Background to course axes dataset**]
-- Wilczek, J. et al. (2015). Unsupervised model-based clustering for typological classification of Middle Bronze Age flanged axes. *Journal of Archaeological Science: Reports* 2:523–532. [**Course axes dataset**]
+- Wilczek, J. et al. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50:39–50. [**מאגר נתוני כלי החרס של הקורס**]
+- Monna, F. et al. (2013). Morphometry of Middle Bronze Age palstaves. *Journal of Archaeological Science* 40:507–516. [**רקע למאגר נתוני הגרזנים של הקורס**]
+- Wilczek, J. et al. (2015). Unsupervised model-based clustering for typological classification of Middle Bronze Age flanged axes. *Journal of Archaeological Science: Reports* 2:523–532. [**מאגר נתוני הגרזנים של הקורס**]
 - Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24.
 - Selden, R.Z. (2018). Ceramic morphological organisation in the Southern Caddo Area. *Journal of Cultural Heritage* 32:215–223.
+:::
 
-### On AI in Research and Writing
+### על AI במחקר ובכתיבה
 
-- Course handout: "How to Use AI for Data Analysis" (provided Week 4)
-
----
-
-## Open Data Resources
-
-| Repository | Best for | Link |
-|-----------|----------|------|
-| **Zenodo** | Published datasets with DOI | [zenodo.org](https://zenodo.org) |
-| **OSF** | Preregistrations and replication data | [osf.io](https://osf.io) |
-| **Figshare** | Supplementary data from journals | [figshare.com](https://figshare.com) |
-| **MorphoSource** | 3D scans of biological and archaeological specimens | [morphosource.org](https://morphosource.org) |
-| **tDAR** | Archaeology-specific data archive | [tdar.org](https://core.tdar.org) |
-| **ADS (UK)** | UK archaeology data | [archaeologydataservice.ac.uk](https://archaeologydataservice.ac.uk) |
-
-**Search tip for finding GM datasets:**
-> On Zenodo: search `"tps file" archaeology` or `"geometric morphometrics" landmarks archaeology`
+- דף הקורס: "כיצד להשתמש ב-AI לניתוח נתונים" (מסופק בשבוע 4)
 
 ---
 
-## Museum Databases for Assignment 1
+## משאבי נתונים פתוחים
 
-| Collection | Coverage | Link |
-|-----------|----------|------|
-| British Museum | Global, excellent for coins | [britishmuseum.org/collection](https://www.britishmuseum.org/collection) |
-| Metropolitan Museum | Global, strong Near East | [metmuseum.org/art/collection](https://www.metmuseum.org/art/collection) |
-| Europeana | European collections aggregated | [europeana.eu](https://www.europeana.eu) |
-| ARACHNE | German archaeological database | [arachne.uni-koeln.de](https://arachne.uni-koeln.de) |
-| American Numismatic Society | Coins | [numismatics.org](https://numismatics.org) |
-| Finds.org.uk | Roman Britain metal objects | [finds.org.uk](https://finds.org.uk) |
+| מאגר | הכי מתאים ל | קישור |
+|------|------------|-------|
+| **Zenodo** | מאגרי נתונים מפורסמים עם DOI | [zenodo.org](https://zenodo.org) |
+| **OSF** | רישומים מוקדמים ונתוני שחזור | [osf.io](https://osf.io) |
+| **Figshare** | נתוני נספח מכתבי-עת | [figshare.com](https://figshare.com) |
+| **MorphoSource** | סריקות תלת-ממד של פרטים ביולוגיים וארכאולוגיים | [morphosource.org](https://morphosource.org) |
+| **tDAR** | ארכיון נתונים ארכאולוגי ספציפי | [tdar.org](https://core.tdar.org) |
+| **ADS (בריטניה)** | נתוני ארכאולוגיה בריטית | [archaeologydataservice.ac.uk](https://archaeologydataservice.ac.uk) |
+
+**טיפ לחיפוש מאגרי נתוני GM:**
+> ב-Zenodo: חפשו `"tps file" archaeology` או `"geometric morphometrics" landmarks archaeology`
 
 ---
 
-## How to Write Good AI Prompts (Quick Reference)
+## מאגרי מוזיאונים למטלה 1
 
-Use the **PEAR** framework:
+| אוסף | כיסוי | קישור |
+|------|-------|-------|
+| British Museum | עולמי, מצוין למטבעות | [britishmuseum.org/collection](https://www.britishmuseum.org/collection) |
+| Metropolitan Museum | עולמי, חזק במזרח הקרוב | [metmuseum.org/art/collection](https://www.metmuseum.org/art/collection) |
+| Europeana | אוספים אירופאיים מאוחדים | [europeana.eu](https://www.europeana.eu) |
+| ARACHNE | מאגר ארכאולוגי גרמני | [arachne.uni-koeln.de](https://arachne.uni-koeln.de) |
+| American Numismatic Society | מטבעות | [numismatics.org](https://numismatics.org) |
+| Finds.org.uk | חפצי מתכת של רומן בריטניה | [finds.org.uk](https://finds.org.uk) |
+
+---
+
+## כיצד לכתוב פרומפטי AI טובים (מהדורה מהירה)
+
+השתמשו במסגרת **PEAR**:
 
 ```
-P — Purpose: "I want to compare two groups of coin shapes..."
-E — Example: "My data looks like this: [paste first 5 rows or array shape]"
-A — Action: "Write Python code that..."
-R — Result: "...and produce a labeled scatter plot with legend"
+P — Purpose: "אני רוצה להשוות שתי קבוצות של צורות מטבע..."
+E — Example: "הנתונים שלי נראים כך: [הדביקו 5 שורות ראשונות או צורת מערך]"
+A — Action: "כתבו קוד Python ש..."
+R — Result: "...ויפיק גרף פיזור מסומן עם מקרא"
 ```
 
-**Iteration is normal.** Your first AI-generated code may need debugging. Paste the error message back to the AI and ask it to fix the problem.
+**איטרציה היא נורמלית.** הקוד שנוצר ראשית על ידי AI עשוי לדרוש ניפוי באגים. הדביקו את הודעת השגיאה חזרה ל-AI ובקשו ממנו לתקן את הבעיה.
 
 ---
 
-## If You Get Stuck
+## אם נתקעתם
 
-1. **Re-read the module page** — the code examples there work on the course data
-2. **Ask the AI** to explain the error message to you
-3. **Google the error** — Stack Overflow has solutions to almost every Python error
-4. **Post in the course forum** — include your error message and a screenshot of the relevant cells
-5. **Come to office hours**
+1. **קראו מחדש את דף המודול** — דוגמאות הקוד שם פועלות על נתוני הקורס
+2. **שאלו את ה-AI** להסביר לכם את הודעת השגיאה
+3. **גגלו את השגיאה** — ב-Stack Overflow יש פתרונות לכמעט כל שגיאת Python
+4. **פרסמו בפורום הקורס** — כללו את הודעת השגיאה וצילום מסך של התאים הרלוונטיים
+5. **בואו לשעות קבלה**
 
 ---
 
-## Recommended Further Reading (For the Curious)
+## קריאה נוספת מומלצת (לסקרנים)
 
+::: {.ltr-block}
 - Claude, J. (2008). *Morphometrics with R*. Springer. [Most accessible R-based GM textbook]
 - Adams, D.C. et al. (2013). geomorph: An R package for the collection and analysis of geometric morphometric shape data. *Methods in Ecology and Evolution* 4(4):393–399.
 - Wilczek, J. (2015). *Applying Geometric Morphometrics to Study Protohistoric European Metal Objects*. [Thesis, provides thorough coverage of the flanged axe problem]
 - Rohlf, F.J. & Slice, D.E. (1990). Extensions of the Procrustes method for the optimal superimposition of landmarks. *Systematic Biology* 39(1):40–59. [The original GPA paper]
+:::

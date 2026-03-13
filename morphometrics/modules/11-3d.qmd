@@ -1,93 +1,95 @@
 ---
-title: "Module 11: Testing Hypotheses — Statistics in Shape Space"
-subtitle: "Week 11 — Pottery, Statistics, and Synthesis"
+title: "מודול 11: בחינת השערות — סטטיסטיקה במרחב הצורות"
+subtitle: "שבוע 11 — כלי חרס, סטטיסטיקה וסינתזה"
+lang: he
+dir: rtl
 ---
 
-## Why Standard Tests Don't Work for Shape Data
+## מדוע בדיקות סטטיסטיות רגילות אינן מתאימות לנתוני צורה
 
-Shape data from GM is **multivariate**: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.
+נתוני צורה מ-GM הם **רב-ממדיים**: כל פרט מתואר על ידי משתנים רבים (ציוני PC, או קואורדינטות פרוקרוסטס גולמיות). בדיקות חד-ממדיות רגילות (t-test, ANOVA) בוחנות משתנה אחד בכל פעם. עבור צורה, אנחנו זקוקים לבדיקות שפועלות בממדים רבים בו-זמנית.
 
-Furthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.
+בנוסף, נתוני צורה לא תמיד עומדים בהנחות של בדיקות פרמטריות קלאסיות (נורמליות רב-ממדית, שוויון שונות). גדלי מדגם בארכאולוגיה לרוב קטנים.
 
-The solution used in modern GM: **permutation-based tests**.
-
----
-
-## The Logic of Permutation Tests
-
-A permutation test asks: *how often would we see a difference this large (or larger) between groups if the group labels were just randomly assigned?*
-
-### Step-by-step:
-
-1. Calculate the *observed* test statistic (e.g., F-ratio comparing within-group to between-group variation)
-2. Randomly permute the group labels among specimens, keeping the data fixed
-3. Re-calculate the test statistic
-4. Repeat steps 2–3 many times (999 or 9999 permutations)
-5. The **p-value** = the proportion of permuted statistics ≥ the observed statistic
-
-No distributional assumptions. Works with small samples. Widely accepted in the GM literature.
+הפתרון המשמש ב-GM מודרני: **בדיקות מבוססות תמורה (permutation)**.
 
 ---
 
-## MANOVA in Shape Space
+## ההיגיון של בדיקות תמורה
 
-**MANOVA** (Multivariate Analysis of Variance) tests whether group centroids (mean shapes) differ more than expected by chance.
+בדיקת תמורה שואלת: *כמה פעמים היינו רואים הבדל גדול כזה (או גדול יותר) בין קבוצות אילו סימוני הקבוצות היו מוקצים באקראי?*
 
-In GM, we typically apply MANOVA to the first several PC scores (capturing, say, 90% of shape variance). This is what our `permutation_manova()` function does.
+### שלב אחר שלב:
+
+1. חשבו את סטטיסטיקת המבחן ה*נצפית* (למשל, יחס F המשווה שונות תוך-קבוצתית לשונות בין-קבוצתית)
+2. בצעו תמורה אקראית של סימוני הקבוצות בין הפרטים, תוך שמירת הנתונים
+3. חשבו מחדש את סטטיסטיקת המבחן
+4. חזרו על שלבים 2–3 פעמים רבות (999 או 9999 תמורות)
+5. ה**p-ערך** = שיעור הסטטיסטיקות המתומרות ≥ לסטטיסטיקה הנצפית
+
+אין הנחות על ההתפלגות. עובד עם מדגמים קטנים. מקובל לרווחה בספרות GM.
+
+---
+
+## MANOVA במרחב הצורות
+
+**MANOVA** (ניתוח שונות רב-ממדי) בוחן האם צנטרואידי הקבוצות (צורות ממוצעות) שונים יותר מהצפוי על פי המקרה.
+
+ב-GM, אנחנו מיישמים בדרך כלל MANOVA על ציוני PC הראשונים (הלוכדים, נניח, 90% מהשונות בצורה). זה מה שפונקציית `permutation_manova()` שלנו עושה.
 
 ```python
-# Applied to any of our three datasets
+# מיושם על כל אחד משלושת מאגרי הנתונים שלנו
 f_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=10)
-r2 = f_stat / (f_stat + (len(labels) - 2))  # approx effect size
+r2 = f_stat / (f_stat + (len(labels) - 2))  # גודל אפקט משוער
 
 print(f"F = {f_stat:.3f}, p = {p_val:.3f}, R² = {r2:.3f}")
 ```
 
 ---
 
-## Effect Size: R²
+## גודל אפקט: R²
 
-The p-value tells us *whether* groups differ. The **effect size** tells us *how much* they differ.
+ה-p-ערך אומר לנו *האם* הקבוצות שונות. **גודל האפקט** אומר לנו *כמה* הן שונות.
 
-In GM, the standard effect size is **R²** — the proportion of total shape variance explained by group membership:
+ב-GM, גודל האפקט הסטנדרטי הוא **R²** — שיעור שונות הצורה הכוללת המוסבר על ידי חברות בקבוצה:
 
 $$R^2 = \frac{SS_{between}}{SS_{total}}$$
 
-An analysis can be statistically significant with a tiny R². For example: if p = 0.001 but R² = 0.04, groups differ reliably but the group difference accounts for only 4% of total shape variation. The other 96% is variation within groups.
+ניתוח יכול להיות מובהק סטטיסטית עם R² קטן מאוד. לדוגמה: אם p = 0.001 אך R² = 0.04, הקבוצות שונות באופן מהימן אך הבדל הקבוצות מסביר רק 4% מסך שונות הצורה. 96% הנותרים הם שונות בתוך הקבוצות.
 
 ::: {.callout-tip}
-## Always report both p and R²
-In archaeology, where sample sizes are often small and variation is high, R² is often more informative than the p-value alone.
+## דווחו תמיד גם p וגם R²
+בארכאולוגיה, שם גדלי מדגם לרוב קטנים והשונות גבוהה, R² לעיתים קרובות אינפורמטיבי יותר מ-p-ערך בלבד.
 :::
 
 ---
 
-## Allometry: When Size Predicts Shape
+## אלומטריה: כאשר הגודל מנבא את הצורה
 
-**Allometry** is the relationship between size and shape. In biology, larger organisms often have proportionally different shapes from smaller ones (think of how a puppy's head looks different from an adult dog's).
+**אלומטריה** היא הקשר בין גודל לצורה. בביולוגיה, לאורגניזמים גדולים יותר יש לעיתים קרובות פרופורציות שונות מאלה של אורגניזמים קטנים יותר (חשבו כיצד ראשו של גור שונה מזה של כלב בוגר).
 
-In archaeology:
-- Larger coins may have different portrait proportions than smaller ones
-- Larger pottery vessels may have proportionally narrower necks
-- Larger axes may have relatively wider blades
+בארכאולוגיה:
+- למטבעות גדולות יותר עשויות להיות פרופורציות דיוקן שונות מאשר קטנות
+- לכלי חרס גדולים יותר עשויים להיות צווארים צרים יחסית
+- לגרזנים גדולים יותר עשויים להיות להבים רחבים יחסית
 
-Testing allometry:
+בחינת אלומטריה:
 
 ```python
-# Test: does centroid size predict shape?
+# בחינה: האם גודל-צנטרואיד מנבא צורה?
 from scipy.stats import pearsonr
 
-# Correlate centroid sizes with PC1 scores
+# תאם גדלי-צנטרואיד עם ציוני PC1
 r, p = pearsonr(centroid_sizes, scores[:, 0])
-print(f"Allometry (size vs. PC1): r = {r:.3f}, p = {p:.3f}")
+print(f"אלומטריה (גודל לעומת PC1): r = {r:.3f}, p = {p:.3f}")
 
-# Scatter plot
+# גרף פיזור
 plt.figure(figsize=(7, 5))
 plt.scatter(np.log(centroid_sizes), scores[:, 0], alpha=0.7)
 plt.xlabel("Log centroid size")
 plt.ylabel("PC1 score (shape)")
 plt.title("Allometric plot: size vs. shape PC1")
-# Add regression line
+# הוספת קו רגרסיה
 m, b = np.polyfit(np.log(centroid_sizes), scores[:, 0], 1)
 x = np.linspace(np.log(centroid_sizes).min(), np.log(centroid_sizes).max(), 100)
 plt.plot(x, m*x + b, 'r--')
@@ -95,55 +97,55 @@ plt.tight_layout()
 plt.show()
 ```
 
-If allometry is significant: you may want to remove the size effect before comparing groups (using residuals from the allometric regression).
+אם האלומטריה מובהקת: ייתכן שתרצו להסיר את אפקט הגודל לפני השוואת קבוצות (באמצעות שאריות מרגרסיית האלומטריה).
 
 ---
 
-## Multiple Comparisons
+## השוואות מרובות
 
-If you are comparing 5 pottery periods against each other pairwise, you run 10 comparisons. By chance, you expect at least one to be "significant" at p < 0.05 — even if there is no real difference anywhere.
+אם אתם משווים 5 תקופות כלי חרס אחת מול השנייה, אתם מריצים 10 השוואות. על פי המקרה, תצפו שלפחות אחת תהיה "מובהקת" ב-p < 0.05 — גם אם לא קיים הבדל אמיתי בשום מקום.
 
-**Solutions:**
+**פתרונות:**
 
-1. **Bonferroni correction**: divide your α threshold by the number of tests. For 10 tests, use p < 0.005 instead of p < 0.05.
+1. **תיקון בונפרוני**: חלקו את סף ה-α שלכם במספר הבדיקות. עבור 10 בדיקות, השתמשו ב-p < 0.005 במקום p < 0.05.
 
-2. **Benjamini-Hochberg FDR**: less conservative, controls the *false discovery rate* rather than the family-wise error rate.
+2. **FDR של Benjamini-Hochberg**: פחות שמרני, שולט ב*שיעור הגילויים הכוזבים* ולא בשיעור השגיאות המשפחתי.
 
-3. **A priori hypotheses**: only test comparisons you predicted before looking at the data. This is the most principled approach.
+3. **השערות מוקדמות**: בחנו רק השוואות שחזיתם לפני שהסתכלתם בנתונים. זוהי הגישה העקרונית ביותר.
 
 ```python
 from statsmodels.stats.multitest import multipletests
 
-p_values = [0.03, 0.04, 0.001, 0.08, 0.02]  # example: 5 pairwise tests
+p_values = [0.03, 0.04, 0.001, 0.08, 0.02]  # דוגמה: 5 בדיקות זוגיות
 reject, p_corrected, _, _ = multipletests(p_values, method='bonferroni')
 
 for orig, corr, rej in zip(p_values, p_corrected, reject):
-    print(f"p = {orig:.3f} → corrected p = {corr:.3f} → {'SIGNIFICANT' if rej else 'ns'}")
+    print(f"p = {orig:.3f} → p מתוקן = {corr:.3f} → {'מובהק' if rej else 'לא מובהק'}")
 ```
 
 ---
 
-## Summary: Statistical Reporting in a GM Study
+## סיכום: דיווח סטטיסטי במחקר GM
 
-A complete statistical report should include:
+דוח סטטיסטי מלא צריך לכלול:
 
-| Element | What to report |
-|---------|---------------|
-| **Test** | What test (permutation MANOVA, etc.) |
-| **Parameters** | Number of PCs used, number of permutations |
-| **F-statistic** | The observed F ratio |
-| **p-value** | From permutation distribution |
-| **Effect size** | R² |
-| **Multiple comparisons** | Correction method used (if any) |
-
----
-
-## Lab: Apply Statistics to Your Final Project Dataset
-
-This week's lab is open: use the Week 11 Colab notebook to run the full statistical suite on whichever dataset you are using for your final project (or a preview of it).
+| מרכיב | מה לדווח |
+|--------|----------|
+| **בדיקה** | איזו בדיקה (MANOVA תמורה, וכו') |
+| **פרמטרים** | מספר ה-PC בשימוש, מספר התמורות |
+| **סטטיסטיקת F** | יחס F הנצפה |
+| **p-ערך** | מהתפלגות התמורה |
+| **גודל אפקט** | R² |
+| **השוואות מרובות** | שיטת התיקון בשימוש (אם בכלל) |
 
 ---
 
-## Next Week: Synthesis and Final Presentations
+## מעבדה: יישום סטטיסטיקה על מאגר הנתונים של הפרויקט הסופי
 
-[→ Module 12: Big Questions + Final Presentations](12-big-questions.qmd)
+מעבדת השבוע הזה פתוחה: השתמשו במחברת Colab של שבוע 11 כדי להריץ את חבילת הסטטיסטיקה המלאה על כל מאגר הנתונים שאתם משתמשים בו לפרויקט הסופי (או תצוגה מקדימה שלו).
+
+---
+
+## שבוע הבא: סינתזה ומצגות סיום
+
+[← מודול 12: שאלות גדולות + מצגות סיום](12-big-questions.qmd)

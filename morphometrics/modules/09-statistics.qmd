@@ -1,158 +1,161 @@
 ---
-title: "Module 9: Case Study II — Bronze Age Axes and Craft Networks"
-subtitle: "Week 9 — Outlines and the Bronze Age"
+title: "מודול 9: מקרה בוחן II — גרזני ברונזה ורשתות אומנות"
+subtitle: "שבוע 9 — קווי מתאר ותקופת הברונזה"
+lang: he
 ---
 
-## Archaeological Background
+## רקע ארכאולוגי
 
-### The European Bronze Age and Its Metal
+### תקופת הברונזה האירופאית והמתכת שלה
 
-The Bronze Age in Europe (c. 2300–800 BCE) was defined by metallurgy. Bronze — an alloy of copper and tin — required long-distance exchange networks, because copper and tin deposits are rarely found together. The very existence of Bronze Age material culture implies connectivity.
+תקופת הברונזה באירופה (כ-2300–800 לפנה"ס) הוגדרה על ידי מטלורגיה. ברונזה — סגסוגת נחושת ובדיל — דרשה רשתות חליפין לטווחים ארוכים, מכיוון שמרבצי נחושת ובדיל כמעט ואינם נמצאים יחד. עצם קיומה של התרבות החומרית של תקופת הברונזה מרמז על קשרים.
 
-**Flanged axes** are among the most common Bronze Age metal finds. They were functional tools (woodworking, combat) but also prestige objects, hoarded in deposits, and possibly used as currency-like valuables.
+**גרזני כנפיים** הם בין הממצאים המתכתיים הנפוצים ביותר מתקופת הברונזה. הם היו כלים פונקציונליים (עיבוד עץ, לחימה) אך גם חפצי יוקרה, אוצרים במטמונים, ואולי שימשו כחפצי ערך דמויי מטבע.
 
-The "flanged" design — raised ridges along the sides to help hafting — was a technological solution that spread across Europe in the Middle Bronze Age. But how did this spread happen?
+עיצוב ה"כנפיים" — קצוות גבוהים לאורך הצדדים לסיוע בהצמדה לעץ — היה פתרון טכנולוגי שהתפשט ברחבי אירופה בתקופת הברונזה התיכונה. אבל כיצד התפשטות זו קרתה?
 
-### G3 and G4 Groups
+### קבוצות G3 ו-G4
 
-Our dataset comes from Central European flanged axes classified into two typological groups (designations following standard Bronze Age typo-chronology):
+מאגר הנתונים שלנו מגיע מגרזני כנפיים ממרכז אירופה שסווגו לשתי קבוצות טיפולוגיות (ייעודים לפי כרונו-טיפולוגיה סטנדרטית של תקופת הברונזה):
 
-- **G3**: Earlier group, c. 1600–1400 BCE. Primarily found in western Central Europe.
-- **G4**: Later group, c. 1400–1200 BCE. Wider geographic distribution.
+- **G3**: קבוצה מוקדמת יותר, כ-1600–1400 לפנה"ס. נמצאת בעיקר במרכז אירופה המערבי.
+- **G4**: קבוצה מאוחרת יותר, כ-1400–1200 לפנה"ס. פיזור גיאוגרפי רחב יותר.
 
-Traditional typology classifies them by a combination of proportions (flange height, blade width relative to total length) and decorative features. But typology is always a simplification.
+הטיפולוגיה המסורתית מסווגת אותם לפי שילוב של פרופורציות (גובה הכנפיים, רוחב הלהב יחסית לאורך הכולל) ותכונות עיטוריות. אך הטיפולוגיה היא תמיד פישוט.
 
-The question: **does shape variation in these axes respect the G3/G4 boundary? Is there a continuous morphological gradient? Are there regional variants within each group?**
-
----
-
-## Why This Matters Historically
-
-Three possible outcomes:
-
-### Outcome A: Clean separation
-G3 and G4 form distinct, non-overlapping clusters in shape space. This supports the idea that each group represents a coherent production tradition — perhaps a specific workshop, region, or period with its own design template.
-
-**Implication:** Bronze Age metalworkers maintained strict shape standards within each tradition, possibly through apprenticeship networks with limited cross-transmission.
-
-### Outcome B: Overlapping clusters
-G3 and G4 overlap substantially in shape space. Shape variation is continuous, not categorical.
-
-**Implication:** The G3/G4 typological boundary may be a modern analytical construct rather than an emic (insider) category recognized by Bronze Age communities. Shape changed gradually, not in a discrete step.
-
-### Outcome C: Geographic gradient cuts across typological groups
-PC axes that capture most variation correlate with geographic position, not with G3/G4 group membership.
-
-**Implication:** Shape variation reflects local production traditions that don't align with the typological sequence — regional craft identity was stronger than temporal change.
-
-**None of these outcomes is "right" or "wrong."** Each tells us something important about Bronze Age social and technological organization.
+השאלה: **האם שונות הצורה בגרזנים אלה מכבדת את גבול G3/G4? האם יש שיפוע מורפולוגי רציף? האם יש וריאנטים אזוריים בתוך כל קבוצה?**
 
 ---
 
-## Full Analysis: Assignment 4 Walkthrough
+## מדוע זה חשוב היסטורית
+
+שלושה תוצאות אפשריות:
+
+### תוצאה א: הפרדה ברורה
+G3 ו-G4 מהווים אשכולות מובחנים ולא חופפים במרחב הצורות. זה תומך ברעיון שכל קבוצה מייצגת מסורת ייצור קוהרנטית — אולי סדנה, אזור או תקופה ספציפיים עם תבנית עיצוב משלהם.
+
+**המשמעות:** מתכנאי תקופת הברונזה שמרו על תקני צורה קפדניים בתוך כל מסורת, אולי דרך רשתות שוליות עם העברה בין-מסורתית מוגבלת.
+
+### תוצאה ב: אשכולות חופפים
+G3 ו-G4 חופפים במידה ניכרת במרחב הצורות. שונות הצורה רציפה, לא קטגורית.
+
+**המשמעות:** גבול הטיפוס G3/G4 עשוי להיות מבנה אנליטי מודרני ולא קטגוריה אמית (פנימית) שקהילות תקופת הברונזה הכירו. הצורה השתנתה בהדרגה, לא בקפיצה בדידה.
+
+### תוצאה ג: שיפוע גיאוגרפי חוצה קבוצות טיפולוגיות
+צירי PC הלוכדים את רוב השונות מתואמים עם מיקום גיאוגרפי, לא עם חברות בקבוצה G3/G4.
+
+**המשמעות:** שונות הצורה משקפת מסורות ייצור מקומיות שאינן מתאימות לרצף הטיפולוגי — זהות אומנות אזורית הייתה חזקה יותר משינוי לאורך זמן.
+
+**אף אחת מהתוצאות אינה "נכונה" או "שגויה."** כל אחת אומרת לנו משהו חשוב על הארגון החברתי והטכנולוגי של תקופת הברונזה.
+
+---
+
+## ניתוח מלא: הדרכה למטלה 4
 
 ::: {.callout-important}
-## Open the Week 9 Notebook
-[→ Week 9 Colab Notebook](https://colab.research.google.com) *(link active Week 9)*
+## פתחו את מחברת שבוע 9
+[→ מחברת Colab — שבוע 9](https://colab.research.google.com) *(הקישור יופעל בשבוע 9)*
 :::
 
-This notebook extends the EFA from Week 8 with group comparison, statistical testing, and geographic visualization.
+מחברת זו מרחיבה את EFA משבוע 8 עם השוואת קבוצות, בדיקה סטטיסטית וויזואליזציה גיאוגרפית.
 
-### The Statistical Test
+### הבדיקה הסטטיסטית
 
-We use a permutation-based MANOVA (the same logic as for coins, applied to EFA+PCA scores):
+אנחנו משתמשים ב-MANOVA מבוסס הרשאה (אותו הגיון כמו למטבעות, מוחל על ציוני EFA+PCA):
 
 ```python
-# Permutation MANOVA on EFA PCA scores
+# MANOVA בהרשאה על ציוני PCA של EFA
 f_stat, p_val = permutation_manova(scores, labels, n_perm=999, n_pcs=8)
 
-print(f"\nPermutation MANOVA (G3 vs G4):")
+print(f"\nMANOVA בהרשאה (G3 לעומת G4):")
 print(f"  F = {f_stat:.3f}")
 print(f"  p = {p_val:.3f}")
-print(f"  {'SIGNIFICANT' if p_val < 0.05 else 'NOT SIGNIFICANT'} at α = 0.05")
+print(f"  {'מובהק' if p_val < 0.05 else 'לא מובהק'} ב-α = 0.05")
 
-# Effect size: proportion of variance explained
+# גודל אפקט: פרופורציית שונות מוסברת
 r2 = f_stat / (f_stat + (len(labels) - 2))
-print(f"  R² ≈ {r2:.3f} ({r2*100:.1f}% of variance explained by group)")
+print(f"  R² ≈ {r2:.3f} ({r2*100:.1f}% מהשונות מוסבר על ידי הקבוצה)")
 ```
 
-### Interpreting Effect Size
+### פרשנות גודל אפקט
 
-| R² value | Interpretation |
-|----------|---------------|
-| < 0.05 | Very small effect — groups barely differ |
-| 0.05–0.15 | Small effect |
-| 0.15–0.35 | Medium effect |
-| > 0.35 | Large effect — groups strongly differ |
+| ערך R² | פרשנות |
+|--------|---------|
+| < 0.05 | אפקט קטן מאוד — קבוצות כמעט ולא שונות |
+| 0.05–0.15 | אפקט קטן |
+| 0.15–0.35 | אפקט בינוני |
+| > 0.35 | אפקט גדול — קבוצות שונות מאוד |
 
-Even if the test is significant (p < 0.05), a small R² means groups differ *reliably* but not *dramatically*.
+גם אם הבדיקה מובהקת (p < 0.05), R² קטן אומר שהקבוצות שונות *באופן אמין* אך לא *דרמטי*.
 
 ---
 
-## Geographic Visualization
+## ויזואליזציה גיאוגרפית
 
-The geographic metadata for the axes is provided as a CSV file. Here we link PC scores to find-spot locations:
+המטה-דאטה הגיאוגרפית לגרזנים מסופקת כקובץ CSV. כאן אנחנו מקשרים ציוני PC למיקומי מציאה:
 
 ```python
+!pip install python-bidi -q
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
+from bidi.algorithm import get_display
+rtl = get_display  # תיקון כיוון טקסט עברי בגרפים של matplotlib
 
-# Load geographic metadata
+# טעינת מטה-דאטה גיאוגרפית
 geo = pd.read_csv("data/flanged_axes/axes_metadata.csv")
-# Columns: name, group, latitude, longitude, country, site_name
+# עמודות: name, group, latitude, longitude, country, site_name
 
-# Merge with PCA scores
+# איחוד עם ציוני PCA
 df_geo = pd.merge(df, geo, on='name')
 
-# Map PC1 score to color (blue = negative, red = positive)
+# מיפוי ציון PC1 לצבע (כחול = שלילי, אדום = חיובי)
 norm = mcolors.TwoSlopeNorm(vcenter=0,
                               vmin=df_geo['PC1'].min(),
                               vmax=df_geo['PC1'].max())
-colors_map = cm.RdBu_r(norm(df_geo['PC1']))
 
-# Simple scatter map (approximate)
+# מפת פיזור פשוטה (מקורבת)
 fig, ax = plt.subplots(figsize=(10, 8))
 sc = ax.scatter(df_geo['longitude'], df_geo['latitude'],
                 c=df_geo['PC1'], cmap='RdBu_r', s=80,
                 edgecolor='black', linewidth=0.5, norm=norm)
 
-# Label markers with group
+# תיוג סמנים עם קבוצה
 for _, row in df_geo.iterrows():
     ax.annotate(row['group'], (row['longitude'], row['latitude']),
                 fontsize=6, ha='center', va='bottom')
 
-plt.colorbar(sc, label='PC1 score (shape axis)')
-ax.set_xlabel("Longitude")
-ax.set_ylabel("Latitude")
-ax.set_title("Geographic distribution of PC1 shape scores — Flanged Axes")
+plt.colorbar(sc, label=rtl('ציון PC1 (ציר צורה)'))
+ax.set_xlabel(rtl("קו אורך"))
+ax.set_ylabel(rtl("קו רוחב"))
+ax.set_title(rtl("פיזור גיאוגרפי של ציוני PC1 — גרזני כנפיים"))
 plt.tight_layout()
 plt.show()
 ```
 
-**Note:** The axes_metadata.csv will be provided. If geographic data is not available for all specimens in the dataset, we will work with the subset that has coordinates.
+**הערה:** קובץ axes_metadata.csv יסופק. אם נתונים גיאוגרפיים אינם זמינים לכל הפרטים, נעבוד עם תת-הקבוצה הכוללת קואורדינטות.
 
 ---
 
-## Discussion Questions
+## שאלות לדיון
 
-1. Do the reconstructed EFA shapes at PC1 extremes match what you would expect from looking at G3 vs. G4 axes visually?
+1. האם הצורות המשוחזרות של EFA בקצוות PC1 תואמות למה שהייתם מצפים לו מהסתכלות ויזואלית על גרזני G3 לעומת G4?
 
-2. If G3 and G4 overlap in shape space but your permutation test is significant — how do you reconcile these two results?
+2. אם G3 ו-G4 חופפים במרחב הצורות אך בדיקת ההרשאה מובהקת — כיצד תסבירו את שתי התוצאות?
 
-3. Imagine you found a new Bronze Age axe from an unknown site. How would you use this analysis to assign it to G3 or G4? What confidence would you have?
+3. דמיינו שמצאתם גרזן ברונזה חדש מאתר לא ידוע. כיצד תשתמשו בניתוח זה לסיווגו כ-G3 או G4? עם איזה רמת ביטחון?
 
-4. What additional data (isotope analysis, hoard context, absolute dates) would strengthen the interpretation of any shape patterns you found?
+4. אילו נתונים נוספים (ניתוח איזוטופי, הקשר מטמון, תאריכים מוחלטים) היו מחזקים את פרשנות דפוסי הצורה שמצאתם?
 
 ---
 
-## Assignment 4 Due This Week
+## מטלה 4 מגיעה השבוע
 
 ::: {.callout-note}
-Submit Colab notebook link + 600-word PDF + map image.
+הגישו קישור למחברת Colab + PDF של 600 מילה + תמונת מפה.
 
-[→ Assignment 4: Bronze Age Axes Outline Analysis](../assignments/04-axes.qmd)
+[→ מטלה 4: ניתוח קווי מתאר לגרזני ברונזה](../assignments/04-axes.qmd)
 :::
 
-[→ Module 10: Case Study III — Pottery and Ceramic Traditions](10-pottery.qmd)
+[→ מודול 10: מקרה בוחן III — כלי חרס ומסורות קדרות](10-pottery.qmd)

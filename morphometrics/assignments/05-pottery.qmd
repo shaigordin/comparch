@@ -1,65 +1,67 @@
 ---
-title: "Assignment 5: Pottery PCA"
-subtitle: "5% of final grade | Due: Week 10"
+title: "מטלה 5: PCA של כלי חרס"
+subtitle: "5% מהציון הסופי | הגשה: שבוע 10"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-This is a lightweight assignment focused on **interpretation** rather than code. The analysis pipeline is pre-built; your job is to run it, read the results, and explain what you see archaeologically.
+זוהי מטלה קלה המתמקדת ב**פרשנות** ולא בקוד. צינור הניתוח בנוי מראש; תפקידכם הוא להריצו, לקרוא את התוצאות, ולהסביר מה אתם רואים ארכאולוגית.
 
-The data this week comes from real Edo-period Japanese storage jars (Ogame vessels, from Loftus 2025). The key question: **do jars from kiln sites (where they were produced) differ in shape from jars deposited in burial contexts?**
-
----
-
-## Background (read before running the notebook)
-
-**Ogame jars** are large stoneware vessels made in northern Kyushu, Japan, during the Edo period (AD 1600–1800). They served as storage containers for soy sauce, sake, and fertilizer — and also as burial containers for human remains. The dataset contains **243 standardized jar profile images** from 12 sites: 2 kiln sites where jars were manufactured, and 9 mortuary sites where jars were found in burials.
-
-**Published comparison:** Before running the notebook, read the summary of the Bibracte case study in [Module 10](../modules/10-pottery.qmd). That study showed that EFA can reliably recover ceramic typological groups from shape alone. Your assignment tests a different question: not what *type* a vessel is, but what *context* it came from.
+הנתונים השבוע מגיעים מצנצנות אחסון יפניות אמיתיות מתקופת אדו (כלי Ogame, מ-Loftus 2025). השאלה המרכזית: **האם צנצנות מאתרי כבשנים (שם הן יוצרו) שונות בצורתן מצנצנות שהופקדו בהקשרי קבורה?**
 
 ---
 
-## Instructions
+## רקע (קראו לפני הרצת המחברת)
 
-1. Open the [Week 10 Colab notebook](https://colab.research.google.com) *(link active Week 10)*
-2. Run all cells (Shift+Enter through the notebook, or Runtime → Run All)
-3. The notebook downloads the Ogame dataset from Zenodo automatically, extracts outlines, computes EFA, runs PCA, and produces labeled scatter plots
+**צנצנות Ogame** הן כלי קרמיקה גדולים שיוצרו בצפון קיושו, יפן, בתקופת אדו (1600–1800 לספירה). הן שימשו כמיכלי אחסון לרוטב סויה, סאקה ודשן — וגם כמיכלי קבורה לעצמות אדם. מאגר הנתונים מכיל **243 תמונות פרופיל צנצנת מתוקננות** מ-12 אתרים: 2 אתרי כבשנים שבהם יוצרו הצנצנות, ו-9 אתרי קבורה שבהם נמצאו הצנצנות בקברים.
 
-**You do not need to write any code.**
+**השוואה שפורסמה:** לפני הרצת המחברת, קראו את הסיכום של מקרה הבוחן של Bibracte ב[מודול 10](../modules/10-pottery.qmd). מחקר זה הראה ש-EFA יכול לשחזר באמינות קבוצות טיפולוגיות קרמיות מצורה בלבד. מטלתכם בוחנת שאלה שונה: לא *מאיזה סוג* כלי מדובר, אלא *מאיזה הקשר* הוא הגיע.
 
 ---
 
-## Required Output
+## הוראות
 
-1. **One PCA scatter plot** coloured by depositional context (Kiln vs. Burial) — produced automatically by the notebook
+1. פתחו את [מחברת Colab של שבוע 10](https://colab.research.google.com) *(קישור פעיל בשבוע 10)*
+2. הריצו את כל התאים (Shift+Enter דרך המחברת, או Runtime → Run All)
+3. המחברת מורידה את מאגר נתוני Ogame מ-Zenodo אוטומטית, מחלצת קווי מתאר, מחשבת EFA, מריצה PCA, ומפיקה גרפי פיזור מסומנים
 
-2. **300-word written interpretation** addressing all four of the following:
-
-   a. **Describe the pattern:** Are kiln jars and burial jars separated in shape space, overlapping, or mixed? Where do they fall on PC1 and PC2?
-
-   b. **Describe the shape variation:** What does PC1 appear to capture? (Look at jars at opposite extremes of the axis — what is visually different about them?)
-
-   c. **Interpret archaeologically:** What does the shape pattern — or the lack of a pattern — suggest about production practices and funerary selection in Edo-period Kyushu? Connect to what you know about craft production and burial archaeology.
-
-   d. **One unanswerable question:** Name one thing the shape data alone cannot tell you, and what additional evidence you would need to answer it.
+**אינכם צריכים לכתוב קוד כלשהו.**
 
 ---
 
-## Deliverables
+## פלט נדרש
 
-- One PCA plot (PNG, embedded in your PDF)
-- 300-word interpretation
+1. **גרף פיזור PCA אחד** מצובע לפי הקשר הפקדה (כבשן לעומת קבורה) — מופק אוטומטית על ידי המחברת
 
-**Submit as a single PDF.**
+2. **פרשנות כתובה של 300 מילים** המתייחסת לכל ארבעה מהבאים:
+
+   א. **תארו את התבנית:** האם צנצנות הכבשן וצנצנות הקבורה נפרדות במרחב הצורות, חופפות, או מעורבבות? היכן הן נופלות על PC1 ו-PC2?
+
+   ב. **תארו את שונות הצורה:** מה PC1 נראה כלוכד? (הסתכלו על צנצנות בקצוות הנגדיים של הציר — מה שונה ויזואלית בינהן?)
+
+   ג. **פרשו ארכאולוגית:** מה תבנית הצורה — או היעדרה — מרמזת על פרקטיקות ייצור ובחירה לוויתית בקיושו של תקופת אדו? קשרו למה שאתם יודעים על ייצור אומנות וארכאולוגיית קבורה.
+
+   ד. **שאלה אחת שלא ניתן לענות עליה:** ציינו דבר אחד שנתוני הצורה לבדם לא יכולים לומר לכם, ואיזה ראיות נוספות תזדקקו להן כדי לענות עליו.
 
 ---
 
-## Grading
+## מה להגיש
 
-| Criterion | Points |
-|-----------|--------|
-| Plot produced correctly (Kiln vs. Burial colour-coded, axes labelled with % variance) | 30 |
-| Interpretation describes the shape pattern specifically | 40 |
-| Archaeological context engaged (production, funerary selection, Edo-period Kyushu) | 20 |
-| Writing quality | 10 |
-| **Total** | **100** |
+- גרף PCA אחד (PNG, מוטמע ב-PDF שלכם)
+- פרשנות של 300 מילים
+
+**הגישו כ-PDF אחד.**
+
+---
+
+## ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| גרף הופק כראוי (כבשן לעומת קבורה מצובע, צירים מסומנים עם % שונות) | 30 |
+| הפרשנות מתארת את תבנית הצורה באופן ספציפי | 40 |
+| הקשר ארכאולוגי מעורב (ייצור, בחירה לוויתית, קיושו של תקופת אדו) | 20 |
+| איכות כתיבה | 10 |
+| **סך הכל** | **100** |

@@ -1,194 +1,198 @@
 ---
-title: "Syllabus"
-subtitle: "Shape in Time: Geometric Morphometrics for Archaeologists — Spring 2026"
+title: "סילבוס"
+subtitle: "צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים — אביב 2026"
+lang: he
+dir: rtl
 ---
 
-## Course Description
+## תיאור הקורס
 
-This course introduces undergraduate students in archaeology and history to the theory and practice of **geometric morphometrics (GM)** — the quantitative study of shape in objects made by human hands. Students work with published open-access datasets of Roman coins, Bronze Age flanged axes, and ancient pottery, using AI-written code in **Google Colab** (no installation required) to run all analyses.
+קורס זה מציג לסטודנטים לתואר ראשון בארכאולוגיה ובהיסטוריה את התיאוריה והפרקטיקה של **מורפומטריה גיאומטרית (GM)** — החקר הכמותי של צורה בחפצים מעשה ידי אדם. הסטודנטים עובדים עם מאגרי נתונים פתוחים ומפורסמים של מטבעות רומיים, גרזני ברונזה עם כנפיים, וכלי חרס עתיקים, תוך שימוש בקוד שנכתב על ידי AI ב**Google Colab** (ללא התקנה נדרשת) להרצת כל הניתוחים.
 
-No prior programming experience is assumed or required. A computer with internet access is all you need.
-
----
-
-## Learning Outcomes
-
-By the end of the semester, students will be able to:
-
-1. Explain what geometric morphometrics is and how it differs from traditional typological description
-2. Distinguish between landmark, semi-landmark, and outline methods, and know when to apply each
-3. Use AI tools (Claude, ChatGPT) to generate, run, and annotate Python code for shape analysis in Google Colab
-4. Perform Generalized Procrustes Analysis (GPA) and interpret aligned shape configurations
-5. Run and interpret Principal Components Analysis (PCA) on shape data, including deformation grids
-6. Apply Elliptic Fourier Analysis (EFA) to outline data
-7. Apply basic permutation-based statistical tests to compare shape groups
-8. Connect shape patterns to archaeological questions of production, exchange, identity, and chronology
-9. Present and critically evaluate GM-based archaeological research
+לא נדרשת ולא מוצנחת ניסיון תכנות מוקדם. מחשב עם גישה לאינטרנט הוא כל מה שאתם צריכים.
 
 ---
 
-## Tools (All Browser-Based — No Installation Required)
+## תוצרי למידה
 
-| Tool | Purpose | Access |
-|------|---------|--------|
-| **Google Colab** | All coding and analysis | colab.research.google.com (free, browser) |
-| **Claude / ChatGPT** | AI code generation | claude.ai / chat.openai.com (free) |
-| **FIJI (ImageJ)** | Landmark digitizing — one session only | fiji.sc (small download, Week 3 only) |
-| **Google Drive** | Storing datasets and notebooks | drive.google.com (free) |
+בסוף הסמסטר, הסטודנטים יהיו מסוגלים ל:
 
-**Python packages used (all pre-installed in Colab or installed in the notebook):**
+1. להסביר מהי מורפומטריה גיאומטרית וכיצד היא שונה מתיאור טיפולוגי מסורתי
+2. להבחין בין שיטות ציוני דרך, ציוני-דרך למחצה, וקווי מתאר, ולדעת מתי ליישם כל אחת
+3. להשתמש בכלי AI (Claude, ChatGPT) ליצירה, הרצה והוספת הערות לקוד Python לניתוח צורות ב-Google Colab
+4. לבצע ניתוח פרוקרוסטס מוכלל (GPA) ולפרש תצורות צורה מיושרות
+5. להריץ ולפרש ניתוח רכיבים עיקריים (PCA) על נתוני צורה, כולל רשתות עיוות
+6. ליישם ניתוח פורייה אליפטי (EFA) על נתוני קו מתאר
+7. ליישם בדיקות סטטיסטיות מבוססות תמורה להשוואת קבוצות צורה
+8. לקשור תבניות צורה לשאלות ארכאולוגיות של ייצור, חליפין, זהות וכרונולוגיה
+9. להציג ולהעריך ביקורתית מחקר ארכאולוגי מבוסס GM
 
-- `morphops` — Procrustes alignment, thin-plate splines
-- `pyefd` — Elliptic Fourier Descriptors for outlines
+---
+
+## כלים (כולם מבוססי דפדפן — אין התקנה נדרשת)
+
+| כלי | מטרה | גישה |
+|-----|-------|------|
+| **Google Colab** | כל הקידוד והניתוח | colab.research.google.com (חינמי, דפדפן) |
+| **Claude / ChatGPT** | יצירת קוד AI | claude.ai / chat.openai.com (חינמי) |
+| **FIJI (ImageJ)** | דיגיטיזציה של ציוני דרך — מפגש אחד בלבד | fiji.sc (הורדה קטנה, שבוע 3 בלבד) |
+| **Google Drive** | אחסון מאגרי נתונים ומחברות | drive.google.com (חינמי) |
+
+**חבילות Python בשימוש (כולן מותקנות מראש ב-Colab או מותקנות במחברת):**
+
+- `morphops` — יישור פרוקרוסטס, splinesלוחות דקים
+- `pyefd` — מתארים פורייה אליפטיים לקווי מתאר
 - `scikit-learn` — PCA
-- `matplotlib` / `seaborn` — visualization
-- `numpy` / `pandas` — data handling
+- `matplotlib` / `seaborn` — ויזואליזציה
+- `numpy` / `pandas` — עיבוד נתונים
 
-All package installs are handled by a single line in each notebook that students run once:
+כל התקנות החבילות מטופלות על ידי שורה אחת בכל מחברת שהסטודנטים מריצים פעם אחת:
 ```python
 !pip install morphops pyefd -q
 ```
 
 ---
 
-## 12-Week Schedule
+## לוח זמנים של 12 שבועות
 
-### Unit I — Foundations (Weeks 1–3)
+### יחידה א' — יסודות (שבועות 1–3)
 
 ---
 
-#### Week 1: What Is Shape? Why Does It Matter?
+#### שבוע 1: מהי צורה? מדוע היא חשובה?
 
-**Lecture (90 min):**
+**הרצאה (90 דקות):**
 
-- The difference between *size* and *shape* — the key distinction of GM
-- Kendall's definition: *"Shape is all the geometric information that remains when location, scale, and rotation effects are filtered out from an object"* (Kendall 1977)
-- From description to measurement: why quantification matters for archaeology
-- What shape can and cannot tell us
-- Tour of the three case studies: coins, axes, pottery
+- ההבדל בין *גודל* ל*צורה* — ההבחנה המרכזית של GM
+- ההגדרה של Kendall: *"צורה היא כל המידע הגיאומטרי הנותר לאחר סינון אפקטי מיקום, סקאלה וסיבוב מחפץ"* (Kendall 1977)
+- ממתיאור למדידה: מדוע כימות חשוב לארכאולוגיה
+- מה הצורה יכולה ומה אינה יכולה לומר לנו
+- סיור בשלושת מקרי הבוחן: מטבעות, גרזנים, כלי חרס
 
-**Archaeological framing:**
+**מסגרת ארכאולוגית:**
 
-- Coins: Roman Imperial standardization and mint identity
-- Axes: Bronze Age craft networks and typological groupings
-- Pottery: ceramic production traditions and exchange
+- מטבעות: תיקון אימפריאלי רומי וזהות מטבעה
+- גרזנים: רשתות אומנות של תקופת הברונזה וקיבוצים טיפולוגיים
+- כלי חרס: מסורות ייצור קרמי וחליפין
 
-**Reading (light — provided as excerpts):**
+**קריאה (קלה — מסופקת כקטעים):**
 
+::: {.ltr-block}
 - Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–265 [introduction only]
 - Broodbank, C. (2013). *The Making of the Middle Sea*, pp. 1–10 [context: why typology matters]
+:::
 
-**No lab this week.** Bring an object to class next week.
-
----
-
-#### Week 2: A Short History — From Calipers to Coordinates
-
-**Lecture (90 min):**
-
-- Traditional morphometrics: measurements, ratios, indices — and their limits
-- The morphometric revolution of the 1980s–90s: coordinates instead of distances
-- Three methods introduced: **landmarks**, **semi-landmarks**, **outlines**
-- When to use which method (illustrated with archaeological examples)
-- The software landscape: what exists, why we use Python in Colab
-
-**Lab (30 min — in class, no software needed):**
-
-Using printed images of coins and axes, students manually place landmark points on paper and discuss: What counts as a homologous point? What choices are you making?
-
-**Assignment 1 distributed:** Shape Journal
+**אין מעבדה השבוע.** הביאו חפץ לכיתה בשבוע הבא.
 
 ---
 
-#### Week 3: Seeing Shape — Digitizing Landmarks
+#### שבוע 2: היסטוריה קצרה — ממחוגות לקואורדינטות
 
-**Lecture (60 min):**
+**הרצאה (90 דקות):**
 
-- Image preparation: scale bars, orientation conventions, image quality
-- Landmark types: Type I (biologically/archaeologically homologous), Type II (geometric extrema), Type III (constructed points)
-- Semi-landmarks and sliding
-- Outline tracing: when and how
-- Inter-observer error — the hidden problem in all landmark studies
+- מורפומטריה מסורתית: מדידות, יחסים, מדדים — ומגבלותיהם
+- המהפכה המורפומטרית של שנות ה-80 וה-90: קואורדינטות במקום מרחקים
+- שלוש שיטות שהוצגו: **ציוני דרך**, **ציוני-דרך למחצה**, **קווי מתאר**
+- מתי להשתמש באיזו שיטה (ממחיש עם דוגמאות ארכאולוגיות)
+- נוף התוכנות: מה קיים, מדוע אנחנו משתמשים ב-Python ב-Colab
 
-**Lab (60 min — FIJI required, one-time install):**
+**מעבדה (30 דקות — בכיתה, אין תוכנה נדרשת):**
 
-> **This is the only session requiring a download.** Students install FIJI once and use it to place landmarks on 5 Hadrian coin images. Full step-by-step instructions provided.
+בשימוש בתמונות מודפסות של מטבעות וגרזנים, הסטודנטים מציבים ידנית ציוני דרך על נייר ודנים: מה נחשב לנקודה הומולוגית? אילו בחירות אתם עושים?
 
-Step-by-step protocol:
-1. Open FIJI → open coin image
-2. Set scale (Analyze → Set Scale)
-3. Point tool → place 8 landmarks following the course landmark protocol
-4. Save as .txt and convert to TPS format using the provided Python script in Colab
-
-**Assignment 1 due. Assignment 2 distributed:** Landmark Exercise
+**מטלה 1 מחולקת:** יומן צורות
 
 ---
 
-### Unit II — The Toolkit (Weeks 4–7)
+#### שבוע 3: ראיית צורה — דיגיטיזציה של ציוני דרך
+
+**הרצאה (60 דקות):**
+
+- הכנת תמונה: סרגלי סקאלה, מוסכמות כיוון, איכות תמונה
+- סוגי ציוני דרך: סוג I (הומולוגיים ביולוגית/ארכאולוגית), סוג II (מקצוות גיאומטריות), סוג III (נקודות מובנות)
+- ציוני-דרך למחצה והחלקה
+- ציור קווי מתאר: מתי וכיצד
+- שגיאת בין-צופים — הבעיה הנסתרת בכל מחקרי ציוני הדרך
+
+**מעבדה (60 דקות — FIJI נדרש, התקנה חד-פעמית):**
+
+> **זהו המפגש היחיד הדורש הורדה.** הסטודנטים מתקינים FIJI פעם אחת ומשתמשים בו להצבת ציוני דרך על 5 תמונות מטבעות הדריאנוס. מסופקות הוראות שלב אחר שלב מלאות.
+
+פרוטוקול שלב אחר שלב:
+1. פתחו FIJI ← פתחו תמונת מטבע
+2. קבעו סקאלה (Analyze ← Set Scale)
+3. כלי נקודה ← הציבו 8 ציוני דרך לפי פרוטוקול ציוני הדרך של הקורס
+4. שמרו כ-.txt והמירו לפורמט TPS באמצעות סקריפט Python המסופק ב-Colab
+
+**מטלה 1 להגשה. מטלה 2 מחולקת:** תרגיל ציוני דרך
 
 ---
 
-#### Week 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis
+### יחידה ב' — ארגז הכלים (שבועות 4–7)
 
-**Lecture (60 min):**
+---
 
-- What is Google Colab? How to use it (live demonstration)
-- How to talk to AI: writing effective prompts for data analysis
-- The PEAR prompt framework:
-  - **P**urpose — what analysis do you need?
-  - **E**xample — show the AI a sample of your data structure
-  - **A**ction — what specific operation?
-  - **R**esult — what output format do you want?
-- Reading and understanding AI-generated code without writing it yourself
-- The golden rule: *you interpret the results, the AI writes the code*
+#### שבוע 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI
 
-**Lab (60 min — first Colab session):**
+**הרצאה (60 דקות):**
 
-Students open the **Week 4 Colab notebook** (link provided) and follow along:
+- מהו Google Colab? כיצד להשתמש בו (הדגמה חיה)
+- כיצד לדבר עם AI: כתיבת פרומפטים אפקטיביים לניתוח נתונים
+- מסגרת הפרומפט PEAR:
+  - **P**urpose — איזה ניתוח אתם צריכים?
+  - **E**xample — הראו ל-AI דוגמה ממבנה הנתונים שלכם
+  - **A**ction — איזו פעולה ספציפית?
+  - **R**esult — איזה פורמט פלט אתם רוצים?
+- קריאה והבנת קוד שנוצר על ידי AI מבלי לכתוב אותו בעצמכם
+- הכלל הזהב: *אתם מפרשים את התוצאות, ה-AI כותב את הקוד*
+
+**מעבדה (60 דקות — מפגש Colab ראשון):**
+
+הסטודנטים פותחים את **מחברת Colab של שבוע 4** (קישור מסופק) ועוקבים:
 
 ```python
-# AI-generated code: Load TPS data and inspect it
+# קוד שנוצר על ידי AI: טעינת נתוני TPS ובדיקתם
 !pip install morphops pyefd -q
 import morphops as mops
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Load the coin TPS file
+# טעינת קובץ TPS של מטבעות
 lms = mops.read_tps("Coins.TPS")
 print(f"Dataset shape: {lms.shape}")
 # (n_specimens, n_landmarks, 2)
 ```
 
-Students then write their own AI prompt for the next step and share results.
+הסטודנטים כותבים אז פרומפט AI משלהם לשלב הבא ומשתפים תוצאות.
 
-**Assignment 2 due. Assignment 3 distributed:** Coins Shape Analysis
+**מטלה 2 להגשה. מטלה 3 מחולקת:** ניתוח צורות מטבעות
 
 ---
 
-#### Week 5: Procrustes Alignment — Putting Shapes in the Same Space
+#### שבוע 5: יישור פרוקרוסטס — הצבת צורות באותו מרחב
 
-**Lecture (90 min):**
+**הרצאה (90 דקות):**
 
-- The core problem: before we can compare shapes, we must remove the effect of size, position, and rotation
-- Generalized Procrustes Analysis (GPA): the algorithm in plain language
-  1. Translate all configurations to the same centroid
-  2. Scale to unit centroid size
-  3. Rotate to minimize total squared distance between corresponding landmarks
-- Centroid size: what it is and why it's the measure of scale in GM
-- The Kendall shape space and why we work in its tangent plane
-- Visualizing aligned configurations: the consensus (mean) shape
+- הבעיה המרכזית: לפני שנוכל להשוות צורות, עלינו להסיר את אפקט הגודל, המיקום והסיבוב
+- ניתוח פרוקרוסטס מוכלל (GPA): האלגוריתם בשפה פשוטה
+  1. תרגמו את כל התצורות לאותו צנטרואיד
+  2. סקלו לגודל-צנטרואיד יחידה
+  3. סובבו כדי למזער את סך המרחק הריבועי בין ציוני דרך מקבילים
+- גודל-צנטרואיד: מהו ומדוע הוא מדד הסקאלה ב-GM
+- מרחב הצורות של Kendall ומדוע אנחנו עובדים במישורו המשיק
+- ויזואליזציה של תצורות מיושרות: הצורה ה"קונסנסוס" (הממוצעת)
 
-**Lab (30 min):**
+**מעבדה (30 דקות):**
 
-Open the **Week 5 Colab notebook**. AI generates the GPA code:
+פתחו את **מחברת Colab של שבוע 5**. AI מייצר את קוד ה-GPA:
 
 ```python
-# Generalized Procrustes Analysis on all coins
+# ניתוח פרוקרוסטס מוכלל על כל המטבעות
 gpa_result = mops.procrustes_fit(lms)
-aligned = gpa_result[0]    # aligned coordinates
-centroid_sizes = gpa_result[1]  # one size value per specimen
+aligned = gpa_result[0]    # קואורדינטות מיושרות
+centroid_sizes = gpa_result[1]  # ערך גודל אחד לכל פרט
 
-# Plot all aligned configurations
+# ציור כל התצורות המיושרות
 fig, ax = plt.subplots(figsize=(8, 8))
 for config in aligned:
     ax.scatter(config[:, 0], config[:, 1], alpha=0.3, s=10, color='gray')
@@ -200,25 +204,25 @@ plt.show()
 
 ---
 
-#### Week 6: PCA — Exploring the Shape Space
+#### שבוע 6: PCA — חקירת מרחב הצורות
 
-**Lecture (90 min):**
+**הרצאה (90 דקות):**
 
-- What PCA does: finding the axes of maximum variation in a high-dimensional dataset
-- PC axes are directions in shape space; PC scores tell us where each specimen sits
-- How to read a PCA scatter plot: clusters, gradients, outliers
-- **Shape deformation grids:** thin-plate splines to visualize what PC1 and PC2 actually mean morphologically
-- Common mistakes: over-interpreting PCA, treating PC axes as "real" biological factors
+- מה PCA עושה: מציאת צירי השונות המקסימלית במאגר נתונים בממדים גבוהים
+- צירי PC הם כיוונים במרחב הצורות; ציוני PC אומרים לנו היכן כל פרט יושב
+- כיצד לקרוא גרף פיזור PCA: אשכולות, שיפועים, חריגים
+- **רשתות עיוות צורה:** splinesלוחות דקים לויזואליזציה של המשמעות המורפולוגית של PC1 ו-PC2
+- טעויות נפוצות: פרשנות יתר של PCA, יחס לצירי PC כ"גורמים ביולוגיים אמיתיים"
 
-**Lab (30 min):**
+**מעבדה (30 דקות):**
 
-AI-generated PCA code in the **Week 6 Colab notebook**:
+קוד PCA שנוצר על ידי AI ב**מחברת Colab של שבוע 6**:
 
 ```python
 from sklearn.decomposition import PCA
 import pandas as pd
 
-# Reshape aligned landmarks for PCA (each specimen = one row)
+# שינוי צורה של ציוני דרך מיושרים עבור PCA (כל פרט = שורה אחת)
 n = aligned.shape[0]
 X = aligned.reshape(n, -1)
 
@@ -230,7 +234,7 @@ print("Variance explained per PC:")
 for i, v in enumerate(pca.explained_variance_ratio_[:5]):
     print(f"  PC{i+1}: {v*100:.1f}%")
 
-# Plot PC1 vs PC2
+# ציור PC1 לעומת PC2
 plt.figure(figsize=(8, 6))
 plt.scatter(scores[:, 0], scores[:, 1], alpha=0.7)
 plt.xlabel(f"PC1 ({pca.explained_variance_ratio_[0]*100:.1f}%)")
@@ -241,303 +245,316 @@ plt.show()
 
 ---
 
-#### Week 7: Case Study I — Roman Coins and Imperial Standardization
+#### שבוע 7: מקרה בוחן א' — מטבעות רומיים ותיקון אימפריאלי
 
-**Lecture (60 min):**
+**הרצאה (60 דקות):**
 
-- Roman coin production: mints, dies, and imperial oversight
-- Why coins are ideal for GM: mass-produced objects with intentional standardization
-- The Hadrian (r. 117–138 CE) and Antoninus Pius (r. 138–161 CE) denarii: context
-- Research question: *Did die cutters maintain consistent shape standards across emperors? Do portrait types cluster by issuer?*
-- Reading a GM paper critically: what to look for in methods and results
+- ייצור מטבעות רומיים: מטבעות, חותמות ופיקוח אימפריאלי
+- מדוע מטבעות מתאימים באופן אידיאלי ל-GM: חפצים מיוצרים המוניים עם תיקון מכוון
+- הדנריים של הדריאנוס (117–138 לספירה) ואנטונינוס פיוס (138–161 לספירה): הקשר
+- שאלת מחקר: *האם חרתי-חותם שמרו על תקני צורה עקביים בין קיסרים? האם סוגי פורטרט מתקבצים לפי מנפיק?*
+- קריאה ביקורתית של מאמר GM: מה לחפש בשיטות ותוצאות
 
-**Lab (60 min):**
+**מעבדה (60 דקות):**
 
-Full coin analysis in the **Week 7 Colab notebook**:
-- Color-code PCA by emperor
-- Statistical test (permutation MANOVA)
-- Deformation grid for mean shape difference between groups
+ניתוח מטבעות מלא ב**מחברת Colab של שבוע 7**:
+- קידוד צבע של PCA לפי קיסר
+- בדיקה סטטיסטית (MANOVA תמורה)
+- רשת עיוות להבדל הצורה הממוצעת בין קבוצות
 
-**Assignment 3 due. Assignment 4 distributed:** Bronze Age Axes Outline Analysis
-
----
-
-### Unit III — Outlines and the Bronze Age (Weeks 8–9)
+**מטלה 3 להגשה. מטלה 4 מחולקת:** ניתוח קו מתאר של גרזני ברונזה
 
 ---
 
-#### Week 8: Outline Analysis — Elliptic Fourier Analysis
+### יחידה ג' — קווי מתאר ותקופת הברונזה (שבועות 8–9)
 
-**Lecture (90 min):**
+---
 
-- When landmarks aren't enough: objects without discrete homologous points
-- What an outline is: a closed contour captured as a sequence of x,y coordinates
-- Elliptic Fourier Analysis: decomposing an outline into a sum of elliptic harmonics
-  - Analogy: like breaking down a musical chord into individual notes
-  - The first harmonic captures basic size/shape; higher harmonics add detail
-- Choosing the number of harmonics: the variance explained criterion
-- Normalizing for size, position, rotation, and starting point
-- How EFA + PCA gives us the same kind of shape space as landmark GM
+#### שבוע 8: ניתוח קו מתאר — ניתוח פורייה אליפטי
 
-**Reading (provided):**
+**הרצאה (90 דקות):**
 
+- כאשר ציוני דרך אינם מספיקים: חפצים ללא נקודות הומולוגיות בדידות
+- מהו קו מתאר: קווי מתאר סגורים שנלכדים כרצף של קואורדינטות x,y
+- ניתוח פורייה אליפטי: פירוק קו מתאר לסכום של הרמוניות אליפטיות
+  - אנלוגיה: כמו פירוק של אקורד מוזיקלי לתווים בודדים
+  - ההרמוניה הראשונה לוכדת גודל/צורה בסיסיים; הרמוניות גבוהות יותר מוסיפות פרטים
+- בחירת מספר ההרמוניות: קריטריון השונות המוסברת
+- נורמליזציה לגודל, מיקום, סיבוב ונקודת התחלה
+- כיצד EFA + PCA נותנים לנו את אותו סוג מרחב צורות כמו GM של ציוני דרך
+
+**קריאה (מסופקת):**
+
+::: {.ltr-block}
 - Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24. [Introduction and methods sections]
+:::
 
-**Lab (30 min):**
+**מעבדה (30 דקות):**
 
-First look at the flanged axes dataset. Load outlines in the **Week 8 Colab notebook**:
+מבט ראשון על מאגר נתוני הגרזנים עם הכנפיים. טעינת קווי מתאר ב**מחברת Colab של שבוע 8**:
 
 ```python
 import pyefd
 from skimage import io, measure, color
 import numpy as np
 
-# Load a single axe outline image and extract contour
+# טעינת תמונת קו מתאר גרזן אחד וחילוץ הקווי
 img = io.imread("axes/ALT.tif", as_gray=True)
 contours = measure.find_contours(img, 0.5)
-outline = contours[0]  # largest contour
+outline = contours[0]  # הקווי הגדול ביותר
 
-# Fit EFA (12 harmonics)
+# התאמת EFA (12 הרמוניות)
 coeffs = pyefd.elliptic_fourier_descriptors(outline, order=12, normalize=True)
 print(f"EFA coefficients shape: {coeffs.shape}")  # (12, 4)
 ```
 
 ---
 
-#### Week 9: Case Study II — Bronze Age Axes and Craft Networks
+#### שבוע 9: מקרה בוחן ב' — גרזני ברונזה ורשתות אומנות
 
-**Lecture (60 min):**
+**הרצאה (60 דקות):**
 
-- European Bronze Age metallurgy: what flanged axes are, how they were cast
-- The G3 and G4 typological groups in the archaeological literature: what traditional typology says
-- Research question: *Do G3 and G4 axes represent genuinely distinct morphological groups? Is there geographic patterning in shape variation? What does this tell us about Bronze Age craft networks and exchange?*
-- Connecting shape to social questions: technology, exchange, identity, imitation
+- מטלורגיה אירופאית של תקופת הברונזה: מהם גרזני הכנפיים, כיצד הם יוצקו
+- קבוצות G3 ו-G4 הטיפולוגיות בספרות הארכאולוגית: מה אומרת הטיפולוגיה המסורתית
+- שאלת מחקר: *האם גרזני G3 ו-G4 מייצגים קבוצות מורפולוגיות מובחנות אמיתיות? האם קיימת תבנית גיאוגרפית בשונות הצורה? מה זה אומר לנו על רשתות אומנות וחליפין בתקופת הברונזה?*
+- קישור צורה לשאלות חברתיות: טכנולוגיה, חליפין, זהות, חיקוי
 
-**Lab (60 min):**
+**מעבדה (60 דקות):**
 
-Full EFA + PCA pipeline for the axes dataset in the **Week 9 Colab notebook**. Students produce a group-coded PCA plot and run a permutation test.
+צינור EFA + PCA מלא למאגר נתוני הגרזנים ב**מחברת Colab של שבוע 9**. הסטודנטים מפיקים גרף PCA מקודד קבוצה ומריצים בדיקת תמורה.
 
-**Assignment 4 due. Assignment 5 distributed:** Pottery PCA
-
----
-
-### Unit IV — Pottery, Statistics, and Synthesis (Weeks 10–12)
+**מטלה 4 להגשה. מטלה 5 מחולקת:** PCA של כלי חרס
 
 ---
 
-#### Week 10: Case Study III — Pottery and Ceramic Traditions
+### יחידה ד' — כלי חרס, סטטיסטיקה וסינתזה (שבועות 10–12)
 
-**Lecture (60 min):**
+---
 
-- Why pottery is the most-studied artefact in archaeology — and in GM
-- Vessel form classes and their archaeological meanings (storage, cooking, serving, burial)
-- Production techniques and their morphological signatures: wheel vs. hand-building
-- The pottery dataset for this course: [open-access dataset — confirmed source and DOI published in course Data page]
-- Research question: *Can we distinguish pottery production traditions or chronological periods from vessel outline shape alone?*
+#### שבוע 10: מקרה בוחן ג' — כלי חרס ומסורות קרמיות
 
-**Reading:**
+**הרצאה (60 דקות):**
 
+- מדוע כלי חרס הם הממצא הנחקר ביותר בארכאולוגיה — ובGM
+- סוגי כלי חרס ומשמעויותיהם הארכאולוגיות (אחסון, בישול, הגשה, קבורה)
+- טכניקות ייצור וחתימותיהן המורפולוגיות: גלגל לעומת בנייה ביד
+- מאגר נתוני כלי החרס לקורס זה: [מאגר נתונים בגישה פתוחה — מקור ו-DOI מאושרים מפורסמים בדף הנתונים של הקורס]
+- שאלת מחקר: *האם ניתן להבחין בין מסורות ייצור כלי חרס או תקופות כרונולוגיות מצורת קו מתאר הכלי בלבד?*
+
+**קריאה:**
+
+::: {.ltr-block}
 - Karasik, A. & Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.
 - [2024 open-access pottery GM paper — confirmed before course launch]
+:::
 
-**Lab (60 min):**
+**מעבדה (60 דקות):**
 
-Full EFA + PCA pipeline for pottery outlines. **Week 10 Colab notebook** provided.
+צינור EFA + PCA מלא לקווי מתאר כלי חרס. **מחברת Colab של שבוע 10** מסופקת.
 
-**Assignment 5 due.**
-
----
-
-#### Week 11: Testing Hypotheses — Statistics in Shape Space
-
-**Lecture (90 min):**
-
-- Why standard t-tests and ANOVAs don't work for shape data
-- Permutation tests: the logic and why they are appropriate for GM
-- MANOVA in shape space: testing for group differences
-- Effect sizes: R² and what it means
-- Allometry: does shape change with size? How to test this
-- Multiple comparisons: what to do when you have many groups
-- What "statistically significant" actually means — and what it doesn't
-
-**Lab (30 min):**
-
-Statistical comparison pipeline in **Week 11 Colab notebook** — applied to whichever dataset students are using for their final project.
+**מטלה 5 להגשה.**
 
 ---
 
-#### Week 12: Final Project Presentations + Course Synthesis
+#### שבוע 11: בחינת השערות — סטטיסטיקה במרחב הצורות
 
-**Synthesis lecture (30 min):**
+**הרצאה (90 דקות):**
 
-- From shapes to stories: connecting GM results to historical and archaeological questions
-- Scale of analysis: site → region → period → network
-- What GM cannot do: the importance of integrating typology, isotopes, context, text
-- Reproducibility and open data: why sharing your data and code matters
-- Where GM is heading: 3D photogrammetry, machine learning, automated digitizing
+- מדוע t-tests ו-ANOVAs רגילים אינם פועלים על נתוני צורה
+- בדיקות תמורה: ההיגיון ומדוע הן מתאימות ל-GM
+- MANOVA במרחב הצורות: בחינת הבדלים בין קבוצות
+- גדלי אפקט: R² ומשמעותו
+- אלומטריה: האם הצורה משתנה עם הגודל? כיצד לבחון זאת
+- השוואות מרובות: מה לעשות כשיש קבוצות רבות
+- מה "מובהק סטטיסטית" אכן אומר — ומה לא
 
-**Final project presentations (90 min):**
+**מעבדה (30 דקות):**
 
-Each student or pair presents 8 minutes + 2 minutes Q&A.
-
-**Final Project due: one week after Week 12.**
-
----
-
-## Assignments Summary
-
-| # | Assignment | Weight | Due |
-|---|-----------|--------|-----|
-| 1 | Shape Journal | 5% | Week 3 |
-| 2 | Landmark Exercise | 10% | Week 4 |
-| 3 | Coins Shape Analysis | 15% | Week 7 |
-| 4 | Bronze Age Axes EFA | 15% | Week 9 |
-| 5 | Pottery PCA | 5% | Week 10 |
-| — | Final Project | 50% | Week 12 + 1 week |
+צינור השוואה סטטיסטית ב**מחברת Colab של שבוע 11** — מיושם על מאגר הנתונים שהסטודנטים משתמשים בו לפרויקט הסופי שלהם.
 
 ---
 
-## Detailed Assignment Descriptions
+#### שבוע 12: מצגות פרויקט סופי + סינתזת הקורס
 
-### Assignment 1 — Shape Journal (5%)
+**הרצאת סינתזה (30 דקות):**
 
-Find 3 archaeological artefacts in online museum databases or published papers. For each:
+- מצורות לסיפורים: קישור תוצאות GM לשאלות היסטוריות וארכאולוגיות
+- סקאלת ניתוח: אתר ← אזור ← תקופה ← רשת
+- מה GM אינו יכול לעשות: חשיבות שילוב טיפולוגיה, איזוטופים, הקשר, טקסט
+- רפרודוקטיביות ונתונים פתוחים: מדוע שיתוף הנתונים והקוד שלכם חשוב
+- לאן GM הולך: פוטוגרמטריה תלת-ממדית, למידת מכונה, דיגיטיזציה אוטומטית
 
-1. Provide an image with its full citation (museum number or DOI)
-2. Describe the shape in your own words — no typological jargon, just geometry
-3. Write one research question that GM could help answer
-4. Explain what method you would use (landmarks, outlines, 3D) and why
+**מצגות פרויקט סופי (90 דקות):**
 
-**Format:** 600–800 words + 3 images. Submit as PDF via the course portal.
+כל סטודנט או זוג מציגים 8 דקות + 2 דקות שאלות ותשובות.
 
----
-
-### Assignment 2 — Landmark Exercise (10%)
-
-Using FIJI, digitize the 20 Hadrian coin images from the course dataset following the provided 8-landmark protocol.
-
-1. Produce a TPS file with all 20 specimens
-2. Upload to the Week 4 Colab notebook and run the provided consistency check
-3. Compare your placements with a partner: calculate mean inter-observer distance per landmark
-4. Write a 400-word reflection: Which landmarks were hardest to place consistently? What does this tell you about landmark-based methods as a scientific tool?
-
-**Deliverables:** TPS file + 400-word reflection. Submit both.
+**פרויקט סופי להגשה: שבוע לאחר שבוע 12.**
 
 ---
 
-### Assignment 3 — Coins Shape Analysis (15%)
+## סיכום מטלות
 
-Using the **Week 7 Colab notebook** and AI-generated code:
-
-1. Load the Hadrian + Antoninus Pius TPS files into a single dataset
-2. Run GPA on the combined dataset
-3. Run PCA — produce a scatter plot color-coded by emperor
-4. Run a permutation-based shape comparison
-5. Produce mean shape deformation grids for each group
-
-**Write a 500-word interpretation:**
-- Do the two emperors' coins cluster separately in shape space?
-- What specific shape differences do you see in the deformation grids?
-- What might explain any similarities or differences? Think about: die standardization, mint organization, imperial conventions.
-
-**Deliverables:** Link to your Colab notebook + 500-word interpretation as PDF.
+| מספר | מטלה | משקל | הגשה |
+|------|-------|------|------|
+| 1 | יומן צורות | 5% | שבוע 3 |
+| 2 | תרגיל ציוני דרך | 10% | שבוע 4 |
+| 3 | ניתוח צורות מטבעות | 15% | שבוע 7 |
+| 4 | EFA גרזני ברונזה | 15% | שבוע 9 |
+| 5 | PCA של כלי חרס | 5% | שבוע 10 |
+| — | פרויקט סופי | 50% | שבוע 12 + שבוע |
 
 ---
 
-### Assignment 4 — Bronze Age Axes Outline Analysis (15%)
+## תיאורים מפורטים של מטלות
 
-Using the **Week 9 Colab notebook** and AI-generated code:
+### מטלה 1 — יומן צורות (5%)
 
-1. Load and process all flanged axe outline images
-2. Run EFA (12 harmonics) and normalize
-3. Run PCA on EFA coefficients — produce a plot color-coded by G3/G4 group
-4. Run a permutation test for group differences
-5. Produce a simple map (hand-drawn or using the provided template) with specimens colored by PC1 score
+מצאו 3 ממצאים ארכאולוגיים במאגרי מוזיאון מקוונים או מאמרים מפורסמים. על כל אחד:
 
-**Write a 600-word interpretation:**
-- Do G3 and G4 separate morphologically? Is the separation clean or fuzzy?
-- Is there a geographic gradient in shape?
-- What does this tell us about Bronze Age metal-working traditions and exchange?
+1. ספקו תמונה עם ציטוט מלא שלה (מספר מוזיאון או DOI)
+2. תארו את הצורה במילים שלכם — ללא ז'רגון טיפולוגי, רק גיאומטריה
+3. כתבו שאלת מחקר אחת ש-GM יכול לסייע במענה עליה
+4. הסבירו באיזו שיטה תשתמשו (ציוני דרך, קווי מתאר, תלת-ממד) ומדוע
 
-**Deliverables:** Link to Colab notebook + 600-word PDF + map image.
+**פורמט:** 600–800 מילים + 3 תמונות. הגישו כ-PDF דרך פורטל הקורס.
 
 ---
 
-### Assignment 5 — Pottery PCA (5%)
+### מטלה 2 — תרגיל ציוני דרך (10%)
 
-A deliberately lighter exercise — focus on interpretation, not code.
+באמצעות FIJI, דגמו את 20 תמונות מטבעות הדריאנוס ממאגר נתוני הקורס לפי פרוטוקול 8-ציוני הדרך המסופק.
 
-Using the **Week 10 Colab notebook** (pre-built pipeline), load the pottery dataset, run EFA + PCA, and produce one well-labeled scatter plot. Write a **300-word interpretation** connecting the shape patterns to what you know about the archaeological context.
+1. הפיקו קובץ TPS עם כל 20 הפרטים
+2. העלו למחברת Colab של שבוע 4 והריצו את בדיקת העקביות המסופקת
+3. השוו את הצבותיכם עם שותף: חשבו מרחק פרוקרוסטס ממוצע בין-צופים לכל ציון דרך
+4. כתבו הרהור של 400 מילים: אילו ציוני דרך היו קשים ביותר להצבה עקבית? מה זה אומר לכם על שיטות מבוססות ציוני דרך ככלי מדעי?
 
-**Deliverable:** One plot (PNG) + 300-word interpretation as PDF.
-
----
-
-### Final Project (50%)
-
-The final project asks you to go deeper on a shape question of your choice.
-
-#### Option A: Extended Dataset Analysis
-Take one of the course datasets (coins, axes, or pottery) and conduct a more in-depth analysis. Possible extensions:
-- Test additional variables (chronology, geography, fabric)
-- Allometric analysis
-- Compare two methods (e.g., landmarks vs. outlines on the same objects)
-- Compare your results with published findings
-
-#### Option B: New Open-Access Dataset
-Find an open-access GM dataset from a published paper (2020–2025) on an artefact type not covered in the course. Replicate or extend the published analysis using Colab. Good sources: Zenodo, OSF, Figshare, journal supplementary data.
-
-#### Option C: Research Proposal (writing-only option)
-For students who prefer writing over data analysis: write a detailed research proposal (3000 words) for a GM study on an artefact type of your choice. Must include: research question, dataset design, expected methods, predicted results, and critical reflection on limitations. Minimum 8 references.
-
-#### Report Requirements (Options A & B)
-- **Length:** 2000–3000 words (excluding figures and references)
-- **Structure:** Introduction → Research Question → Data & Methods → Results → Discussion → Conclusion → References
-- **Figures:** Minimum 3 (PCA plot, deformation/EFA shape visualization, one additional)
-- **Code:** Submit your Colab notebook link as an appendix
-- **References:** Minimum 8 peer-reviewed sources
-
-#### Grading Rubric
-
-| Criterion | Points |
-|-----------|--------|
-| Research question — clarity and archaeological relevance | 20 |
-| Correct and complete GM analysis | 25 |
-| Quality and clarity of figures | 20 |
-| Archaeological interpretation | 25 |
-| Writing quality and referencing | 10 |
-| **Total** | **100** |
+**מה להגיש:** קובץ TPS + הרהור של 400 מילים. הגישו את שניהם.
 
 ---
 
-## AI Policy
+### מטלה 3 — ניתוח צורות מטבעות (15%)
 
-This course **explicitly encourages** AI tools for code writing. You are expected to:
+באמצעות **מחברת Colab של שבוע 7** וקוד שנוצר על ידי AI:
 
-1. Use Claude or ChatGPT to generate Python code in Colab — this is part of the design
-2. Understand the analysis conceptually (not line-by-line syntax)
-3. Be able to explain your results in your own words
-4. Annotate AI-generated code with brief comments explaining what each block does
-5. **Never** use AI to write your interpretation or essay text
+1. טענו את קבצי ה-TPS של הדריאנוס + אנטונינוס פיוס למאגר נתונים אחד
+2. הריצו GPA על מאגר הנתונים המאוחד
+3. הריצו PCA — הפיקו גרף פיזור מקודד צבע לפי קיסר
+4. הריצו השוואת צורה מבוססת תמורה
+5. הפיקו רשתות עיוות צורה ממוצעת לכל קבוצה
 
-**AI is your lab assistant. You are the archaeologist.**
+**כתבו פרשנות של 500 מילים:**
+- האם מטבעות שני הקיסרים מתקבצים בנפרד במרחב הצורות?
+- אילו הבדלי צורה ספציפיים אתם רואים ברשתות העיוות?
+- מה עשוי להסביר כל דמיון או הבדל? חשבו על: תיקון חותמות, ארגון מטבעה, מוסכמות אימפריאליות.
+
+**מה להגיש:** קישור למחברת Colab שלכם + פרשנות של 500 מילים כ-PDF.
 
 ---
 
-## Key References
+### מטלה 4 — ניתוח קו מתאר של גרזני ברונזה (15%)
 
-### Foundational Works
+באמצעות **מחברת Colab של שבוע 9** וקוד שנוצר על ידי AI:
+
+1. טענו ועבדו את כל תמונות קו המתאר של גרזני הכנפיים
+2. הריצו EFA (12 הרמוניות) ונרמלו
+3. הריצו PCA על מקדמי EFA — הפיקו גרף מקודד קבוצה G3/G4
+4. הריצו בדיקת תמורה להבדלי קבוצות
+5. הפיקו מפה פשוטה (מצוירת ביד או באמצעות התבנית המסופקת) עם פרטים מצובעים לפי ציון PC1
+
+**כתבו פרשנות של 600 מילים:**
+- האם G3 ו-G4 נפרדים מורפולוגית? האם ההפרדה ברורה או מטושטשת?
+- האם קיים שיפוע גיאוגרפי בצורה?
+- מה זה אומר לנו על מסורות עיבוד מתכות וחליפין בתקופת הברונזה?
+
+**מה להגיש:** קישור למחברת Colab + PDF של 600 מילים + תמונת מפה.
+
+---
+
+### מטלה 5 — PCA של כלי חרס (5%)
+
+תרגיל קל במכוון — התמקדות בפרשנות, לא בקוד.
+
+באמצעות **מחברת Colab של שבוע 10** (צינור בנוי מראש), טענו את מאגר נתוני כלי החרס, הריצו EFA + PCA, והפיקו גרף פיזור מסומן היטב אחד. כתבו **פרשנות של 300 מילים** המקשרת את תבניות הצורה למה שאתם יודעים על ההקשר הארכאולוגי.
+
+**מה להגיש:** גרף אחד (PNG) + פרשנות של 300 מילים כ-PDF.
+
+---
+
+### פרויקט סופי (50%)
+
+הפרויקט הסופי מבקש מכם להעמיק על שאלת צורה בבחירתכם.
+
+#### אפשרות א: ניתוח מורחב של מאגר נתונים
+קחו אחד ממאגרי נתוני הקורס (מטבעות, גרזנים, או כלי חרס) וערכו ניתוח מעמיק יותר. הרחבות אפשריות:
+- בחינת משתנים נוספים (כרונולוגיה, גיאוגרפיה, בד)
+- ניתוח אלומטרי
+- השוואת שתי שיטות (למשל, ציוני דרך לעומת קווי מתאר על אותם חפצים)
+- השוואת תוצאותיכם עם ממצאים שפורסמו
+
+#### אפשרות ב: מאגר נתונים חדש בגישה פתוחה
+מצאו מאגר נתוני GM בגישה פתוחה ממאמר שפורסם (2020–2025) על סוג ממצא שלא כוסה בקורס. שחזרו או הרחיבו את הניתוח שפורסם באמצעות Colab. מקורות טובים: Zenodo, OSF, Figshare, נתוני נספח של כתבי-עת.
+
+#### אפשרות ג: הצעת מחקר (אפשרות כתיבה בלבד)
+לסטודנטים המעדיפים כתיבה על ניתוח נתונים: כתבו הצעת מחקר מפורטת (3000 מילים) למחקר GM על סוג ממצא בבחירתכם. חייבת לכלול: שאלת מחקר, עיצוב מאגר נתונים, שיטות צפויות, תוצאות מנובאות, והרהור ביקורתי על מגבלות. לפחות 8 הפניות.
+
+#### דרישות הדוח (אפשרויות א ו-ב)
+- **אורך:** 2000–3000 מילים (ללא דמויות והפניות)
+- **מבנה:** מבוא ← שאלת מחקר ← נתונים ושיטות ← תוצאות ← דיון ← מסקנה ← הפניות
+- **דמויות:** לפחות 3 (גרף PCA, ויזואליזציית EFA/עיוות צורה, אחת נוספת)
+- **קוד:** הגישו קישור למחברת Colab שלכם כנספח
+- **הפניות:** לפחות 8 מקורות שנסקרו עמיתים
+
+#### רובריקת ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| שאלת מחקר — בהירות ורלוונטיות ארכאולוגית | 20 |
+| ניתוח GM נכון ושלם | 25 |
+| איכות ובהירות דמויות | 20 |
+| פרשנות ארכאולוגית | 25 |
+| איכות כתיבה והפניות | 10 |
+| **סך הכל** | **100** |
+
+---
+
+## מדיניות AI
+
+קורס זה **מעודד במפורש** כלי AI לכתיבת קוד. מצופה מכם:
+
+1. להשתמש ב-Claude או ChatGPT ליצירת קוד Python ב-Colab — זהו חלק מהעיצוב
+2. להבין את הניתוח מושגית (לא שורה-שורה של תחביר)
+3. להיות מסוגלים להסביר את תוצאותיכם במילים שלכם
+4. להוסיף הערות לקוד שנוצר על ידי AI עם הסברים קצרים של מה כל בלוק עושה
+5. **לעולם לא** להשתמש ב-AI לכתיבת הפרשנות שלכם או טקסט חיבורי
+
+**AI הוא עוזר המעבדה שלכם. אתם הארכאולוגים.**
+
+---
+
+## הפניות מרכזיות
+
+### עבודות יסוד
+
+::: {.ltr-block}
 - Kendall, D.G. (1977). The diffusion of shape. *Advances in Applied Probability* 9:428–430.
 - Bookstein, F.L. (1991). *Morphometric Tools for Landmark Data*. Cambridge University Press.
 - Zelditch, M.L. et al. (2012). *Geometric Morphometrics for Biologists* (2nd ed.). Academic Press.
 - Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–281.
+:::
 
-### Python Tools
+### כלי Python
+
+::: {.ltr-block}
 - `morphops`: github.com/tpgillam/morphops
 - `pyefd`: github.com/hbldh/pyefd
 - Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13) [conceptual reference for EFA].
+:::
 
-### Datasets Used in This Course
+### מאגרי נתונים בשימוש בקורס זה
+
+::: {.ltr-block}
 - **Coins:** Roman Imperial denarii — Hadrian & Antoninus Pius. TPS format. Source: UHK Morphometrics Course.
 - **Flanged Axes:** European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.
 - **Pottery:** Open-access dataset (DOI and full citation on the [Data page](data/index.qmd)).
+:::

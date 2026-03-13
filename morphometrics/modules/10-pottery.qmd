@@ -1,122 +1,127 @@
 ---
-title: "Module 10: Case Study III — Pottery and Ceramic Traditions"
-subtitle: "Week 10 — From Typology to Shape Space"
+title: "מודול 10: מקרה בוחן III — כלי חרס ומסורות קדרות"
+subtitle: "שבוע 10 — מטיפולוגיה למרחב הצורות"
+lang: he
 ---
 
-## Why Pottery?
+## מדוע כלי חרס?
 
-Pottery is the most ubiquitous artefact in archaeological sites almost everywhere in the world. It survives well, is highly sensitive to cultural traditions, and has been classified typologically for over a century. It is also **the ideal object for outline analysis**: vessel profiles are smooth curves with no discrete landmark points.
+כלי חרס הם החפץ הארכאולוגי הנפוץ ביותר בכמעט כל אתר בעולם. הם שורדים היטב, רגישים מאוד למסורות תרבותיות, ומסווגים טיפולוגית כבר יותר ממאה שנה. הם גם **האובייקט האידיאלי לניתוח קווי מתאר**: פרופילי כלים הם עקומות חלקות ללא נקודות ציון דרך בדידות.
 
-Pottery shape reflects:
-- **Production technique** — wheel-thrown vs. hand-built produces different profile shapes
-- **Function** — storage jars, cooking pots, and serving bowls have characteristic morphologies
-- **Chronology** — vessel forms changed over time in most traditions
-- **Cultural identity** — potters learned their craft within communities; shape encodes that transmission
-- **Exchange** — when pottery moved between communities, shapes were copied (and subtly transformed)
+צורת כלי חרס משקפת:
+- **טכניקת ייצור** — עיצוב בגלגל לעומת עיצוב ביד יוצר פרופילים שונים
+- **תפקוד** — כדי אחסון, סירי בישול וקערות הגשה בעלי מורפולוגיות אופייניות
+- **כרונולוגיה** — צורות הכלי השתנו עם הזמן ברוב המסורות
+- **זהות תרבותית** — קדרים למדו את מלאכתם בתוך קהילות; הצורה מקודדת העברה זו
+- **חליפין** — כשכלי חרס עברו בין קהילות, צורות הועתקו (ושונו בעדינות)
 
-This week has two parts. First you read about a published case study. Then you run your own analysis on a real open-access dataset.
+שבוע זה מחולק לשני חלקים. תחילה תקראו על מקרה בוחן שפורסם. לאחר מכן תריצו ניתוח משלכם על מאגר נתונים אמיתי בגישה פתוחה.
 
 ---
 
-## Part I — Published Case Study: Bibracte Celtic Ceramics
+## חלק I — מקרה בוחן שפורסם: כלי חרס קלטיים מBibracte
 
-### What was the question?
+### מה הייתה השאלה?
 
-Ceramic typology is built on the expert's eye: an archaeologist looks at a vessel and assigns it to a type. But can a computer reach the same conclusion using shape alone? And if so, what does this tell us about whether typology captures real morphological structure?
+הטיפולוגיה הקדרותית בנויה על עין המומחה: ארכאולוג מסתכל על כלי ומסווג אותו לטיפוס. אך האם מחשב יכול להגיע לאותה מסקנה באמצעות צורה בלבד? ואם כן, מה זה אומר לנו על כך שהטיפולוגיה לוכדת מבנה מורפולוגי אמיתי?
 
-This is the question that Wilczek et al. (2014) asked using **154 complete Iron Age vessels from Bibracte**, a major Celtic oppidum (fortified town) in Burgundy, France. Bibracte was the capital of the Aedui tribe in the Second Iron Age (2nd century BC – 1st century AD) and is one of the most extensively excavated oppida in Europe.
+זוהי השאלה שוילצ'ק ואחרים (2014) שאלו באמצעות **154 כלים שלמים מתקופת ברזל שנייה מBibracte**, אופידום קלטי (עיר מבוצרת) גדול בבורגון שבצרפת. Bibracte הייתה בירת שבט האדואי בתקופת ברזל שנייה (המאה ה-2 לפנה"ס – המאה ה-1 לספירה) ואחד האופידום החפורים ביותר באירופה.
 
-### The dataset
+### מאגר הנתונים
 
-154 vessels with complete, well-preserved cross-sections. Assigned to **8 functional types** by the traditional typology of Barral et al. (1995):
+154 כלים עם חתכי רוחב שלמים ושמורים היטב. מסווגים ל**8 טיפוסים פונקציונליים** לפי הטיפולוגיה המסורתית של Barral ואחרים (1995):
 
-| Type | N | Character |
-|------|---|-----------|
-| Plates | 35 | Wide and flat; open form |
-| Dishes | 20 | Shallower than plates |
-| Bowls | 24 | Hemispherical; open |
-| Cups | 18 | Small, closed drinking vessels |
-| Goblets | 14 | Tall, narrow; drinking |
-| Pots | 27 | Medium, closed; cooking/storage |
-| Vases | 9 | Wide body; storage |
-| Bottles | 7 | Narrow neck; closed |
+| טיפוס | N | אופי |
+|-------|---|------|
+| צלחות | 35 | רחב ושטוח; צורה פתוחה |
+| קערות שטוחות | 20 | שטוחות מצלחות |
+| קערות | 24 | חצי-כדורי; פתוח |
+| כוסות | 18 | כלי שתייה קטנים, סגורים |
+| גביעים | 14 | גבוה, צר; שתייה |
+| סירים | 27 | בינוני, סגור; בישול/אחסון |
+| אגרטלים | 9 | גוף רחב; אחסון |
+| בקבוקים | 7 | צוואר צר; סגור |
 
-Outlines were extracted from published archaeological drawings (1200 dpi scans, external half cross-section mirrored to full profile), then processed by **Elliptic Fourier Analysis (EFA)** using 20 harmonics.
+קווי המתאר חולצו מציורים ארכאולוגיים שפורסמו (סריקות 1200 dpi, חצי חתך חיצוני מוכפל לפרופיל מלא), ועובדו ב**ניתוח פורייה אליפטי (EFA)** עם 20 הרמוניות.
 
-### What they found
+### מה הם מצאו
 
 ::: {.callout-tip}
-## Key result (Wilczek et al. 2014)
+## ממצא מרכזי (Wilczek et al. 2014)
 
-**PC1 captures ~93% of total shape variance.** The main axis of shape variation is elongation: **plates occupy one extreme** (wide, flat) and **bottles occupy the other** (tall, narrow neck). Bowls, pots, cups, and goblets fall between these endpoints.
+**PC1 לוכד ~93% מסך שונות הצורה.** הציר הראשי של שונות הצורה הוא אורך: **צלחות תופסות קצה אחד** (רחב, שטוח) ו**בקבוקים תופסים את הקצה האחר** (גבוה, צוואר צר). קערות, סירים, כוסות וגביעים נופלים ביניהם.
 
-An unsupervised computer clustering of shape space (with no knowledge of the traditional types) produced **7 clusters that closely match the 8 traditional types** — the computer and the archaeologist largely agreed. This validates that EFA captures the same morphological structure that typologists have described intuitively for decades.
+אשכול מחשב בלתי מפוקח של מרחב הצורות (ללא ידיעה על הטיפוסים המסורתיים) הניב **7 אשכולות התואמים קרוב ל-8 הטיפוסים המסורתיים** — המחשב והארכאולוג הגיעו בעיקר להסכמה. זה מאמת שEFA לוכד את אותו מבנה מורפולוגי שטיפולוגים תיארו אינטואיטיבית במשך עשורים.
 
-Importantly, some types show high internal shape variation (pots, goblets) while others are tightly clustered (plates, bottles). This reveals which types are morphologically coherent and which may overlap functionally.
+חשוב לציין, חלק מהטיפוסים מציגים שונות פנימית גבוהה בצורה (סירים, גביעים) בעוד אחרים מרוכזים בצורה הדוקה (צלחות, בקבוקים). זה חושף אילו טיפוסים קוהרנטיים מורפולוגית ואילו עשויים לחפוף פונקציונלית.
 :::
 
-### Why this matters
+### מדוע זה חשוב
 
-EFA makes typology **reproducible and quantifiable**. Anyone can run the same code on the same images and get the same result. The expert is still needed to interpret those results archaeologically — but the initial classification can be automated and tested statistically.
+EFA הופך את הטיפולוגיה ל**ניתנת לשכפול ולכימות**. כל אחד יכול להריץ את אותו קוד על אותן תמונות ולקבל את אותה תוצאה. המומחה עדיין נדרש לפרש תוצאות אלה ארכאולוגית — אבל הסיווג הראשוני יכול להיות אוטומטי ונבדק סטטיסטית.
 
+::: {.ltr-block}
 **Citation:** Wilczek, J., Monna, F., Barral, P., Burlet, L., Chateau, C., Navarro, N. (2014). Morphometrics of Second Iron Age ceramics — strengths, weaknesses, and comparison with traditional typology. *Journal of Archaeological Science* 50: 39–50. DOI: [10.1016/j.jas.2014.05.033](https://doi.org/10.1016/j.jas.2014.05.033)
+:::
 
 ---
 
-## Part II — Your Analysis: Ogame Jars from Edo-Period Japan
+## חלק II — הניתוח שלכם: כדי Ogame מיפן בתקופת אדו
 
-### The research question
+### שאלת המחקר
 
-Not all shape questions are about typology. A different and equally important question is about **production and selection**:
+לא כל שאלות הצורה עוסקות בטיפולוגיה. שאלה שונה ולא פחות חשובה עוסקת ב**ייצור ובחירה**:
 
-> *Are jars from kiln sites (where they were made) more standardized in shape than jars from burial contexts (where families chose specific vessels to inter with the dead)?*
+> *האם כדים מאתרי כבשנים (שם יוצרו) מתוקננים יותר בצורה מכדים מהקשרי קבורה (שם בחרו משפחות כלים קבורים)?*
 
-If kiln-produced jars are highly uniform, that tells us something about production organization — potters working to a standard. If burial jars show different or more varied shapes, that might mean families selected visually distinctive vessels, or that different kilns supplied different markets.
+אם כדי כבשן אחידים מאוד, זה אומר לנו משהו על ארגון הייצור — קדרים עובדים לפי תקן. אם כדי קבורה מציגים צורות שונות או מגוונות יותר, זה עשוי לאמר שמשפחות בחרו כלים בולטים ויזואלית, או שכבשנים שונים סיפקו לשווקים שונים.
 
-This question is answerable with EFA + PCA.
+שאלה זו ניתנת למענה עם EFA + PCA.
 
-### The dataset
+### מאגר הנתונים
 
+::: {.ltr-block}
 **Loftus, J. (2025).** A Geometric Morphometric Dataset of Edo-Period 'Ogame' Jar Profiles from Northern Kyushu, Japan. *Journal of Open Archaeology Data* 13:13. DOI: [10.5334/joad.159](https://openarchaeologydata.metajnl.com/articles/10.5334/joad.159) | Data: [zenodo.org/records/15781166](https://doi.org/10.5281/zenodo.15781166)
+:::
 
-**Ogame** (大甕, "large jars") are thick-walled stoneware vessels produced in the Hizen and Chikuzen provinces of northern Kyushu during the Edo period (c. AD 1600–1800). They served diverse functions: storing soy sauce and other goods, and also as burial containers for human remains.
+**Ogame** (大甕, "כד גדול") הם כלי אחסון עבי-דופן מתקופת אדו (כ-1600–1800 לספירה) שיוצרו בפרובינציות היזן ועיקוזן שבקיושו הצפונית. הם שימשו לתפקידים מגוונים: אחסון רוטב סויה וסחורות אחרות, וגם ככלי קבורה לשרידי אדם.
 
 | | |
 |---|---|
-| **Specimens** | 243 jars |
-| **Sites** | 12 (2 kiln sites + 9 mortuary sites + 1 museum collection) |
-| **Format** | Standardized PNG silhouette images, one per jar |
-| **License** | CC-BY 4.0 |
+| **פרטים** | 243 כדים |
+| **אתרים** | 12 (2 כבשנים + 9 אתרי קבורה + 1 אוסף מוזיאון) |
+| **פורמט** | תמונות PNG סטנדרטיות של סילואט, אחת לכל כד |
+| **רישיון** | CC-BY 4.0 |
 
-| Site code | Site name | Context | N |
-|-----------|-----------|---------|---|
-| FR | Furukameyashimo | Kiln | 89 |
-| KM | Kameya | Kiln | 48 |
-| MR | Maruya | Mortuary | 36 |
-| NT | Nishitakagi | Mortuary | 21 |
-| NS | Narasaki | Mortuary | 11 |
-| MD | Mukaida | Mortuary | 12 |
-| MT | Mitsutake | Mortuary | 10 |
-| HK | Hakozaki | Mortuary | 4 |
-| KS, KT, TJ, TK | Other mortuary | Mortuary | 12 |
+| קוד אתר | שם אתר | הקשר | N |
+|---------|--------|------|---|
+| FR | Furukameyashimo | כבשן | 89 |
+| KM | Kameya | כבשן | 48 |
+| MR | Maruya | קבורה | 36 |
+| NT | Nishitakagi | קבורה | 21 |
+| NS | Narasaki | קבורה | 11 |
+| MD | Mukaida | קבורה | 12 |
+| MT | Mitsutake | קבורה | 10 |
+| HK | Hakozaki | קבורה | 4 |
+| KS, KT, TJ, TK | קבורה אחרת | קבורה | 12 |
 
-**Kiln sites (FR + KM = 137 jars) vs. Mortuary sites (106 jars)** is the main comparison.
+**אתרי כבשן (FR + KM = 137 כדים) לעומת אתרי קבורה (106 כדים)** היא ההשוואה המרכזית.
 
 ---
 
-## The Pottery Pipeline
+## צינור כלי החרס
 
 ::: {.callout-important}
-## Open the Week 10 Notebook
-[→ Week 10 Colab Notebook](https://colab.research.google.com) *(link active Week 10)*
+## פתחו את מחברת שבוע 10
+[→ מחברת Colab — שבוע 10](https://colab.research.google.com) *(הקישור יופעל בשבוע 10)*
 
-This notebook is **pre-built** — run it cell by cell without writing any new code. Focus on interpretation.
+מחברת זו **בנויה מראש** — הריצו תא אחר תא ללא כתיבת קוד חדש. התמקדו בפרשנות.
 :::
 
-### Step 1 — Install and import
+### שלב 1 — התקנה וייבוא
 
 ```python
-!pip install pyefd scikit-image --quiet
+!pip install pyefd scikit-image python-bidi --quiet
 
 import os, zipfile, requests
 import numpy as np
@@ -127,12 +132,14 @@ import pyefd
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from scipy.stats import mannwhitneyu
+from bidi.algorithm import get_display
+rtl = get_display  # תיקון כיוון טקסט עברי בגרפים של matplotlib
 ```
 
-### Step 2 — Download and unpack the dataset
+### שלב 2 — הורדה ופתיחת מאגר הנתונים
 
 ```python
-# Download from Zenodo (run once — ~30 MB)
+# הורדה מ-Zenodo (הריצו פעם אחת — כ-30 MB)
 url = "https://zenodo.org/records/15781166/files/Ogame_GMM.zip?download=1"
 r = requests.get(url, stream=True)
 with open("Ogame_GMM.zip", "wb") as f:
@@ -141,33 +148,33 @@ with open("Ogame_GMM.zip", "wb") as f:
 
 with zipfile.ZipFile("Ogame_GMM.zip") as z:
     z.extractall(".")
-print("Done. Files extracted to Ogame_GMM/")
+print("הסתיים. הקבצים חולצו לתיקיית Ogame_GMM/")
 ```
 
-### Step 3 — Load metadata
+### שלב 3 — טעינת מטה-דאטה
 
 ```python
 samples = pd.read_csv("Ogame_GMM/Ogame_Samples.csv")
-# Rename the long column for convenience
+# שינוי שם העמודה הארוכה
 samples = samples.rename(columns={
     samples.columns[3]: "context_code"
 })
-samples["context"] = samples["context_code"].map({1: "Burial", 2: "Kiln"})
+samples["context"] = samples["context_code"].map({1: "קבורה", 2: "כבשן"})
 print(samples["context"].value_counts())
 print(samples["Site Code"].value_counts())
 ```
 
-### Step 4 — Extract outlines and compute EFA
+### שלב 4 — חילוץ קווי מתאר וחישוב EFA
 
 ```python
 def extract_outline(image_path):
-    """Extract the external outline of a black vessel silhouette on white background."""
+    """חולץ את הקו החיצוני של סילואט כלי שחור על רקע לבן."""
     img = np.array(Image.open(image_path).convert('L'))
-    binary = img < 128                         # True where vessel is (dark pixels)
+    binary = img < 128                         # True היכן שהכלי נמצא (פיקסלים כהים)
     contours = measure.find_contours(binary.astype(float), 0.5)
     if not contours:
         return None
-    return max(contours, key=len)              # largest contour = vessel outline
+    return max(contours, key=len)              # הקו הגדול ביותר = קו מתאר הכלי
 
 records = []
 img_dir = "Ogame_GMM/Ogame_Profiles_All"
@@ -179,8 +186,8 @@ for _, row in samples.iterrows():
     outline = extract_outline(path)
     if outline is None or len(outline) < 50:
         continue
-    y, x = outline[:, 0], outline[:, 1]   # skimage returns (row, col)
-    # Compute EFA with 20 harmonics, normalised for size and orientation
+    y, x = outline[:, 0], outline[:, 1]   # skimage מחזיר (שורה, עמודה)
+    # חישוב EFA עם 20 הרמוניות, מנורמל לגודל וכיוון
     coeffs = pyefd.elliptic_fourier_descriptors(
         np.column_stack([x, y]), order=20, normalize=True
     )
@@ -188,17 +195,17 @@ for _, row in samples.iterrows():
         "sample_id":  row["Sample ID"],
         "site_code":  row["Site Code"],
         "context":    row["context"],
-        **{f"c{i:03d}": v for i, v in enumerate(coeffs.ravel())}
+        **{f"e{i:03d}": v for i, v in enumerate(coeffs.ravel())}
     })
 
 df = pd.DataFrame(records)
-print(f"Processed {len(df)} jars successfully")
+print(f"עובדו {len(df)} כדים בהצלחה")
 ```
 
-### Step 5 — PCA and visualisation
+### שלב 5 — PCA וויזואליזציה
 
 ```python
-coeff_cols = [c for c in df.columns if c.startswith("c")]
+coeff_cols = [c for c in df.columns if c.startswith("e")]
 X = df[coeff_cols].values
 
 pca = PCA()
@@ -206,25 +213,25 @@ scores = pca.fit_transform(X)
 var1 = pca.explained_variance_ratio_[0] * 100
 var2 = pca.explained_variance_ratio_[1] * 100
 
-# ── Plot 1: colour by depositional context ───────────────────────────────────
+# גרף 1: צביעה לפי הקשר
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-colors = {"Kiln": "#e07b39", "Burial": "#4a90c4"}
+colors = {"כבשן": "#e07b39", "קבורה": "#4a90c4"}
 for ctx, col in colors.items():
     mask = df["context"] == ctx
     axes[0].scatter(scores[mask, 0], scores[mask, 1],
-                    c=col, label=f"{ctx} (n={mask.sum()})",
+                    c=col, label=rtl(f"{ctx} (n={mask.sum()})"),
                     s=50, alpha=0.75, edgecolors="white", linewidths=0.5)
 
 axes[0].set_xlabel(f"PC1 ({var1:.1f}%)")
 axes[0].set_ylabel(f"PC2 ({var2:.1f}%)")
-axes[0].set_title("Ogame Jar Shape Space — by Depositional Context")
+axes[0].set_title(rtl("מרחב צורות כד Ogame — לפי הקשר"))
 axes[0].axhline(0, color="grey", lw=0.5, ls="--")
 axes[0].axvline(0, color="grey", lw=0.5, ls="--")
 axes[0].legend()
 
-# ── Plot 2: colour by production site (kiln sites only) ──────────────────────
-kiln_mask = df["context"] == "Kiln"
+# גרף 2: צביעה לפי אתר ייצור (כבשנים בלבד)
+kiln_mask = df["context"] == "כבשן"
 kiln_sites = df.loc[kiln_mask, "site_code"].unique()
 kiln_colors = {"FR": "#d62728", "KM": "#ff7f0e"}
 for site in kiln_sites:
@@ -236,7 +243,7 @@ for site in kiln_sites:
 
 axes[1].set_xlabel(f"PC1 ({var1:.1f}%)")
 axes[1].set_ylabel(f"PC2 ({var2:.1f}%)")
-axes[1].set_title("Kiln Sites Compared — FR vs KM")
+axes[1].set_title(rtl("השוואת כבשנים — FR לעומת KM"))
 axes[1].axhline(0, color="grey", lw=0.5, ls="--")
 axes[1].axvline(0, color="grey", lw=0.5, ls="--")
 axes[1].legend()
@@ -244,70 +251,70 @@ axes[1].legend()
 plt.tight_layout()
 plt.savefig("ogame_pca.png", dpi=150, bbox_inches="tight")
 plt.show()
-print(f"PC1: {var1:.1f}% | PC2: {var2:.1f}% | Together: {var1+var2:.1f}%")
+print(f"PC1: {var1:.1f}% | PC2: {var2:.1f}% | ביחד: {var1+var2:.1f}%")
 ```
 
-### Step 6 — Statistical test (kiln vs. burial)
+### שלב 6 — בדיקה סטטיסטית (כבשן לעומת קבורה)
 
 ```python
-pc1_kiln   = scores[df["context"] == "Kiln",   0]
-pc1_burial = scores[df["context"] == "Burial",  0]
+pc1_kiln   = scores[df["context"] == "כבשן",   0]
+pc1_burial = scores[df["context"] == "קבורה",  0]
 
 stat, p = mannwhitneyu(pc1_kiln, pc1_burial, alternative="two-sided")
-print(f"Mann-Whitney U test on PC1 scores:")
-print(f"  Kiln mean PC1:   {pc1_kiln.mean():.4f}")
-print(f"  Burial mean PC1: {pc1_burial.mean():.4f}")
+print(f"מבחן מאן-וויטני U על ציוני PC1:")
+print(f"  ממוצע PC1 כבשן:  {pc1_kiln.mean():.4f}")
+print(f"  ממוצע PC1 קבורה: {pc1_burial.mean():.4f}")
 print(f"  U = {stat:.1f}, p = {p:.4f}")
 if p < 0.05:
-    print("  → Significant difference in shape between kiln and burial jars.")
+    print("  → הבדל מובהק בצורה בין כדי כבשן וקבורה.")
 else:
-    print("  → No significant difference — shapes overlap.")
+    print("  → אין הבדל מובהק — הצורות חופפות.")
 ```
 
 ---
 
-## Interpreting the Results
+## פרשנות התוצאות
 
-Work through these questions with your PCA plots:
+עבדו על שאלות אלה עם גרפי PCA שלכם:
 
-1. **Do kiln jars and burial jars separate in shape space?** If yes, what does that mean archaeologically? If no — what might explain the lack of difference?
+1. **האם כדי כבשן וקבורה נפרדים במרחב הצורות?** אם כן, מה זה אומר ארכאולוגית? אם לא — מה עשוי להסביר את היעדר ההבדל?
 
-2. **Do the two kiln sites (FR and KM) cluster separately?** If yes, this suggests each workshop had its own production style. If they overlap, kilns were producing to a shared regional standard.
+2. **האם שני אתרי הכבשן (FR ו-KM) מתכנסים בנפרד?** אם כן, זה מרמז שלכל סדנה היה סגנון ייצור משלה. אם הם חופפים, כבשנים ייצרו לפי תקן אזורי משותף.
 
-3. **What shape features drive PC1?** Look at jars plotted at the extreme left vs. extreme right of your scatter plot. Ask: what is visually different about those vessels?
+3. **אילו תכונות צורה מניעות את PC1?** הסתכלו על כדים המצויירים בקצה השמאלי לעומת הימני של גרף הפיזור. שאלו: מה שונה ויזואלית באותם כלים?
 
-4. **What is the spread within each context?** High variance in burial jars could mean families chose idiosyncratic vessels; low variance in kiln jars would suggest production standardization.
+4. **מהי הפיזור בתוך כל הקשר?** שונות גבוהה בכדי קבורה יכולה לאמר שמשפחות בחרו כלים אינדיבידואליים; שונות נמוכה בכדי כבשן מרמזת על תקנון ייצור.
 
-5. **Connect to historical context:** The Edo period (1600–1800) was a time of expanding commercial production in Kyushu. Large kilns like Furukameyashimo (FR) produced for regional markets. Did commercial production lead to more standardized jar forms than jars selected for burial?
+5. **קשרו להקשר היסטורי:** תקופת אדו (1600–1800) הייתה תקופת הרחבה של ייצור מסחרי בקיושו. כבשנים גדולים כמו Furukameyashimo (FR) ייצרו לשווקים אזוריים. האם הייצור המסחרי הוביל לצורות כד מתוקננות יותר מכדים שנבחרו לקבורה?
 
 ---
 
-## Connecting Back to Bibracte
+## חיבור בחזרה ל-Bibracte
 
-| | Bibracte (Wilczek 2014) | Ogame jars (Loftus 2025) |
+| | Bibracte (Wilczek 2014) | כדי Ogame (Loftus 2025) |
 |---|---|---|
-| **Question** | Does shape separate functional types? | Does shape separate production/funerary contexts? |
-| **Method** | EFA on archaeological drawings | EFA on standardized PNG silhouettes |
-| **Main finding** | PC1 = elongation; types largely confirmed | TBD — you will discover this |
-| **Archaeological meaning** | Typology has real morphological basis | Production standardization and funerary selection |
+| **שאלה** | האם הצורה מפרידה טיפוסים פונקציונליים? | האם הצורה מפרידה הקשרי ייצור/קבורה? |
+| **שיטה** | EFA על ציורים ארכאולוגיים | EFA על סילואטים PNG סטנדרטיים |
+| **ממצא עיקרי** | PC1 = אורך; טיפוסים אושרו במידה רבה | TBD — אתם תגלו זאת |
+| **משמעות ארכאולוגית** | לטיפולוגיה יש בסיס מורפולוגי אמיתי | תקנון ייצור ובחירה לקבורה |
 
-Both studies use the same mathematical tool — EFA — to answer fundamentally different questions. That is the power of geometric morphometrics: one method, many questions.
+שתי המחקרים משתמשים באותו כלי מתמטי — EFA — לשאלות שונות מהיסוד. זוהי עוצמת המורפומטריה הגיאומטרית: שיטה אחת, שאלות רבות.
 
 ---
 
-## Assignment 5 Due This Week
+## מטלה 5 מגיעה השבוע
 
 ::: {.callout-note}
-## Assignment 5: Pottery PCA (5%)
-Run the Week 10 notebook on the Ogame dataset. Produce one PCA plot (coloured by context). Write 300 words connecting the shape pattern to the archaeological context of production and funerary use in Edo-period Japan.
+## מטלה 5: PCA לכלי חרס (5%)
+הריצו את מחברת שבוע 10 על מאגר Ogame. הציגו גרף PCA אחד (צבוע לפי הקשר). כתבו 300 מילה המחברות את דפוס הצורה להקשר הארכאולוגי של ייצור ושימוש לקבורה ביפן בתקופת אדו.
 
-[→ Assignment 5](../assignments/05-pottery.qmd)
+[→ מטלה 5](../assignments/05-pottery.qmd)
 :::
 
 ---
 
-## Next Week: Testing Hypotheses
+## לשבוע הבא: בדיקת השערות
 
-We formalize the statistical tools we have been using intuitively: permutation tests, effect sizes, allometry, and multiple comparisons.
+אנחנו מסדירים את הכלים הסטטיסטיים שהשתמשנו בהם באופן אינטואיטיבי: בדיקות הרשאה, גדלי אפקט, אלומטריה והשוואות מרובות.
 
-[→ Module 11: Testing Hypotheses — Statistics in Shape Space](11-3d.qmd)
+[→ מודול 11: בדיקת השערות — סטטיסטיקה במרחב הצורות](11-3d.qmd)

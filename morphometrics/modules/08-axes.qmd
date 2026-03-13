@@ -1,135 +1,138 @@
 ---
-title: "Module 8: Outline Analysis — Elliptic Fourier Analysis"
-subtitle: "Week 8 — Outlines and the Bronze Age"
+title: "מודול 8: ניתוח קווי מתאר — ניתוח פורייה אליפטי"
+subtitle: "שבוע 8 — קווי מתאר ותקופת הברונזה"
+lang: he
 ---
 
-## When Landmarks Aren't Enough
+## כשציוני דרך אינם מספיקים
 
-Our coin analysis used discrete landmarks — identifiable points on the portrait. But many archaeological objects don't have obvious landmark points. Consider a Bronze Age flanged axe: its outline is a smooth curve with no biologically or archaeologically "homologous" points along the edge.
+ניתוח המטבעות שלנו השתמש בציוני דרך בדידים — נקודות ניתנות לזיהוי על הדיוקן. אך לחפצים ארכאולוגיים רבים אין נקודות ציון ברורות. חשבו על גרזן ברונזה עם כנפיים: קו מתארו הוא עקומה חלקה ללא נקודות "הומולוגיות" ביולוגית או ארכאולוגית לאורך הקצה.
 
-For objects like these, we use **outline analysis** — and the most widely used method is **Elliptic Fourier Analysis (EFA)**.
-
----
-
-## The Core Idea: Decomposing a Shape
-
-EFA treats an outline as a mathematical function and decomposes it into a sum of simpler components — **elliptic harmonics** — in exactly the same way that a complex musical chord can be decomposed into individual sine waves (Fourier analysis).
-
-### The Musical Analogy
-
-- A musical note is a complex wave
-- Fourier analysis breaks it into pure sine waves at different frequencies
-- Low frequencies = the overall character of the sound
-- High frequencies = fine detail and texture
-
-For outlines:
-- **1st harmonic** = the overall elliptical shape (elongated vs. round)
-- **2nd–4th harmonics** = major proportional features (where is the widest point? how asymmetric is the base?)
-- **Higher harmonics** = finer details (edge serrations, small bumps)
+עבור חפצים כאלה, אנחנו משתמשים ב**ניתוח קווי מתאר** — והשיטה הנפוצה ביותר היא **ניתוח פורייה אליפטי (EFA)**.
 
 ---
 
-## How EFA Works
+## הרעיון המרכזי: פירוק צורה
 
-An outline is represented as a closed sequence of $(x_i, y_i)$ coordinates. EFA decomposes the $x$ and $y$ coordinates separately as Fourier series, then recombines them as ellipses.
+EFA מתייחס לקו מתאר כפונקציה מתמטית ומפרק אותו לסכום של רכיבים פשוטים יותר — **הרמוניות אליפטיות** — בדיוק כשם שאקורד מוזיקלי מורכב ניתן לפירוק לגלי סינוס בודדים (ניתוח פורייה).
 
-Each harmonic $n$ produces **4 coefficients**: $(a_n, b_n, c_n, d_n)$.
+### האנלוגיה המוזיקלית
 
-For $N$ harmonics, we get $4N$ coefficients total. These coefficients *are* the shape — they can be used directly in PCA just like landmark coordinates.
+- תו מוזיקלי הוא גל מורכב
+- ניתוח פורייה מפרק אותו לגלי סינוס טהורים בתדרים שונים
+- תדרים נמוכים = האופי הכולל של הצליל
+- תדרים גבוהים = פרטים עדינים ומרקם
 
-### Normalization
-EFA coefficients must be normalized to remove the effects of size, position, rotation, and starting point. After normalization, only shape information remains.
-
-### Choosing N (number of harmonics)
-More harmonics = more detail captured, but also more noise. The standard criterion:
-
-> Choose the minimum $N$ that explains ≥ 99% of the outline shape variation in your sample.
-
-For axes like ours, 8–12 harmonics is typically sufficient.
+לקווי מתאר:
+- **הרמוניה 1** = הצורה האליפטית הכללית (מאורך לעומת עגול)
+- **הרמוניות 2–4** = תכונות פרופורציה עיקריות (היכן נקודת הרוחב הגדולה ביותר? כמה אסימטרית הבסיס?)
+- **הרמוניות גבוהות יותר** = פרטים עדינים (שיניים בקצה, בליטות קטנות)
 
 ---
 
-## Step-by-Step: EFA in Colab
+## כיצד EFA עובד
+
+קו מתאר מיוצג כרצף סגור של קואורדינטות $(x_i, y_i)$. EFA מפרק את הקואורדינטות $x$ ו-$y$ בנפרד כסדרות פורייה, ואז משלב אותם מחדש כאליפסות.
+
+כל הרמוניה $n$ מייצרת **4 מקדמים**: $(a_n, b_n, c_n, d_n)$.
+
+עבור $N$ הרמוניות, מקבלים $4N$ מקדמים בסך הכל. מקדמים אלה *הם* הצורה — ניתן להשתמש בהם ישירות ב-PCA בדיוק כמו קואורדינטות ציוני דרך.
+
+### נרמול
+מקדמי EFA חייבים להיות מנורמלים להסרת אפקטי גודל, מיקום, סיבוב ונקודת התחלה. לאחר נרמול, נותר רק מידע צורה.
+
+### בחירת N (מספר הרמוניות)
+יותר הרמוניות = יותר פרטים נלכדים, אבל גם יותר רעש. הקריטריון הסטנדרטי:
+
+> בחרו את ה-$N$ המינימלי שמסביר ≥ 99% מהשונות בצורת קו המתאר במדגם שלכם.
+
+עבור גרזנים כשלנו, 8–12 הרמוניות בדרך כלל מספיקות.
+
+---
+
+## שלב אחר שלב: EFA ב-Colab
 
 ::: {.callout-important}
-## Open the Week 8 Notebook
-[→ Week 8 Colab Notebook](https://colab.research.google.com) *(link active Week 8)*
+## פתחו את מחברת שבוע 8
+[→ מחברת Colab — שבוע 8](https://colab.research.google.com) *(הקישור יופעל בשבוע 8)*
 :::
 
-### Step 1: Load and preprocess one axe image
+### שלב 1: טעינת ועיבוד מקדם של תמונת גרזן אחת
 
 ```python
-!pip install pyefd scikit-image -q
+!pip install pyefd scikit-image python-bidi -q
 
 import numpy as np
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display  # תיקון כיוון טקסט עברי בגרפים של matplotlib
 from skimage import io, color, filters, measure
 import pyefd
 
 def extract_outline(image_path, threshold_method='otsu'):
     """
-    Load an axe image and extract its largest outline contour.
-    Returns: array of (x, y) coordinates
+    טוען תמונת גרזן וחולץ את קו המתאר הגדול ביותר.
+    מחזיר: מערך של קואורדינטות (x, y)
     """
     img = io.imread(image_path, as_gray=True)
 
-    # Threshold to binary
+    # סף לבינארי
     thresh = filters.threshold_otsu(img)
-    binary = img > thresh  # background = True, object = False
+    binary = img > thresh  # רקע = True, חפץ = False
 
-    # Find contours of the object
+    # מציאת קווי מתאר של החפץ
     contours = measure.find_contours(~binary, 0.5)
 
-    # Keep the largest contour (= the axe)
+    # שמירת הקו הגדול ביותר (= הגרזן)
     largest = max(contours, key=len)
-    return largest  # shape: (n_points, 2)
+    return largest  # צורה: (n_נקודות, 2)
 
-# Test on one axe
+# בדיקה על גרזן אחד
 outline = extract_outline("data/flanged_axes/G3/ALT.tif")
-print(f"Outline has {len(outline)} points")
+print(f"לקו המתאר {len(outline)} נקודות")
 
-# Plot
+# ציור
 plt.figure(figsize=(6, 8))
 plt.plot(outline[:, 1], -outline[:, 0], 'b-', linewidth=1)
 plt.fill(outline[:, 1], -outline[:, 0], alpha=0.2)
-plt.title("ALT axe outline")
+plt.title(rtl("קו מתאר גרזן ALT"))
 plt.axis('equal')
 plt.show()
 ```
 
-### Step 2: Fit EFA
+### שלב 2: התאמת EFA
 
 ```python
-# Fit EFA with 12 harmonics, normalized
+# התאמת EFA עם 12 הרמוניות, מנורמל
 coeffs = pyefd.elliptic_fourier_descriptors(
     outline, order=12, normalize=True
 )
-print(f"EFA coefficients shape: {coeffs.shape}")  # (12, 4)
-# Each row = one harmonic: (a_n, b_n, c_n, d_n)
+print(f"צורת מקדמי EFA: {coeffs.shape}")  # (12, 4)
+# כל שורה = הרמוניה אחת: (a_n, b_n, c_n, d_n)
 ```
 
-### Step 3: Reconstruct the shape from EFA (sanity check)
+### שלב 3: שחזור הצורה מ-EFA (בדיקת שפיות)
 
 ```python
-# Reconstruct the outline from EFA coefficients (should match original)
+# שחזור קו המתאר ממקדמי EFA (אמור להתאים למקור)
 locus = pyefd.reconstruct_contour(coeffs, num_points=300)
 
 plt.figure(figsize=(6, 8))
-plt.plot(outline[:, 1], -outline[:, 0], 'gray', linewidth=2, alpha=0.5, label='Original')
-plt.plot(locus[:, 0], -locus[:, 1], 'r-', linewidth=2, label='EFA reconstruction')
+plt.plot(outline[:, 1], -outline[:, 0], 'gray', linewidth=2, alpha=0.5, label=rtl('מקורי'))
+plt.plot(locus[:, 0], -locus[:, 1], 'r-', linewidth=2, label=rtl('שחזור EFA'))
 plt.legend()
 plt.axis('equal')
-plt.title("EFA reconstruction (12 harmonics)")
+plt.title(rtl("שחזור EFA (12 הרמוניות)"))
 plt.show()
 ```
 
-### Step 4: Process all axes and stack into a matrix
+### שלב 4: עיבוד כל הגרזנים ויצירת מטריצה
 
 ```python
 import os
 
 def process_all_axes(folder_g3, folder_g4):
-    """Load all axe images, extract outlines, and fit EFA."""
+    """טוען את כל תמונות הגרזן, חולץ קווי מתאר ומתאים EFA."""
     all_coeffs = []
     all_labels = []
     all_names = []
@@ -143,12 +146,12 @@ def process_all_axes(folder_g3, folder_g4):
                     coeffs = pyefd.elliptic_fourier_descriptors(
                         outline, order=12, normalize=True
                     )
-                    # Flatten: 12 harmonics × 4 coefficients = 48 values
+                    # שיטוח: 12 הרמוניות × 4 מקדמים = 48 ערכים
                     all_coeffs.append(coeffs.flatten())
                     all_labels.append(group)
                     all_names.append(fname.replace('.tif', ''))
                 except Exception as e:
-                    print(f"Skipped {fname}: {e}")
+                    print(f"דולג {fname}: {e}")
 
     return np.array(all_coeffs), np.array(all_labels), np.array(all_names)
 
@@ -156,12 +159,12 @@ coeff_matrix, labels, names = process_all_axes(
     "data/flanged_axes/G3/",
     "data/flanged_axes/G4/"
 )
-print(f"Matrix shape: {coeff_matrix.shape}")
-# Expected: (n_axes, 48)
-print(f"Groups: {dict(zip(*np.unique(labels, return_counts=True)))}")
+print(f"צורת המטריצה: {coeff_matrix.shape}")
+# צפוי: (n_גרזנים, 48)
+print(f"קבוצות: {dict(zip(*np.unique(labels, return_counts=True)))}")
 ```
 
-### Step 5: PCA on EFA coefficients
+### שלב 5: PCA על מקדמי EFA
 
 ```python
 from sklearn.decomposition import PCA
@@ -174,41 +177,41 @@ var_exp = pca.explained_variance_ratio_ * 100
 df = pd.DataFrame({
     'PC1': scores[:, 0],
     'PC2': scores[:, 1],
-    'Group': labels,
-    'Name': names
+    'קבוצה': labels,
+    'שם': names
 })
 
-# Plot
+# ציור
 fig, ax = plt.subplots(figsize=(9, 7))
 colors = {'G3': '#1976D2', 'G4': '#C62828'}
 
-for group, grp_df in df.groupby('Group'):
+for group, grp_df in df.groupby('קבוצה'):
     ax.scatter(grp_df['PC1'], grp_df['PC2'],
                color=colors[group], label=group,
                s=60, alpha=0.85, edgecolor='white')
 
 ax.set_xlabel(f"PC1 ({var_exp[0]:.1f}%)")
 ax.set_ylabel(f"PC2 ({var_exp[1]:.1f}%)")
-ax.set_title("EFA Shape Space: Bronze Age Flanged Axes")
-ax.legend(title="Typological Group")
+ax.set_title(rtl("מרחב הצורות EFA: גרזני ברונזה עם כנפיים"))
+ax.legend(title=rtl("קבוצה טיפולוגית"))
 plt.tight_layout()
 plt.show()
 ```
 
 ---
 
-## Reading the EFA PCA Plot
+## קריאת גרף PCA של EFA
 
-Unlike landmark PCA, EFA PCA axes don't directly map to shifts in specific landmark positions. Instead, we visualize the *reconstructed outlines* at the extremes of each PC:
+בניגוד ל-PCA של ציוני דרך, צירי PCA של EFA אינם ממפים ישירות לתזוזות בציוני דרך ספציפיים. במקום זאת, אנחנו מדמיינים את *קווי המתאר המשוחזרים* בקצוות של כל רכיב עיקרי:
 
 ```python
-# Reconstruct mean shape and ±2SD shapes along PC1
+# שחזור צורה ממוצעת וצורות ±2SD לאורך PC1
 mean_coeffs = pca.mean_.reshape(12, 4)
 pc1_vector  = pca.components_[0].reshape(12, 4)
 std1        = np.sqrt(pca.explained_variance_[0])
 
 fig, axes = plt.subplots(1, 3, figsize=(15, 7))
-for ax, scale, title in zip(axes, [-2, 0, 2], ['PC1 min (−2SD)', 'Mean shape', 'PC1 max (+2SD)']):
+for ax, scale, title in zip(axes, [-2, 0, 2], ['PC1 מינימום (−2SD)', 'צורה ממוצעת', 'PC1 מקסימום (+2SD)']):
     shape_coeffs = mean_coeffs + scale * std1 * pc1_vector
     locus = pyefd.reconstruct_contour(shape_coeffs, num_points=400)
     ax.fill(locus[:, 0], locus[:, 1], alpha=0.3, color='steelblue')
@@ -217,22 +220,22 @@ for ax, scale, title in zip(axes, [-2, 0, 2], ['PC1 min (−2SD)', 'Mean shape',
     ax.set_aspect('equal')
     ax.axis('off')
 
-plt.suptitle("Shape variation along PC1 — Bronze Age Axes", fontsize=13)
+plt.suptitle("שונות צורה לאורך PC1 — גרזני ברונזה", fontsize=13)
 plt.tight_layout()
 plt.show()
 ```
 
-**What to look for:** Do the reconstructed shapes at PC1 min and max show the same morphological features that distinguish G3 from G4 in the traditional typology?
+**מה לחפש:** האם הצורות המשוחזרות בקצות PC1 מציגות את אותן תכונות מורפולוגיות שמבדילות בין G3 ל-G4 בטיפולוגיה המסורתית?
 
 ---
 
-## Assignment 4 Distributed This Week
+## מטלה 4 מחולקת השבוע
 
 ::: {.callout-note}
-## Assignment 4: Bronze Age Axes EFA — Due Week 9
-Full EFA + PCA of G3 vs G4 axes, with statistical test and geographic map.
+## מטלה 4: EFA לגרזני ברונזה — מועד הגשה: שבוע 9
+EFA + PCA מלא של גרזנים G3 לעומת G4, עם בדיקה סטטיסטית ומפה גיאוגרפית.
 
-[→ Assignment 4](../assignments/04-axes.qmd)
+[→ מטלה 4](../assignments/04-axes.qmd)
 :::
 
-[→ Module 9: Case Study II — Bronze Age Axes and Craft Networks](09-statistics.qmd)
+[→ מודול 9: מקרה בוחן II — גרזני ברונזה ורשתות אומנות](09-statistics.qmd)

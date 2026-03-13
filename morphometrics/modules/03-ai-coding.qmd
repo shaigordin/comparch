@@ -1,121 +1,120 @@
 ---
-title: "Module 3: Seeing Shape — Digitizing Landmarks"
-subtitle: "Week 3 — Foundations | One-time FIJI install required"
+title: "מודול 3: רואים צורה — דיגיטציה של ציוני דרך"
+subtitle: "שבוע 3 — יסודות | נדרשת התקנת FIJI חד-פעמית"
+lang: he
 ---
 
-## Before You Begin
+## לפני שמתחילים
 
-This is the **one week** in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.
+זהו **השבוע היחיד** בקורס שבו עליכם להתקין תוכנה. FIJI (ImageJ) היא חינמית, רב-פלטפורמית (Mac, Windows, Linux), והתקנתה אורכת כשתי דקות.
 
 ::: {.callout-important}
-## Install FIJI Now
-1. Go to [fiji.sc](https://fiji.sc)
-2. Download for your operating system
-3. Unzip and open — no installer needed
-4. You only need this for today's lab session
+## התקינו FIJI עכשיו
+1. גשו לאתר [fiji.sc](https://fiji.sc)
+2. הורידו לפי מערכת ההפעלה שלכם
+3. פתחו את הקובץ הדחוס והפעילו — אין צורך במתקין
+4. תזדקקו לכלי זה רק לסשן המעבדה של היום
 :::
 
 ---
 
-## Why We Digitize
+## מדוע אנחנו מדגיטים
 
-Before we can analyze shapes statistically, we need to capture them as coordinates. The process of placing landmark points on images and recording their $(x, y)$ positions is called **digitizing**.
+לפני שנוכל לנתח צורות סטטיסטית, עלינו לצלם אותן כקואורדינטות. תהליך הצבת נקודות ציוני דרך על תמונות ותיעוד מיקומי $(x, y)$ שלהן נקרא **דיגיטציה**.
 
-The quality of every downstream analysis depends entirely on the quality of digitizing. Sloppy landmark placement = unreliable results. This is why we spend a full week on it.
-
----
-
-## Image Preparation
-
-Good digitizing starts with good images. The requirements:
-
-### Scale Bar
-Every image must have a **scale bar** — a line of known length that lets you convert pixel distances to real-world measurements. Without a scale bar, you can compare shapes but not sizes.
-
-The coin images in our dataset have scale bars embedded. The axe images in our dataset are calibrated via the TPS file metadata.
-
-### Orientation Convention
-All specimens must be oriented the same way before digitizing. For coins: portrait facing right, die axis vertical. For axes: blade pointing down, flat face toward the viewer.
-
-Inconsistent orientation is corrected by Procrustes alignment — but it's still good practice to standardize before digitizing.
-
-### Image Quality
-- Sufficient resolution to place landmarks accurately
-- Consistent lighting (shadows create false edges)
-- Clean background (no visual noise near the object outline)
+איכות כל ניתוח מורד תלויה לחלוטין באיכות הדיגיטציה. הצבת ציוני דרך רשלנית = תוצאות לא אמינות. לכן אנו מקדישים שבוע שלם לכך.
 
 ---
 
-## Landmark Protocol: Hadrian Coins
+## הכנת תמונה
 
-For the Assignment 2 digitizing exercise, we use 8 landmarks on each coin:
+דיגיטציה טובה מתחילה בתמונות טובות. הדרישות:
 
-| LM | Location | Type |
-|----|---------|------|
-| 1 | Tip of portrait nose | Type II (extremum) |
-| 2 | Back of skull (most posterior point) | Type II (extremum) |
-| 3 | Base of chin | Type II (extremum) |
-| 4 | Top of forehead (most anterior point) | Type II (extremum) |
-| 5 | Edge of die at 12 o'clock | Type III (constructed) |
-| 6 | Edge of die at 6 o'clock | Type III (constructed) |
-| 7 | Edge of die at 3 o'clock | Type III (constructed) |
-| 8 | Edge of die at 9 o'clock | Type III (constructed) |
+### סרגל קנה מידה
+כל תמונה חייבת לכלול **סרגל קנה מידה** — קו באורך ידוע המאפשר להמיר מרחקי פיקסלים למדידות מהעולם האמיתי. ללא סרגל קנה מידה, ניתן להשוות צורות אך לא גדלים.
 
-Landmarks 5–8 are on the coin edge at cardinal positions. They capture the oval vs. circular geometry of the flan (the blank metal disc).
+תמונות המטבעות במאגר הנתונים שלנו כוללות סרגלי קנה מידה מוטבעים. תמונות הגרזנים מכוילות דרך מטה-דאטה של קובץ TPS.
+
+### מוסכמת כיוון
+כל הפרטים חייבים להיות מכוונים באותו אופן לפני הדיגיטציה. למטבעות: דיוקן פונה ימינה, ציר הדייס אנכי. לגרזנים: להב פונה למטה, הפנים השטוחה מול הצופה.
+
+### איכות תמונה
+- רזולוציה מספקת להצבת ציוני דרך בדיוק
+- תאורה עקבית (צללים יוצרים קצוות מדומים)
+- רקע נקי (אין רעש ויזואלי בסמוך לקו מתאר החפץ)
 
 ---
 
-## Step-by-Step: Digitizing in FIJI
+## פרוטוקול ציוני דרך: מטבעות הדריאנוס
 
-### Step 1: Open the image
-- File → Open → select the coin image (e.g., `175D.jpg` from the Hadrian folder)
+לתרגיל הדיגיטציה של מטלה 2, אנו משתמשים ב-8 ציוני דרך על כל מטבע:
 
-### Step 2: Set scale
-- Draw a line over the scale bar using the Line tool
+| מס' | מיקום | סוג |
+|-----|--------|-----|
+| 1 | קצה אף הדיוקן | סוג II (אקסטרמום) |
+| 2 | גב הגולגולת (נקודה אחורית ביותר) | סוג II (אקסטרמום) |
+| 3 | בסיס הסנטר | סוג II (אקסטרמום) |
+| 4 | חלק עליון של המצח (נקודה קדמית ביותר) | סוג II (אקסטרמום) |
+| 5 | קצה הדייס בשעה 12 | סוג III (מורכב) |
+| 6 | קצה הדייס בשעה 6 | סוג III (מורכב) |
+| 7 | קצה הדייס בשעה 3 | סוג III (מורכב) |
+| 8 | קצה הדייס בשעה 9 | סוג III (מורכב) |
+
+ציוני דרך 5–8 נמצאים על קצה המטבע בנקודות הציר הקרדינליות. הם לוכדים את הגיאומטריה הסגלגלה לעומת העגולה של ה-flan (דיסקית המתכת הגולמית).
+
+---
+
+## שלב אחר שלב: דיגיטציה ב-FIJI
+
+### שלב 1: פתיחת התמונה
+- File → Open → בחרו את תמונת המטבע (למשל `175D.jpg` מתיקיית הדריאנוס)
+
+### שלב 2: הגדרת קנה מידה
+- סמנו קו מעל סרגל קנה המידה באמצעות כלי Line
 - Analyze → Set Scale
-- Enter the known length of the scale bar
+- הזינו את האורך הידוע של סרגל קנה המידה
 
-### Step 3: Place landmarks
-- Select the **Point tool** (press `.` or `>`)
-- Click on landmark position 1 (nose tip)
-- Hold Shift and click each subsequent landmark in order
-- You should see a count of 8 points when done
+### שלב 3: הצבת ציוני דרך
+- בחרו את **כלי נקודה** (לחצו `.` או `>`)
+- לחצו על מיקום ציון דרך 1 (קצה האף)
+- החזיקו Shift ולחצו על כל ציון דרך בסדר
+- אמורים לראות ספירה של 8 נקודות בסיום
 
-### Step 4: Record coordinates
-- Analyze → Measure (Ctrl+M) — this records the x,y of the last point
-- **Better:** Use the **ROI Manager** to record all 8 points at once
-  - After placing all 8 points, Edit → Selection → Add to Manager
-  - In the ROI Manager: More → Multi Measure
-  - Copy the output table
+### שלב 4: תיעוד קואורדינטות
+- Analyze → Measure (Ctrl+M) — מתעד את x,y של הנקודה האחרונה
+- **עדיף:** השתמשו ב**ROI Manager** לתיעוד כל 8 הנקודות בבת אחת
+  - לאחר הצבת כל 8 הנקודות: Edit → Selection → Add to Manager
+  - ב-ROI Manager: More → Multi Measure
+  - העתיקו את טבלת הפלט
 
-### Step 5: Assemble TPS file
-After digitizing all specimens, use the provided Week 3 Colab notebook to convert your FIJI output to TPS format automatically.
+### שלב 5: הרכבת קובץ TPS
+לאחר דיגיטציה של כל הפרטים, השתמשו במחברת Colab של שבוע 3 להמרה אוטומטית של פלט FIJI לפורמט TPS.
 
 ---
 
-## Inter-Observer Error
+## שגיאת בין-צופים
 
-One of the most important exercises in any GM study is quantifying **inter-observer error** — how much do two different digitizers disagree on landmark placement?
+אחד התרגילים החשובים ביותר בכל מחקר GM הוא כימות **שגיאת בין-צופים** — כמה שני מדגיטים שונים חלוקים על הצבת ציוני הדרך?
 
-In this lab:
-1. Each student digitizes the same 5 coin images independently
-2. We compare the results in the Week 3 Colab notebook
-3. We calculate the mean Procrustes distance between observers for each landmark
+במעבדה זו:
+1. כל סטודנט מדגיט באופן עצמאי את אותן 5 תמונות מטבעות
+2. אנו משווים את התוצאות במחברת Colab של שבוע 3
+3. אנו מחשבים את מרחק פרוקרוסטס הממוצע בין הצופים לכל ציון דרך
 
-Large inter-observer error means:
-- The landmark protocol is ambiguous and needs to be refined
-- The landmark may not be meaningful (Type III landmarks are usually more reproducible than Type I/II)
+שגיאת בין-צופים גדולה פירושה:
+- פרוטוקול ציון הדרך מעורפל וצריך לחדדו
+- ציון הדרך עשוי שלא להיות בעל משמעות
 
 ::: {.callout-tip}
-## Rule of Thumb
-Inter-observer error should be much smaller than the biological/archaeological variation you are trying to detect. If your observers disagree more than specimens differ, the analysis is meaningless.
+## כלל אצבע
+שגיאת בין-צופים אמורה להיות קטנה בהרבה מהשונות הארכאולוגית שאנחנו מנסים לזהות. אם הצופים חלוקים ביניהם יותר ממה שהפרטים שונים זה מזה, הניתוח חסר משמעות.
 :::
 
 ---
 
-## Converting FIJI Output to TPS Format
+## המרת פלט FIJI לפורמט TPS
 
-A TPS file has a simple text format:
+לקובץ TPS יש פורמט טקסט פשוט:
 
 ```
 LM=8
@@ -126,28 +125,28 @@ IMAGE=175D.jpg
 ID=Hadrian_001
 ```
 
-- `LM=8` — number of landmarks
-- One line per landmark: `x y`
-- `IMAGE=` — filename of the image
-- `ID=` — specimen identifier
+- `LM=8` — מספר ציוני הדרך
+- שורה לכל ציון דרך: `x y`
+- `IMAGE=` — שם קובץ התמונה
+- `ID=` — מזהה הפרט
 
-The Week 3 Colab notebook contains a Python function to do this conversion automatically from a FIJI measurements table. You just paste your data and run one cell.
+מחברת Colab של שבוע 3 מכילה פונקציית Python לביצוע המרה זו אוטומטית מטבלת מדידות FIJI.
 
 ---
 
-## Assignment 2: Landmark Exercise
+## מטלה 2: תרגיל ציוני דרך
 
 ::: {.callout-note}
-## Due: Week 4
-Digitize all 20 Hadrian coin images. Assess inter-observer consistency with a partner.
+## מועד הגשה: שבוע 4
+דגיטו את כל 20 תמונות מטבעות הדריאנוס. העריכו עקביות בין-צופים עם שותף.
 
-See [Assignment 2](../assignments/02-landmarks.qmd) for full instructions.
+ראו [מטלה 2](../assignments/02-landmarks.qmd) להוראות מלאות.
 :::
 
 ---
 
-## After This Week
+## לאחר שבוע זה
 
-You now understand how shape data is collected. Starting next week, we shift entirely to **Google Colab** for all analysis. No more FIJI unless you choose to use it for your final project.
+כעת הבנתם כיצד נאספים נתוני צורה. החל מהשבוע הבא, אנו עוברים לחלוטין ל**Google Colab** לכל הניתוחים.
 
-[→ Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis](04-procrustes.qmd)
+[→ מודול 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI](04-procrustes.qmd)

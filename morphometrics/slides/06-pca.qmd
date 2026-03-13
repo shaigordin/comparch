@@ -43,6 +43,8 @@ format:
 from sklearn.decomposition import PCA
 import numpy as np
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display
 
 # aligned.shape = (20, 8, 2) → שטחו ל-(20, 16)
 X = aligned.reshape(len(aligned), -1)
@@ -74,15 +76,15 @@ scatter = ax.scatter(scores[:, 0], scores[:, 1],
                      c=colors, s=80, alpha=0.8, 
                      edgecolors='white', lw=0.5)
 
-ax.set_xlabel(f"PC1 ({var_explained[0]:.1f}% שונות)")
-ax.set_ylabel(f"PC2 ({var_explained[1]:.1f}% שונות)")
-ax.set_title("מרחב הצורות — מטבעות רומיים")
+ax.set_xlabel(rtl(f"PC1 ({var_explained[0]:.1f}% שונות)"))
+ax.set_ylabel(rtl(f"PC2 ({var_explained[1]:.1f}% שונות)"))
+ax.set_title(rtl("מרחב הצורות — מטבעות רומיים"))
 ax.axhline(0, color='grey', lw=0.5, ls='--')
 ax.axvline(0, color='grey', lw=0.5, ls='--')
 
 from matplotlib.patches import Patch
-legend = [Patch(fc='#e07b39', label='הדריאנוס'),
-          Patch(fc='#4a90c4', label='אנטונינוס פיוס')]
+legend = [Patch(fc='#e07b39', label=rtl('הדריאנוס')),
+          Patch(fc='#4a90c4', label=rtl('אנטונינוס פיוס'))]
 ax.legend(handles=legend)
 plt.tight_layout()
 plt.show()
@@ -90,11 +92,31 @@ plt.show()
 
 ---
 
+## מרחב הצורות — תוצאות אמיתיות
+
+![PCA מטבעות רומיים — הדריאנוס ואנטונינוס פיוס](../images/slides/06-pca-coins.png){fig-align="center" width="85%"}
+
+::: {.fragment}
+שתי הקבוצות נפרדות בבירור לאורך PC1 — ההבדל בצורת הדיוקן.
+:::
+
+---
+
+## גרף שדרה (Scree Plot)
+
+![אחוזי שונות לפי רכיב עיקרי](../images/slides/06-scree.png){fig-align="center" width="80%"}
+
+::: {.fragment}
+PC1 לבדו מסביר את רוב השונות — המחלוקת בין הקיסרים ברורה.
+:::
+
+---
+
 ## קריאת גרף מרחב הצורות
 
 ::: {.incremental}
 - **נקודות קרובות** = צורות דומות
-- **נקודות רחוקות** = צורות שונות  
+- **נקודות רחוקות** = צורות שונות
 - **כיוון PC1** = ציר השונות הגדול ביותר
 - **ריכוז קבוצה** = אחידות יצור / בחירה
 :::

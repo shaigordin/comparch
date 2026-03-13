@@ -55,6 +55,8 @@ import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display
 
 # טעינת מקדמי EFA מחושבים מראש
 efa_data = pd.read_csv("data/flanged_axes/Flanged_axes_efa.dat",
@@ -89,13 +91,23 @@ for group, c in colors.items():
 
 ax.set_xlabel(f"PC1 ({var[0]:.1f}%)")
 ax.set_ylabel(f"PC2 ({var[1]:.1f}%)")
-ax.set_title("מרחב הצורות — גרזני ברונזה G3 לעומת G4")
+ax.set_title(rtl("מרחב הצורות — גרזני ברונזה G3 לעומת G4"))
 ax.legend(fontsize=13)
 ax.axhline(0, color='grey', lw=0.5, ls='--')
 ax.axvline(0, color='grey', lw=0.5, ls='--')
 plt.tight_layout()
 plt.show()
 ```
+
+---
+
+## מרחב הצורות — גרזני ברונזה
+
+![PCA גרזנים G3 לעומת G4](../images/slides/09-axes-pca.png){fig-align="center" width="85%"}
+
+::: {.fragment}
+שתי הקבוצות נפרדות לאורך PC1 — מסורות יצור שונות.
+:::
 
 ---
 

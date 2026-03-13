@@ -1,154 +1,155 @@
 ---
-title: "Module 2: A Short History — From Calipers to Coordinates"
-subtitle: "Week 2 — Foundations"
+title: "מודול 2: היסטוריה קצרה — ממחוגות לקואורדינטות"
+subtitle: "שבוע 2 — יסודות"
+lang: he
 ---
 
-## How Did We Get Here?
+## כיצד הגענו לכאן?
 
-The history of morphometrics in archaeology mirrors a broader shift in how scientists think about biological and material form — from verbal description to measurement, and from measurement to coordinate geometry.
-
----
-
-## Stage 1: Typology and Description (19th–early 20th century)
-
-The earliest approach to artefact shape was pure description: "This is a Type IIb axe." Typologies classified objects into categories based on a researcher's judgment of meaningful shape features.
-
-**The strengths:** Fast, accessible, connects to cultural history.
-
-**The weaknesses:**
-- Different researchers draw type boundaries differently
-- Impossible to test: *how* different do two shapes have to be to belong to different types?
-- Loses gradational variation: what about the object that sits between two types?
-
-Typology is not wrong — it is still useful. But it is qualitative and subjective.
+ההיסטוריה של המורפומטריה בארכאולוגיה משקפת מעבר רחב יותר באופן שבו מדענים חושבים על צורה ביולוגית וחומרית — מתיאור מילולי למדידה, ומידה לגיאומטריה של קואורדינטות.
 
 ---
 
-## Stage 2: Traditional (Multivariate) Morphometrics (1960s–1980s)
+## שלב 1: טיפולוגיה ותיאור (המאה ה-19 – תחילת המאה ה-20)
 
-The response was to measure objects with calipers and treat the measurements statistically. Length, width, height, diameter, ratio of length to width — these are **traditional morphometric variables**.
+הגישה הראשונה לצורת חפצים הייתה תיאור טהור: "זהו גרזן מסוג IIb". טיפולוגיות סיווגו חפצים לקטגוריות על בסיס שיפוט החוקר לגבי תכונות הצורה המשמעותיות.
 
-Multivariate statistics (PCA, discriminant analysis, cluster analysis) were applied to these measurements.
+**החוזקות:** מהיר, נגיש, מתחבר להיסטוריה תרבותית.
 
-**The improvement:** Objective, reproducible, testable.
+**החולשות:**
+- חוקרים שונים מציבים גבולות טיפוס שונים
+- לא ניתן לבדוק: *כמה* שונות צריכות להיות שתי צורות כדי להשתייך לטיפוסים שונים?
+- מאבד שונות הדרגתית: מה עם החפץ שיושב בין שני טיפוסים?
 
-**The remaining problem:** Which measurements to take? Measurements depend on the researcher's choice. They also lose geometric information: knowing the length and width of a coin doesn't tell you the shape of the portrait.
-
----
-
-## Stage 3: The Morphometric Revolution (1980s–1990s)
-
-A group of biologists and statisticians — David Kendall, Fred Bookstein, F. James Rohlf, and others — developed a fundamentally new approach: instead of measuring distances *between* landmarks, record the **coordinates of the landmarks themselves**.
-
-This seems like a small change but has profound consequences:
-- The full geometry of the configuration is preserved
-- All specimens can be brought into a common coordinate system (Procrustes alignment)
-- Shape can be visualized as continuous deformation
-- The mathematics is rigorous and well-understood
-
-This is **geometric morphometrics**.
+הטיפולוגיה אינה שגויה — היא עדיין שימושית. אך היא איכותנית וסובייקטיבית.
 
 ---
 
-## The Three Data Types in GM
+## שלב 2: מורפומטריה מסורתית (רב-משתנית) — שנות ה-60–80
 
-### Type 1: Landmarks
+התגובה הייתה למדוד חפצים במחוגה ולטפל במדידות סטטיסטית. אורך, רוחב, גובה, קוטר, יחס אורך לרוחב — אלה הם **משתני מורפומטריה מסורתיים**.
 
-A **landmark** is a discrete, identifiable point that corresponds to the same location across all specimens in the study.
+סטטיסטיקה רב-משתנית (PCA, ניתוח מפלה, ניתוח אשכולות) הוחלה על מדידות אלה.
 
-There are three classical types (Bookstein 1991):
+**השיפור:** אובייקטיבי, ניתן לשכפול, ניתן לבדיקה.
 
-| Type | Definition | Example on a coin |
-|------|-----------|-------------------|
-| **Type I** | Biologically/archaeologically meaningful intersection point | Corner of die border at 12 o'clock |
-| **Type II** | Point of maximum curvature or extremum | Tip of portrait nose |
-| **Type III** | Constructed from other points | Midpoint of the coin diameter |
+**הבעיה שנותרה:** אילו מדידות לקחת? המדידות תלויות בבחירת החוקר. הן גם מאבדות מידע גיאומטרי: ידיעת אורך ורוחב מטבע אינה מגלה לנו את צורת הדיוקן.
+
+---
+
+## שלב 3: המהפכה המורפומטרית — שנות ה-80–90
+
+קבוצת ביולוגים וסטטיסטיקאים — דייוויד קנדל, פרד בוקסטיין, F. ג'יימס רולף ואחרים — פיתחו גישה חדשנית מהיסוד: במקום למדוד מרחקים *בין* ציוני דרך, לתעד את **הקואורדינטות של ציוני הדרך עצמם**.
+
+נראה שמדובר בשינוי קטן, אך יש לו השלכות עמוקות:
+- הגיאומטריה המלאה של התצורה נשמרת
+- ניתן להביא את כל הפרטים למערכת קואורדינטות משותפת (יישור פרוקרוסטס)
+- ניתן לחשוף ויזואלית את הצורה כעיוות רציף
+- המתמטיקה קפדנית ומובנת היטב
+
+זוהי **מורפומטריה גיאומטרית**.
+
+---
+
+## שלושה סוגי נתונים ב-GM
+
+### סוג 1: ציוני דרך
+
+**ציון דרך** הוא נקודה בדידה, ניתנת לזיהוי, המתאימה לאותו מיקום בכל הפרטים במחקר.
+
+ישנם שלושה סוגים קלאסיים (Bookstein 1991):
+
+| סוג | הגדרה | דוגמה על מטבע |
+|-----|-------|---------------|
+| **סוג I** | נקודת צומת בעלת משמעות ביולוגית/ארכאולוגית | פינת גבול הדייס בשעה 12 |
+| **סוג II** | נקודת עקמומיות מרבית או אקסטרמום | קצה אף הדיוקן |
+| **סוג III** | מורכב מנקודות אחרות | נקודת האמצע של קוטר המטבע |
 
 ::: {.callout-warning}
-## The Homology Problem
-A landmark must correspond to the *same* location in all specimens — not just geometrically similar, but *biologically or archaeologically homologous*. This is the hardest conceptual problem in landmark GM.
+## בעיית ההומולוגיה
+ציון דרך חייב להתאים ל*אותו* מיקום בכל הפרטים — לא רק גיאומטרית דומה, אלא *הומולוגי* ביולוגית או ארכאולוגית. זוהי הבעיה המושגית הקשה ביותר ב-GM של ציוני דרך.
 
-On a coin: is the "corner of the chin" always the same point across portraits of different emperors? This requires archaeological judgment, not just geometry.
+על מטבע: האם "פינת הסנטר" היא תמיד אותה נקודה בדיוקנאות של קיסרים שונים? זה דורש שיפוט ארכאולוגי, לא רק גיאומטריה.
 :::
 
-**When to use landmarks:** Objects with discrete, identifiable reference points. Coins with portrait features, skulls, arrowheads with defined tip/base/notch points.
+**מתי להשתמש בציוני דרך:** חפצים עם נקודות ייחוס בדידות וניתנות לזיהוי. מטבעות עם תכונות דיוקן, גולגלות, ראשי חצים עם נקודות קצה/בסיס/חריץ מוגדרות.
 
 ---
 
-### Type 2: Semi-Landmarks
+### סוג 2: חצאי ציוני דרך
 
-**Semi-landmarks** are placed along curves where there are no discrete homologous points. They are allowed to "slide" along the curve during analysis to minimize bending energy.
+**חצאי ציוני דרך** מוצבים לאורך עקומות שבהן אין נקודות הומולוגיות בדידות. הם "מחליקים" לאורך העקומה במהלך הניתוח כדי למזער אנרגיית כיפוף.
 
-**When to use:** Curved outlines of objects like pots or axes, where there is no single identifiable point but you want to capture the curve geometry.
-
----
-
-### Type 3: Outlines
-
-An **outline** is a complete contour of the object — a closed curve represented as a sequence of $(x, y)$ coordinates.
-
-Unlike landmarks, outlines don't require you to identify specific homologous points. Instead, the outline is decomposed mathematically into a series of components using **Elliptic Fourier Analysis (EFA)**.
-
-**When to use:** Smooth, rounded objects without clear landmark points — pottery profiles, axe outlines, coins (as a simpler alternative to portrait landmarks).
+**מתי להשתמש:** קווי מתאר עקומים של חפצים כגון קדרות או גרזנים, שבהם אין נקודה יחידה ניתנת לזיהוי, אך רוצים ללכוד את גיאומטריית העקומה.
 
 ---
 
-## In-Class Exercise: Landmarks on Paper
+### סוג 3: קווי מתאר
 
-Look at the printed images of the Hadrian coin and the flanged axe provided in class.
+**קו מתאר** הוא הקונטור המלא של החפץ — עקומה סגורה המיוצגת כרצף של קואורדינטות $(x, y)$.
 
-**For the coin:**
-1. Mark the tip of the portrait nose
-2. Mark the back of the skull
-3. Mark the chin point
-4. Mark two points on the coin edge (top and bottom)
+בניגוד לציוני דרך, קווי מתאר אינם דורשים זיהוי נקודות הומולוגיות ספציפיות. במקום זאת, קו המתאר מפורק מתמטית לסדרת רכיבים באמצעות **ניתוח פורייה אליפטי (EFA)**.
 
-**For the axe:**
-1. Mark the tip of the blade (cutting edge midpoint)
-2. Mark the widest point of the blade
-3. Mark the butt of the axe (top midpoint)
-4. Mark the narrowest point of the neck
-
-**Discussion:** Which points were easy to place? Which were ambiguous? If you compared your placements with a classmate's, where would they differ?
+**מתי להשתמש:** חפצים חלקים ומעוגלים ללא נקודות ציון ברורות — פרופילי קדרות, קווי מתאר גרזנים, מטבעות (כחלופה פשוטה יותר לציוני דרך בדיוקן).
 
 ---
 
-## The Software Landscape
+## תרגיל בכיתה: ציוני דרך על נייר
 
-For this course, we use the simplest possible toolkit:
+הסתכלו בתמונות המודפסות של מטבע הדריאנוס וגרזן הברונזה שחולקו בכיתה.
 
-| Task | Tool |
-|------|------|
-| Landmark digitizing | FIJI (ImageJ) — Week 3 only |
-| All analysis | Google Colab (browser, no install) |
-| Code generation | AI (Claude or ChatGPT) |
+**למטבע:**
+1. סמנו את קצה אף הדיוקן
+2. סמנו את גב הגולגולת
+3. סמנו את נקודת הסנטר
+4. סמנו שתי נקודות על קצה המטבע (למעלה ולמטה)
 
-Other software you may encounter in the literature:
-- **tpsDig2**: Classic Windows landmark digitizer (James Rohlf, Stony Brook)
-- **MorphoJ**: GUI-based GM software (excellent for learning concepts)
-- **R + geomorph**: R package for landmark analysis (the research standard)
-- **R + Momocs**: R package for outline analysis
+**לגרזן:**
+1. סמנו את קצה להב הגרזן (נקודת האמצע של קצה החיתוך)
+2. סמנו את נקודת הרוחב המרבית של להב
+3. סמנו את עקב הגרזן (נקודת האמצע העליונה)
+4. סמנו את נקודת הצוואר הצרה ביותר
 
-We use Python in Colab because it requires zero installation and AI can generate the code very effectively.
-
----
-
-## Key Concepts Check
-
-Before Week 3, make sure you can answer:
-
-1. What is the difference between a landmark and a semi-landmark?
-2. Why can't you just compare raw (x,y) coordinates without Procrustes alignment?
-3. When would you use outline analysis rather than landmarks?
-4. What does it mean for a landmark to be "homologous"?
+**לדיון:** אילו נקודות היה קל לסמן? אילו היו מעורפלות? אם תשוו את הנקודות שלכם עם עמית, היכן ייתכנו הבדלים?
 
 ---
 
-## Assignment 1: Shape Journal
+## נוף התוכנה
+
+בקורס זה אנו משתמשים בערכת הכלים הפשוטה ביותר האפשרית:
+
+| משימה | כלי |
+|-------|-----|
+| דיגיטציה של ציוני דרך | FIJI (ImageJ) — שבוע 3 בלבד |
+| כל הניתוחים | Google Colab (דפדפן, ללא התקנה) |
+| כתיבת קוד | AI (Claude או ChatGPT) |
+
+תוכנות נוספות שתיתקלו בהן בספרות:
+- **tpsDig2**: דיגיטייזר ציוני דרך קלאסי לWindows (ג'יימס רולף, Stony Brook)
+- **MorphoJ**: תוכנת GM מבוססת GUI (מצוינת ללמידת מושגים)
+- **R + geomorph**: חבילת R לניתוח ציוני דרך (תקן המחקר)
+- **R + Momocs**: חבילת R לניתוח קווי מתאר
+
+אנו משתמשים ב-Python ב-Colab כי אינו דורש התקנה כלשהי ו-AI יכול לייצר את הקוד ביעילות רבה.
+
+---
+
+## בדיקת מושגים מרכזיים
+
+לפני שבוע 3, ודאו שתוכלו לענות:
+
+1. מה ההבדל בין ציון דרך לחצי ציון דרך?
+2. מדוע לא ניתן להשוות קואורדינטות גולמיות $(x,y)$ ללא יישור פרוקרוסטס?
+3. מתי תשתמשו בניתוח קווי מתאר במקום ציוני דרך?
+4. מה פירוש המושג "הומולוגי" כשמדברים על ציוני דרך?
+
+---
+
+## מטלה 1: יומן צורות
 
 ::: {.callout-note}
-## Due: Week 3
-See the [Assignment 1 page](../assignments/01-shape-journal.qmd) for full instructions.
+## מועד הגשה: שבוע 3
+ראו את [דף מטלה 1](../assignments/01-shape-journal.qmd) להוראות מלאות.
 :::
 
-[→ Module 3: Seeing Shape — Digitizing Landmarks](03-ai-coding.qmd)
+[→ מודול 3: רואים צורה — דיגיטציה של ציוני דרך](03-ai-coding.qmd)

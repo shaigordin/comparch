@@ -1,71 +1,98 @@
 ---
-title: "Module 7: Case Study I — Roman Coins and Imperial Standardization"
-subtitle: "Week 7 — Case Studies"
+title: "מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי"
+subtitle: "שבוע 7 — מקרי בוחן"
+lang: he
 ---
 
-## Archaeological Background
+## רקע ארכאולוגי
 
-### Roman Coinage: Mass Production and Imperial Identity
+### מטבעות רומיות: ייצור המוני וזהות אימפריאלית
 
-The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.
+האימפריה הרומית ייצרה מטבעות בהיקף שאף ציביליזציה קודמת לא הגיעה אליו. במאה ה-2 לספירה בלבד, נטבעו מאות מיליוני דנריים ברחבי האימפריה. כל מטבע נשא את דיוקן הקיסר המולך — פנים שכמעט כל אחד בעולם הרומי ראה.
 
-Coins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.
+מטבעות לא היו כסף בלבד. הם היו תעמולה: דימויי כוח אימפריאלי שהסתובבו עד לקצוות העולם המוכר. הדיוקן על צד הפנים היה הצהרה פוליטית מכוונת. חותכי הדייס במנטה האימפריאלית היו אומנים שעבדו בתוך מוסכמות איקונוגרפיות קפדניות.
 
-### Our Two Emperors
+### שני הקיסרים שלנו
 
-**Hadrian** (r. 117–138 CE)
-- Known for traveling the empire, fortifying its borders (Hadrian's Wall)
-- Iconic portraiture: philosophical beard, often shown with idealized Greek features
-- Reformed the coinage: new portrait types introduced at different points in his reign
+**הדריאנוס** (שלט 117–138 לספירה)
+- ידוע בנסיעותיו ברחבי האימפריה, חיזוק גבולותיה (חומת הדריאנוס)
+- דיוקנאות אייקוניים: זקן פילוסופי, לעתים קרובות מוצג עם תכונות יווניות אידיאליזציות
+- רפורם מטבע: סוגי דיוקן חדשים הוכנסו בנקודות שונות של שלטונו
 
-**Antoninus Pius** (r. 138–161 CE)
-- Succeeded Hadrian; reign known for stability
-- Portrait more Roman in character: clean-shaven early, then bearded
-- Some of the most artistically refined denarii in the Imperial sequence
+**אנטונינוס פיוס** (שלט 138–161 לספירה)
+- ירש את הדריאנוס; שלטונו ידוע ביציבות
+- דיוקן בעל אופי רומאי יותר: מגולח בתחילה, לאחר מכן זקן
+- כמה מהדנריים המעובדים ביותר מבחינה אמנותית בסדרה האימפריאלית
 
-### The Research Question
+### שאלת המחקר
 
-*Do coins of Hadrian and Antoninus Pius cluster separately in shape space?*
+*האם מטבעות הדריאנוס ואנטונינוס פיוס מתכנסים בנפרד במרחב הצורות?*
 
-Sub-questions:
-- Is the shape difference between the emperors larger than the variation *within* each reign?
-- Which specific shape features (captured by which PCs) best separate the two groups?
-- What does any difference — or similarity — tell us about mint standardization?
+שאלות משנה:
+- האם הבדל הצורה בין הקיסרים גדול משהשונות *בתוך* כל שלטון?
+- אילו תכונות צורה ספציפיות (נלכדות על ידי אילו רכיבים עיקריים) מפרידות בצורה הטובה ביותר בין שתי הקבוצות?
+- מה אומר לנו כל הבדל — או דמיון — על תקנון המנטה?
 
 ---
 
-## Full Analysis Pipeline
+## צינור הניתוח המלא
 
 ::: {.callout-important}
-## Open the Week 7 Notebook
-[→ Week 7 Colab Notebook](https://colab.research.google.com) *(link active Week 7)*
+## פתחו את מחברת שבוע 7
+[→ מחברת Colab — שבוע 7](https://colab.research.google.com) *(הקישור יופעל בשבוע 7)*
 :::
 
-### Step 1: Load both datasets and combine
+### שלב 1: טעינת שני מאגרי הנתונים ואיחודם
 
 ```python
-# Load both coin datasets
+# טעינת שני מאגרי מטבעות (עם תמיכה בפורמט אירופאי של מספרים עשרוניים)
+def read_tps(filepath):
+    specimens = []
+    current_lms = []
+    n_lm = 0
+    with open(filepath, 'r') as f:
+        for line in f:
+            line = line.strip().replace(',', '.')
+            if line.startswith('LM='):
+                n_lm = int(line.split('=')[1])
+                current_lms = []
+            elif line.startswith('IMAGE=') or line.startswith('ID='):
+                if len(current_lms) == n_lm and n_lm > 0:
+                    specimens.append(current_lms)
+            elif line and not line.startswith(('SCALE=', 'CURVES=')):
+                try:
+                    coords = list(map(float, line.split()))
+                    if len(coords) == 2:
+                        current_lms.append(coords)
+                except:
+                    pass
+    if len(current_lms) == n_lm and n_lm > 0:
+        specimens.append(current_lms)
+    return np.array(specimens)
+
 hadrian_lms = read_tps("data/coins/DEN_Hadrian/Hadrian.TPS")
 aplus_lms   = read_tps("data/coins/DEN_AntoniusPius/AntoniusPius.TPS")
 
 n_had  = hadrian_lms.shape[0]
 n_apl  = aplus_lms.shape[0]
 
-# Combine into one array
+# איחוד למערך אחד
 all_coins = np.vstack([hadrian_lms, aplus_lms])
-labels = ['Hadrian'] * n_had + ['AntoniusPius'] * n_apl
+labels = ['הדריאנוס'] * n_had + ['אנטונינוס פיוס'] * n_apl
 
-print(f"Total specimens: {all_coins.shape[0]}")
-print(f"  Hadrian: {n_had}, Antoninus Pius: {n_apl}")
+print(f"סה\"כ פרטים: {all_coins.shape[0]}")
+print(f"  הדריאנוס: {n_had}, אנטונינוס פיוס: {n_apl}")
 ```
 
-### Step 2: GPA on combined dataset
+### שלב 2: GPA על מאגר מאוחד
 
 ```python
-aligned_all, csizes, _ = mops.procrustes_fit(all_coins, allow_reflection=False)
+import morphops
+result = morphops.gpa(all_coins)
+aligned_all = result['aligned']
 ```
 
-### Step 3: PCA color-coded by emperor
+### שלב 3: PCA עם צביעה לפי קיסר
 
 ```python
 from sklearn.decomposition import PCA
@@ -79,14 +106,14 @@ var_exp = pca.explained_variance_ratio_ * 100
 df = pd.DataFrame({
     'PC1': scores[:, 0],
     'PC2': scores[:, 1],
-    'Emperor': labels
+    'קיסר': labels
 })
 
-# Plot
+# ציור
 fig, ax = plt.subplots(figsize=(9, 7))
-colors = {'Hadrian': '#2196F3', 'AntoniusPius': '#E53935'}
+colors = {'הדריאנוס': '#2196F3', 'אנטונינוס פיוס': '#E53935'}
 
-for emperor, group in df.groupby('Emperor'):
+for emperor, group in df.groupby('קיסר'):
     ax.scatter(group['PC1'], group['PC2'],
                label=emperor, color=colors[emperor],
                s=60, alpha=0.8, edgecolor='white')
@@ -95,28 +122,28 @@ ax.axhline(0, color='gray', linewidth=0.5, linestyle='--')
 ax.axvline(0, color='gray', linewidth=0.5, linestyle='--')
 ax.set_xlabel(f"PC1 ({var_exp[0]:.1f}%)")
 ax.set_ylabel(f"PC2 ({var_exp[1]:.1f}%)")
-ax.set_title("Shape Space: Hadrian vs. Antoninus Pius Denarii")
-ax.legend(title="Emperor", framealpha=0.9)
+ax.set_title("מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס")
+ax.legend(title="קיסר", framealpha=0.9)
 plt.tight_layout()
 plt.show()
 ```
 
-### Step 4: Statistical test — permutation MANOVA
+### שלב 4: בדיקה סטטיסטית — MANOVA בהרשאה
 
 ```python
 from scipy.spatial.distance import cdist
-from scipy.stats import f
+import numpy as np
 
 def permutation_manova(scores, labels, n_perm=999, n_pcs=5):
     """
-    Permutation-based MANOVA on PC scores.
-    Tests whether group centroids differ more than expected by chance.
+    MANOVA מבוסס הרשאה על ציוני רכיבים עיקריים.
+    בודק האם צנטרואידי הקבוצות שונים יותר ממה שניתן לצפות במקרה.
     """
     X = scores[:, :n_pcs]
     labels = np.array(labels)
     groups = np.unique(labels)
 
-    # Observed F-statistic (ratio of between-group to within-group variance)
+    # F-statistic נצפה
     grand_mean = X.mean(axis=0)
     ss_between = sum(
         (X[labels == g].mean(axis=0) - grand_mean)**2 * (labels == g).sum()
@@ -129,7 +156,7 @@ def permutation_manova(scores, labels, n_perm=999, n_pcs=5):
     n, k = len(labels), len(groups)
     f_obs = (ss_between / (k - 1)) / (ss_within / (n - k))
 
-    # Permutation distribution
+    # התפלגות הרשאה
     f_perm = []
     for _ in range(n_perm):
         perm_labels = np.random.permutation(labels)
@@ -147,53 +174,53 @@ def permutation_manova(scores, labels, n_perm=999, n_pcs=5):
     return f_obs, p_value
 
 f_stat, p_val = permutation_manova(scores, labels)
-print(f"Permutation MANOVA: F = {f_stat:.3f}, p = {p_val:.3f}")
+print(f"MANOVA בהרשאה: F = {f_stat:.3f}, p = {p_val:.3f}")
 ```
 
 ---
 
-## Interpreting the Results
+## פרשנות התוצאות
 
-### If the groups separate:
+### אם הקבוצות נפרדות:
 
-The two emperors' coins occupy different regions of shape space. This could indicate:
-- Portrait style was deliberately differentiated by reign
-- Die-cutters changed their conventions between reigns
-- Different workshops produced the two series
+מטבעות שני הקיסרים תופסים אזורים שונים במרחב הצורות. זה יכול להצביע על:
+- סגנון הדיוקן הובדל בכוונה לפי שלטון
+- חותכי הדייס שינו את מוסכמותיהם בין השלטונות
+- סדנאות שונות ייצרו את שתי הסדרות
 
-### If the groups overlap substantially:
+### אם הקבוצות חופפות במידה ניכרת:
 
-Shape variation *within* each reign is larger than variation *between* reigns. This could indicate:
-- Consistent mint conventions that persisted across reigns
-- Strong iconographic standards imposed by the central mint
-- Our landmark protocol doesn't capture the features that actually differ
+שונות הצורה *בתוך* כל שלטון גדולה יותר מהשונות *בין* השלטונות. זה יכול להצביע על:
+- מוסכמות מנטה עקביות שנמשכו בין שלטונות
+- תקנים איקונוגרפיים חזקים שהוטלו על ידי המנטה המרכזית
+- פרוטוקול ציוני הדרך שלנו לא לוכד את התכונות שאכן שונות
 
-### Neither outcome is "wrong":
+### אף תוצאה אינה "שגויה":
 
-Both tell us something real about Roman mint organization.
-
----
-
-## Discussion: What Shape Can and Cannot Tell Us
-
-Shape analysis of coins has real limitations:
-
-1. **We can only measure what we digitize.** If portrait style differs in surface detail (texture, modelling depth) but not in overall proportion, landmark analysis misses it.
-
-2. **Die variation within a reign is large.** Many different pairs of dies were used for each emperor. Is our sample large enough to characterize each reign's "typical" shape?
-
-3. **What counts as the same "type"?** Hadrian's portraiture changed significantly over his long reign. Should we subdivide by portrait type before comparing?
-
-These are not reasons to dismiss GM — they are reasons to design studies carefully and interpret results with appropriate caution.
+שתיהן מספרות לנו משהו אמיתי על ארגון המנטה הרומית.
 
 ---
 
-## Assignment 3 Due This Week
+## דיון: מה הצורה יכולה ולא יכולה לספר לנו
+
+לניתוח צורת מטבעות יש מגבלות אמיתיות:
+
+1. **אנחנו יכולים למדוד רק מה שאנחנו מדגיטים.** אם סגנון הדיוקן שונה בפרטי משטח (מרקם, עומק דוגמנות) אך לא בפרופורציה הכללית, ניתוח ציוני הדרך מחמיץ זאת.
+
+2. **שונות הדייסים בתוך שלטון אחד גדולה.** זוגות רבים של דייסים שימשו לכל קיסר. האם המדגם שלנו מספיק גדול כדי לאפיין את הצורה "האופיינית" של כל שלטון?
+
+3. **מה נחשב כ"טיפוס" זהה?** הדיוקנאות של הדריאנוס השתנו משמעותית במהלך שלטונו הארוך. האם לפצל לפי טיפוס דיוקן לפני ההשוואה?
+
+אלה אינן סיבות לדחות GM — הן סיבות לתכנן מחקרים בקפידה ולפרש תוצאות בזהירות ראויה.
+
+---
+
+## מטלה 3 מגיעה השבוע
 
 ::: {.callout-note}
-Submit your Colab notebook link + 500-word interpretation as PDF.
+הגישו קישור למחברת Colab + פרשנות של 500 מילה כ-PDF.
 
-[→ Assignment 3: Coins Shape Analysis](../assignments/03-coins.qmd)
+[→ מטלה 3: ניתוח צורת מטבעות](../assignments/03-coins.qmd)
 :::
 
-[→ Module 8: Outline Analysis — Elliptic Fourier Analysis](08-axes.qmd)
+[→ מודול 8: ניתוח קווי מתאר — ניתוח פורייה אליפטי](08-axes.qmd)

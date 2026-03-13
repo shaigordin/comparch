@@ -82,19 +82,21 @@ aligned, mean_shape, _ = procrustes_alignment(landmarks)
 
 # ויזואליזציה
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
 # לפני יישור
 for specimen in landmarks:
     axes[0].scatter(specimen[:, 0], specimen[:, 1], 
                     alpha=0.3, c='blue', s=20)
-axes[0].set_title("לפני יישור פרוקרוסטס")
+axes[0].set_title(rtl("לפני יישור פרוקרוסטס"))
 
 # אחרי יישור
 for specimen in aligned:
     axes[1].scatter(specimen[:, 0], specimen[:, 1], 
                     alpha=0.3, c='red', s=20)
-axes[1].set_title("אחרי יישור פרוקרוסטס")
+axes[1].set_title(rtl("אחרי יישור פרוקרוסטס"))
 plt.tight_layout()
 plt.show()
 ```

@@ -1,100 +1,102 @@
 ---
-title: "Assignment 4: Bronze Age Axes Outline Analysis"
-subtitle: "15% of final grade | Due: Week 9"
+title: "מטלה 4: ניתוח קו מתאר של גרזני הברונזה"
+subtitle: "15% מהציון הסופי | הגשה: שבוע 9"
+lang: he
+dir: rtl
 ---
 
-## Overview
+## סקירה כללית
 
-Run a full EFA + PCA outline analysis on the Bronze Age flanged axe dataset, test for group differences, and produce a geographic visualization. Interpret the results in terms of Bronze Age craft networks.
-
----
-
-## Data
-
-- **Images:** `data/flanged_axes/G3/` (30 axes) and `data/flanged_axes/G4/` (35 axes)
-- **Colab notebook:** Week 9 notebook (link on Data page)
-
-The images are .tif files showing single axe specimens against a white background. Your outline extraction code should work directly on these images.
+הריצו ניתוח קו מתאר מלא של EFA + PCA על מאגר נתוני גרזני הברונזה עם כנפיים, בחנו הבדלים בין קבוצות, והפיקו ויזואליזציה גיאוגרפית. פרשו את התוצאות מבחינת רשתות אומנות תקופת הברונזה.
 
 ---
 
-## Required Analysis Steps
+## נתונים
 
-### Step 1: Outline extraction
-Using the `extract_outline()` function from Module 8, process all axe images. Report:
-- How many axes were successfully processed?
-- Did any images fail? If so, why (look at the images)?
+- **תמונות:** `data/flanged_axes/G3/` (30 גרזנים) ו-`data/flanged_axes/G4/` (35 גרזנים)
+- **מחברת Colab:** מחברת שבוע 9 (קישור בדף הנתונים)
 
-### Step 2: EFA
-Fit EFA with 12 harmonics, normalized. Produce a **variance explained plot** showing how many harmonics are needed to explain 99% of outline shape variation in your sample.
-
-### Step 3: PCA on EFA coefficients
-Run PCA. Report variance explained by PC1, PC2, PC3. Produce:
-- Scatter plot color-coded by group (G3/G4)
-- Reconstructed outline shapes at −2 SD and +2 SD on PC1 and PC2
-
-### Step 4: Statistical test
-Run the permutation MANOVA on the first 10 PC scores.
-Report: F, p, R².
-
-### Step 5: Geographic visualization
-Using the provided metadata CSV (`data/flanged_axes/axes_metadata.csv`), plot specimen locations on a map colored by PC1 score.
+התמונות הן קבצי .tif המציגים פרטי גרזן בודדים על רקע לבן. קוד חילוץ קו המתאר שלכם אמור לפעול ישירות על תמונות אלה.
 
 ---
 
-## Written Interpretation (600 words)
+## שלבי הניתוח הנדרשים
 
-Your interpretation must address:
+### שלב 1: חילוץ קו מתאר
+באמצעות פונקציית `extract_outline()` ממודול 8, עבדו את כל תמונות הגרזן. דווחו:
+- כמה גרזנים עובדו בהצלחה?
+- האם תמונות כלשהן נכשלו? אם כן, מדוע (הסתכלו על התמונות)?
 
-1. **Morphological separation:** Do G3 and G4 separate in shape space? Describe the PCA plot. Is separation clean, partial, or absent?
+### שלב 2: EFA
+התאימו EFA עם 12 הרמוניות, מנורמל. הפיקו **גרף שונות מוסברת** המציג כמה הרמוניות נדרשות להסביר 99% משונות צורת קו המתאר במדגם שלכם.
 
-2. **What drives the difference:** Based on the reconstructed outline shapes, what is actually different about the axe shapes at opposite ends of PC1? Be specific: blade width? Proportion of butt to blade? Shape of flanges?
+### שלב 3: PCA על מקדמי EFA
+הריצו PCA. דווחו על השונות המוסברת על ידי PC1, PC2, PC3. הפיקו:
+- גרף פיזור מקודד צבע לפי קבוצה (G3/G4)
+- צורות קו מתאר משוחזרות ב-−2 SD ו-+2 SD על PC1 ו-PC2
 
-3. **Statistical support:** Report and explain your F, p, and R². Does the statistical significance match what you see visually in the PCA plot?
+### שלב 4: בחינה סטטיסטית
+הריצו MANOVA תמורה על 10 ציוני ה-PC הראשונים.
+דווחו: F, p, R².
 
-4. **Geographic pattern:** What do you see in the map? Does PC1 variation correlate with geography? Do specimens from the same region cluster together in shape space?
-
-5. **Archaeological interpretation:** Based on your results, what would you say about Bronze Age craft networks? Choose one of the following positions (or argue for a nuance):
-   - G3 and G4 represent distinct production traditions with limited interaction
-   - G3 and G4 represent a continuous temporal evolution of the same tradition
-   - Shape variation is primarily geographic, not typological
-   - Your data cannot distinguish between these models (explain why)
-
-6. **One limitation:** Identify one specific limitation of this analysis that could affect your conclusions, and suggest how future research could address it.
-
----
-
-## Map Requirements
-
-The map must show:
-- Specimen locations as dots
-- Dots colored by PC1 score (use a diverging colormap, e.g., blue-to-red)
-- Group membership indicated (by symbol shape or border color)
-- A colorbar labeled "PC1 score"
-- Basic geographic reference (country borders or major rivers — even a hand-sketched map on paper, photographed, is acceptable)
+### שלב 5: ויזואליזציה גיאוגרפית
+באמצעות ה-CSV של מטה-דאטה המסופק (`data/flanged_axes/axes_metadata.csv`), שרטטו מיקומי פרטים על מפה מצובעת לפי ציון PC1.
 
 ---
 
-## Deliverables
+## פרשנות כתובה (600 מילים)
 
-1. **Colab notebook link** (viewable)
-2. **PDF report** — 600-word interpretation + figures embedded:
-   - Variance explained plot (scree plot)
-   - PCA scatter plot
-   - Reconstructed outline shapes (PC1 extremes minimum)
-   - Statistical output
-   - Map image
+הפרשנות שלכם חייבת להתייחס ל:
+
+1. **הפרדה מורפולוגית:** האם G3 ו-G4 נפרדים במרחב הצורות? תארו את גרף ה-PCA. האם ההפרדה ברורה, חלקית, או נעדרת?
+
+2. **מה מניע את ההבדל:** בהתבסס על צורות קו המתאר המשוחזרות, מה שונה בפועל בצורות הגרזן בקצוות הנגדיים של PC1? היו ספציפיים: רוחב הלהב? פרופורציית עקב ללהב? צורת הכנפיים?
+
+3. **אישוש סטטיסטי:** דווחו והסבירו את F, p ו-R² שלכם. האם המובהקות הסטטיסטית תואמת את מה שאתם רואים ויזואלית בגרף ה-PCA?
+
+4. **תבנית גיאוגרפית:** מה אתם רואים במפה? האם שונות PC1 מתואמת עם גיאוגרפיה? האם פרטים מאותו אזור מתקבצים יחד במרחב הצורות?
+
+5. **פרשנות ארכאולוגית:** בהתבסס על תוצאותיכם, מה תאמרו על רשתות האומנות של תקופת הברונזה? בחרו אחת מהעמדות הבאות (או טענו לגוון):
+   - G3 ו-G4 מייצגים מסורות ייצור נפרדות עם אינטראקציה מוגבלת
+   - G3 ו-G4 מייצגים אבולוציה זמנית רציפה של אותה מסורת
+   - שונות הצורה היא בראש ובראשונה גיאוגרפית, לא טיפולוגית
+   - הנתונים שלכם אינם יכולים להבחין בין מודלים אלה (הסבירו מדוע)
+
+6. **מגבלה אחת:** זהו מגבלה ספציפית אחת של ניתוח זה שיכולה להשפיע על מסקנותיכם, והציעו כיצד מחקר עתידי יכול לטפל בה.
 
 ---
 
-## Grading
+## דרישות המפה
 
-| Criterion | Points |
-|-----------|--------|
-| All 5 analysis steps completed correctly | 30 |
-| Reconstructed shapes produced and discussed | 15 |
-| Map produced with correct coloring | 10 |
-| Statistical output reported and explained | 10 |
-| Archaeological interpretation is substantive | 30 |
-| Writing quality | 5 |
-| **Total** | **100** |
+המפה חייבת להציג:
+- מיקומי פרטים כנקודות
+- נקודות מצובעות לפי ציון PC1 (השתמשו במפת צבעים מתפצלת, למשל כחול-לאדום)
+- חברות בקבוצה מסומנת (לפי צורת הסמל או צבע הגבול)
+- סרגל צבע מסומן "ציון PC1"
+- עזר גיאוגרפי בסיסי (גבולות מדינות או נהרות עיקריים — אפילו מפה מצוירת ביד על נייר, מצולמת, מקובלת)
+
+---
+
+## מה להגיש
+
+1. **קישור למחברת Colab** (ניתן לצפייה)
+2. **דוח PDF** — פרשנות של 600 מילים + דמויות מוטמעות:
+   - גרף שונות מוסברת (גרף שדרה)
+   - גרף פיזור PCA
+   - צורות קו מתאר משוחזרות (קצוות PC1 לפחות)
+   - פלט סטטיסטי
+   - תמונת מפה
+
+---
+
+## ציון
+
+| קריטריון | נקודות |
+|----------|---------|
+| כל 5 שלבי הניתוח הושלמו כראוי | 30 |
+| צורות משוחזרות הופקו ונדונו | 15 |
+| מפה הופקה עם צביעה נכונה | 10 |
+| פלט סטטיסטי מדווח ומוסבר | 10 |
+| הפרשנות הארכאולוגית מהותית | 30 |
+| איכות כתיבה | 5 |
+| **סך הכל** | **100** |

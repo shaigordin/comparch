@@ -42,18 +42,34 @@ format:
 
 ```python
 import numpy as np
-from morphops import procrustes_alignment
+import morphops
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display
 
-# 1. טעינת נתונים
+# 1. טעינת נתונים (TPS עם מספרים אירופאיים)
+def read_tps(path):
+    coords, block = [], []
+    for line in open(path):
+        line = line.strip().replace(',', '.')
+        if line.startswith('LM='):
+            if block: coords.append(block)
+            block = []
+        elif line and not line.startswith(('ID=','IMAGE=','SCALE=')):
+            x, y = map(float, line.split())
+            block.append([x, y])
+    if block: coords.append(block)
+    return np.array(coords)
+
 had = read_tps("data/coins/DEN_Hadrian/Hadrian.TPS")
 ant = read_tps("data/coins/DEN_AntoniusPius/AntoniusPius.TPS")
 all_coins = np.vstack([had, ant])
 labels = ['הדריאנוס']*len(had) + ['אנטונינוס פיוס']*len(ant)
 
-# 2. GPA
-aligned, mean_shape, _ = procrustes_alignment(all_coins)
+# 2. GPA — מחזיר מילון
+result = morphops.gpa(all_coins)
+aligned = result['aligned']
 
 # 3. PCA
 X = aligned.reshape(len(aligned), -1)
@@ -73,17 +89,27 @@ colors = {'הדריאנוס': '#e07b39', 'אנטונינוס פיוס': '#4a90c4
 for label, c in colors.items():
     mask = [l == label for l in labels]
     ax.scatter(scores[mask, 0], scores[mask, 1],
-               c=c, label=label, s=80, alpha=0.8,
+               c=c, label=rtl(label), s=80, alpha=0.8,
                edgecolors='white', lw=0.5)
 
-ax.set_xlabel(f"PC1 — {var[0]:.1f}% שונות")
-ax.set_ylabel(f"PC2 — {var[1]:.1f}% שונות")
-ax.set_title("מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס")
+ax.set_xlabel(rtl(f"PC1 — {var[0]:.1f}% שונות"))
+ax.set_ylabel(rtl(f"PC2 — {var[1]:.1f}% שונות"))
+ax.set_title(rtl("מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס"))
 ax.legend(fontsize=12)
 plt.tight_layout()
 plt.savefig("coins_pca.png", dpi=150)
 plt.show()
 ```
+
+---
+
+## ממצאים — תוצאות אמיתיות
+
+![PCA — הדריאנוס לעומת אנטונינוס פיוס (n=35)](../images/slides/06-pca-coins.png){fig-align="center" width="85%"}
+
+::: {.fragment}
+הפרדה ברורה בין שני הקיסרים — הצורה לבדה מנבאת את הקיסר.
+:::
 
 ---
 

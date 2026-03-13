@@ -1,98 +1,125 @@
 ---
-title: "Module 5: Procrustes Alignment — Putting Shapes in the Same Space"
-subtitle: "Week 5 — The Toolkit"
+title: "מודול 5: יישור פרוקרוסטס — הכנסת צורות לאותו מרחב"
+subtitle: "שבוע 5 — ערכת הכלים"
+lang: he
 ---
 
-## The Problem We Are Solving
+## הבעיה שאנחנו פותרים
 
-Last week, you saw the raw coin landmarks scattered across the plot. Each coin image was scanned at a different size, with the coin in a different position and orientation. Before we can compare shapes, we need to remove these irrelevant differences.
+בשבוע שעבר ראיתם את ציוני הדרך הגולמיים מפוזרים בכל הגרף. כל תמונת מטבע נסרקה בגודל שונה, עם המטבע במיקום וכיוון שונים. לפני שנוכל להשוות צורות, עלינו להסיר הבדלים לא-רלוונטיים אלה.
 
-**Procrustes alignment** is the mathematical solution.
+**יישור פרוקרוסטס** הוא הפתרון המתמטי.
 
 ---
 
-## What GPA Does: Three Steps
+## מה GPA עושה: שלושה שלבים
 
-Generalized Procrustes Analysis (GPA) removes three sources of non-shape variation:
+ניתוח פרוקרוסטס מוכלל (GPA) מסיר שלושה מקורות שונות שאינם צורה:
 
-### Step 1: Translation
-Move every configuration so its centroid (geometric center) sits at the origin $(0, 0)$.
+### שלב 1: הזזה (Translation)
+הזזת כל תצורה כך שהצנטרואיד שלה (מרכז גיאומטרי) יהיה בנקודת הראשית $(0, 0)$.
 
-### Step 2: Scaling
-Resize every configuration so its **centroid size** equals 1.
+### שלב 2: קנה מידה (Scaling)
+שינוי גודל כל תצורה כך שה**גודל-צנטרואיד** שלה יהיה שווה ל-1.
 
-**Centroid size** = the square root of the sum of squared distances from each landmark to the centroid:
+**גודל-צנטרואיד** = שורש ריבועי של סכום ריבועי המרחקים מכל ציון דרך לצנטרואיד:
 
 $$CS = \sqrt{\sum_{i=1}^{k} d_i^2}$$
 
-where $d_i$ is the distance from landmark $i$ to the centroid.
+כאשר $d_i$ הוא המרחק מציון הדרך $i$ לצנטרואיד.
 
-This is the standard size measure in GM because it is statistically independent of shape (unlike length or width, which are correlated with shape).
+זהו מדד הגודל הסטנדרטי ב-GM כי הוא עצמאי סטטיסטית מהצורה (בניגוד לאורך או רוחב, שמתואמים עם הצורה).
 
-### Step 3: Rotation
-Rotate each configuration to minimize the total squared distance between its landmarks and the **mean configuration** (consensus shape).
+### שלב 3: סיבוב (Rotation)
+סיבוב כל תצורה כדי למזער את המרחק הכולל בין ציוני הדרך שלה ל**תצורה הממוצעת** (צורת הקונסנסוס).
 
-After all three steps, all configurations are superimposed in the same coordinate system. What remains is **shape**.
-
----
-
-## The Consensus Shape
-
-After GPA, we can calculate the **mean shape** (consensus) — the average position of each landmark across all aligned specimens. This is our reference shape for visualization.
-
-Shape variation in the dataset is then measured as deviations from this consensus.
+לאחר שלושת השלבים, כל התצורות מוחלות על אותה מערכת קואורדינטות. מה שנותר הוא **צורה**.
 
 ---
 
-## Running GPA in Colab
+## צורת הקונסנסוס
+
+לאחר GPA, ניתן לחשב את **הצורה הממוצעת** (קונסנסוס) — המיקום הממוצע של כל ציון דרך בכל הפרטים המיושרים. זוהי צורת הייחוס שלנו לויזואליזציה.
+
+שונות הצורה במאגר הנתונים נמדדת אז כסטיות מקונסנסוס זה.
+
+---
+
+## הרצת GPA ב-Colab
 
 ::: {.callout-important}
-## Open the Week 5 Notebook
-[→ Week 5 Colab Notebook](https://colab.research.google.com) *(link active Week 5)*
+## פתחו את מחברת שבוע 5
+[→ מחברת Colab — שבוע 5](https://colab.research.google.com) *(הקישור יופעל בשבוע 5)*
 :::
 
 ```python
-# Cell 1: Setup
-!pip install morphops -q
-import morphops as mops
+# תא 1: הגדרה
+!pip install morphops python-bidi -q
+import morphops
 import numpy as np
 import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+rtl = get_display  # תיקון כיוון טקסט עברי בגרפים של matplotlib
 
-# Load data (using the read_tps function from Week 4)
+# טעינת נתונים (שימוש בפונקציה read_tps משבוע 4)
+def read_tps(filepath):
+    specimens = []
+    current_lms = []
+    n_lm = 0
+    with open(filepath, 'r') as f:
+        for line in f:
+            line = line.strip().replace(',', '.')
+            if line.startswith('LM='):
+                n_lm = int(line.split('=')[1])
+                current_lms = []
+            elif line.startswith('IMAGE=') or line.startswith('ID='):
+                if len(current_lms) == n_lm and n_lm > 0:
+                    specimens.append(current_lms)
+            elif line and not line.startswith(('SCALE=', 'CURVES=')):
+                try:
+                    coords = list(map(float, line.split()))
+                    if len(coords) == 2:
+                        current_lms.append(coords)
+                except:
+                    pass
+    if len(current_lms) == n_lm and n_lm > 0:
+        specimens.append(current_lms)
+    return np.array(specimens)
+
 hadrian = read_tps("data/coins/DEN_Hadrian/Hadrian.TPS")
-print(f"Loaded {hadrian.shape[0]} coins, {hadrian.shape[1]} landmarks each")
+print(f"נטענו {hadrian.shape[0]} מטבעות, {hadrian.shape[1]} ציוני דרך כל אחד")
 ```
 
 ```python
-# Cell 2: Generalized Procrustes Analysis
-# morphops.procrustes_fit() returns aligned coordinates and centroid sizes
+# תא 2: ניתוח פרוקרוסטס מוכלל
+# morphops.gpa() מחזיר מילון עם 'aligned', 'mean', ועוד
 
-aligned, centroid_sizes, transforms = mops.procrustes_fit(hadrian,
-                                                            allow_reflection=False)
-print(f"Aligned shape: {aligned.shape}")
-print(f"Centroid sizes (first 5): {centroid_sizes[:5].round(3)}")
+result = morphops.gpa(hadrian)
+aligned     = result['aligned']    # ציוני דרך מיושרים
+mean_shape  = result['mean']       # צורה ממוצעת
+
+print(f"צורה מיושרת: {aligned.shape}")
+print(f"טווח x לאחר GPA: {aligned[:,:,0].min():.3f} עד {aligned[:,:,0].max():.3f}")
 ```
 
 ```python
-# Cell 3: Plot aligned configurations
+# תא 3: ציור תצורות מיושרות
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
-# Before alignment
-ax1.set_title("Before GPA (raw coordinates)")
+# לפני יישור
+ax1.set_title(rtl("לפני GPA (קואורדינטות גולמיות)"))
 for coin in hadrian:
-    # Normalize for plotting only
     c = coin - coin.mean(axis=0)
     ax1.scatter(c[:, 0], c[:, 1], alpha=0.2, s=10, color='gray')
 
-# After alignment
-ax2.set_title("After GPA (Procrustes coordinates)")
+# לאחר יישור
+ax2.set_title(rtl("לאחר GPA (קואורדינטות פרוקרוסטס)"))
 for coin in aligned:
     ax2.scatter(coin[:, 0], coin[:, 1], alpha=0.2, s=10, color='steelblue')
 
-# Mean shape
-mean_shape = aligned.mean(axis=0)
+# צורה ממוצעת
 ax2.scatter(mean_shape[:, 0], mean_shape[:, 1],
-            s=100, color='red', zorder=5, label='Mean shape')
+            s=100, color='red', zorder=5, label=rtl('צורה ממוצעת'))
 ax2.legend()
 
 for ax in (ax1, ax2):
@@ -105,58 +132,63 @@ plt.show()
 
 ---
 
-## What Does Centroid Size Tell Us?
+## מה גודל-צנטרואיד מספר לנו?
 
-Centroid size is a by-product of GPA. It tells us about the *relative size* of each specimen. We can ask:
+גודל-צנטרואיד הוא תוצר לוואי של GPA. הוא מספר לנו על *הגודל היחסי* של כל פרט. ניתן לשאול:
 
-- Is size correlated with shape? (This is called **allometry**)
-- Were some coins produced from larger flans than others?
-- Did coin size change over time?
+- האם הגודל מתואם עם הצורה? (זה נקרא **אלומטריה**)
+- האם חלק מהמטבעות יוצרו מ-flan גדול יותר?
+- האם גודל המטבע השתנה עם הזמן?
 
 ```python
-# Cell 4: Size distribution
+# תא 4: חישוב גודל-צנטרואיד
+centroid_sizes = np.sqrt(np.sum(
+    (hadrian - hadrian.mean(axis=1, keepdims=True))**2,
+    axis=(1, 2)
+))
+
 plt.figure(figsize=(8, 4))
 plt.hist(centroid_sizes, bins=10, edgecolor='black', color='steelblue')
-plt.xlabel("Centroid Size")
-plt.ylabel("Count")
-plt.title("Distribution of Hadrian coin sizes")
+plt.xlabel(rtl("גודל-צנטרואיד"))
+plt.ylabel(rtl("מספר מטבעות"))
+plt.title(rtl("התפלגות גדלי מטבעות הדריאנוס"))
 plt.show()
 
-print(f"Mean centroid size: {centroid_sizes.mean():.4f}")
-print(f"Std dev: {centroid_sizes.std():.4f}")
-print(f"CV (coefficient of variation): {centroid_sizes.std()/centroid_sizes.mean()*100:.1f}%")
+print(f"ממוצע גודל-צנטרואיד: {centroid_sizes.mean():.4f}")
+print(f"סטיית תקן: {centroid_sizes.std():.4f}")
+print(f"CV: {centroid_sizes.std()/centroid_sizes.mean()*100:.1f}%")
 ```
 
-A low CV means coins were produced to a consistent size — strong standardization. A high CV suggests less quality control.
+CV נמוך פירושו שהמטבעות יוצרו בגודל עקבי — תקנון חזק. CV גבוה מצביע על פחות שליטת איכות.
 
 ---
 
-## A Visual Intuition for Shape Space
+## אינטואיציה ויזואלית למרחב הצורות
 
-After GPA, all configurations exist in a high-dimensional **shape space** (Kendall's shape space). Each specimen is a single point in this space.
+לאחר GPA, כל התצורות קיימות במרחב צורות רב-ממדי (מרחב הצורות של קנדל). כל פרט הוא נקודה יחידה במרחב זה.
 
-The dimensions of shape space = (number of landmarks × 2) − 4 for 2D data
-(We subtract 4 for the 2 translation, 1 scale, and 1 rotation degrees of freedom removed by GPA.)
+ממדי מרחב הצורות = (מספר ציוני הדרך × 2) − 4 לנתונים דו-ממדיים  
+(מחסירים 4 עבור 2 ממדי הזזה, 1 קנה מידה, ו-1 סיבוב שהוסרו על ידי GPA.)
 
-For our 8-landmark coin dataset: $(8 \times 2) - 4 = 12$ dimensions.
+עבור מאגר מטבעות ה-8 ציוני הדרך שלנו: $(8 \times 2) - 4 = 12$ ממדים.
 
-Twelve dimensions is too many to visualize directly. That is what PCA is for — next week.
-
----
-
-## Key Concepts Check
-
-Before Module 6, confirm you understand:
-
-1. What three sources of variation does GPA remove?
-2. Why is centroid size preferred over linear measurements as a size variable?
-3. After GPA, how many dimensions does shape space have for 8 landmarks in 2D?
-4. What is the consensus shape and how is it used?
+12 ממדים הם יותר מדי לויזואליזציה ישירה. לשם כך PCA — בשבוע הבא.
 
 ---
 
-## Looking Ahead
+## בדיקת מושגים מרכזיים
 
-Next week: PCA reduces the 12-dimensional shape space to 2–3 dimensions we can actually see — and connects the dimensions to visible shape features using deformation grids.
+לפני מודול 6, ודאו שאתם מבינים:
 
-[→ Module 6: PCA — Exploring the Shape Space](06-coins.qmd)
+1. אילו שלושה מקורות שונות מסיר GPA?
+2. מדוע גודל-צנטרואיד עדיף על מדידות ליניאריות כמשתנה גודל?
+3. לאחר GPA, כמה ממדים יש למרחב הצורות עבור 8 ציוני דרך בשניים ממדים?
+4. מהי צורת הקונסנסוס וכיצד היא משמשת?
+
+---
+
+## לשבוע הבא
+
+בשבוע הבא: PCA מצמצם את מרחב הצורות ה-12-ממדי ל-2–3 ממדים שנוכל לראות — ומחבר את הממדים לתכונות צורה גלויות באמצעות רשתות עיוות.
+
+[→ מודול 6: PCA — חקירת מרחב הצורות](06-coins.qmd)
