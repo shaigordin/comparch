@@ -113,7 +113,7 @@ EFA הופך את הטיפולוגיה ל**ניתנת לשכפול ולכימו�
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 10
-[→ מחברת Colab — שבוע 10](https://colab.research.google.com) *(הקישור יופעל בשבוע 10)*
+[→ מחברת Colab — שבוע 10](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-10.ipynb)
 
 מחברת זו **בנויה מראש** — הריצו תא אחר תא ללא כתיבת קוד חדש. התמקדו בפרשנות.
 :::

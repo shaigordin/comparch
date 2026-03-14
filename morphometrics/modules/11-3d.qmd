@@ -142,6 +142,11 @@ for orig, corr, rej in zip(p_values, p_corrected, reject):
 
 ## מעבדה: יישום סטטיסטיקה על מאגר הנתונים של הפרויקט הסופי
 
+::: {.callout-important}
+## פתחו את מחברת שבוע 11
+[→ מחברת Colab — שבוע 11](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-11.ipynb)
+:::
+
 מעבדת השבוע הזה פתוחה: השתמשו במחברת Colab של שבוע 11 כדי להריץ את חבילת הסטטיסטיקה המלאה על כל מאגר הנתונים שאתם משתמשים בו לפרויקט הסופי (או תצוגה מקדימה שלו).
 
 ---

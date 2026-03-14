@@ -49,7 +49,7 @@ $$CS = \sqrt{\sum_{i=1}^{k} d_i^2}$$
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 5
-[→ מחברת Colab — שבוע 5](https://colab.research.google.com) *(הקישור יופעל בשבוע 5)*
+[→ מחברת Colab — שבוע 5](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-05.ipynb)
 :::
 
 ```python

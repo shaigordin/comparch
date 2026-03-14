@@ -54,7 +54,7 @@ EFA מתייחס לקו מתאר כפונקציה מתמטית ומפרק אות
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 8
-[→ מחברת Colab — שבוע 8](https://colab.research.google.com) *(הקישור יופעל בשבוע 8)*
+[→ מחברת Colab — שבוע 8](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-08.ipynb)
 :::
 
 ### שלב 1: טעינת ועיבוד מקדם של תמונת גרזן אחת

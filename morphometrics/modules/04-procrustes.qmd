@@ -8,7 +8,7 @@ lang: he
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 4
-[→ מחברת Colab — שבוע 4](https://colab.research.google.com) *(הקישור יופעל בשבוע 4)*
+[→ מחברת Colab — שבוע 4](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-04.ipynb)
 
 לשימוש: לחצו על הקישור, התחברו עם חשבון Google, ולחצו **Copy to Drive**. עכשיו יש לכם עותק עריך משלכם.
 :::

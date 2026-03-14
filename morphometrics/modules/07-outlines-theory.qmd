@@ -39,7 +39,7 @@ lang: he
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 7
-[→ מחברת Colab — שבוע 7](https://colab.research.google.com) *(הקישור יופעל בשבוע 7)*
+[→ מחברת Colab — שבוע 7](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-07.ipynb)
 :::
 
 ### שלב 1: טעינת שני מאגרי הנתונים ואיחודם

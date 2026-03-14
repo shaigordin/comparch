@@ -54,7 +54,7 @@ G3 ו-G4 חופפים במידה ניכרת במרחב הצורות. שונות 
 
 ::: {.callout-important}
 ## פתחו את מחברת שבוע 9
-[→ מחברת Colab — שבוע 9](https://colab.research.google.com) *(הקישור יופעל בשבוע 9)*
+[→ מחברת Colab — שבוע 9](https://colab.research.google.com/github/shaigordin/comparch/blob/2026/morphometrics/notebooks/week-09.ipynb)
 :::
 
 מחברת זו מרחיבה את EFA משבוע 8 עם השוואת קבוצות, בדיקה סטטיסטית וויזואליזציה גיאוגרפית.

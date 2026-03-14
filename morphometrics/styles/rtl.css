@@ -98,3 +98,96 @@ th, td {
   padding-top: 1rem;
   border-top: 1px solid #dee2e6;
 }
+
+/* ── Reveal.js slide-specific RTL rules ─────────────────── */
+
+/* All slide content: RTL + right-aligned */
+.reveal .slides section,
+.reveal .slides section > * {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
+}
+
+/* Headings */
+.reveal .slides h1,
+.reveal .slides h2,
+.reveal .slides h3,
+.reveal .slides h4 {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Paragraphs and lists */
+.reveal .slides p,
+.reveal .slides li,
+.reveal .slides ul,
+.reveal .slides ol {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Bullet lists: hang on the right */
+.reveal .slides ul,
+.reveal .slides ol {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
+
+/* Tables inside slides */
+.reveal .slides table th,
+.reveal .slides table td {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Code blocks inside slides: always LTR */
+.reveal .slides pre,
+.reveal .slides code,
+.reveal .slides .sourceCode {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate;
+}
+
+/* Blockquotes in slides: LTR (citations) */
+.reveal .slides blockquote {
+  direction: ltr;
+  text-align: left;
+  border-left: 4px solid rgba(255,255,255,0.4);
+  border-right: none;
+  padding-left: 1rem;
+  padding-right: 0;
+  margin-left: 0;
+}
+
+/* Callout / alert boxes in slides */
+.reveal .slides .callout {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Fragment animations: preserve direction */
+.reveal .slides .fragment {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Incremental lists */
+.reveal .slides .incremental li {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Figure captions */
+.reveal .slides figcaption {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ltr-block inside slides (reference citations) */
+.reveal .slides .ltr-block {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: embed;
+}
