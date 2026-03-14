@@ -79,7 +79,8 @@ dir: rtl
 
 ::: {.ltr-block}
 - Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–265 [introduction only]
-- Broodbank, C. (2013). *The Making of the Middle Sea*, pp. 1–10 [context: why typology matters]
+- Renfrew, C. & Bahn, P. *Archaeology: Theories, Methods and Practice* (any edition), Chapter 4: "Typological Sequences" [~4 pp. — the subjectivity problem with traditional types]
+- Zelditch, M.L. et al. (2004). *Geometric Morphometrics for Biologists*, Chapter 1, pp. 1–7 [what GM offers that traditional measurement cannot; available via Google Books preview]
 :::
 
 **אין מעבדה השבוע.** הביאו חפץ לכיתה בשבוע הבא.
