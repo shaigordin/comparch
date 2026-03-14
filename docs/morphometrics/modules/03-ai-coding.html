@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 3: Seeing Shape — Digitizing Landmarks – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>מודול 3: רואים צורה — דיגיטציה של ציוני דרך – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -267,27 +267,27 @@ window.Quarto = {
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link active" data-scroll-target="#before-you-begin">Before You Begin</a></li>
-  <li><a href="#why-we-digitize" id="toc-why-we-digitize" class="nav-link" data-scroll-target="#why-we-digitize">Why We Digitize</a></li>
-  <li><a href="#image-preparation" id="toc-image-preparation" class="nav-link" data-scroll-target="#image-preparation">Image Preparation</a>
+  <li><a href="#לפני-שמתחילים" id="toc-לפני-שמתחילים" class="nav-link active" data-scroll-target="#לפני-שמתחילים">לפני שמתחילים</a></li>
+  <li><a href="#מדוע-אנחנו-מדגיטים" id="toc-מדוע-אנחנו-מדגיטים" class="nav-link" data-scroll-target="#מדוע-אנחנו-מדגיטים">מדוע אנחנו מדגיטים</a></li>
+  <li><a href="#הכנת-תמונה" id="toc-הכנת-תמונה" class="nav-link" data-scroll-target="#הכנת-תמונה">הכנת תמונה</a>
   <ul class="collapse">
-  <li><a href="#scale-bar" id="toc-scale-bar" class="nav-link" data-scroll-target="#scale-bar">Scale Bar</a></li>
-  <li><a href="#orientation-convention" id="toc-orientation-convention" class="nav-link" data-scroll-target="#orientation-convention">Orientation Convention</a></li>
-  <li><a href="#image-quality" id="toc-image-quality" class="nav-link" data-scroll-target="#image-quality">Image Quality</a></li>
+  <li><a href="#סרגל-קנה-מידה" id="toc-סרגל-קנה-מידה" class="nav-link" data-scroll-target="#סרגל-קנה-מידה">סרגל קנה מידה</a></li>
+  <li><a href="#מוסכמת-כיוון" id="toc-מוסכמת-כיוון" class="nav-link" data-scroll-target="#מוסכמת-כיוון">מוסכמת כיוון</a></li>
+  <li><a href="#איכות-תמונה" id="toc-איכות-תמונה" class="nav-link" data-scroll-target="#איכות-תמונה">איכות תמונה</a></li>
   </ul></li>
-  <li><a href="#landmark-protocol-hadrian-coins" id="toc-landmark-protocol-hadrian-coins" class="nav-link" data-scroll-target="#landmark-protocol-hadrian-coins">Landmark Protocol: Hadrian Coins</a></li>
-  <li><a href="#step-by-step-digitizing-in-fiji" id="toc-step-by-step-digitizing-in-fiji" class="nav-link" data-scroll-target="#step-by-step-digitizing-in-fiji">Step-by-Step: Digitizing in FIJI</a>
+  <li><a href="#פרוטוקול-ציוני-דרך-מטבעות-הדריאנוס" id="toc-פרוטוקול-ציוני-דרך-מטבעות-הדריאנוס" class="nav-link" data-scroll-target="#פרוטוקול-ציוני-דרך-מטבעות-הדריאנוס">פרוטוקול ציוני דרך: מטבעות הדריאנוס</a></li>
+  <li><a href="#שלב-אחר-שלב-דיגיטציה-ב-fiji" id="toc-שלב-אחר-שלב-דיגיטציה-ב-fiji" class="nav-link" data-scroll-target="#שלב-אחר-שלב-דיגיטציה-ב-fiji">שלב אחר שלב: דיגיטציה ב-FIJI</a>
   <ul class="collapse">
-  <li><a href="#step-1-open-the-image" id="toc-step-1-open-the-image" class="nav-link" data-scroll-target="#step-1-open-the-image">Step 1: Open the image</a></li>
-  <li><a href="#step-2-set-scale" id="toc-step-2-set-scale" class="nav-link" data-scroll-target="#step-2-set-scale">Step 2: Set scale</a></li>
-  <li><a href="#step-3-place-landmarks" id="toc-step-3-place-landmarks" class="nav-link" data-scroll-target="#step-3-place-landmarks">Step 3: Place landmarks</a></li>
-  <li><a href="#step-4-record-coordinates" id="toc-step-4-record-coordinates" class="nav-link" data-scroll-target="#step-4-record-coordinates">Step 4: Record coordinates</a></li>
-  <li><a href="#step-5-assemble-tps-file" id="toc-step-5-assemble-tps-file" class="nav-link" data-scroll-target="#step-5-assemble-tps-file">Step 5: Assemble TPS file</a></li>
+  <li><a href="#שלב-1-פתיחת-התמונה" id="toc-שלב-1-פתיחת-התמונה" class="nav-link" data-scroll-target="#שלב-1-פתיחת-התמונה">שלב 1: פתיחת התמונה</a></li>
+  <li><a href="#שלב-2-הגדרת-קנה-מידה" id="toc-שלב-2-הגדרת-קנה-מידה" class="nav-link" data-scroll-target="#שלב-2-הגדרת-קנה-מידה">שלב 2: הגדרת קנה מידה</a></li>
+  <li><a href="#שלב-3-הצבת-ציוני-דרך" id="toc-שלב-3-הצבת-ציוני-דרך" class="nav-link" data-scroll-target="#שלב-3-הצבת-ציוני-דרך">שלב 3: הצבת ציוני דרך</a></li>
+  <li><a href="#שלב-4-תיעוד-קואורדינטות" id="toc-שלב-4-תיעוד-קואורדינטות" class="nav-link" data-scroll-target="#שלב-4-תיעוד-קואורדינטות">שלב 4: תיעוד קואורדינטות</a></li>
+  <li><a href="#שלב-5-הרכבת-קובץ-tps" id="toc-שלב-5-הרכבת-קובץ-tps" class="nav-link" data-scroll-target="#שלב-5-הרכבת-קובץ-tps">שלב 5: הרכבת קובץ TPS</a></li>
   </ul></li>
-  <li><a href="#inter-observer-error" id="toc-inter-observer-error" class="nav-link" data-scroll-target="#inter-observer-error">Inter-Observer Error</a></li>
-  <li><a href="#converting-fiji-output-to-tps-format" id="toc-converting-fiji-output-to-tps-format" class="nav-link" data-scroll-target="#converting-fiji-output-to-tps-format">Converting FIJI Output to TPS Format</a></li>
-  <li><a href="#assignment-2-landmark-exercise" id="toc-assignment-2-landmark-exercise" class="nav-link" data-scroll-target="#assignment-2-landmark-exercise">Assignment 2: Landmark Exercise</a></li>
-  <li><a href="#after-this-week" id="toc-after-this-week" class="nav-link" data-scroll-target="#after-this-week">After This Week</a></li>
+  <li><a href="#שגיאת-בין-צופים" id="toc-שגיאת-בין-צופים" class="nav-link" data-scroll-target="#שגיאת-בין-צופים">שגיאת בין-צופים</a></li>
+  <li><a href="#המרת-פלט-fiji-לפורמט-tps" id="toc-המרת-פלט-fiji-לפורמט-tps" class="nav-link" data-scroll-target="#המרת-פלט-fiji-לפורמט-tps">המרת פלט FIJI לפורמט TPS</a></li>
+  <li><a href="#מטלה-2-תרגיל-ציוני-דרך" id="toc-מטלה-2-תרגיל-ציוני-דרך" class="nav-link" data-scroll-target="#מטלה-2-תרגיל-ציוני-דרך">מטלה 2: תרגיל ציוני דרך</a></li>
+  <li><a href="#לאחר-שבוע-זה" id="toc-לאחר-שבוע-זה" class="nav-link" data-scroll-target="#לאחר-שבוע-זה">לאחר שבוע זה</a></li>
   </ul>
 </nav>
     </div>
@@ -296,8 +296,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Module 3: Seeing Shape — Digitizing Landmarks</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
-<p class="subtitle lead">Week 3 — Foundations | One-time FIJI install required</p>
+<div class="quarto-title-block"><div><h1 class="title">מודול 3: רואים צורה — דיגיטציה של ציוני דרך</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
+<p class="subtitle lead">שבוע 3 — יסודות | נדרשת התקנת FIJI חד-פעמית</p>
 </div>
 
 
@@ -314,181 +314,180 @@ window.Quarto = {
 </header>
 
 
-<section id="before-you-begin" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-begin">Before You Begin</h2>
-<p>This is the <strong>one week</strong> in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.</p>
+<section id="לפני-שמתחילים" class="level2">
+<h2 class="anchored" data-anchor-id="לפני-שמתחילים">לפני שמתחילים</h2>
+<p>זהו <strong>השבוע היחיד</strong> בקורס שבו עליכם להתקין תוכנה. FIJI (ImageJ) היא חינמית, רב-פלטפורמית (Mac, Windows, Linux), והתקנתה אורכת כשתי דקות.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Install FIJI Now
+התקינו FIJI עכשיו
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Go to <a href="https://fiji.sc">fiji.sc</a></li>
-<li>Download for your operating system</li>
-<li>Unzip and open — no installer needed</li>
-<li>You only need this for today’s lab session</li>
+<li>גשו לאתר <a href="https://fiji.sc">fiji.sc</a></li>
+<li>הורידו לפי מערכת ההפעלה שלכם</li>
+<li>פתחו את הקובץ הדחוס והפעילו — אין צורך במתקין</li>
+<li>תזדקקו לכלי זה רק לסשן המעבדה של היום</li>
 </ol>
 </div>
 </div>
 <hr>
 </section>
-<section id="why-we-digitize" class="level2">
-<h2 class="anchored" data-anchor-id="why-we-digitize">Why We Digitize</h2>
-<p>Before we can analyze shapes statistically, we need to capture them as coordinates. The process of placing landmark points on images and recording their <span class="math inline">\((x, y)\)</span> positions is called <strong>digitizing</strong>.</p>
-<p>The quality of every downstream analysis depends entirely on the quality of digitizing. Sloppy landmark placement = unreliable results. This is why we spend a full week on it.</p>
+<section id="מדוע-אנחנו-מדגיטים" class="level2">
+<h2 class="anchored" data-anchor-id="מדוע-אנחנו-מדגיטים">מדוע אנחנו מדגיטים</h2>
+<p>לפני שנוכל לנתח צורות סטטיסטית, עלינו לצלם אותן כקואורדינטות. תהליך הצבת נקודות ציוני דרך על תמונות ותיעוד מיקומי <span class="math inline">\((x, y)\)</span> שלהן נקרא <strong>דיגיטציה</strong>.</p>
+<p>איכות כל ניתוח מורד תלויה לחלוטין באיכות הדיגיטציה. הצבת ציוני דרך רשלנית = תוצאות לא אמינות. לכן אנו מקדישים שבוע שלם לכך.</p>
 <hr>
 </section>
-<section id="image-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="image-preparation">Image Preparation</h2>
-<p>Good digitizing starts with good images. The requirements:</p>
-<section id="scale-bar" class="level3">
-<h3 class="anchored" data-anchor-id="scale-bar">Scale Bar</h3>
-<p>Every image must have a <strong>scale bar</strong> — a line of known length that lets you convert pixel distances to real-world measurements. Without a scale bar, you can compare shapes but not sizes.</p>
-<p>The coin images in our dataset have scale bars embedded. The axe images in our dataset are calibrated via the TPS file metadata.</p>
+<section id="הכנת-תמונה" class="level2">
+<h2 class="anchored" data-anchor-id="הכנת-תמונה">הכנת תמונה</h2>
+<p>דיגיטציה טובה מתחילה בתמונות טובות. הדרישות:</p>
+<section id="סרגל-קנה-מידה" class="level3">
+<h3 class="anchored" data-anchor-id="סרגל-קנה-מידה">סרגל קנה מידה</h3>
+<p>כל תמונה חייבת לכלול <strong>סרגל קנה מידה</strong> — קו באורך ידוע המאפשר להמיר מרחקי פיקסלים למדידות מהעולם האמיתי. ללא סרגל קנה מידה, ניתן להשוות צורות אך לא גדלים.</p>
+<p>תמונות המטבעות במאגר הנתונים שלנו כוללות סרגלי קנה מידה מוטבעים. תמונות הגרזנים מכוילות דרך מטה-דאטה של קובץ TPS.</p>
 </section>
-<section id="orientation-convention" class="level3">
-<h3 class="anchored" data-anchor-id="orientation-convention">Orientation Convention</h3>
-<p>All specimens must be oriented the same way before digitizing. For coins: portrait facing right, die axis vertical. For axes: blade pointing down, flat face toward the viewer.</p>
-<p>Inconsistent orientation is corrected by Procrustes alignment — but it’s still good practice to standardize before digitizing.</p>
+<section id="מוסכמת-כיוון" class="level3">
+<h3 class="anchored" data-anchor-id="מוסכמת-כיוון">מוסכמת כיוון</h3>
+<p>כל הפרטים חייבים להיות מכוונים באותו אופן לפני הדיגיטציה. למטבעות: דיוקן פונה ימינה, ציר הדייס אנכי. לגרזנים: להב פונה למטה, הפנים השטוחה מול הצופה.</p>
 </section>
-<section id="image-quality" class="level3">
-<h3 class="anchored" data-anchor-id="image-quality">Image Quality</h3>
+<section id="איכות-תמונה" class="level3">
+<h3 class="anchored" data-anchor-id="איכות-תמונה">איכות תמונה</h3>
 <ul>
-<li>Sufficient resolution to place landmarks accurately</li>
-<li>Consistent lighting (shadows create false edges)</li>
-<li>Clean background (no visual noise near the object outline)</li>
+<li>רזולוציה מספקת להצבת ציוני דרך בדיוק</li>
+<li>תאורה עקבית (צללים יוצרים קצוות מדומים)</li>
+<li>רקע נקי (אין רעש ויזואלי בסמוך לקו מתאר החפץ)</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="landmark-protocol-hadrian-coins" class="level2">
-<h2 class="anchored" data-anchor-id="landmark-protocol-hadrian-coins">Landmark Protocol: Hadrian Coins</h2>
-<p>For the Assignment 2 digitizing exercise, we use 8 landmarks on each coin:</p>
+<section id="פרוטוקול-ציוני-דרך-מטבעות-הדריאנוס" class="level2">
+<h2 class="anchored" data-anchor-id="פרוטוקול-ציוני-דרך-מטבעות-הדריאנוס">פרוטוקול ציוני דרך: מטבעות הדריאנוס</h2>
+<p>לתרגיל הדיגיטציה של מטלה 2, אנו משתמשים ב-8 ציוני דרך על כל מטבע:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>LM</th>
-<th>Location</th>
-<th>Type</th>
+<th>מס’</th>
+<th>מיקום</th>
+<th>סוג</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>1</td>
-<td>Tip of portrait nose</td>
-<td>Type II (extremum)</td>
+<td>קצה אף הדיוקן</td>
+<td>סוג II (אקסטרמום)</td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td>Back of skull (most posterior point)</td>
-<td>Type II (extremum)</td>
+<td>גב הגולגולת (נקודה אחורית ביותר)</td>
+<td>סוג II (אקסטרמום)</td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>Base of chin</td>
-<td>Type II (extremum)</td>
+<td>בסיס הסנטר</td>
+<td>סוג II (אקסטרמום)</td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>Top of forehead (most anterior point)</td>
-<td>Type II (extremum)</td>
+<td>חלק עליון של המצח (נקודה קדמית ביותר)</td>
+<td>סוג II (אקסטרמום)</td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>Edge of die at 12 o’clock</td>
-<td>Type III (constructed)</td>
+<td>קצה הדייס בשעה 12</td>
+<td>סוג III (מורכב)</td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td>Edge of die at 6 o’clock</td>
-<td>Type III (constructed)</td>
+<td>קצה הדייס בשעה 6</td>
+<td>סוג III (מורכב)</td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td>Edge of die at 3 o’clock</td>
-<td>Type III (constructed)</td>
+<td>קצה הדייס בשעה 3</td>
+<td>סוג III (מורכב)</td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td>Edge of die at 9 o’clock</td>
-<td>Type III (constructed)</td>
+<td>קצה הדייס בשעה 9</td>
+<td>סוג III (מורכב)</td>
 </tr>
 </tbody>
 </table>
-<p>Landmarks 5–8 are on the coin edge at cardinal positions. They capture the oval vs.&nbsp;circular geometry of the flan (the blank metal disc).</p>
+<p>ציוני דרך 5–8 נמצאים על קצה המטבע בנקודות הציר הקרדינליות. הם לוכדים את הגיאומטריה הסגלגלה לעומת העגולה של ה-flan (דיסקית המתכת הגולמית).</p>
 <hr>
 </section>
-<section id="step-by-step-digitizing-in-fiji" class="level2">
-<h2 class="anchored" data-anchor-id="step-by-step-digitizing-in-fiji">Step-by-Step: Digitizing in FIJI</h2>
-<section id="step-1-open-the-image" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-open-the-image">Step 1: Open the image</h3>
+<section id="שלב-אחר-שלב-דיגיטציה-ב-fiji" class="level2">
+<h2 class="anchored" data-anchor-id="שלב-אחר-שלב-דיגיטציה-ב-fiji">שלב אחר שלב: דיגיטציה ב-FIJI</h2>
+<section id="שלב-1-פתיחת-התמונה" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-1-פתיחת-התמונה">שלב 1: פתיחת התמונה</h3>
 <ul>
-<li>File → Open → select the coin image (e.g., <code>175D.jpg</code> from the Hadrian folder)</li>
+<li>File → Open → בחרו את תמונת המטבע (למשל <code>175D.jpg</code> מתיקיית הדריאנוס)</li>
 </ul>
 </section>
-<section id="step-2-set-scale" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-set-scale">Step 2: Set scale</h3>
+<section id="שלב-2-הגדרת-קנה-מידה" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-2-הגדרת-קנה-מידה">שלב 2: הגדרת קנה מידה</h3>
 <ul>
-<li>Draw a line over the scale bar using the Line tool</li>
+<li>סמנו קו מעל סרגל קנה המידה באמצעות כלי Line</li>
 <li>Analyze → Set Scale</li>
-<li>Enter the known length of the scale bar</li>
+<li>הזינו את האורך הידוע של סרגל קנה המידה</li>
 </ul>
 </section>
-<section id="step-3-place-landmarks" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-place-landmarks">Step 3: Place landmarks</h3>
+<section id="שלב-3-הצבת-ציוני-דרך" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-3-הצבת-ציוני-דרך">שלב 3: הצבת ציוני דרך</h3>
 <ul>
-<li>Select the <strong>Point tool</strong> (press <code>.</code> or <code>&gt;</code>)</li>
-<li>Click on landmark position 1 (nose tip)</li>
-<li>Hold Shift and click each subsequent landmark in order</li>
-<li>You should see a count of 8 points when done</li>
+<li>בחרו את <strong>כלי נקודה</strong> (לחצו <code>.</code> או <code>&gt;</code>)</li>
+<li>לחצו על מיקום ציון דרך 1 (קצה האף)</li>
+<li>החזיקו Shift ולחצו על כל ציון דרך בסדר</li>
+<li>אמורים לראות ספירה של 8 נקודות בסיום</li>
 </ul>
 </section>
-<section id="step-4-record-coordinates" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-record-coordinates">Step 4: Record coordinates</h3>
+<section id="שלב-4-תיעוד-קואורדינטות" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-4-תיעוד-קואורדינטות">שלב 4: תיעוד קואורדינטות</h3>
 <ul>
-<li>Analyze → Measure (Ctrl+M) — this records the x,y of the last point</li>
-<li><strong>Better:</strong> Use the <strong>ROI Manager</strong> to record all 8 points at once
+<li>Analyze → Measure (Ctrl+M) — מתעד את x,y של הנקודה האחרונה</li>
+<li><strong>עדיף:</strong> השתמשו ב<strong>ROI Manager</strong> לתיעוד כל 8 הנקודות בבת אחת
 <ul>
-<li>After placing all 8 points, Edit → Selection → Add to Manager</li>
-<li>In the ROI Manager: More → Multi Measure</li>
-<li>Copy the output table</li>
+<li>לאחר הצבת כל 8 הנקודות: Edit → Selection → Add to Manager</li>
+<li>ב-ROI Manager: More → Multi Measure</li>
+<li>העתיקו את טבלת הפלט</li>
 </ul></li>
 </ul>
 </section>
-<section id="step-5-assemble-tps-file" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-assemble-tps-file">Step 5: Assemble TPS file</h3>
-<p>After digitizing all specimens, use the provided Week 3 Colab notebook to convert your FIJI output to TPS format automatically.</p>
+<section id="שלב-5-הרכבת-קובץ-tps" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-5-הרכבת-קובץ-tps">שלב 5: הרכבת קובץ TPS</h3>
+<p>לאחר דיגיטציה של כל הפרטים, השתמשו במחברת Colab של שבוע 3 להמרה אוטומטית של פלט FIJI לפורמט TPS.</p>
 <hr>
 </section>
 </section>
-<section id="inter-observer-error" class="level2">
-<h2 class="anchored" data-anchor-id="inter-observer-error">Inter-Observer Error</h2>
-<p>One of the most important exercises in any GM study is quantifying <strong>inter-observer error</strong> — how much do two different digitizers disagree on landmark placement?</p>
-<p>In this lab: 1. Each student digitizes the same 5 coin images independently 2. We compare the results in the Week 3 Colab notebook 3. We calculate the mean Procrustes distance between observers for each landmark</p>
-<p>Large inter-observer error means: - The landmark protocol is ambiguous and needs to be refined - The landmark may not be meaningful (Type III landmarks are usually more reproducible than Type I/II)</p>
+<section id="שגיאת-בין-צופים" class="level2">
+<h2 class="anchored" data-anchor-id="שגיאת-בין-צופים">שגיאת בין-צופים</h2>
+<p>אחד התרגילים החשובים ביותר בכל מחקר GM הוא כימות <strong>שגיאת בין-צופים</strong> — כמה שני מדגיטים שונים חלוקים על הצבת ציוני הדרך?</p>
+<p>במעבדה זו: 1. כל סטודנט מדגיט באופן עצמאי את אותן 5 תמונות מטבעות 2. אנו משווים את התוצאות במחברת Colab של שבוע 3 3. אנו מחשבים את מרחק פרוקרוסטס הממוצע בין הצופים לכל ציון דרך</p>
+<p>שגיאת בין-צופים גדולה פירושה: - פרוטוקול ציון הדרך מעורפל וצריך לחדדו - ציון הדרך עשוי שלא להיות בעל משמעות</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Rule of Thumb
+כלל אצבע
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Inter-observer error should be much smaller than the biological/archaeological variation you are trying to detect. If your observers disagree more than specimens differ, the analysis is meaningless.</p>
+<p>שגיאת בין-צופים אמורה להיות קטנה בהרבה מהשונות הארכאולוגית שאנחנו מנסים לזהות. אם הצופים חלוקים ביניהם יותר ממה שהפרטים שונים זה מזה, הניתוח חסר משמעות.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="converting-fiji-output-to-tps-format" class="level2">
-<h2 class="anchored" data-anchor-id="converting-fiji-output-to-tps-format">Converting FIJI Output to TPS Format</h2>
-<p>A TPS file has a simple text format:</p>
+<section id="המרת-פלט-fiji-לפורמט-tps" class="level2">
+<h2 class="anchored" data-anchor-id="המרת-פלט-fiji-לפורמט-tps">המרת פלט FIJI לפורמט TPS</h2>
+<p>לקובץ TPS יש פורמט טקסט פשוט:</p>
 <pre><code>LM=8
 123.4 456.7
 234.5 567.8
@@ -496,36 +495,36 @@ Rule of Thumb
 IMAGE=175D.jpg
 ID=Hadrian_001</code></pre>
 <ul>
-<li><code>LM=8</code> — number of landmarks</li>
-<li>One line per landmark: <code>x y</code></li>
-<li><code>IMAGE=</code> — filename of the image</li>
-<li><code>ID=</code> — specimen identifier</li>
+<li><code>LM=8</code> — מספר ציוני הדרך</li>
+<li>שורה לכל ציון דרך: <code>x y</code></li>
+<li><code>IMAGE=</code> — שם קובץ התמונה</li>
+<li><code>ID=</code> — מזהה הפרט</li>
 </ul>
-<p>The Week 3 Colab notebook contains a Python function to do this conversion automatically from a FIJI measurements table. You just paste your data and run one cell.</p>
+<p>מחברת Colab של שבוע 3 מכילה פונקציית Python לביצוע המרה זו אוטומטית מטבלת מדידות FIJI.</p>
 <hr>
 </section>
-<section id="assignment-2-landmark-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-2-landmark-exercise">Assignment 2: Landmark Exercise</h2>
+<section id="מטלה-2-תרגיל-ציוני-דרך" class="level2">
+<h2 class="anchored" data-anchor-id="מטלה-2-תרגיל-ציוני-דרך">מטלה 2: תרגיל ציוני דרך</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Due: Week 4
+מועד הגשה: שבוע 4
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Digitize all 20 Hadrian coin images. Assess inter-observer consistency with a partner.</p>
-<p>See <a href="../assignments/02-landmarks.html">Assignment 2</a> for full instructions.</p>
+<p>דגיטו את כל 20 תמונות מטבעות הדריאנוס. העריכו עקביות בין-צופים עם שותף.</p>
+<p>ראו <a href="../assignments/02-landmarks.html">מטלה 2</a> להוראות מלאות.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="after-this-week" class="level2">
-<h2 class="anchored" data-anchor-id="after-this-week">After This Week</h2>
-<p>You now understand how shape data is collected. Starting next week, we shift entirely to <strong>Google Colab</strong> for all analysis. No more FIJI unless you choose to use it for your final project.</p>
-<p><a href="../modules/04-procrustes.html">→ Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis</a></p>
+<section id="לאחר-שבוע-זה" class="level2">
+<h2 class="anchored" data-anchor-id="לאחר-שבוע-זה">לאחר שבוע זה</h2>
+<p>כעת הבנתם כיצד נאספים נתוני צורה. החל מהשבוע הבא, אנו עוברים לחלוטין ל<strong>Google Colab</strong> לכל הניתוחים.</p>
+<p><a href="../modules/04-procrustes.html">→ מודול 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI</a></p>
 
 
 <!-- -->
@@ -991,158 +990,157 @@ Due: Week 4
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">קוד מקור</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Module 3: Seeing Shape — Digitizing Landmarks"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Week 3 — Foundations | One-time FIJI install required"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before You Begin</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>This is the **one week** in the course where you need to install software. FIJI (ImageJ) is free, cross-platform (Mac, Windows, Linux), and takes about 2 minutes to set up.</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Install FIJI Now</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to <span class="co">[</span><span class="ot">fiji.sc</span><span class="co">](https://fiji.sc)</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Download for your operating system</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Unzip and open — no installer needed</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>You only need this for today's lab session</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why We Digitize</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>Before we can analyze shapes statistically, we need to capture them as coordinates. The process of placing landmark points on images and recording their $(x, y)$ positions is called **digitizing**.</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>The quality of every downstream analysis depends entirely on the quality of digitizing. Sloppy landmark placement = unreliable results. This is why we spend a full week on it.</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Image Preparation</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>Good digitizing starts with good images. The requirements:</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Scale Bar</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>Every image must have a **scale bar** — a line of known length that lets you convert pixel distances to real-world measurements. Without a scale bar, you can compare shapes but not sizes.</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>The coin images in our dataset have scale bars embedded. The axe images in our dataset are calibrated via the TPS file metadata.</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Orientation Convention</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>All specimens must be oriented the same way before digitizing. For coins: portrait facing right, die axis vertical. For axes: blade pointing down, flat face toward the viewer.</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>Inconsistent orientation is corrected by Procrustes alignment — but it's still good practice to standardize before digitizing.</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Image Quality</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sufficient resolution to place landmarks accurately</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consistent lighting (shadows create false edges)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Clean background (no visual noise near the object outline)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Landmark Protocol: Hadrian Coins</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>For the Assignment 2 digitizing exercise, we use 8 landmarks on each coin:</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> LM <span class="pp">|</span> Location <span class="pp">|</span> Type <span class="pp">|</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|---------|------|</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> Tip of portrait nose <span class="pp">|</span> Type II (extremum) <span class="pp">|</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> Back of skull (most posterior point) <span class="pp">|</span> Type II (extremum) <span class="pp">|</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> Base of chin <span class="pp">|</span> Type II (extremum) <span class="pp">|</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> Top of forehead (most anterior point) <span class="pp">|</span> Type II (extremum) <span class="pp">|</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> Edge of die at 12 o'clock <span class="pp">|</span> Type III (constructed) <span class="pp">|</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6 <span class="pp">|</span> Edge of die at 6 o'clock <span class="pp">|</span> Type III (constructed) <span class="pp">|</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 7 <span class="pp">|</span> Edge of die at 3 o'clock <span class="pp">|</span> Type III (constructed) <span class="pp">|</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 8 <span class="pp">|</span> Edge of die at 9 o'clock <span class="pp">|</span> Type III (constructed) <span class="pp">|</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>Landmarks 5–8 are on the coin edge at cardinal positions. They capture the oval vs. circular geometry of the flan (the blank metal disc).</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step-by-Step: Digitizing in FIJI</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Open the image</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>File → Open → select the coin image (e.g., <span class="in">`175D.jpg`</span> from the Hadrian folder)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Set scale</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Draw a line over the scale bar using the Line tool</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze → Set Scale</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enter the known length of the scale bar</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Place landmarks</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Select the **Point tool** (press <span class="in">`.`</span> or <span class="in">`&gt;`</span>)</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Click on landmark position 1 (nose tip)</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hold Shift and click each subsequent landmark in order</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You should see a count of 8 points when done</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Record coordinates</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze → Measure (Ctrl+M) — this records the x,y of the last point</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Better:** Use the **ROI Manager** to record all 8 points at once</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>After placing all 8 points, Edit → Selection → Add to Manager</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>In the ROI Manager: More → Multi Measure</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Copy the output table</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5: Assemble TPS file</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>After digitizing all specimens, use the provided Week 3 Colab notebook to convert your FIJI output to TPS format automatically.</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inter-Observer Error</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>One of the most important exercises in any GM study is quantifying **inter-observer error** — how much do two different digitizers disagree on landmark placement?</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>In this lab:</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Each student digitizes the same 5 coin images independently</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>We compare the results in the Week 3 Colab notebook</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>We calculate the mean Procrustes distance between observers for each landmark</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>Large inter-observer error means:</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The landmark protocol is ambiguous and needs to be refined</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The landmark may not be meaningful (Type III landmarks are usually more reproducible than Type I/II)</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule of Thumb</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>Inter-observer error should be much smaller than the biological/archaeological variation you are trying to detect. If your observers disagree more than specimens differ, the analysis is meaningless.</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## Converting FIJI Output to TPS Format</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>A TPS file has a simple text format:</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="in">LM=8</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="in">123.4 456.7</span></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="in">234.5 567.8</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="in">...</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="in">IMAGE=175D.jpg</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="in">ID=Hadrian_001</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`LM=8`</span> — number of landmarks</span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One line per landmark: <span class="in">`x y`</span></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`IMAGE=`</span> — filename of the image</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ID=`</span> — specimen identifier</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>The Week 3 Colab notebook contains a Python function to do this conversion automatically from a FIJI measurements table. You just paste your data and run one cell.</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 2: Landmark Exercise</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Due: Week 4</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>Digitize all 20 Hadrian coin images. Assess inter-observer consistency with a partner.</span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Assignment 2</span><span class="co">](../assignments/02-landmarks.qmd)</span> for full instructions.</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## After This Week</span></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>You now understand how shape data is collected. Starting next week, we shift entirely to **Google Colab** for all analysis. No more FIJI unless you choose to use it for your final project.</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 4: Your AI Lab Partner — Google Colab and AI-Assisted Analysis</span><span class="co">](04-procrustes.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "מודול 3: רואים צורה — דיגיטציה של ציוני דרך"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "שבוע 3 — יסודות | נדרשת התקנת FIJI חד-פעמית"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> he</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## לפני שמתחילים</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>זהו **השבוע היחיד** בקורס שבו עליכם להתקין תוכנה. FIJI (ImageJ) היא חינמית, רב-פלטפורמית (Mac, Windows, Linux), והתקנתה אורכת כשתי דקות.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## התקינו FIJI עכשיו</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>גשו לאתר <span class="co">[</span><span class="ot">fiji.sc</span><span class="co">](https://fiji.sc)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>הורידו לפי מערכת ההפעלה שלכם</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>פתחו את הקובץ הדחוס והפעילו — אין צורך במתקין</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>תזדקקו לכלי זה רק לסשן המעבדה של היום</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## מדוע אנחנו מדגיטים</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>לפני שנוכל לנתח צורות סטטיסטית, עלינו לצלם אותן כקואורדינטות. תהליך הצבת נקודות ציוני דרך על תמונות ותיעוד מיקומי $(x, y)$ שלהן נקרא **דיגיטציה**.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>איכות כל ניתוח מורד תלויה לחלוטין באיכות הדיגיטציה. הצבת ציוני דרך רשלנית = תוצאות לא אמינות. לכן אנו מקדישים שבוע שלם לכך.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## הכנת תמונה</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>דיגיטציה טובה מתחילה בתמונות טובות. הדרישות:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### סרגל קנה מידה</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>כל תמונה חייבת לכלול **סרגל קנה מידה** — קו באורך ידוע המאפשר להמיר מרחקי פיקסלים למדידות מהעולם האמיתי. ללא סרגל קנה מידה, ניתן להשוות צורות אך לא גדלים.</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>תמונות המטבעות במאגר הנתונים שלנו כוללות סרגלי קנה מידה מוטבעים. תמונות הגרזנים מכוילות דרך מטה-דאטה של קובץ TPS.</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### מוסכמת כיוון</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>כל הפרטים חייבים להיות מכוונים באותו אופן לפני הדיגיטציה. למטבעות: דיוקן פונה ימינה, ציר הדייס אנכי. לגרזנים: להב פונה למטה, הפנים השטוחה מול הצופה.</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### איכות תמונה</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רזולוציה מספקת להצבת ציוני דרך בדיוק</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>תאורה עקבית (צללים יוצרים קצוות מדומים)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רקע נקי (אין רעש ויזואלי בסמוך לקו מתאר החפץ)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## פרוטוקול ציוני דרך: מטבעות הדריאנוס</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>לתרגיל הדיגיטציה של מטלה 2, אנו משתמשים ב-8 ציוני דרך על כל מטבע:</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> מס' <span class="pp">|</span> מיקום <span class="pp">|</span> סוג <span class="pp">|</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----|--------|-----|</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> קצה אף הדיוקן <span class="pp">|</span> סוג II (אקסטרמום) <span class="pp">|</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> גב הגולגולת (נקודה אחורית ביותר) <span class="pp">|</span> סוג II (אקסטרמום) <span class="pp">|</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> בסיס הסנטר <span class="pp">|</span> סוג II (אקסטרמום) <span class="pp">|</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> חלק עליון של המצח (נקודה קדמית ביותר) <span class="pp">|</span> סוג II (אקסטרמום) <span class="pp">|</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> קצה הדייס בשעה 12 <span class="pp">|</span> סוג III (מורכב) <span class="pp">|</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 6 <span class="pp">|</span> קצה הדייס בשעה 6 <span class="pp">|</span> סוג III (מורכב) <span class="pp">|</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 7 <span class="pp">|</span> קצה הדייס בשעה 3 <span class="pp">|</span> סוג III (מורכב) <span class="pp">|</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 8 <span class="pp">|</span> קצה הדייס בשעה 9 <span class="pp">|</span> סוג III (מורכב) <span class="pp">|</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>ציוני דרך 5–8 נמצאים על קצה המטבע בנקודות הציר הקרדינליות. הם לוכדים את הגיאומטריה הסגלגלה לעומת העגולה של ה-flan (דיסקית המתכת הגולמית).</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## שלב אחר שלב: דיגיטציה ב-FIJI</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 1: פתיחת התמונה</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>File → Open → בחרו את תמונת המטבע (למשל <span class="in">`175D.jpg`</span> מתיקיית הדריאנוס)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 2: הגדרת קנה מידה</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סמנו קו מעל סרגל קנה המידה באמצעות כלי Line</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze → Set Scale</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הזינו את האורך הידוע של סרגל קנה המידה</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 3: הצבת ציוני דרך</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בחרו את **כלי נקודה** (לחצו <span class="in">`.`</span> או <span class="in">`&gt;`</span>)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>לחצו על מיקום ציון דרך 1 (קצה האף)</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>החזיקו Shift ולחצו על כל ציון דרך בסדר</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אמורים לראות ספירה של 8 נקודות בסיום</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 4: תיעוד קואורדינטות</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Analyze → Measure (Ctrl+M) — מתעד את x,y של הנקודה האחרונה</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**עדיף:** השתמשו ב**ROI Manager** לתיעוד כל 8 הנקודות בבת אחת</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>לאחר הצבת כל 8 הנקודות: Edit → Selection → Add to Manager</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>ב-ROI Manager: More → Multi Measure</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>העתיקו את טבלת הפלט</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 5: הרכבת קובץ TPS</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>לאחר דיגיטציה של כל הפרטים, השתמשו במחברת Colab של שבוע 3 להמרה אוטומטית של פלט FIJI לפורמט TPS.</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## שגיאת בין-צופים</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>אחד התרגילים החשובים ביותר בכל מחקר GM הוא כימות **שגיאת בין-צופים** — כמה שני מדגיטים שונים חלוקים על הצבת ציוני הדרך?</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>במעבדה זו:</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>כל סטודנט מדגיט באופן עצמאי את אותן 5 תמונות מטבעות</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>אנו משווים את התוצאות במחברת Colab של שבוע 3</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>אנו מחשבים את מרחק פרוקרוסטס הממוצע בין הצופים לכל ציון דרך</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>שגיאת בין-צופים גדולה פירושה:</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>פרוטוקול ציון הדרך מעורפל וצריך לחדדו</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ציון הדרך עשוי שלא להיות בעל משמעות</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## כלל אצבע</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>שגיאת בין-צופים אמורה להיות קטנה בהרבה מהשונות הארכאולוגית שאנחנו מנסים לזהות. אם הצופים חלוקים ביניהם יותר ממה שהפרטים שונים זה מזה, הניתוח חסר משמעות.</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## המרת פלט FIJI לפורמט TPS</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>לקובץ TPS יש פורמט טקסט פשוט:</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="in">LM=8</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="in">123.4 456.7</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="in">234.5 567.8</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="in">...</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="in">IMAGE=175D.jpg</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="in">ID=Hadrian_001</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`LM=8`</span> — מספר ציוני הדרך</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שורה לכל ציון דרך: <span class="in">`x y`</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`IMAGE=`</span> — שם קובץ התמונה</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ID=`</span> — מזהה הפרט</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>מחברת Colab של שבוע 3 מכילה פונקציית Python לביצוע המרה זו אוטומטית מטבלת מדידות FIJI.</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## מטלה 2: תרגיל ציוני דרך</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## מועד הגשה: שבוע 4</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>דגיטו את כל 20 תמונות מטבעות הדריאנוס. העריכו עקביות בין-צופים עם שותף.</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>ראו <span class="co">[</span><span class="ot">מטלה 2</span><span class="co">](../assignments/02-landmarks.qmd)</span> להוראות מלאות.</span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## לאחר שבוע זה</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>כעת הבנתם כיצד נאספים נתוני צורה. החל מהשבוע הבא, אנו עוברים לחלוטין ל**Google Colab** לכל הניתוחים.</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מודול 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI</span><span class="co">](04-procrustes.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <div class="author-credit">

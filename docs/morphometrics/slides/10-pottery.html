@@ -286,28 +286,31 @@ DOI: 10.5334/joad.159 | Zenodo: 10.5281/zenodo.15781166</p>
 <section id="חישוב-efa-וpca" class="slide level2">
 <h2>חישוב EFA וPCA</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> pyefd</span>
-<span id="cb2-2"><a></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb2-3"><a></a><span class="im">from</span> skimage <span class="im">import</span> measure</span>
-<span id="cb2-4"><a></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># EFA על כל הכדים</span></span>
-<span id="cb2-7"><a></a>records <span class="op">=</span> []</span>
-<span id="cb2-8"><a></a><span class="cf">for</span> _, row <span class="kw">in</span> samples.iterrows():</span>
-<span id="cb2-9"><a></a>    path <span class="op">=</span> <span class="ss">f"Ogame_GMM/Ogame_Profiles_All/</span><span class="sc">{</span>row[<span class="st">'Sample ID'</span>]<span class="sc">}</span><span class="ss">.png"</span></span>
-<span id="cb2-10"><a></a>    outline <span class="op">=</span> extract_outline(path)</span>
-<span id="cb2-11"><a></a>    <span class="cf">if</span> outline <span class="kw">is</span> <span class="va">None</span>: <span class="cf">continue</span></span>
-<span id="cb2-12"><a></a>    y, x <span class="op">=</span> outline[:, <span class="dv">0</span>], outline[:, <span class="dv">1</span>]</span>
-<span id="cb2-13"><a></a>    coeffs <span class="op">=</span> pyefd.elliptic_fourier_descriptors(</span>
-<span id="cb2-14"><a></a>        np.column_stack([x, y]), order<span class="op">=</span><span class="dv">20</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-15"><a></a>    records.append({<span class="st">"id"</span>: row[<span class="st">"Sample ID"</span>],</span>
-<span id="cb2-16"><a></a>                    <span class="st">"context"</span>: row[<span class="st">"context"</span>],</span>
-<span id="cb2-17"><a></a>                    <span class="op">**</span>{<span class="ss">f"c</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>: v <span class="cf">for</span> i,v <span class="kw">in</span> <span class="bu">enumerate</span>(coeffs.ravel())}})</span>
-<span id="cb2-18"><a></a></span>
-<span id="cb2-19"><a></a>df <span class="op">=</span> pd.DataFrame(records)</span>
-<span id="cb2-20"><a></a>X <span class="op">=</span> df[[c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">"c"</span>)]].values</span>
-<span id="cb2-21"><a></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb2-22"><a></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb2-23"><a></a>var <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb2-4"><a></a><span class="im">from</span> skimage <span class="im">import</span> measure</span>
+<span id="cb2-5"><a></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb2-6"><a></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb2-7"><a></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a><span class="co"># EFA על כל הכדים</span></span>
+<span id="cb2-10"><a></a>records <span class="op">=</span> []</span>
+<span id="cb2-11"><a></a><span class="cf">for</span> _, row <span class="kw">in</span> samples.iterrows():</span>
+<span id="cb2-12"><a></a>    path <span class="op">=</span> <span class="ss">f"Ogame_GMM/Ogame_Profiles_All/</span><span class="sc">{</span>row[<span class="st">'Sample ID'</span>]<span class="sc">}</span><span class="ss">.png"</span></span>
+<span id="cb2-13"><a></a>    outline <span class="op">=</span> extract_outline(path)</span>
+<span id="cb2-14"><a></a>    <span class="cf">if</span> outline <span class="kw">is</span> <span class="va">None</span>: <span class="cf">continue</span></span>
+<span id="cb2-15"><a></a>    y, x <span class="op">=</span> outline[:, <span class="dv">0</span>], outline[:, <span class="dv">1</span>]</span>
+<span id="cb2-16"><a></a>    coeffs <span class="op">=</span> pyefd.elliptic_fourier_descriptors(</span>
+<span id="cb2-17"><a></a>        np.column_stack([x, y]), order<span class="op">=</span><span class="dv">20</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a></a>    records.append({<span class="st">"id"</span>: row[<span class="st">"Sample ID"</span>],</span>
+<span id="cb2-19"><a></a>                    <span class="st">"context"</span>: row[<span class="st">"context"</span>],</span>
+<span id="cb2-20"><a></a>                    <span class="op">**</span>{<span class="ss">f"e</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>: v <span class="cf">for</span> i,v <span class="kw">in</span> <span class="bu">enumerate</span>(coeffs.ravel())}})</span>
+<span id="cb2-21"><a></a></span>
+<span id="cb2-22"><a></a>df <span class="op">=</span> pd.DataFrame(records)</span>
+<span id="cb2-23"><a></a>X <span class="op">=</span> df[[c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.startswith(<span class="st">"e"</span>)]].values</span>
+<span id="cb2-24"><a></a>pca <span class="op">=</span> PCA()</span>
+<span id="cb2-25"><a></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb2-26"><a></a>var <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ממצאים-כבשן-לעומת-קבורה" class="slide level2">
 <h2>ממצאים — כבשן לעומת קבורה</h2>
@@ -317,15 +320,29 @@ DOI: 10.5334/joad.159 | Zenodo: 10.5281/zenodo.15781166</p>
 <span id="cb3-4"><a></a><span class="cf">for</span> ctx, c <span class="kw">in</span> colors.items():</span>
 <span id="cb3-5"><a></a>    mask <span class="op">=</span> df[<span class="st">"context"</span>] <span class="op">==</span> ctx</span>
 <span id="cb3-6"><a></a>    ax.scatter(scores[mask, <span class="dv">0</span>], scores[mask, <span class="dv">1</span>],</span>
-<span id="cb3-7"><a></a>               c<span class="op">=</span>c, label<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>ctx<span class="sc">}</span><span class="ss"> (n=</span><span class="sc">{</span>mask<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)"</span>,</span>
+<span id="cb3-7"><a></a>               c<span class="op">=</span>c, label<span class="op">=</span>rtl(<span class="ss">f"</span><span class="sc">{</span>ctx<span class="sc">}</span><span class="ss"> (n=</span><span class="sc">{</span>mask<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)"</span>),</span>
 <span id="cb3-8"><a></a>               s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.75</span>, edgecolors<span class="op">=</span><span class="st">'white'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb3-9"><a></a></span>
 <span id="cb3-10"><a></a>ax.set_xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
 <span id="cb3-11"><a></a>ax.set_ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb3-12"><a></a>ax.set_title(<span class="st">"מרחב הצורות — כדי Ogame: כבשן לעומת קבורה"</span>)</span>
+<span id="cb3-12"><a></a>ax.set_title(rtl(<span class="st">"מרחב הצורות — כדי Ogame: כבשן לעומת קבורה"</span>))</span>
 <span id="cb3-13"><a></a>ax.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb3-14"><a></a>plt.tight_layout()</span>
 <span id="cb3-15"><a></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ממצאים-תוצאות-אמיתיות" class="slide level2">
+<h2>ממצאים — תוצאות אמיתיות</h2>
+
+<img data-src="../images/slides/10-pottery-context.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">מרחב הצורות — כדי Ogame: כבשן לעומת קבורה (n=243)</p><div class="fragment">
+<p>PC1 מסביר 95.9% מהשונות — הפרדה ברורה בין הקשרים.</p>
+</div>
+</section>
+<section id="השוואה-בין-כבשנים" class="slide level2">
+<h2>השוואה בין כבשנים</h2>
+
+<img data-src="../images/slides/10-pottery-kilns.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">כבשן FR (89) לעומת כבשן KM (48)</p><div class="fragment">
+<p>גם בין שני כבשנים שונים — שונות מינימלית בצורה.</p>
+</div>
 </section>
 <section id="שאלות-לפרשנות" class="slide level2">
 <h2>שאלות לפרשנות</h2>

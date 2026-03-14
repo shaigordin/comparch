@@ -244,19 +244,21 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># aligned.shape = (20, 8, 2) → שטחו ל-(20, 16)</span></span>
-<span id="cb1-6"><a></a>X <span class="op">=</span> aligned.reshape(<span class="bu">len</span>(aligned), <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="co"># PCA</span></span>
-<span id="cb1-9"><a></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb1-10"><a></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb1-11"><a></a></span>
-<span id="cb1-12"><a></a><span class="co"># אחוזי שונות</span></span>
-<span id="cb1-13"><a></a>var_explained <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb1-14"><a></a><span class="bu">print</span>(<span class="ss">f"PC1: </span><span class="sc">{</span>var_explained[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb1-15"><a></a><span class="bu">print</span>(<span class="ss">f"PC2: </span><span class="sc">{</span>var_explained[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb1-16"><a></a><span class="bu">print</span>(<span class="ss">f"יחד: </span><span class="sc">{</span>var_explained[:<span class="dv">2</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-5"><a></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># aligned.shape = (20, 8, 2) → שטחו ל-(20, 16)</span></span>
+<span id="cb1-8"><a></a>X <span class="op">=</span> aligned.reshape(<span class="bu">len</span>(aligned), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># PCA</span></span>
+<span id="cb1-11"><a></a>pca <span class="op">=</span> PCA()</span>
+<span id="cb1-12"><a></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb1-13"><a></a></span>
+<span id="cb1-14"><a></a><span class="co"># אחוזי שונות</span></span>
+<span id="cb1-15"><a></a>var_explained <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-16"><a></a><span class="bu">print</span>(<span class="ss">f"PC1: </span><span class="sc">{</span>var_explained[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
+<span id="cb1-17"><a></a><span class="bu">print</span>(<span class="ss">f"PC2: </span><span class="sc">{</span>var_explained[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
+<span id="cb1-18"><a></a><span class="bu">print</span>(<span class="ss">f"יחד: </span><span class="sc">{</span>var_explained[:<span class="dv">2</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="גרף-פיזור-scatter-plot-מרחב-הצורות" class="slide level2">
 <h2>גרף פיזור (Scatter Plot) — מרחב הצורות</h2>
@@ -271,25 +273,38 @@
 <span id="cb2-9"><a></a>                     c<span class="op">=</span>colors, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, </span>
 <span id="cb2-10"><a></a>                     edgecolors<span class="op">=</span><span class="st">'white'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb2-11"><a></a></span>
-<span id="cb2-12"><a></a>ax.set_xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_explained[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)"</span>)</span>
-<span id="cb2-13"><a></a>ax.set_ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_explained[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)"</span>)</span>
-<span id="cb2-14"><a></a>ax.set_title(<span class="st">"מרחב הצורות — מטבעות רומיים"</span>)</span>
+<span id="cb2-12"><a></a>ax.set_xlabel(rtl(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_explained[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)"</span>))</span>
+<span id="cb2-13"><a></a>ax.set_ylabel(rtl(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_explained[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)"</span>))</span>
+<span id="cb2-14"><a></a>ax.set_title(rtl(<span class="st">"מרחב הצורות — מטבעות רומיים"</span>))</span>
 <span id="cb2-15"><a></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, lw<span class="op">=</span><span class="fl">0.5</span>, ls<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb2-16"><a></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, lw<span class="op">=</span><span class="fl">0.5</span>, ls<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb2-17"><a></a></span>
 <span id="cb2-18"><a></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
-<span id="cb2-19"><a></a>legend <span class="op">=</span> [Patch(fc<span class="op">=</span><span class="st">'#e07b39'</span>, label<span class="op">=</span><span class="st">'הדריאנוס'</span>),</span>
-<span id="cb2-20"><a></a>          Patch(fc<span class="op">=</span><span class="st">'#4a90c4'</span>, label<span class="op">=</span><span class="st">'אנטונינוס פיוס'</span>)]</span>
+<span id="cb2-19"><a></a>legend <span class="op">=</span> [Patch(fc<span class="op">=</span><span class="st">'#e07b39'</span>, label<span class="op">=</span>rtl(<span class="st">'הדריאנוס'</span>)),</span>
+<span id="cb2-20"><a></a>          Patch(fc<span class="op">=</span><span class="st">'#4a90c4'</span>, label<span class="op">=</span>rtl(<span class="st">'אנטונינוס פיוס'</span>))]</span>
 <span id="cb2-21"><a></a>ax.legend(handles<span class="op">=</span>legend)</span>
 <span id="cb2-22"><a></a>plt.tight_layout()</span>
 <span id="cb2-23"><a></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="מרחב-הצורות-תוצאות-אמיתיות" class="slide level2">
+<h2>מרחב הצורות — תוצאות אמיתיות</h2>
+
+<img data-src="../images/slides/06-pca-coins.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">PCA מטבעות רומיים — הדריאנוס ואנטונינוס פיוס</p><div class="fragment">
+<p>שתי הקבוצות נפרדות בבירור לאורך PC1 — ההבדל בצורת הדיוקן.</p>
+</div>
+</section>
+<section id="גרף-שדרה-scree-plot" class="slide level2">
+<h2>גרף שדרה (Scree Plot)</h2>
+
+<img data-src="../images/slides/06-scree.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p class="caption">אחוזי שונות לפי רכיב עיקרי</p><div class="fragment">
+<p>PC1 לבדו מסביר את רוב השונות — המחלוקת בין הקיסרים ברורה.</p>
+</div>
 </section>
 <section id="קריאת-גרף-מרחב-הצורות" class="slide level2">
 <h2>קריאת גרף מרחב הצורות</h2>
 <ul>
 <li class="fragment"><strong>נקודות קרובות</strong> = צורות דומות</li>
-<li class="fragment"><strong>נקודות רחוקות</strong> = צורות שונות<br>
-</li>
+<li class="fragment"><strong>נקודות רחוקות</strong> = צורות שונות</li>
 <li class="fragment"><strong>כיוון PC1</strong> = ציר השונות הגדול ביותר</li>
 <li class="fragment"><strong>ריכוז קבוצה</strong> = אחידות יצור / בחירה</li>
 </ul>

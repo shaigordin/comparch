@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 7: Case Study I — Roman Coins and Imperial Standardization – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,27 +238,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#archaeological-background" id="toc-archaeological-background" class="nav-link active" data-scroll-target="#archaeological-background">Archaeological Background</a>
+  <li><a href="#רקע-ארכאולוגי" id="toc-רקע-ארכאולוגי" class="nav-link active" data-scroll-target="#רקע-ארכאולוגי">רקע ארכאולוגי</a>
   <ul class="collapse">
-  <li><a href="#roman-coinage-mass-production-and-imperial-identity" id="toc-roman-coinage-mass-production-and-imperial-identity" class="nav-link" data-scroll-target="#roman-coinage-mass-production-and-imperial-identity">Roman Coinage: Mass Production and Imperial Identity</a></li>
-  <li><a href="#our-two-emperors" id="toc-our-two-emperors" class="nav-link" data-scroll-target="#our-two-emperors">Our Two Emperors</a></li>
-  <li><a href="#the-research-question" id="toc-the-research-question" class="nav-link" data-scroll-target="#the-research-question">The Research Question</a></li>
+  <li><a href="#מטבעות-רומיות-ייצור-המוני-וזהות-אימפריאלית" id="toc-מטבעות-רומיות-ייצור-המוני-וזהות-אימפריאלית" class="nav-link" data-scroll-target="#מטבעות-רומיות-ייצור-המוני-וזהות-אימפריאלית">מטבעות רומיות: ייצור המוני וזהות אימפריאלית</a></li>
+  <li><a href="#שני-הקיסרים-שלנו" id="toc-שני-הקיסרים-שלנו" class="nav-link" data-scroll-target="#שני-הקיסרים-שלנו">שני הקיסרים שלנו</a></li>
+  <li><a href="#שאלת-המחקר" id="toc-שאלת-המחקר" class="nav-link" data-scroll-target="#שאלת-המחקר">שאלת המחקר</a></li>
   </ul></li>
-  <li><a href="#full-analysis-pipeline" id="toc-full-analysis-pipeline" class="nav-link" data-scroll-target="#full-analysis-pipeline">Full Analysis Pipeline</a>
+  <li><a href="#צינור-הניתוח-המלא" id="toc-צינור-הניתוח-המלא" class="nav-link" data-scroll-target="#צינור-הניתוח-המלא">צינור הניתוח המלא</a>
   <ul class="collapse">
-  <li><a href="#step-1-load-both-datasets-and-combine" id="toc-step-1-load-both-datasets-and-combine" class="nav-link" data-scroll-target="#step-1-load-both-datasets-and-combine">Step 1: Load both datasets and combine</a></li>
-  <li><a href="#step-2-gpa-on-combined-dataset" id="toc-step-2-gpa-on-combined-dataset" class="nav-link" data-scroll-target="#step-2-gpa-on-combined-dataset">Step 2: GPA on combined dataset</a></li>
-  <li><a href="#step-3-pca-color-coded-by-emperor" id="toc-step-3-pca-color-coded-by-emperor" class="nav-link" data-scroll-target="#step-3-pca-color-coded-by-emperor">Step 3: PCA color-coded by emperor</a></li>
-  <li><a href="#step-4-statistical-test-permutation-manova" id="toc-step-4-statistical-test-permutation-manova" class="nav-link" data-scroll-target="#step-4-statistical-test-permutation-manova">Step 4: Statistical test — permutation MANOVA</a></li>
+  <li><a href="#שלב-1-טעינת-שני-מאגרי-הנתונים-ואיחודם" id="toc-שלב-1-טעינת-שני-מאגרי-הנתונים-ואיחודם" class="nav-link" data-scroll-target="#שלב-1-טעינת-שני-מאגרי-הנתונים-ואיחודם">שלב 1: טעינת שני מאגרי הנתונים ואיחודם</a></li>
+  <li><a href="#שלב-2-gpa-על-מאגר-מאוחד" id="toc-שלב-2-gpa-על-מאגר-מאוחד" class="nav-link" data-scroll-target="#שלב-2-gpa-על-מאגר-מאוחד">שלב 2: GPA על מאגר מאוחד</a></li>
+  <li><a href="#שלב-3-pca-עם-צביעה-לפי-קיסר" id="toc-שלב-3-pca-עם-צביעה-לפי-קיסר" class="nav-link" data-scroll-target="#שלב-3-pca-עם-צביעה-לפי-קיסר">שלב 3: PCA עם צביעה לפי קיסר</a></li>
+  <li><a href="#שלב-4-בדיקה-סטטיסטית-manova-בהרשאה" id="toc-שלב-4-בדיקה-סטטיסטית-manova-בהרשאה" class="nav-link" data-scroll-target="#שלב-4-בדיקה-סטטיסטית-manova-בהרשאה">שלב 4: בדיקה סטטיסטית — MANOVA בהרשאה</a></li>
   </ul></li>
-  <li><a href="#interpreting-the-results" id="toc-interpreting-the-results" class="nav-link" data-scroll-target="#interpreting-the-results">Interpreting the Results</a>
+  <li><a href="#פרשנות-התוצאות" id="toc-פרשנות-התוצאות" class="nav-link" data-scroll-target="#פרשנות-התוצאות">פרשנות התוצאות</a>
   <ul class="collapse">
-  <li><a href="#if-the-groups-separate" id="toc-if-the-groups-separate" class="nav-link" data-scroll-target="#if-the-groups-separate">If the groups separate:</a></li>
-  <li><a href="#if-the-groups-overlap-substantially" id="toc-if-the-groups-overlap-substantially" class="nav-link" data-scroll-target="#if-the-groups-overlap-substantially">If the groups overlap substantially:</a></li>
-  <li><a href="#neither-outcome-is-wrong" id="toc-neither-outcome-is-wrong" class="nav-link" data-scroll-target="#neither-outcome-is-wrong">Neither outcome is “wrong”:</a></li>
+  <li><a href="#אם-הקבוצות-נפרדות" id="toc-אם-הקבוצות-נפרדות" class="nav-link" data-scroll-target="#אם-הקבוצות-נפרדות">אם הקבוצות נפרדות:</a></li>
+  <li><a href="#אם-הקבוצות-חופפות-במידה-ניכרת" id="toc-אם-הקבוצות-חופפות-במידה-ניכרת" class="nav-link" data-scroll-target="#אם-הקבוצות-חופפות-במידה-ניכרת">אם הקבוצות חופפות במידה ניכרת:</a></li>
+  <li><a href="#אף-תוצאה-אינה-שגויה" id="toc-אף-תוצאה-אינה-שגויה" class="nav-link" data-scroll-target="#אף-תוצאה-אינה-שגויה">אף תוצאה אינה “שגויה”:</a></li>
   </ul></li>
-  <li><a href="#discussion-what-shape-can-and-cannot-tell-us" id="toc-discussion-what-shape-can-and-cannot-tell-us" class="nav-link" data-scroll-target="#discussion-what-shape-can-and-cannot-tell-us">Discussion: What Shape Can and Cannot Tell Us</a></li>
-  <li><a href="#assignment-3-due-this-week" id="toc-assignment-3-due-this-week" class="nav-link" data-scroll-target="#assignment-3-due-this-week">Assignment 3 Due This Week</a></li>
+  <li><a href="#דיון-מה-הצורה-יכולה-ולא-יכולה-לספר-לנו" id="toc-דיון-מה-הצורה-יכולה-ולא-יכולה-לספר-לנו" class="nav-link" data-scroll-target="#דיון-מה-הצורה-יכולה-ולא-יכולה-לספר-לנו">דיון: מה הצורה יכולה ולא יכולה לספר לנו</a></li>
+  <li><a href="#מטלה-3-מגיעה-השבוע" id="toc-מטלה-3-מגיעה-השבוע" class="nav-link" data-scroll-target="#מטלה-3-מגיעה-השבוע">מטלה 3 מגיעה השבוע</a></li>
   </ul>
 </nav>
     </div>
@@ -267,8 +267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Module 7: Case Study I — Roman Coins and Imperial Standardization</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
-<p class="subtitle lead">Week 7 — Case Studies</p>
+<div class="quarto-title-block"><div><h1 class="title">מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
+<p class="subtitle lead">שבוע 7 — מקרי בוחן</p>
 </div>
 
 
@@ -285,62 +285,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="archaeological-background" class="level2">
-<h2 class="anchored" data-anchor-id="archaeological-background">Archaeological Background</h2>
-<section id="roman-coinage-mass-production-and-imperial-identity" class="level3">
-<h3 class="anchored" data-anchor-id="roman-coinage-mass-production-and-imperial-identity">Roman Coinage: Mass Production and Imperial Identity</h3>
-<p>The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.</p>
-<p>Coins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.</p>
+<section id="רקע-ארכאולוגי" class="level2">
+<h2 class="anchored" data-anchor-id="רקע-ארכאולוגי">רקע ארכאולוגי</h2>
+<section id="מטבעות-רומיות-ייצור-המוני-וזהות-אימפריאלית" class="level3">
+<h3 class="anchored" data-anchor-id="מטבעות-רומיות-ייצור-המוני-וזהות-אימפריאלית">מטבעות רומיות: ייצור המוני וזהות אימפריאלית</h3>
+<p>האימפריה הרומית ייצרה מטבעות בהיקף שאף ציביליזציה קודמת לא הגיעה אליו. במאה ה-2 לספירה בלבד, נטבעו מאות מיליוני דנריים ברחבי האימפריה. כל מטבע נשא את דיוקן הקיסר המולך — פנים שכמעט כל אחד בעולם הרומי ראה.</p>
+<p>מטבעות לא היו כסף בלבד. הם היו תעמולה: דימויי כוח אימפריאלי שהסתובבו עד לקצוות העולם המוכר. הדיוקן על צד הפנים היה הצהרה פוליטית מכוונת. חותכי הדייס במנטה האימפריאלית היו אומנים שעבדו בתוך מוסכמות איקונוגרפיות קפדניות.</p>
 </section>
-<section id="our-two-emperors" class="level3">
-<h3 class="anchored" data-anchor-id="our-two-emperors">Our Two Emperors</h3>
-<p><strong>Hadrian</strong> (r. 117–138 CE) - Known for traveling the empire, fortifying its borders (Hadrian’s Wall) - Iconic portraiture: philosophical beard, often shown with idealized Greek features - Reformed the coinage: new portrait types introduced at different points in his reign</p>
-<p><strong>Antoninus Pius</strong> (r. 138–161 CE) - Succeeded Hadrian; reign known for stability - Portrait more Roman in character: clean-shaven early, then bearded - Some of the most artistically refined denarii in the Imperial sequence</p>
+<section id="שני-הקיסרים-שלנו" class="level3">
+<h3 class="anchored" data-anchor-id="שני-הקיסרים-שלנו">שני הקיסרים שלנו</h3>
+<p><strong>הדריאנוס</strong> (שלט 117–138 לספירה) - ידוע בנסיעותיו ברחבי האימפריה, חיזוק גבולותיה (חומת הדריאנוס) - דיוקנאות אייקוניים: זקן פילוסופי, לעתים קרובות מוצג עם תכונות יווניות אידיאליזציות - רפורם מטבע: סוגי דיוקן חדשים הוכנסו בנקודות שונות של שלטונו</p>
+<p><strong>אנטונינוס פיוס</strong> (שלט 138–161 לספירה) - ירש את הדריאנוס; שלטונו ידוע ביציבות - דיוקן בעל אופי רומאי יותר: מגולח בתחילה, לאחר מכן זקן - כמה מהדנריים המעובדים ביותר מבחינה אמנותית בסדרה האימפריאלית</p>
 </section>
-<section id="the-research-question" class="level3">
-<h3 class="anchored" data-anchor-id="the-research-question">The Research Question</h3>
-<p><em>Do coins of Hadrian and Antoninus Pius cluster separately in shape space?</em></p>
-<p>Sub-questions: - Is the shape difference between the emperors larger than the variation <em>within</em> each reign? - Which specific shape features (captured by which PCs) best separate the two groups? - What does any difference — or similarity — tell us about mint standardization?</p>
+<section id="שאלת-המחקר" class="level3">
+<h3 class="anchored" data-anchor-id="שאלת-המחקר">שאלת המחקר</h3>
+<p><em>האם מטבעות הדריאנוס ואנטונינוס פיוס מתכנסים בנפרד במרחב הצורות?</em></p>
+<p>שאלות משנה: - האם הבדל הצורה בין הקיסרים גדול משהשונות <em>בתוך</em> כל שלטון? - אילו תכונות צורה ספציפיות (נלכדות על ידי אילו רכיבים עיקריים) מפרידות בצורה הטובה ביותר בין שתי הקבוצות? - מה אומר לנו כל הבדל — או דמיון — על תקנון המנטה?</p>
 <hr>
 </section>
 </section>
-<section id="full-analysis-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="full-analysis-pipeline">Full Analysis Pipeline</h2>
+<section id="צינור-הניתוח-המלא" class="level2">
+<h2 class="anchored" data-anchor-id="צינור-הניתוח-המלא">צינור הניתוח המלא</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Open the Week 7 Notebook
+פתחו את מחברת שבוע 7
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://colab.research.google.com">→ Week 7 Colab Notebook</a> <em>(link active Week 7)</em></p>
+<p><a href="https://colab.research.google.com">→ מחברת Colab — שבוע 7</a> <em>(הקישור יופעל בשבוע 7)</em></p>
 </div>
 </div>
-<section id="step-1-load-both-datasets-and-combine" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-load-both-datasets-and-combine">Step 1: Load both datasets and combine</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load both coin datasets</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>hadrian_lms <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_Hadrian/Hadrian.TPS"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>aplus_lms   <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_AntoniusPius/AntoniusPius.TPS"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_had  <span class="op">=</span> hadrian_lms.shape[<span class="dv">0</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n_apl  <span class="op">=</span> aplus_lms.shape[<span class="dv">0</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into one array</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>all_coins <span class="op">=</span> np.vstack([hadrian_lms, aplus_lms])</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Hadrian'</span>] <span class="op">*</span> n_had <span class="op">+</span> [<span class="st">'AntoniusPius'</span>] <span class="op">*</span> n_apl</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total specimens: </span><span class="sc">{</span>all_coins<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Hadrian: </span><span class="sc">{</span>n_had<span class="sc">}</span><span class="ss">, Antoninus Pius: </span><span class="sc">{</span>n_apl<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="שלב-1-טעינת-שני-מאגרי-הנתונים-ואיחודם" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-1-טעינת-שני-מאגרי-הנתונים-ואיחודם">שלב 1: טעינת שני מאגרי הנתונים ואיחודם</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת שני מאגרי מטבעות (עם תמיכה בפורמט אירופאי של מספרים עשרוניים)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_tps(filepath):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    specimens <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    current_lms <span class="op">=</span> []</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    n_lm <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filepath, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            line <span class="op">=</span> line.strip().replace(<span class="st">','</span>, <span class="st">'.'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> line.startswith(<span class="st">'LM='</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                n_lm <span class="op">=</span> <span class="bu">int</span>(line.split(<span class="st">'='</span>)[<span class="dv">1</span>])</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                current_lms <span class="op">=</span> []</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> line.startswith(<span class="st">'IMAGE='</span>) <span class="kw">or</span> line.startswith(<span class="st">'ID='</span>):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(current_lms) <span class="op">==</span> n_lm <span class="kw">and</span> n_lm <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                    specimens.append(current_lms)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> line <span class="kw">and</span> <span class="kw">not</span> line.startswith((<span class="st">'SCALE='</span>, <span class="st">'CURVES='</span>)):</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                    coords <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">float</span>, line.split()))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">len</span>(coords) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                        current_lms.append(coords)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(current_lms) <span class="op">==</span> n_lm <span class="kw">and</span> n_lm <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        specimens.append(current_lms)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(specimens)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>hadrian_lms <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_Hadrian/Hadrian.TPS"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>aplus_lms   <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_AntoniusPius/AntoniusPius.TPS"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>n_had  <span class="op">=</span> hadrian_lms.shape[<span class="dv">0</span>]</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>n_apl  <span class="op">=</span> aplus_lms.shape[<span class="dv">0</span>]</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># איחוד למערך אחד</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>all_coins <span class="op">=</span> np.vstack([hadrian_lms, aplus_lms])</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'הדריאנוס'</span>] <span class="op">*</span> n_had <span class="op">+</span> [<span class="st">'אנטונינוס פיוס'</span>] <span class="op">*</span> n_apl</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"סה</span><span class="ch">\"</span><span class="ss">כ פרטים: </span><span class="sc">{</span>all_coins<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  הדריאנוס: </span><span class="sc">{</span>n_had<span class="sc">}</span><span class="ss">, אנטונינוס פיוס: </span><span class="sc">{</span>n_apl<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-2-gpa-on-combined-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-gpa-on-combined-dataset">Step 2: GPA on combined dataset</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aligned_all, csizes, _ <span class="op">=</span> mops.procrustes_fit(all_coins, allow_reflection<span class="op">=</span><span class="va">False</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="שלב-2-gpa-על-מאגר-מאוחד" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-2-gpa-על-מאגר-מאוחד">שלב 2: GPA על מאגר מאוחד</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> morphops.gpa(all_coins)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>aligned_all <span class="op">=</span> result[<span class="st">'aligned'</span>]</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-3-pca-color-coded-by-emperor" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-pca-color-coded-by-emperor">Step 3: PCA color-coded by emperor</h3>
+<section id="שלב-3-pca-עם-צביעה-לפי-קיסר" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-3-pca-עם-צביעה-לפי-קיסר">שלב 3: PCA עם צביעה לפי קיסר</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -352,14 +378,14 @@ Open the Week 7 Notebook
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC1'</span>: scores[:, <span class="dv">0</span>],</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC2'</span>: scores[:, <span class="dv">1</span>],</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Emperor'</span>: labels</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'קיסר'</span>: labels</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'Hadrian'</span>: <span class="st">'#2196F3'</span>, <span class="st">'AntoniusPius'</span>: <span class="st">'#E53935'</span>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'הדריאנוס'</span>: <span class="st">'#2196F3'</span>, <span class="st">'אנטונינוס פיוס'</span>: <span class="st">'#E53935'</span>}</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> emperor, group <span class="kw">in</span> df.groupby(<span class="st">'Emperor'</span>):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> emperor, group <span class="kw">in</span> df.groupby(<span class="st">'קיסר'</span>):</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    ax.scatter(group[<span class="st">'PC1'</span>], group[<span class="st">'PC2'</span>],</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>emperor, color<span class="op">=</span>colors[emperor],</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>               s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
@@ -368,26 +394,26 @@ Open the Week 7 Notebook
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Shape Space: Hadrian vs. Antoninus Pius Denarii"</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">"Emperor"</span>, framealpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">"קיסר"</span>, framealpha<span class="op">=</span><span class="fl">0.9</span>)</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-4-statistical-test-permutation-manova" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-statistical-test-permutation-manova">Step 4: Statistical test — permutation MANOVA</h3>
+<section id="שלב-4-בדיקה-סטטיסטית-manova-בהרשאה" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-4-בדיקה-סטטיסטית-manova-בהרשאה">שלב 4: בדיקה סטטיסטית — MANOVA בהרשאה</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Permutation-based MANOVA on PC scores.</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Tests whether group centroids differ more than expected by chance.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    MANOVA מבוסס הרשאה על ציוני רכיבים עיקריים.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    בודק האם צנטרואידי הקבוצות שונים יותר ממה שניתן לצפות במקרה.</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> scores[:, :n_pcs]</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.array(labels)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.unique(labels)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observed F-statistic (ratio of between-group to within-group variance)</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># F-statistic נצפה</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    grand_mean <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    ss_between <span class="op">=</span> <span class="bu">sum</span>(</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        (X[labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> grand_mean)<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (labels <span class="op">==</span> g).<span class="bu">sum</span>()</span>
@@ -400,7 +426,7 @@ Open the Week 7 Notebook
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    n, k <span class="op">=</span> <span class="bu">len</span>(labels), <span class="bu">len</span>(groups)</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    f_obs <span class="op">=</span> (ss_between <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> (ss_within <span class="op">/</span> (n <span class="op">-</span> k))</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Permutation distribution</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># התפלגות הרשאה</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    f_perm <span class="op">=</span> []</span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm):</span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        perm_labels <span class="op">=</span> np.random.permutation(labels)</span>
@@ -418,39 +444,39 @@ Open the Week 7 Notebook
 <span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f_obs, p_value</span>
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels)</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Permutation MANOVA: F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MANOVA בהרשאה: F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 </section>
-<section id="interpreting-the-results" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h2>
-<section id="if-the-groups-separate" class="level3">
-<h3 class="anchored" data-anchor-id="if-the-groups-separate">If the groups separate:</h3>
-<p>The two emperors’ coins occupy different regions of shape space. This could indicate: - Portrait style was deliberately differentiated by reign - Die-cutters changed their conventions between reigns - Different workshops produced the two series</p>
+<section id="פרשנות-התוצאות" class="level2">
+<h2 class="anchored" data-anchor-id="פרשנות-התוצאות">פרשנות התוצאות</h2>
+<section id="אם-הקבוצות-נפרדות" class="level3">
+<h3 class="anchored" data-anchor-id="אם-הקבוצות-נפרדות">אם הקבוצות נפרדות:</h3>
+<p>מטבעות שני הקיסרים תופסים אזורים שונים במרחב הצורות. זה יכול להצביע על: - סגנון הדיוקן הובדל בכוונה לפי שלטון - חותכי הדייס שינו את מוסכמותיהם בין השלטונות - סדנאות שונות ייצרו את שתי הסדרות</p>
 </section>
-<section id="if-the-groups-overlap-substantially" class="level3">
-<h3 class="anchored" data-anchor-id="if-the-groups-overlap-substantially">If the groups overlap substantially:</h3>
-<p>Shape variation <em>within</em> each reign is larger than variation <em>between</em> reigns. This could indicate: - Consistent mint conventions that persisted across reigns - Strong iconographic standards imposed by the central mint - Our landmark protocol doesn’t capture the features that actually differ</p>
+<section id="אם-הקבוצות-חופפות-במידה-ניכרת" class="level3">
+<h3 class="anchored" data-anchor-id="אם-הקבוצות-חופפות-במידה-ניכרת">אם הקבוצות חופפות במידה ניכרת:</h3>
+<p>שונות הצורה <em>בתוך</em> כל שלטון גדולה יותר מהשונות <em>בין</em> השלטונות. זה יכול להצביע על: - מוסכמות מנטה עקביות שנמשכו בין שלטונות - תקנים איקונוגרפיים חזקים שהוטלו על ידי המנטה המרכזית - פרוטוקול ציוני הדרך שלנו לא לוכד את התכונות שאכן שונות</p>
 </section>
-<section id="neither-outcome-is-wrong" class="level3">
-<h3 class="anchored" data-anchor-id="neither-outcome-is-wrong">Neither outcome is “wrong”:</h3>
-<p>Both tell us something real about Roman mint organization.</p>
+<section id="אף-תוצאה-אינה-שגויה" class="level3">
+<h3 class="anchored" data-anchor-id="אף-תוצאה-אינה-שגויה">אף תוצאה אינה “שגויה”:</h3>
+<p>שתיהן מספרות לנו משהו אמיתי על ארגון המנטה הרומית.</p>
 <hr>
 </section>
 </section>
-<section id="discussion-what-shape-can-and-cannot-tell-us" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-what-shape-can-and-cannot-tell-us">Discussion: What Shape Can and Cannot Tell Us</h2>
-<p>Shape analysis of coins has real limitations:</p>
+<section id="דיון-מה-הצורה-יכולה-ולא-יכולה-לספר-לנו" class="level2">
+<h2 class="anchored" data-anchor-id="דיון-מה-הצורה-יכולה-ולא-יכולה-לספר-לנו">דיון: מה הצורה יכולה ולא יכולה לספר לנו</h2>
+<p>לניתוח צורת מטבעות יש מגבלות אמיתיות:</p>
 <ol type="1">
-<li><p><strong>We can only measure what we digitize.</strong> If portrait style differs in surface detail (texture, modelling depth) but not in overall proportion, landmark analysis misses it.</p></li>
-<li><p><strong>Die variation within a reign is large.</strong> Many different pairs of dies were used for each emperor. Is our sample large enough to characterize each reign’s “typical” shape?</p></li>
-<li><p><strong>What counts as the same “type”?</strong> Hadrian’s portraiture changed significantly over his long reign. Should we subdivide by portrait type before comparing?</p></li>
+<li><p><strong>אנחנו יכולים למדוד רק מה שאנחנו מדגיטים.</strong> אם סגנון הדיוקן שונה בפרטי משטח (מרקם, עומק דוגמנות) אך לא בפרופורציה הכללית, ניתוח ציוני הדרך מחמיץ זאת.</p></li>
+<li><p><strong>שונות הדייסים בתוך שלטון אחד גדולה.</strong> זוגות רבים של דייסים שימשו לכל קיסר. האם המדגם שלנו מספיק גדול כדי לאפיין את הצורה “האופיינית” של כל שלטון?</p></li>
+<li><p><strong>מה נחשב כ”טיפוס” זהה?</strong> הדיוקנאות של הדריאנוס השתנו משמעותית במהלך שלטונו הארוך. האם לפצל לפי טיפוס דיוקן לפני ההשוואה?</p></li>
 </ol>
-<p>These are not reasons to dismiss GM — they are reasons to design studies carefully and interpret results with appropriate caution.</p>
+<p>אלה אינן סיבות לדחות GM — הן סיבות לתכנן מחקרים בקפידה ולפרש תוצאות בזהירות ראויה.</p>
 <hr>
 </section>
-<section id="assignment-3-due-this-week" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-3-due-this-week">Assignment 3 Due This Week</h2>
+<section id="מטלה-3-מגיעה-השבוע" class="level2">
+<h2 class="anchored" data-anchor-id="מטלה-3-מגיעה-השבוע">מטלה 3 מגיעה השבוע</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -461,11 +487,11 @@ Open the Week 7 Notebook
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Submit your Colab notebook link + 500-word interpretation as PDF.</p>
-<p><a href="../assignments/03-coins.html">→ Assignment 3: Coins Shape Analysis</a></p>
+<p>הגישו קישור למחברת Colab + פרשנות של 500 מילה כ-PDF.</p>
+<p><a href="../assignments/03-coins.html">→ מטלה 3: ניתוח צורת מטבעות</a></p>
 </div>
 </div>
-<p><a href="../modules/08-axes.html">→ Module 8: Outline Analysis — Elliptic Fourier Analysis</a></p>
+<p><a href="../modules/08-axes.html">→ מודול 8: ניתוח קווי מתאר — ניתוח פורייה אליפטי</a></p>
 
 
 <!-- -->
@@ -931,204 +957,231 @@ Open the Week 7 Notebook
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">קוד מקור</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Module 7: Case Study I — Roman Coins and Imperial Standardization"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Week 7 — Case Studies"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Archaeological Background</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Roman Coinage: Mass Production and Imperial Identity</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>The Roman Empire produced coins at a scale that no earlier civilization had matched. In the 2nd century CE alone, hundreds of millions of denarii were struck across the empire. Every coin bore the portrait of the reigning emperor — a face seen by nearly everyone in the Roman world.</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Coins were not just money. They were propaganda: images of imperial power circulating to the edges of the known world. The obverse portrait was a deliberate political statement. Die-cutters at the imperial mint were artisans who worked within strict iconographic conventions.</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Our Two Emperors</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>**Hadrian** (r. 117–138 CE)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Known for traveling the empire, fortifying its borders (Hadrian's Wall)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Iconic portraiture: philosophical beard, often shown with idealized Greek features</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reformed the coinage: new portrait types introduced at different points in his reign</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>**Antoninus Pius** (r. 138–161 CE)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Succeeded Hadrian; reign known for stability</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Portrait more Roman in character: clean-shaven early, then bearded</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some of the most artistically refined denarii in the Imperial sequence</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Research Question</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>*Do coins of Hadrian and Antoninus Pius cluster separately in shape space?*</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>Sub-questions:</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Is the shape difference between the emperors larger than the variation *within* each reign?</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which specific shape features (captured by which PCs) best separate the two groups?</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What does any difference — or similarity — tell us about mint standardization?</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Full Analysis Pipeline</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open the Week 7 Notebook</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Week 7 Colab Notebook</span><span class="co">](https://colab.research.google.com)</span> *(link active Week 7)*</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Load both datasets and combine</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Load both coin datasets</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>hadrian_lms <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_Hadrian/Hadrian.TPS"</span>)</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>aplus_lms   <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_AntoniusPius/AntoniusPius.TPS"</span>)</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>n_had  <span class="op">=</span> hadrian_lms.shape[<span class="dv">0</span>]</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>n_apl  <span class="op">=</span> aplus_lms.shape[<span class="dv">0</span>]</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into one array</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>all_coins <span class="op">=</span> np.vstack([hadrian_lms, aplus_lms])</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Hadrian'</span>] <span class="op">*</span> n_had <span class="op">+</span> [<span class="st">'AntoniusPius'</span>] <span class="op">*</span> n_apl</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total specimens: </span><span class="sc">{</span>all_coins<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Hadrian: </span><span class="sc">{</span>n_had<span class="sc">}</span><span class="ss">, Antoninus Pius: </span><span class="sc">{</span>n_apl<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: GPA on combined dataset</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>aligned_all, csizes, _ <span class="op">=</span> mops.procrustes_fit(all_coins, allow_reflection<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: PCA color-coded by emperor</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned_all.reshape(<span class="bu">len</span>(all_coins), <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "שבוע 7 — מקרי בוחן"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> he</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## רקע ארכאולוגי</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטבעות רומיות: ייצור המוני וזהות אימפריאלית</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>האימפריה הרומית ייצרה מטבעות בהיקף שאף ציביליזציה קודמת לא הגיעה אליו. במאה ה-2 לספירה בלבד, נטבעו מאות מיליוני דנריים ברחבי האימפריה. כל מטבע נשא את דיוקן הקיסר המולך — פנים שכמעט כל אחד בעולם הרומי ראה.</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>מטבעות לא היו כסף בלבד. הם היו תעמולה: דימויי כוח אימפריאלי שהסתובבו עד לקצוות העולם המוכר. הדיוקן על צד הפנים היה הצהרה פוליטית מכוונת. חותכי הדייס במנטה האימפריאלית היו אומנים שעבדו בתוך מוסכמות איקונוגרפיות קפדניות.</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### שני הקיסרים שלנו</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>**הדריאנוס** (שלט 117–138 לספירה)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ידוע בנסיעותיו ברחבי האימפריה, חיזוק גבולותיה (חומת הדריאנוס)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>דיוקנאות אייקוניים: זקן פילוסופי, לעתים קרובות מוצג עם תכונות יווניות אידיאליזציות</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רפורם מטבע: סוגי דיוקן חדשים הוכנסו בנקודות שונות של שלטונו</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>**אנטונינוס פיוס** (שלט 138–161 לספירה)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ירש את הדריאנוס; שלטונו ידוע ביציבות</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>דיוקן בעל אופי רומאי יותר: מגולח בתחילה, לאחר מכן זקן</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כמה מהדנריים המעובדים ביותר מבחינה אמנותית בסדרה האימפריאלית</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### שאלת המחקר</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>*האם מטבעות הדריאנוס ואנטונינוס פיוס מתכנסים בנפרד במרחב הצורות?*</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>שאלות משנה:</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם הבדל הצורה בין הקיסרים גדול משהשונות *בתוך* כל שלטון?</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אילו תכונות צורה ספציפיות (נלכדות על ידי אילו רכיבים עיקריים) מפרידות בצורה הטובה ביותר בין שתי הקבוצות?</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה אומר לנו כל הבדל — או דמיון — על תקנון המנטה?</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## צינור הניתוח המלא</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## פתחו את מחברת שבוע 7</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מחברת Colab — שבוע 7</span><span class="co">](https://colab.research.google.com)</span> *(הקישור יופעל בשבוע 7)*</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 1: טעינת שני מאגרי הנתונים ואיחודם</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת שני מאגרי מטבעות (עם תמיכה בפורמט אירופאי של מספרים עשרוניים)</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_tps(filepath):</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    specimens <span class="op">=</span> []</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    current_lms <span class="op">=</span> []</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    n_lm <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filepath, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>            line <span class="op">=</span> line.strip().replace(<span class="st">','</span>, <span class="st">'.'</span>)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> line.startswith(<span class="st">'LM='</span>):</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>                n_lm <span class="op">=</span> <span class="bu">int</span>(line.split(<span class="st">'='</span>)[<span class="dv">1</span>])</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>                current_lms <span class="op">=</span> []</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> line.startswith(<span class="st">'IMAGE='</span>) <span class="kw">or</span> line.startswith(<span class="st">'ID='</span>):</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="bu">len</span>(current_lms) <span class="op">==</span> n_lm <span class="kw">and</span> n_lm <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>                    specimens.append(current_lms)</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> line <span class="kw">and</span> <span class="kw">not</span> line.startswith((<span class="st">'SCALE='</span>, <span class="st">'CURVES='</span>)):</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>                    coords <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">float</span>, line.split()))</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">len</span>(coords) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>                        current_lms.append(coords)</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(current_lms) <span class="op">==</span> n_lm <span class="kw">and</span> n_lm <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        specimens.append(current_lms)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(specimens)</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>hadrian_lms <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_Hadrian/Hadrian.TPS"</span>)</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>aplus_lms   <span class="op">=</span> read_tps(<span class="st">"data/coins/DEN_AntoniusPius/AntoniusPius.TPS"</span>)</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>n_had  <span class="op">=</span> hadrian_lms.shape[<span class="dv">0</span>]</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>n_apl  <span class="op">=</span> aplus_lms.shape[<span class="dv">0</span>]</span>
 <span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC1'</span>: scores[:, <span class="dv">0</span>],</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC2'</span>: scores[:, <span class="dv">1</span>],</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Emperor'</span>: labels</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'Hadrian'</span>: <span class="st">'#2196F3'</span>, <span class="st">'AntoniusPius'</span>: <span class="st">'#E53935'</span>}</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="co"># איחוד למערך אחד</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>all_coins <span class="op">=</span> np.vstack([hadrian_lms, aplus_lms])</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'הדריאנוס'</span>] <span class="op">*</span> n_had <span class="op">+</span> [<span class="st">'אנטונינוס פיוס'</span>] <span class="op">*</span> n_apl</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"סה</span><span class="ch">\"</span><span class="ss">כ פרטים: </span><span class="sc">{</span>all_coins<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  הדריאנוס: </span><span class="sc">{</span>n_had<span class="sc">}</span><span class="ss">, אנטונינוס פיוס: </span><span class="sc">{</span>n_apl<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 2: GPA על מאגר מאוחד</span></span>
 <span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> emperor, group <span class="kw">in</span> df.groupby(<span class="st">'Emperor'</span>):</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    ax.scatter(group[<span class="st">'PC1'</span>], group[<span class="st">'PC2'</span>],</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>emperor, color<span class="op">=</span>colors[emperor],</span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>               s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Shape Space: Hadrian vs. Antoninus Pius Denarii"</span>)</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">"Emperor"</span>, framealpha<span class="op">=</span><span class="fl">0.9</span>)</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Statistical test — permutation MANOVA</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> morphops.gpa(all_coins)</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>aligned_all <span class="op">=</span> result[<span class="st">'aligned'</span>]</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 3: PCA עם צביעה לפי קיסר</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned_all.reshape(<span class="bu">len</span>(all_coins), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f</span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="co">    Permutation-based MANOVA on PC scores.</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="co">    Tests whether group centroids differ more than expected by chance.</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> scores[:, :n_pcs]</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.array(labels)</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.unique(labels)</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Observed F-statistic (ratio of between-group to within-group variance)</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>    grand_mean <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>    ss_between <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>        (X[labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> grand_mean)<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (labels <span class="op">==</span> g).<span class="bu">sum</span>()</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> groups</span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    ).<span class="bu">sum</span>()</span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    ss_within <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>        ((X[labels <span class="op">==</span> g] <span class="op">-</span> X[labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>()</span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> groups</span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>    n, k <span class="op">=</span> <span class="bu">len</span>(labels), <span class="bu">len</span>(groups)</span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>    f_obs <span class="op">=</span> (ss_between <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> (ss_within <span class="op">/</span> (n <span class="op">-</span> k))</span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Permutation distribution</span></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>    f_perm <span class="op">=</span> []</span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm):</span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>        perm_labels <span class="op">=</span> np.random.permutation(labels)</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>        ss_b <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>            (X[perm_labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> grand_mean)<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (perm_labels <span class="op">==</span> g).<span class="bu">sum</span>()</span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> g <span class="kw">in</span> groups</span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>        ).<span class="bu">sum</span>()</span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>        ss_w <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>            ((X[perm_labels <span class="op">==</span> g] <span class="op">-</span> X[perm_labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>()</span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> g <span class="kw">in</span> groups</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>        f_perm.append((ss_b <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> (ss_w <span class="op">/</span> (n <span class="op">-</span> k)))</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC1'</span>: scores[:, <span class="dv">0</span>],</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    <span class="st">'PC2'</span>: scores[:, <span class="dv">1</span>],</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>    <span class="st">'קיסר'</span>: labels</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'הדריאנוס'</span>: <span class="st">'#2196F3'</span>, <span class="st">'אנטונינוס פיוס'</span>: <span class="st">'#E53935'</span>}</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> emperor, group <span class="kw">in</span> df.groupby(<span class="st">'קיסר'</span>):</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    ax.scatter(group[<span class="st">'PC1'</span>], group[<span class="st">'PC2'</span>],</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span>emperor, color<span class="op">=</span>colors[emperor],</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>               s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"מרחב הצורות: הדריאנוס לעומת אנטונינוס פיוס"</span>)</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">"קיסר"</span>, framealpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב 4: בדיקה סטטיסטית — MANOVA בהרשאה</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="co">    MANOVA מבוסס הרשאה על ציוני רכיבים עיקריים.</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="co">    בודק האם צנטרואידי הקבוצות שונים יותר ממה שניתן לצפות במקרה.</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> scores[:, :n_pcs]</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> np.array(labels)</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.unique(labels)</span>
 <span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    p_value <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(f_perm) <span class="op">&gt;=</span> f_obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f_obs, p_value</span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels)</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Permutation MANOVA: F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interpreting the Results</span></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="fu">### If the groups separate:</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    <span class="co"># F-statistic נצפה</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    grand_mean <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    ss_between <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>        (X[labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> grand_mean)<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (labels <span class="op">==</span> g).<span class="bu">sum</span>()</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> groups</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>    ).<span class="bu">sum</span>()</span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>    ss_within <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>        ((X[labels <span class="op">==</span> g] <span class="op">-</span> X[labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>()</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> g <span class="kw">in</span> groups</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>    n, k <span class="op">=</span> <span class="bu">len</span>(labels), <span class="bu">len</span>(groups)</span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>    f_obs <span class="op">=</span> (ss_between <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> (ss_within <span class="op">/</span> (n <span class="op">-</span> k))</span>
 <span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>The two emperors' coins occupy different regions of shape space. This could indicate:</span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Portrait style was deliberately differentiated by reign</span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Die-cutters changed their conventions between reigns</span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Different workshops produced the two series</span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### If the groups overlap substantially:</span></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>Shape variation *within* each reign is larger than variation *between* reigns. This could indicate:</span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consistent mint conventions that persisted across reigns</span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Strong iconographic standards imposed by the central mint</span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Our landmark protocol doesn't capture the features that actually differ</span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### Neither outcome is "wrong":</span></span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>    <span class="co"># התפלגות הרשאה</span></span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>    f_perm <span class="op">=</span> []</span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm):</span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>        perm_labels <span class="op">=</span> np.random.permutation(labels)</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>        ss_b <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>            (X[perm_labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> grand_mean)<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> (perm_labels <span class="op">==</span> g).<span class="bu">sum</span>()</span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> g <span class="kw">in</span> groups</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>        ).<span class="bu">sum</span>()</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>        ss_w <span class="op">=</span> <span class="bu">sum</span>(</span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>            ((X[perm_labels <span class="op">==</span> g] <span class="op">-</span> X[perm_labels <span class="op">==</span> g].mean(axis<span class="op">=</span><span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>()</span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> g <span class="kw">in</span> groups</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>        f_perm.append((ss_b <span class="op">/</span> (k <span class="op">-</span> <span class="dv">1</span>)) <span class="op">/</span> (ss_w <span class="op">/</span> (n <span class="op">-</span> k)))</span>
 <span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>Both tell us something real about Roman mint organization.</span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discussion: What Shape Can and Cannot Tell Us</span></span>
-<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>Shape analysis of coins has real limitations:</span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**We can only measure what we digitize.** If portrait style differs in surface detail (texture, modelling depth) but not in overall proportion, landmark analysis misses it.</span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Die variation within a reign is large.** Many different pairs of dies were used for each emperor. Is our sample large enough to characterize each reign's "typical" shape?</span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**What counts as the same "type"?** Hadrian's portraiture changed significantly over his long reign. Should we subdivide by portrait type before comparing?</span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>These are not reasons to dismiss GM — they are reasons to design studies carefully and interpret results with appropriate caution.</span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>    p_value <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(f_perm) <span class="op">&gt;=</span> f_obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f_obs, p_value</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels)</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MANOVA בהרשאה: F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## פרשנות התוצאות</span></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### אם הקבוצות נפרדות:</span></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a>מטבעות שני הקיסרים תופסים אזורים שונים במרחב הצורות. זה יכול להצביע על:</span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סגנון הדיוקן הובדל בכוונה לפי שלטון</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>חותכי הדייס שינו את מוסכמותיהם בין השלטונות</span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סדנאות שונות ייצרו את שתי הסדרות</span>
 <span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 3 Due This Week</span></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### אם הקבוצות חופפות במידה ניכרת:</span></span>
 <span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>Submit your Colab notebook link + 500-word interpretation as PDF.</span>
-<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Assignment 3: Coins Shape Analysis</span><span class="co">](../assignments/03-coins.qmd)</span></span>
-<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 8: Outline Analysis — Elliptic Fourier Analysis</span><span class="co">](08-axes.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>שונות הצורה *בתוך* כל שלטון גדולה יותר מהשונות *בין* השלטונות. זה יכול להצביע על:</span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מוסכמות מנטה עקביות שנמשכו בין שלטונות</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>תקנים איקונוגרפיים חזקים שהוטלו על ידי המנטה המרכזית</span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>פרוטוקול ציוני הדרך שלנו לא לוכד את התכונות שאכן שונות</span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### אף תוצאה אינה "שגויה":</span></span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>שתיהן מספרות לנו משהו אמיתי על ארגון המנטה הרומית.</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## דיון: מה הצורה יכולה ולא יכולה לספר לנו</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>לניתוח צורת מטבעות יש מגבלות אמיתיות:</span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**אנחנו יכולים למדוד רק מה שאנחנו מדגיטים.** אם סגנון הדיוקן שונה בפרטי משטח (מרקם, עומק דוגמנות) אך לא בפרופורציה הכללית, ניתוח ציוני הדרך מחמיץ זאת.</span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**שונות הדייסים בתוך שלטון אחד גדולה.** זוגות רבים של דייסים שימשו לכל קיסר. האם המדגם שלנו מספיק גדול כדי לאפיין את הצורה "האופיינית" של כל שלטון?</span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**מה נחשב כ"טיפוס" זהה?** הדיוקנאות של הדריאנוס השתנו משמעותית במהלך שלטונו הארוך. האם לפצל לפי טיפוס דיוקן לפני ההשוואה?</span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a>אלה אינן סיבות לדחות GM — הן סיבות לתכנן מחקרים בקפידה ולפרש תוצאות בזהירות ראויה.</span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a><span class="fu">## מטלה 3 מגיעה השבוע</span></span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a>הגישו קישור למחברת Colab + פרשנות של 500 מילה כ-PDF.</span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מטלה 3: ניתוח צורת מטבעות</span><span class="co">](../assignments/03-coins.qmd)</span></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מודול 8: ניתוח קווי מתאר — ניתוח פורייה אליפטי</span><span class="co">](08-axes.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <div class="author-credit">

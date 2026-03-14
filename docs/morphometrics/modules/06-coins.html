@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 6: PCA — Exploring the Shape Space – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>מודול 6: PCA — חקירת מרחב הצורות – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,13 +238,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#from-12-dimensions-to-2" id="toc-from-12-dimensions-to-2" class="nav-link active" data-scroll-target="#from-12-dimensions-to-2">From 12 Dimensions to 2</a></li>
-  <li><a href="#what-pca-is-conceptually" id="toc-what-pca-is-conceptually" class="nav-link" data-scroll-target="#what-pca-is-conceptually">What PCA Is (Conceptually)</a></li>
-  <li><a href="#shape-deformation-grids" id="toc-shape-deformation-grids" class="nav-link" data-scroll-target="#shape-deformation-grids">Shape Deformation Grids</a></li>
-  <li><a href="#full-pca-pipeline-in-colab" id="toc-full-pca-pipeline-in-colab" class="nav-link" data-scroll-target="#full-pca-pipeline-in-colab">Full PCA Pipeline in Colab</a></li>
-  <li><a href="#interpreting-the-pca-plot" id="toc-interpreting-the-pca-plot" class="nav-link" data-scroll-target="#interpreting-the-pca-plot">Interpreting the PCA Plot</a></li>
-  <li><a href="#shape-deformation-what-pc1-actually-means" id="toc-shape-deformation-what-pc1-actually-means" class="nav-link" data-scroll-target="#shape-deformation-what-pc1-actually-means">Shape Deformation: What PC1 Actually Means</a></li>
-  <li><a href="#assignment-3-distributed-this-week" id="toc-assignment-3-distributed-this-week" class="nav-link" data-scroll-target="#assignment-3-distributed-this-week">Assignment 3 Distributed This Week</a></li>
+  <li><a href="#מ-12-ממדים-ל-2" id="toc-מ-12-ממדים-ל-2" class="nav-link active" data-scroll-target="#מ-12-ממדים-ל-2">מ-12 ממדים ל-2</a></li>
+  <li><a href="#מהו-pca-מבחינה-מושגית" id="toc-מהו-pca-מבחינה-מושגית" class="nav-link" data-scroll-target="#מהו-pca-מבחינה-מושגית">מהו PCA (מבחינה מושגית)</a></li>
+  <li><a href="#רשתות-עיוות-צורה" id="toc-רשתות-עיוות-צורה" class="nav-link" data-scroll-target="#רשתות-עיוות-צורה">רשתות עיוות צורה</a></li>
+  <li><a href="#צינור-pca-מלא-ב-colab" id="toc-צינור-pca-מלא-ב-colab" class="nav-link" data-scroll-target="#צינור-pca-מלא-ב-colab">צינור PCA מלא ב-Colab</a></li>
+  <li><a href="#פרשנות-גרף-pca" id="toc-פרשנות-גרף-pca" class="nav-link" data-scroll-target="#פרשנות-גרף-pca">פרשנות גרף PCA</a></li>
+  <li><a href="#עיוות-צורה-מה-pc1-אכן-אומר" id="toc-עיוות-צורה-מה-pc1-אכן-אומר" class="nav-link" data-scroll-target="#עיוות-צורה-מה-pc1-אכן-אומר">עיוות צורה: מה PC1 אכן אומר</a></li>
+  <li><a href="#מטלה-3-מחולקת-השבוע" id="toc-מטלה-3-מחולקת-השבוע" class="nav-link" data-scroll-target="#מטלה-3-מחולקת-השבוע">מטלה 3 מחולקת השבוע</a></li>
   </ul>
 </nav>
     </div>
@@ -253,8 +253,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Module 6: PCA — Exploring the Shape Space</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
-<p class="subtitle lead">Week 6 — The Toolkit</p>
+<div class="quarto-title-block"><div><h1 class="title">מודול 6: PCA — חקירת מרחב הצורות</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
+<p class="subtitle lead">שבוע 6 — ערכת הכלים</p>
 </div>
 
 
@@ -271,167 +271,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="from-12-dimensions-to-2" class="level2">
-<h2 class="anchored" data-anchor-id="from-12-dimensions-to-2">From 12 Dimensions to 2</h2>
-<p>After Procrustes alignment, each coin exists as a point in a 12-dimensional shape space. We cannot visualize 12 dimensions. <strong>Principal Components Analysis (PCA)</strong> solves this.</p>
-<p>PCA finds the directions in shape space that capture the most variation. The first principal component (PC1) is the single axis that explains the most shape variation in the dataset. PC2 explains the most of what is left, and so on.</p>
+<section id="מ-12-ממדים-ל-2" class="level2">
+<h2 class="anchored" data-anchor-id="מ-12-ממדים-ל-2">מ-12 ממדים ל-2</h2>
+<p>לאחר יישור פרוקרוסטס, כל מטבע קיים כנקודה במרחב צורות בן 12 ממדים. לא ניתן לדמיין 12 ממדים. <strong>ניתוח רכיבים עיקריים (PCA)</strong> פותר זאת.</p>
+<p>PCA מוצא את הכיוונים במרחב הצורות שלוכדים את מירב השונות. הרכיב העיקרי הראשון (PC1) הוא הציר היחיד שמסביר את מירב שונות הצורה במאגר הנתונים. PC2 מסביר את מירב מה שנותר, וכן הלאה.</p>
 <hr>
 </section>
-<section id="what-pca-is-conceptually" class="level2">
-<h2 class="anchored" data-anchor-id="what-pca-is-conceptually">What PCA Is (Conceptually)</h2>
-<p>Imagine all your coins lying in a cloud of points in shape space. PCA finds the <em>longest axis</em> through this cloud (PC1), then the longest axis perpendicular to that (PC2), and so on.</p>
-<p>By plotting PC1 vs.&nbsp;PC2, we capture the majority of shape variation in two dimensions we can see.</p>
+<section id="מהו-pca-מבחינה-מושגית" class="level2">
+<h2 class="anchored" data-anchor-id="מהו-pca-מבחינה-מושגית">מהו PCA (מבחינה מושגית)</h2>
+<p>דמיינו את כל המטבעות שלכם כענן נקודות במרחב הצורות. PCA מוצא את <em>הציר הארוך ביותר</em> דרך הענן הזה (PC1), ואחר כך את הציר הארוך ביותר הניצב לו (PC2), וכן הלאה.</p>
+<p>על ידי ציור PC1 לעומת PC2, אנחנו לוכדים את רוב שונות הצורה בשני ממדים שניתן לראות.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What PC scores mean
+מה מייצגים ציוני PC
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Each specimen gets a <strong>score</strong> on each PC axis. A high positive score on PC1 means the specimen has a lot of the shape variation described by PC1 (in the positive direction). A near-zero score means the specimen is close to the mean shape on that axis.</p>
+<p>לכל פרט יש <strong>ציון</strong> על כל ציר PC. ציון חיובי גבוה על PC1 אומר שלפרט יש הרבה משונות הצורה המתוארת על ידי PC1 (בכיוון החיובי). ציון קרוב לאפס אומר שהפרט קרוב לצורה הממוצעת על ציר זה.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="shape-deformation-grids" class="level2">
-<h2 class="anchored" data-anchor-id="shape-deformation-grids">Shape Deformation Grids</h2>
-<p>The most powerful tool for interpreting PCA results is the <strong>thin-plate spline deformation grid</strong>.</p>
-<p>A deformation grid shows how the mean shape must be <em>deformed</em> to produce the shape at any point in shape space. It is a visual map of the geometric transformation between two shapes.</p>
-<p>Reading a deformation grid: - Regions where the grid is compressed → relative contraction toward the target shape - Regions where the grid is stretched → relative expansion toward the target shape - Grid lines that curve sharply → strong local deformation</p>
-<p>We generate deformation grids using the <code>morphops</code> thin-plate spline functions.</p>
+<section id="רשתות-עיוות-צורה" class="level2">
+<h2 class="anchored" data-anchor-id="רשתות-עיוות-צורה">רשתות עיוות צורה</h2>
+<p>הכלי החזק ביותר לפרשנות תוצאות PCA הוא <strong>רשת עיוות לוח הדקיק (thin-plate spline)</strong>.</p>
+<p>רשת עיוות מראה כיצד הצורה הממוצעת צריכה <em>להתעוות</em> כדי לייצר את הצורה בכל נקודה במרחב הצורות. זוהי מפה ויזואלית של השינוי הגיאומטרי בין שתי צורות.</p>
+<p>קריאת רשת עיוות: - אזורים שבהם הרשת דחוסה → התכווצות יחסית לכיוון הצורה המטרה - אזורים שבהם הרשת מתוחה → הרחבה יחסית לכיוון הצורה המטרה - קווי רשת מעוקלים בחדות → עיוות מקומי חזק</p>
 <hr>
 </section>
-<section id="full-pca-pipeline-in-colab" class="level2">
-<h2 class="anchored" data-anchor-id="full-pca-pipeline-in-colab">Full PCA Pipeline in Colab</h2>
+<section id="צינור-pca-מלא-ב-colab" class="level2">
+<h2 class="anchored" data-anchor-id="צינור-pca-מלא-ב-colab">צינור PCA מלא ב-Colab</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Open the Week 6 Notebook
+פתחו את מחברת שבוע 6
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://colab.research.google.com">→ Week 6 Colab Notebook</a> <em>(link active Week 6)</em></p>
+<p><a href="https://colab.research.google.com">→ מחברת Colab — שבוע 6</a> <em>(הקישור יופעל בשבוע 6)</em></p>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 1: Import and setup</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 1: ייבוא והגדרה</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install python<span class="op">-</span>bidi <span class="op">-</span>q</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'aligned' is our GPA result from Week 5</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape: each specimen becomes one row</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)  <span class="co"># shape: (n_coins, 16)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>loadings <span class="op">=</span> pca.components_  <span class="co"># shape: (16, 16)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Variance explained</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variance explained by first 5 PCs:"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(var_exp[:<span class="dv">5</span>]):</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 2: Scree plot — how many PCs matter?</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display  <span class="co"># תיקון כיוון טקסט עברי בגרפים של matplotlib</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># נניח ש-'aligned' הוא תוצאת GPA משבוע 5</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># שינוי צורה: כל פרט הופך לשורה אחת</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)  <span class="co"># צורה: (n_מטבעות, 16)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>loadings <span class="op">=</span> pca.components_  <span class="co"># צורה: (16, 16)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># שונות מוסברת</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"שונות מוסברת על ידי 5 הרכיבים הראשונים:"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(var_exp[:<span class="dv">5</span>]):</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 2: גרף שדרה — כמה רכיבים עיקריים חשובים?</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), var_exp[:<span class="dv">7</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), np.cumsum(var_exp[:<span class="dv">7</span>]), <span class="st">'ro-'</span>, label<span class="op">=</span><span class="st">'Cumulative %'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Principal Component"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Variance Explained (%)"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scree Plot — Hadrian Coins"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), np.cumsum(var_exp[:<span class="dv">7</span>]), <span class="st">'ro-'</span>, label<span class="op">=</span>rtl(<span class="st">'מצטבר %'</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(rtl(<span class="st">"רכיב עיקרי"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(rtl(<span class="st">"שונות מוסברת (%)"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.title(rtl(<span class="st">"גרף שדרה — מטבעות הדריאנוס"</span>))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 3: PCA scatter plot (PC1 vs PC2)</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 3: גרף פיזור PCA (PC1 לעומת PC2)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">7</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>],</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Label outliers (bottom 5% and top 5% on PC1)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># סימון חריגים (5% תחתון ועליון על PC1)</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> np.percentile(np.<span class="bu">abs</span>(scores[:, <span class="dv">0</span>]), <span class="dv">95</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(scores[:, :<span class="dv">2</span>]):</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(x) <span class="op">&gt;</span> threshold:</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        plt.annotate(<span class="ss">f"Coin </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>, (x, y), fontsize<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        plt.annotate(rtl(<span class="ss">f"מטבע </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>), (x, y), fontsize<span class="op">=</span><span class="dv">8</span>,</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                     xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>), textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% of variance)"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% of variance)"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Shape Space: Hadrian Denarii"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(rtl(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% מהשונות)"</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(rtl(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% מהשונות)"</span>))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.title(rtl(<span class="st">"מרחב הצורות: דנריים של הדריאנוס"</span>))</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-<section id="interpreting-the-pca-plot" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-the-pca-plot">Interpreting the PCA Plot</h2>
-<p>Look at your scatter plot and answer these questions:</p>
+<section id="פרשנות-גרף-pca" class="level2">
+<h2 class="anchored" data-anchor-id="פרשנות-גרף-pca">פרשנות גרף PCA</h2>
+<p>הסתכלו בגרף הפיזור שלכם וענו על שאלות אלה:</p>
 <ol type="1">
-<li><p><strong>Spread:</strong> Do coins spread more along PC1 or PC2? What does this tell you about the dominant axis of shape variation?</p></li>
-<li><p><strong>Clusters:</strong> Do you see any distinct groups, or is variation continuous?</p></li>
-<li><p><strong>Outliers:</strong> Are there coins far from the main cloud? Go back and look at those coin images — is there something visually unusual about them?</p></li>
-<li><p><strong>What does PC1 mean?</strong> We need a deformation grid to answer this properly — but make a visual guess based on coins at the positive vs.&nbsp;negative end of PC1.</p></li>
+<li><p><strong>פיזור:</strong> האם מטבעות מפוזרים יותר לאורך PC1 או PC2? מה זה אומר על הציר הדומיננטי של שונות הצורה?</p></li>
+<li><p><strong>אשכולות:</strong> האם אתם רואים קבוצות מובחנות, או שהשונות רציפה?</p></li>
+<li><p><strong>חריגים:</strong> האם יש מטבעות רחוקים מהענן הראשי? חזרו והסתכלו בתמונות המטבעות האלה — האם יש בהם משהו חריג ויזואלית?</p></li>
+<li><p><strong>מה אומר PC1?</strong> אנחנו זקוקים לרשת עיוות כדי לענות על זה כראוי — אבל עשו ניחוש ויזואלי בהתבסס על מטבעות בקצה החיובי לעומת השלילי של PC1.</p></li>
 </ol>
 <hr>
 </section>
-<section id="shape-deformation-what-pc1-actually-means" class="level2">
-<h2 class="anchored" data-anchor-id="shape-deformation-what-pc1-actually-means">Shape Deformation: What PC1 Actually Means</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 4: Visualize shape at extreme PC1 values</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
+<section id="עיוות-צורה-מה-pc1-אכן-אומר" class="level2">
+<h2 class="anchored" data-anchor-id="עיוות-צורה-מה-pc1-אכן-אומר">עיוות צורה: מה PC1 אכן אומר</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 4: ויזואליזציה של צורה בערכי PC1 קיצוניים</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct shape at -2 SD and +2 SD on PC1</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>pc1_vector <span class="op">=</span> loadings[<span class="dv">0</span>].reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>)  <span class="co"># PC1 as (8, 2) landmark shifts</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>std1 <span class="op">=</span> np.sqrt(pca.explained_variance_[<span class="dv">0</span>])</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>shape_minus <span class="op">=</span> mean_shape <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>shape_plus  <span class="op">=</span> mean_shape <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, shape, title <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                              [shape_minus, mean_shape, shape_plus],</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                              [<span class="st">"PC1 min (−2 SD)"</span>, <span class="st">"Mean shape"</span>, <span class="st">"PC1 max (+2 SD)"</span>]):</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ax.scatter(shape[:, <span class="dv">0</span>], shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connect landmarks with lines (requires defining connectivity)</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Shape variation along PC1"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>What to look for:</strong> How do the landmark positions shift from the min to max shape? Which landmarks move most? What does this correspond to on the coin image?</p>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># שחזור צורה ב-2 SD מינוס ו-2 SD פלוס על PC1</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pc1_vector <span class="op">=</span> loadings[<span class="dv">0</span>].reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>)  <span class="co"># PC1 כהזזות ציוני דרך (8, 2)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>std1 <span class="op">=</span> np.sqrt(pca.explained_variance_[<span class="dv">0</span>])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>shape_minus <span class="op">=</span> mean_shape <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>shape_plus  <span class="op">=</span> mean_shape <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, shape, title <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                              [shape_minus, mean_shape, shape_plus],</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                              [<span class="st">"PC1 מינימום (−2 SD)"</span>, <span class="st">"צורה ממוצעת"</span>, <span class="st">"PC1 מקסימום (+2 SD)"</span>]):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ax.scatter(shape[:, <span class="dv">0</span>], shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"שונות צורה לאורך PC1"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>מה לחפש:</strong> כיצד מיקומי ציוני הדרך משתנים מהצורה המינימלית לצורה המרבית? אילו ציוני דרך זזים הכי הרבה? מה זה מתאים לו בתמונת המטבע?</p>
 <hr>
 </section>
-<section id="assignment-3-distributed-this-week" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-3-distributed-this-week">Assignment 3 Distributed This Week</h2>
+<section id="מטלה-3-מחולקת-השבוע" class="level2">
+<h2 class="anchored" data-anchor-id="מטלה-3-מחולקת-השבוע">מטלה 3 מחולקת השבוע</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Assignment 3: Coins Shape Analysis — Due Week 7
+מטלה 3: ניתוח צורת מטבעות — מועד הגשה: שבוע 7
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Full GPA + PCA of Hadrian vs.&nbsp;Antoninus Pius coins. Color-code the PCA by emperor, run a permutation test, and write a 500-word interpretation.</p>
-<p>See <a href="../assignments/03-coins.html">Assignment 3</a> for full details.</p>
+<p>GPA + PCA מלא של מטבעות הדריאנוס לעומת אנטונינוס פיוס. צבעו את ה-PCA לפי קיסר, הריצו בדיקת השראה (permutation test), וכתבו פרשנות של 500 מילה.</p>
+<p>ראו <a href="../assignments/03-coins.html">מטלה 3</a> לפרטים מלאים.</p>
 </div>
 </div>
-<p><a href="../modules/07-outlines-theory.html">→ Module 7: Case Study I — Roman Coins and Imperial Standardization</a></p>
+<p><a href="../modules/07-outlines-theory.html">→ מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי</a></p>
 
 
 <!-- -->
@@ -897,175 +895,173 @@ Assignment 3: Coins Shape Analysis — Due Week 7
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">קוד מקור</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Module 6: PCA — Exploring the Shape Space"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Week 6 — The Toolkit"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## From 12 Dimensions to 2</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>After Procrustes alignment, each coin exists as a point in a 12-dimensional shape space. We cannot visualize 12 dimensions. **Principal Components Analysis (PCA)** solves this.</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>PCA finds the directions in shape space that capture the most variation. The first principal component (PC1) is the single axis that explains the most shape variation in the dataset. PC2 explains the most of what is left, and so on.</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## What PCA Is (Conceptually)</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Imagine all your coins lying in a cloud of points in shape space. PCA finds the *longest axis* through this cloud (PC1), then the longest axis perpendicular to that (PC2), and so on.</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>By plotting PC1 vs. PC2, we capture the majority of shape variation in two dimensions we can see.</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What PC scores mean</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>Each specimen gets a **score** on each PC axis. A high positive score on PC1 means the specimen has a lot of the shape variation described by PC1 (in the positive direction). A near-zero score means the specimen is close to the mean shape on that axis.</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Shape Deformation Grids</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>The most powerful tool for interpreting PCA results is the **thin-plate spline deformation grid**.</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>A deformation grid shows how the mean shape must be *deformed* to produce the shape at any point in shape space. It is a visual map of the geometric transformation between two shapes.</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>Reading a deformation grid:</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regions where the grid is compressed → relative contraction toward the target shape</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Regions where the grid is stretched → relative expansion toward the target shape</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Grid lines that curve sharply → strong local deformation</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>We generate deformation grids using the <span class="in">`morphops`</span> thin-plate spline functions.</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Full PCA Pipeline in Colab</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Open the Week 6 Notebook</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Week 6 Colab Notebook</span><span class="co">](https://colab.research.google.com)</span> *(link active Week 6)*</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 1: Import and setup</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "מודול 6: PCA — חקירת מרחב הצורות"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "שבוע 6 — ערכת הכלים"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> he</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## מ-12 ממדים ל-2</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>לאחר יישור פרוקרוסטס, כל מטבע קיים כנקודה במרחב צורות בן 12 ממדים. לא ניתן לדמיין 12 ממדים. **ניתוח רכיבים עיקריים (PCA)** פותר זאת.</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>PCA מוצא את הכיוונים במרחב הצורות שלוכדים את מירב השונות. הרכיב העיקרי הראשון (PC1) הוא הציר היחיד שמסביר את מירב שונות הצורה במאגר הנתונים. PC2 מסביר את מירב מה שנותר, וכן הלאה.</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## מהו PCA (מבחינה מושגית)</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>דמיינו את כל המטבעות שלכם כענן נקודות במרחב הצורות. PCA מוצא את *הציר הארוך ביותר* דרך הענן הזה (PC1), ואחר כך את הציר הארוך ביותר הניצב לו (PC2), וכן הלאה.</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>על ידי ציור PC1 לעומת PC2, אנחנו לוכדים את רוב שונות הצורה בשני ממדים שניתן לראות.</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## מה מייצגים ציוני PC</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>לכל פרט יש **ציון** על כל ציר PC. ציון חיובי גבוה על PC1 אומר שלפרט יש הרבה משונות הצורה המתוארת על ידי PC1 (בכיוון החיובי). ציון קרוב לאפס אומר שהפרט קרוב לצורה הממוצעת על ציר זה.</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## רשתות עיוות צורה</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>הכלי החזק ביותר לפרשנות תוצאות PCA הוא **רשת עיוות לוח הדקיק (thin-plate spline)**.</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>רשת עיוות מראה כיצד הצורה הממוצעת צריכה *להתעוות* כדי לייצר את הצורה בכל נקודה במרחב הצורות. זוהי מפה ויזואלית של השינוי הגיאומטרי בין שתי צורות.</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>קריאת רשת עיוות:</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אזורים שבהם הרשת דחוסה → התכווצות יחסית לכיוון הצורה המטרה</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אזורים שבהם הרשת מתוחה → הרחבה יחסית לכיוון הצורה המטרה</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קווי רשת מעוקלים בחדות → עיוות מקומי חזק</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## צינור PCA מלא ב-Colab</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## פתחו את מחברת שבוע 6</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מחברת Colab — שבוע 6</span><span class="co">](https://colab.research.google.com)</span> *(הקישור יופעל בשבוע 6)*</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 1: ייבוא והגדרה</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install python<span class="op">-</span>bidi <span class="op">-</span>q</span>
 <span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'aligned' is our GPA result from Week 5</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape: each specimen becomes one row</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)  <span class="co"># shape: (n_coins, 16)</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>loadings <span class="op">=</span> pca.components_  <span class="co"># shape: (16, 16)</span></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Variance explained</span></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variance explained by first 5 PCs:"</span>)</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(var_exp[:<span class="dv">5</span>]):</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 2: Scree plot — how many PCs matter?</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), var_exp[:<span class="dv">7</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), np.cumsum(var_exp[:<span class="dv">7</span>]), <span class="st">'ro-'</span>, label<span class="op">=</span><span class="st">'Cumulative %'</span>)</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Principal Component"</span>)</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Variance Explained (%)"</span>)</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scree Plot — Hadrian Coins"</span>)</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 3: PCA scatter plot (PC1 vs PC2)</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">7</span>))</span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>plt.scatter(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>],</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>            s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="co"># Label outliers (bottom 5% and top 5% on PC1)</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> np.percentile(np.<span class="bu">abs</span>(scores[:, <span class="dv">0</span>]), <span class="dv">95</span>)</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(scores[:, :<span class="dv">2</span>]):</span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(x) <span class="op">&gt;</span> threshold:</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>        plt.annotate(<span class="ss">f"Coin </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>, (x, y), fontsize<span class="op">=</span><span class="dv">8</span>,</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>                     xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>), textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% of variance)"</span>)</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% of variance)"</span>)</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Shape Space: Hadrian Denarii"</span>)</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interpreting the PCA Plot</span></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>Look at your scatter plot and answer these questions:</span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Spread:** Do coins spread more along PC1 or PC2? What does this tell you about the dominant axis of shape variation?</span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Clusters:** Do you see any distinct groups, or is variation continuous?</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Outliers:** Are there coins far from the main cloud? Go back and look at those coin images — is there something visually unusual about them?</span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**What does PC1 mean?** We need a deformation grid to answer this properly — but make a visual guess based on coins at the positive vs. negative end of PC1.</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Shape Deformation: What PC1 Actually Means</span></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="co"># Cell 4: Visualize shape at extreme PC1 values</span></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct shape at -2 SD and +2 SD on PC1</span></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>pc1_vector <span class="op">=</span> loadings[<span class="dv">0</span>].reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>)  <span class="co"># PC1 as (8, 2) landmark shifts</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>std1 <span class="op">=</span> np.sqrt(pca.explained_variance_[<span class="dv">0</span>])</span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>shape_minus <span class="op">=</span> mean_shape <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>shape_plus  <span class="op">=</span> mean_shape <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, shape, title <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>                              [shape_minus, mean_shape, shape_plus],</span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>                              [<span class="st">"PC1 min (−2 SD)"</span>, <span class="st">"Mean shape"</span>, <span class="st">"PC1 max (+2 SD)"</span>]):</span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>    ax.scatter(shape[:, <span class="dv">0</span>], shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connect landmarks with lines (requires defining connectivity)</span></span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Shape variation along PC1"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display  <span class="co"># תיקון כיוון טקסט עברי בגרפים של matplotlib</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co"># נניח ש-'aligned' הוא תוצאת GPA משבוע 5</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="co"># שינוי צורה: כל פרט הופך לשורה אחת</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)  <span class="co"># צורה: (n_מטבעות, 16)</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>loadings <span class="op">=</span> pca.components_  <span class="co"># צורה: (16, 16)</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="co"># שונות מוסברת</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>var_exp <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"שונות מוסברת על ידי 5 הרכיבים הראשונים:"</span>)</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(var_exp[:<span class="dv">5</span>]):</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 2: גרף שדרה — כמה רכיבים עיקריים חשובים?</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), var_exp[:<span class="dv">7</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>), np.cumsum(var_exp[:<span class="dv">7</span>]), <span class="st">'ro-'</span>, label<span class="op">=</span>rtl(<span class="st">'מצטבר %'</span>))</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>plt.xlabel(rtl(<span class="st">"רכיב עיקרי"</span>))</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>plt.ylabel(rtl(<span class="st">"שונות מוסברת (%)"</span>))</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>plt.title(rtl(<span class="st">"גרף שדרה — מטבעות הדריאנוס"</span>))</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 3: גרף פיזור PCA (PC1 לעומת PC2)</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">7</span>))</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>plt.scatter(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>],</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>            s<span class="op">=</span><span class="dv">60</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="co"># סימון חריגים (5% תחתון ועליון על PC1)</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> np.percentile(np.<span class="bu">abs</span>(scores[:, <span class="dv">0</span>]), <span class="dv">95</span>)</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(scores[:, :<span class="dv">2</span>]):</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(x) <span class="op">&gt;</span> threshold:</span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>        plt.annotate(rtl(<span class="ss">f"מטבע </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>), (x, y), fontsize<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>                     xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>), textcoords<span class="op">=</span><span class="st">'offset points'</span>)</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>plt.xlabel(rtl(<span class="ss">f"PC1 (</span><span class="sc">{</span>var_exp[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% מהשונות)"</span>))</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>plt.ylabel(rtl(<span class="ss">f"PC2 (</span><span class="sc">{</span>var_exp[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% מהשונות)"</span>))</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>plt.title(rtl(<span class="st">"מרחב הצורות: דנריים של הדריאנוס"</span>))</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## פרשנות גרף PCA</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>הסתכלו בגרף הפיזור שלכם וענו על שאלות אלה:</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**פיזור:** האם מטבעות מפוזרים יותר לאורך PC1 או PC2? מה זה אומר על הציר הדומיננטי של שונות הצורה?</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**אשכולות:** האם אתם רואים קבוצות מובחנות, או שהשונות רציפה?</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**חריגים:** האם יש מטבעות רחוקים מהענן הראשי? חזרו והסתכלו בתמונות המטבעות האלה — האם יש בהם משהו חריג ויזואלית?</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**מה אומר PC1?** אנחנו זקוקים לרשת עיוות כדי לענות על זה כראוי — אבל עשו ניחוש ויזואלי בהתבסס על מטבעות בקצה החיובי לעומת השלילי של PC1.</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## עיוות צורה: מה PC1 אכן אומר</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="co"># תא 4: ויזואליזציה של צורה בערכי PC1 קיצוניים</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="co"># שחזור צורה ב-2 SD מינוס ו-2 SD פלוס על PC1</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>pc1_vector <span class="op">=</span> loadings[<span class="dv">0</span>].reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>)  <span class="co"># PC1 כהזזות ציוני דרך (8, 2)</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>std1 <span class="op">=</span> np.sqrt(pca.explained_variance_[<span class="dv">0</span>])</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>shape_minus <span class="op">=</span> mean_shape <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>shape_plus  <span class="op">=</span> mean_shape <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> std1 <span class="op">*</span> pc1_vector</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, shape, title <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>                              [shape_minus, mean_shape, shape_plus],</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>                              [<span class="st">"PC1 מינימום (−2 SD)"</span>, <span class="st">"צורה ממוצעת"</span>, <span class="st">"PC1 מקסימום (+2 SD)"</span>]):</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>    ax.scatter(shape[:, <span class="dv">0</span>], shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title)</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>)</span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"שונות צורה לאורך PC1"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>**מה לחפש:** כיצד מיקומי ציוני הדרך משתנים מהצורה המינימלית לצורה המרבית? אילו ציוני דרך זזים הכי הרבה? מה זה מתאים לו בתמונת המטבע?</span>
 <span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>**What to look for:** How do the landmark positions shift from the min to max shape? Which landmarks move most? What does this correspond to on the coin image?</span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## מטלה 3 מחולקת השבוע</span></span>
 <span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 3 Distributed This Week</span></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 3: Coins Shape Analysis — Due Week 7</span></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>Full GPA + PCA of Hadrian vs. Antoninus Pius coins. Color-code the PCA by emperor, run a permutation test, and write a 500-word interpretation.</span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Assignment 3</span><span class="co">](../assignments/03-coins.qmd)</span> for full details.</span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 7: Case Study I — Roman Coins and Imperial Standardization</span><span class="co">](07-outlines-theory.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## מטלה 3: ניתוח צורת מטבעות — מועד הגשה: שבוע 7</span></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>GPA + PCA מלא של מטבעות הדריאנוס לעומת אנטונינוס פיוס. צבעו את ה-PCA לפי קיסר, הריצו בדיקת השראה (permutation test), וכתבו פרשנות של 500 מילה.</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>ראו <span class="co">[</span><span class="ot">מטלה 3</span><span class="co">](../assignments/03-coins.qmd)</span> לפרטים מלאים.</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ מודול 7: מקרה בוחן I — מטבעות רומיים ותקנון אימפריאלי</span><span class="co">](07-outlines-theory.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <div class="author-credit">

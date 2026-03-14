@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 11: Testing Hypotheses — Statistics in Shape Space – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>מודול 11: בחינת השערות — סטטיסטיקה במרחב הצורות – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -267,18 +267,18 @@ window.Quarto = {
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#why-standard-tests-dont-work-for-shape-data" id="toc-why-standard-tests-dont-work-for-shape-data" class="nav-link active" data-scroll-target="#why-standard-tests-dont-work-for-shape-data">Why Standard Tests Don’t Work for Shape Data</a></li>
-  <li><a href="#the-logic-of-permutation-tests" id="toc-the-logic-of-permutation-tests" class="nav-link" data-scroll-target="#the-logic-of-permutation-tests">The Logic of Permutation Tests</a>
+  <li><a href="#מדוע-בדיקות-סטטיסטיות-רגילות-אינן-מתאימות-לנתוני-צורה" id="toc-מדוע-בדיקות-סטטיסטיות-רגילות-אינן-מתאימות-לנתוני-צורה" class="nav-link active" data-scroll-target="#מדוע-בדיקות-סטטיסטיות-רגילות-אינן-מתאימות-לנתוני-צורה">מדוע בדיקות סטטיסטיות רגילות אינן מתאימות לנתוני צורה</a></li>
+  <li><a href="#ההיגיון-של-בדיקות-תמורה" id="toc-ההיגיון-של-בדיקות-תמורה" class="nav-link" data-scroll-target="#ההיגיון-של-בדיקות-תמורה">ההיגיון של בדיקות תמורה</a>
   <ul class="collapse">
-  <li><a href="#step-by-step" id="toc-step-by-step" class="nav-link" data-scroll-target="#step-by-step">Step-by-step:</a></li>
+  <li><a href="#שלב-אחר-שלב" id="toc-שלב-אחר-שלב" class="nav-link" data-scroll-target="#שלב-אחר-שלב">שלב אחר שלב:</a></li>
   </ul></li>
-  <li><a href="#manova-in-shape-space" id="toc-manova-in-shape-space" class="nav-link" data-scroll-target="#manova-in-shape-space">MANOVA in Shape Space</a></li>
-  <li><a href="#effect-size-r²" id="toc-effect-size-r²" class="nav-link" data-scroll-target="#effect-size-r²">Effect Size: R²</a></li>
-  <li><a href="#allometry-when-size-predicts-shape" id="toc-allometry-when-size-predicts-shape" class="nav-link" data-scroll-target="#allometry-when-size-predicts-shape">Allometry: When Size Predicts Shape</a></li>
-  <li><a href="#multiple-comparisons" id="toc-multiple-comparisons" class="nav-link" data-scroll-target="#multiple-comparisons">Multiple Comparisons</a></li>
-  <li><a href="#summary-statistical-reporting-in-a-gm-study" id="toc-summary-statistical-reporting-in-a-gm-study" class="nav-link" data-scroll-target="#summary-statistical-reporting-in-a-gm-study">Summary: Statistical Reporting in a GM Study</a></li>
-  <li><a href="#lab-apply-statistics-to-your-final-project-dataset" id="toc-lab-apply-statistics-to-your-final-project-dataset" class="nav-link" data-scroll-target="#lab-apply-statistics-to-your-final-project-dataset">Lab: Apply Statistics to Your Final Project Dataset</a></li>
-  <li><a href="#next-week-synthesis-and-final-presentations" id="toc-next-week-synthesis-and-final-presentations" class="nav-link" data-scroll-target="#next-week-synthesis-and-final-presentations">Next Week: Synthesis and Final Presentations</a></li>
+  <li><a href="#manova-במרחב-הצורות" id="toc-manova-במרחב-הצורות" class="nav-link" data-scroll-target="#manova-במרחב-הצורות">MANOVA במרחב הצורות</a></li>
+  <li><a href="#גודל-אפקט-r²" id="toc-גודל-אפקט-r²" class="nav-link" data-scroll-target="#גודל-אפקט-r²">גודל אפקט: R²</a></li>
+  <li><a href="#אלומטריה-כאשר-הגודל-מנבא-את-הצורה" id="toc-אלומטריה-כאשר-הגודל-מנבא-את-הצורה" class="nav-link" data-scroll-target="#אלומטריה-כאשר-הגודל-מנבא-את-הצורה">אלומטריה: כאשר הגודל מנבא את הצורה</a></li>
+  <li><a href="#השוואות-מרובות" id="toc-השוואות-מרובות" class="nav-link" data-scroll-target="#השוואות-מרובות">השוואות מרובות</a></li>
+  <li><a href="#סיכום-דיווח-סטטיסטי-במחקר-gm" id="toc-סיכום-דיווח-סטטיסטי-במחקר-gm" class="nav-link" data-scroll-target="#סיכום-דיווח-סטטיסטי-במחקר-gm">סיכום: דיווח סטטיסטי במחקר GM</a></li>
+  <li><a href="#מעבדה-יישום-סטטיסטיקה-על-מאגר-הנתונים-של-הפרויקט-הסופי" id="toc-מעבדה-יישום-סטטיסטיקה-על-מאגר-הנתונים-של-הפרויקט-הסופי" class="nav-link" data-scroll-target="#מעבדה-יישום-סטטיסטיקה-על-מאגר-הנתונים-של-הפרויקט-הסופי">מעבדה: יישום סטטיסטיקה על מאגר הנתונים של הפרויקט הסופי</a></li>
+  <li><a href="#שבוע-הבא-סינתזה-ומצגות-סיום" id="toc-שבוע-הבא-סינתזה-ומצגות-סיום" class="nav-link" data-scroll-target="#שבוע-הבא-סינתזה-ומצגות-סיום">שבוע הבא: סינתזה ומצגות סיום</a></li>
   </ul>
 </nav>
     </div>
@@ -287,8 +287,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Module 11: Testing Hypotheses — Statistics in Shape Space</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
-<p class="subtitle lead">Week 11 — Pottery, Statistics, and Synthesis</p>
+<div class="quarto-title-block"><div><h1 class="title">מודול 11: בחינת השערות — סטטיסטיקה במרחב הצורות</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> קוד</button></div></div>
+<p class="subtitle lead">שבוע 11 — כלי חרס, סטטיסטיקה וסינתזה</p>
 </div>
 
 
@@ -305,153 +305,153 @@ window.Quarto = {
 </header>
 
 
-<section id="why-standard-tests-dont-work-for-shape-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-standard-tests-dont-work-for-shape-data">Why Standard Tests Don’t Work for Shape Data</h2>
-<p>Shape data from GM is <strong>multivariate</strong>: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.</p>
-<p>Furthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.</p>
-<p>The solution used in modern GM: <strong>permutation-based tests</strong>.</p>
+<section id="מדוע-בדיקות-סטטיסטיות-רגילות-אינן-מתאימות-לנתוני-צורה" class="level2">
+<h2 class="anchored" data-anchor-id="מדוע-בדיקות-סטטיסטיות-רגילות-אינן-מתאימות-לנתוני-צורה">מדוע בדיקות סטטיסטיות רגילות אינן מתאימות לנתוני צורה</h2>
+<p>נתוני צורה מ-GM הם <strong>רב-ממדיים</strong>: כל פרט מתואר על ידי משתנים רבים (ציוני PC, או קואורדינטות פרוקרוסטס גולמיות). בדיקות חד-ממדיות רגילות (t-test, ANOVA) בוחנות משתנה אחד בכל פעם. עבור צורה, אנחנו זקוקים לבדיקות שפועלות בממדים רבים בו-זמנית.</p>
+<p>בנוסף, נתוני צורה לא תמיד עומדים בהנחות של בדיקות פרמטריות קלאסיות (נורמליות רב-ממדית, שוויון שונות). גדלי מדגם בארכאולוגיה לרוב קטנים.</p>
+<p>הפתרון המשמש ב-GM מודרני: <strong>בדיקות מבוססות תמורה (permutation)</strong>.</p>
 <hr>
 </section>
-<section id="the-logic-of-permutation-tests" class="level2">
-<h2 class="anchored" data-anchor-id="the-logic-of-permutation-tests">The Logic of Permutation Tests</h2>
-<p>A permutation test asks: <em>how often would we see a difference this large (or larger) between groups if the group labels were just randomly assigned?</em></p>
-<section id="step-by-step" class="level3">
-<h3 class="anchored" data-anchor-id="step-by-step">Step-by-step:</h3>
+<section id="ההיגיון-של-בדיקות-תמורה" class="level2">
+<h2 class="anchored" data-anchor-id="ההיגיון-של-בדיקות-תמורה">ההיגיון של בדיקות תמורה</h2>
+<p>בדיקת תמורה שואלת: <em>כמה פעמים היינו רואים הבדל גדול כזה (או גדול יותר) בין קבוצות אילו סימוני הקבוצות היו מוקצים באקראי?</em></p>
+<section id="שלב-אחר-שלב" class="level3">
+<h3 class="anchored" data-anchor-id="שלב-אחר-שלב">שלב אחר שלב:</h3>
 <ol type="1">
-<li>Calculate the <em>observed</em> test statistic (e.g., F-ratio comparing within-group to between-group variation)</li>
-<li>Randomly permute the group labels among specimens, keeping the data fixed</li>
-<li>Re-calculate the test statistic</li>
-<li>Repeat steps 2–3 many times (999 or 9999 permutations)</li>
-<li>The <strong>p-value</strong> = the proportion of permuted statistics ≥ the observed statistic</li>
+<li>חשבו את סטטיסטיקת המבחן ה<em>נצפית</em> (למשל, יחס F המשווה שונות תוך-קבוצתית לשונות בין-קבוצתית)</li>
+<li>בצעו תמורה אקראית של סימוני הקבוצות בין הפרטים, תוך שמירת הנתונים</li>
+<li>חשבו מחדש את סטטיסטיקת המבחן</li>
+<li>חזרו על שלבים 2–3 פעמים רבות (999 או 9999 תמורות)</li>
+<li>ה<strong>p-ערך</strong> = שיעור הסטטיסטיקות המתומרות ≥ לסטטיסטיקה הנצפית</li>
 </ol>
-<p>No distributional assumptions. Works with small samples. Widely accepted in the GM literature.</p>
+<p>אין הנחות על ההתפלגות. עובד עם מדגמים קטנים. מקובל לרווחה בספרות GM.</p>
 <hr>
 </section>
 </section>
-<section id="manova-in-shape-space" class="level2">
-<h2 class="anchored" data-anchor-id="manova-in-shape-space">MANOVA in Shape Space</h2>
-<p><strong>MANOVA</strong> (Multivariate Analysis of Variance) tests whether group centroids (mean shapes) differ more than expected by chance.</p>
-<p>In GM, we typically apply MANOVA to the first several PC scores (capturing, say, 90% of shape variance). This is what our <code>permutation_manova()</code> function does.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Applied to any of our three datasets</span></span>
+<section id="manova-במרחב-הצורות" class="level2">
+<h2 class="anchored" data-anchor-id="manova-במרחב-הצורות">MANOVA במרחב הצורות</h2>
+<p><strong>MANOVA</strong> (ניתוח שונות רב-ממדי) בוחן האם צנטרואידי הקבוצות (צורות ממוצעות) שונים יותר מהצפוי על פי המקרה.</p>
+<p>ב-GM, אנחנו מיישמים בדרך כלל MANOVA על ציוני PC הראשונים (הלוכדים, נניח, 90% מהשונות בצורה). זה מה שפונקציית <code>permutation_manova()</code> שלנו עושה.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># מיושם על כל אחד משלושת מאגרי הנתונים שלנו</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> f_stat <span class="op">/</span> (f_stat <span class="op">+</span> (<span class="bu">len</span>(labels) <span class="op">-</span> <span class="dv">2</span>))  <span class="co"># approx effect size</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> f_stat <span class="op">/</span> (f_stat <span class="op">+</span> (<span class="bu">len</span>(labels) <span class="op">-</span> <span class="dv">2</span>))  <span class="co"># גודל אפקט משוער</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">, R² = </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-<section id="effect-size-r²" class="level2">
-<h2 class="anchored" data-anchor-id="effect-size-r²">Effect Size: R²</h2>
-<p>The p-value tells us <em>whether</em> groups differ. The <strong>effect size</strong> tells us <em>how much</em> they differ.</p>
-<p>In GM, the standard effect size is <strong>R²</strong> — the proportion of total shape variance explained by group membership:</p>
+<section id="גודל-אפקט-r²" class="level2">
+<h2 class="anchored" data-anchor-id="גודל-אפקט-r²">גודל אפקט: R²</h2>
+<p>ה-p-ערך אומר לנו <em>האם</em> הקבוצות שונות. <strong>גודל האפקט</strong> אומר לנו <em>כמה</em> הן שונות.</p>
+<p>ב-GM, גודל האפקט הסטנדרטי הוא <strong>R²</strong> — שיעור שונות הצורה הכוללת המוסבר על ידי חברות בקבוצה:</p>
 <p><span class="math display">\[R^2 = \frac{SS_{between}}{SS_{total}}\]</span></p>
-<p>An analysis can be statistically significant with a tiny R². For example: if p = 0.001 but R² = 0.04, groups differ reliably but the group difference accounts for only 4% of total shape variation. The other 96% is variation within groups.</p>
+<p>ניתוח יכול להיות מובהק סטטיסטית עם R² קטן מאוד. לדוגמה: אם p = 0.001 אך R² = 0.04, הקבוצות שונות באופן מהימן אך הבדל הקבוצות מסביר רק 4% מסך שונות הצורה. 96% הנותרים הם שונות בתוך הקבוצות.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Always report both p and R²
+דווחו תמיד גם p וגם R²
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In archaeology, where sample sizes are often small and variation is high, R² is often more informative than the p-value alone.</p>
+<p>בארכאולוגיה, שם גדלי מדגם לרוב קטנים והשונות גבוהה, R² לעיתים קרובות אינפורמטיבי יותר מ-p-ערך בלבד.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="allometry-when-size-predicts-shape" class="level2">
-<h2 class="anchored" data-anchor-id="allometry-when-size-predicts-shape">Allometry: When Size Predicts Shape</h2>
-<p><strong>Allometry</strong> is the relationship between size and shape. In biology, larger organisms often have proportionally different shapes from smaller ones (think of how a puppy’s head looks different from an adult dog’s).</p>
-<p>In archaeology: - Larger coins may have different portrait proportions than smaller ones - Larger pottery vessels may have proportionally narrower necks - Larger axes may have relatively wider blades</p>
-<p>Testing allometry:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test: does centroid size predict shape?</span></span>
+<section id="אלומטריה-כאשר-הגודל-מנבא-את-הצורה" class="level2">
+<h2 class="anchored" data-anchor-id="אלומטריה-כאשר-הגודל-מנבא-את-הצורה">אלומטריה: כאשר הגודל מנבא את הצורה</h2>
+<p><strong>אלומטריה</strong> היא הקשר בין גודל לצורה. בביולוגיה, לאורגניזמים גדולים יותר יש לעיתים קרובות פרופורציות שונות מאלה של אורגניזמים קטנים יותר (חשבו כיצד ראשו של גור שונה מזה של כלב בוגר).</p>
+<p>בארכאולוגיה: - למטבעות גדולות יותר עשויות להיות פרופורציות דיוקן שונות מאשר קטנות - לכלי חרס גדולים יותר עשויים להיות צווארים צרים יחסית - לגרזנים גדולים יותר עשויים להיות להבים רחבים יחסית</p>
+<p>בחינת אלומטריה:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># בחינה: האם גודל-צנטרואיד מנבא צורה?</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> pearsonr</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlate centroid sizes with PC1 scores</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># תאם גדלי-צנטרואיד עם ציוני PC1</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r, p <span class="op">=</span> pearsonr(centroid_sizes, scores[:, <span class="dv">0</span>])</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Allometry (size vs. PC1): r = </span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"אלומטריה (גודל לעומת PC1): r = </span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># גרף פיזור</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Log centroid size"</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PC1 score (shape)"</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Allometric plot: size vs. shape PC1"</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Add regression line</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># הוספת קו רגרסיה</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> np.polyfit(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], <span class="dv">1</span>)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(np.log(centroid_sizes).<span class="bu">min</span>(), np.log(centroid_sizes).<span class="bu">max</span>(), <span class="dv">100</span>)</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.plot(x, m<span class="op">*</span>x <span class="op">+</span> b, <span class="st">'r--'</span>)</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If allometry is significant: you may want to remove the size effect before comparing groups (using residuals from the allometric regression).</p>
+<p>אם האלומטריה מובהקת: ייתכן שתרצו להסיר את אפקט הגודל לפני השוואת קבוצות (באמצעות שאריות מרגרסיית האלומטריה).</p>
 <hr>
 </section>
-<section id="multiple-comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-comparisons">Multiple Comparisons</h2>
-<p>If you are comparing 5 pottery periods against each other pairwise, you run 10 comparisons. By chance, you expect at least one to be “significant” at p &lt; 0.05 — even if there is no real difference anywhere.</p>
-<p><strong>Solutions:</strong></p>
+<section id="השוואות-מרובות" class="level2">
+<h2 class="anchored" data-anchor-id="השוואות-מרובות">השוואות מרובות</h2>
+<p>אם אתם משווים 5 תקופות כלי חרס אחת מול השנייה, אתם מריצים 10 השוואות. על פי המקרה, תצפו שלפחות אחת תהיה “מובהקת” ב-p &lt; 0.05 — גם אם לא קיים הבדל אמיתי בשום מקום.</p>
+<p><strong>פתרונות:</strong></p>
 <ol type="1">
-<li><p><strong>Bonferroni correction</strong>: divide your α threshold by the number of tests. For 10 tests, use p &lt; 0.005 instead of p &lt; 0.05.</p></li>
-<li><p><strong>Benjamini-Hochberg FDR</strong>: less conservative, controls the <em>false discovery rate</em> rather than the family-wise error rate.</p></li>
-<li><p><strong>A priori hypotheses</strong>: only test comparisons you predicted before looking at the data. This is the most principled approach.</p></li>
+<li><p><strong>תיקון בונפרוני</strong>: חלקו את סף ה-α שלכם במספר הבדיקות. עבור 10 בדיקות, השתמשו ב-p &lt; 0.005 במקום p &lt; 0.05.</p></li>
+<li><p><strong>FDR של Benjamini-Hochberg</strong>: פחות שמרני, שולט ב<em>שיעור הגילויים הכוזבים</em> ולא בשיעור השגיאות המשפחתי.</p></li>
+<li><p><strong>השערות מוקדמות</strong>: בחנו רק השוואות שחזיתם לפני שהסתכלתם בנתונים. זוהי הגישה העקרונית ביותר.</p></li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.multitest <span class="im">import</span> multipletests</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> [<span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.001</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>]  <span class="co"># example: 5 pairwise tests</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> [<span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.001</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>]  <span class="co"># דוגמה: 5 בדיקות זוגיות</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>reject, p_corrected, _, _ <span class="op">=</span> multipletests(p_values, method<span class="op">=</span><span class="st">'bonferroni'</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> orig, corr, rej <span class="kw">in</span> <span class="bu">zip</span>(p_values, p_corrected, reject):</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"p = </span><span class="sc">{</span>orig<span class="sc">:.3f}</span><span class="ss"> → corrected p = </span><span class="sc">{</span>corr<span class="sc">:.3f}</span><span class="ss"> → </span><span class="sc">{</span><span class="st">'SIGNIFICANT'</span> <span class="cf">if</span> rej <span class="cf">else</span> <span class="st">'ns'</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"p = </span><span class="sc">{</span>orig<span class="sc">:.3f}</span><span class="ss"> → p מתוקן = </span><span class="sc">{</span>corr<span class="sc">:.3f}</span><span class="ss"> → </span><span class="sc">{</span><span class="st">'מובהק'</span> <span class="cf">if</span> rej <span class="cf">else</span> <span class="st">'לא מובהק'</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-<section id="summary-statistical-reporting-in-a-gm-study" class="level2">
-<h2 class="anchored" data-anchor-id="summary-statistical-reporting-in-a-gm-study">Summary: Statistical Reporting in a GM Study</h2>
-<p>A complete statistical report should include:</p>
+<section id="סיכום-דיווח-סטטיסטי-במחקר-gm" class="level2">
+<h2 class="anchored" data-anchor-id="סיכום-דיווח-סטטיסטי-במחקר-gm">סיכום: דיווח סטטיסטי במחקר GM</h2>
+<p>דוח סטטיסטי מלא צריך לכלול:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Element</th>
-<th>What to report</th>
+<th>מרכיב</th>
+<th>מה לדווח</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Test</strong></td>
-<td>What test (permutation MANOVA, etc.)</td>
+<td><strong>בדיקה</strong></td>
+<td>איזו בדיקה (MANOVA תמורה, וכו’)</td>
 </tr>
 <tr class="even">
-<td><strong>Parameters</strong></td>
-<td>Number of PCs used, number of permutations</td>
+<td><strong>פרמטרים</strong></td>
+<td>מספר ה-PC בשימוש, מספר התמורות</td>
 </tr>
 <tr class="odd">
-<td><strong>F-statistic</strong></td>
-<td>The observed F ratio</td>
+<td><strong>סטטיסטיקת F</strong></td>
+<td>יחס F הנצפה</td>
 </tr>
 <tr class="even">
-<td><strong>p-value</strong></td>
-<td>From permutation distribution</td>
+<td><strong>p-ערך</strong></td>
+<td>מהתפלגות התמורה</td>
 </tr>
 <tr class="odd">
-<td><strong>Effect size</strong></td>
+<td><strong>גודל אפקט</strong></td>
 <td>R²</td>
 </tr>
 <tr class="even">
-<td><strong>Multiple comparisons</strong></td>
-<td>Correction method used (if any)</td>
+<td><strong>השוואות מרובות</strong></td>
+<td>שיטת התיקון בשימוש (אם בכלל)</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
-<section id="lab-apply-statistics-to-your-final-project-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="lab-apply-statistics-to-your-final-project-dataset">Lab: Apply Statistics to Your Final Project Dataset</h2>
-<p>This week’s lab is open: use the Week 11 Colab notebook to run the full statistical suite on whichever dataset you are using for your final project (or a preview of it).</p>
+<section id="מעבדה-יישום-סטטיסטיקה-על-מאגר-הנתונים-של-הפרויקט-הסופי" class="level2">
+<h2 class="anchored" data-anchor-id="מעבדה-יישום-סטטיסטיקה-על-מאגר-הנתונים-של-הפרויקט-הסופי">מעבדה: יישום סטטיסטיקה על מאגר הנתונים של הפרויקט הסופי</h2>
+<p>מעבדת השבוע הזה פתוחה: השתמשו במחברת Colab של שבוע 11 כדי להריץ את חבילת הסטטיסטיקה המלאה על כל מאגר הנתונים שאתם משתמשים בו לפרויקט הסופי (או תצוגה מקדימה שלו).</p>
 <hr>
 </section>
-<section id="next-week-synthesis-and-final-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="next-week-synthesis-and-final-presentations">Next Week: Synthesis and Final Presentations</h2>
-<p><a href="../modules/12-big-questions.html">→ Module 12: Big Questions + Final Presentations</a></p>
+<section id="שבוע-הבא-סינתזה-ומצגות-סיום" class="level2">
+<h2 class="anchored" data-anchor-id="שבוע-הבא-סינתזה-ומצגות-סיום">שבוע הבא: סינתזה ומצגות סיום</h2>
+<p><a href="../modules/12-big-questions.html">← מודול 12: שאלות גדולות + מצגות סיום</a></p>
 
 
 <!-- -->
@@ -917,154 +917,156 @@ Always report both p and R²
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">קוד מקור</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Module 11: Testing Hypotheses — Statistics in Shape Space"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Week 11 — Pottery, Statistics, and Synthesis"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why Standard Tests Don't Work for Shape Data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "מודול 11: בחינת השערות — סטטיסטיקה במרחב הצורות"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "שבוע 11 — כלי חרס, סטטיסטיקה וסינתזה"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> he</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="an">dir:</span><span class="co"> rtl</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>Shape data from GM is **multivariate**: each specimen is described by many variables (PC scores, or raw Procrustes coordinates). Standard univariate tests (t-test, ANOVA) test one variable at a time. For shape, we need tests that work in many dimensions at once.</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## מדוע בדיקות סטטיסטיות רגילות אינן מתאימות לנתוני צורה</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Furthermore, shape data does not always follow the assumptions of classical parametric tests (multivariate normality, equal variance). Sample sizes in archaeology are often small.</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>נתוני צורה מ-GM הם **רב-ממדיים**: כל פרט מתואר על ידי משתנים רבים (ציוני PC, או קואורדינטות פרוקרוסטס גולמיות). בדיקות חד-ממדיות רגילות (t-test, ANOVA) בוחנות משתנה אחד בכל פעם. עבור צורה, אנחנו זקוקים לבדיקות שפועלות בממדים רבים בו-זמנית.</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>The solution used in modern GM: **permutation-based tests**.</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>בנוסף, נתוני צורה לא תמיד עומדים בהנחות של בדיקות פרמטריות קלאסיות (נורמליות רב-ממדית, שוויון שונות). גדלי מדגם בארכאולוגיה לרוב קטנים.</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>הפתרון המשמש ב-GM מודרני: **בדיקות מבוססות תמורה (permutation)**.</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Logic of Permutation Tests</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>A permutation test asks: *how often would we see a difference this large (or larger) between groups if the group labels were just randomly assigned?*</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## ההיגיון של בדיקות תמורה</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step-by-step:</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>בדיקת תמורה שואלת: *כמה פעמים היינו רואים הבדל גדול כזה (או גדול יותר) בין קבוצות אילו סימוני הקבוצות היו מוקצים באקראי?*</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Calculate the *observed* test statistic (e.g., F-ratio comparing within-group to between-group variation)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Randomly permute the group labels among specimens, keeping the data fixed</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Re-calculate the test statistic</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Repeat steps 2–3 many times (999 or 9999 permutations)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>The **p-value** = the proportion of permuted statistics ≥ the observed statistic</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>No distributional assumptions. Works with small samples. Widely accepted in the GM literature.</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### שלב אחר שלב:</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>חשבו את סטטיסטיקת המבחן ה*נצפית* (למשל, יחס F המשווה שונות תוך-קבוצתית לשונות בין-קבוצתית)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>בצעו תמורה אקראית של סימוני הקבוצות בין הפרטים, תוך שמירת הנתונים</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>חשבו מחדש את סטטיסטיקת המבחן</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>חזרו על שלבים 2–3 פעמים רבות (999 או 9999 תמורות)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>ה**p-ערך** = שיעור הסטטיסטיקות המתומרות ≥ לסטטיסטיקה הנצפית</span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>אין הנחות על ההתפלגות. עובד עם מדגמים קטנים. מקובל לרווחה בספרות GM.</span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## MANOVA in Shape Space</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>**MANOVA** (Multivariate Analysis of Variance) tests whether group centroids (mean shapes) differ more than expected by chance.</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## MANOVA במרחב הצורות</span></span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>In GM, we typically apply MANOVA to the first several PC scores (capturing, say, 90% of shape variance). This is what our <span class="in">`permutation_manova()`</span> function does.</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>**MANOVA** (ניתוח שונות רב-ממדי) בוחן האם צנטרואידי הקבוצות (צורות ממוצעות) שונים יותר מהצפוי על פי המקרה.</span>
 <span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Applied to any of our three datasets</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> f_stat <span class="op">/</span> (f_stat <span class="op">+</span> (<span class="bu">len</span>(labels) <span class="op">-</span> <span class="dv">2</span>))  <span class="co"># approx effect size</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">, R² = </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>ב-GM, אנחנו מיישמים בדרך כלל MANOVA על ציוני PC הראשונים (הלוכדים, נניח, 90% מהשונות בצורה). זה מה שפונקציית <span class="in">`permutation_manova()`</span> שלנו עושה.</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co"># מיושם על כל אחד משלושת מאגרי הנתונים שלנו</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>f_stat, p_val <span class="op">=</span> permutation_manova(scores, labels, n_perm<span class="op">=</span><span class="dv">999</span>, n_pcs<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> f_stat <span class="op">/</span> (f_stat <span class="op">+</span> (<span class="bu">len</span>(labels) <span class="op">-</span> <span class="dv">2</span>))  <span class="co"># גודל אפקט משוער</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">, R² = </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Effect Size: R²</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>The p-value tells us *whether* groups differ. The **effect size** tells us *how much* they differ.</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## גודל אפקט: R²</span></span>
 <span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>In GM, the standard effect size is **R²** — the proportion of total shape variance explained by group membership:</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>ה-p-ערך אומר לנו *האם* הקבוצות שונות. **גודל האפקט** אומר לנו *כמה* הן שונות.</span>
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>$$R^2 = \frac{SS_{between}}{SS_{total}}$$</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>ב-GM, גודל האפקט הסטנדרטי הוא **R²** — שיעור שונות הצורה הכוללת המוסבר על ידי חברות בקבוצה:</span>
 <span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>An analysis can be statistically significant with a tiny R². For example: if p = 0.001 but R² = 0.04, groups differ reliably but the group difference accounts for only 4% of total shape variation. The other 96% is variation within groups.</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>$$R^2 = \frac{SS_{between}}{SS_{total}}$$</span>
 <span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Always report both p and R²</span></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>In archaeology, where sample sizes are often small and variation is high, R² is often more informative than the p-value alone.</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>ניתוח יכול להיות מובהק סטטיסטית עם R² קטן מאוד. לדוגמה: אם p = 0.001 אך R² = 0.04, הקבוצות שונות באופן מהימן אך הבדל הקבוצות מסביר רק 4% מסך שונות הצורה. 96% הנותרים הם שונות בתוך הקבוצות.</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## דווחו תמיד גם p וגם R²</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>בארכאולוגיה, שם גדלי מדגם לרוב קטנים והשונות גבוהה, R² לעיתים קרובות אינפורמטיבי יותר מ-p-ערך בלבד.</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Allometry: When Size Predicts Shape</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>**Allometry** is the relationship between size and shape. In biology, larger organisms often have proportionally different shapes from smaller ones (think of how a puppy's head looks different from an adult dog's).</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## אלומטריה: כאשר הגודל מנבא את הצורה</span></span>
 <span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>In archaeology:</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Larger coins may have different portrait proportions than smaller ones</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Larger pottery vessels may have proportionally narrower necks</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Larger axes may have relatively wider blades</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>Testing allometry:</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>**אלומטריה** היא הקשר בין גודל לצורה. בביולוגיה, לאורגניזמים גדולים יותר יש לעיתים קרובות פרופורציות שונות מאלה של אורגניזמים קטנים יותר (חשבו כיצד ראשו של גור שונה מזה של כלב בוגר).</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>בארכאולוגיה:</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>למטבעות גדולות יותר עשויות להיות פרופורציות דיוקן שונות מאשר קטנות</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>לכלי חרס גדולים יותר עשויים להיות צווארים צרים יחסית</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>לגרזנים גדולים יותר עשויים להיות להבים רחבים יחסית</span>
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Test: does centroid size predict shape?</span></span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> pearsonr</span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlate centroid sizes with PC1 scores</span></span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>r, p <span class="op">=</span> pearsonr(centroid_sizes, scores[:, <span class="dv">0</span>])</span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Allometry (size vs. PC1): r = </span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot</span></span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Log centroid size"</span>)</span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PC1 score (shape)"</span>)</span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Allometric plot: size vs. shape PC1"</span>)</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Add regression line</span></span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> np.polyfit(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], <span class="dv">1</span>)</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(np.log(centroid_sizes).<span class="bu">min</span>(), np.log(centroid_sizes).<span class="bu">max</span>(), <span class="dv">100</span>)</span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>plt.plot(x, m<span class="op">*</span>x <span class="op">+</span> b, <span class="st">'r--'</span>)</span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>If allometry is significant: you may want to remove the size effect before comparing groups (using residuals from the allometric regression).</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>בחינת אלומטריה:</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="co"># בחינה: האם גודל-צנטרואיד מנבא צורה?</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> pearsonr</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="co"># תאם גדלי-צנטרואיד עם ציוני PC1</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>r, p <span class="op">=</span> pearsonr(centroid_sizes, scores[:, <span class="dv">0</span>])</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"אלומטריה (גודל לעומת PC1): r = </span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="co"># גרף פיזור</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Log centroid size"</span>)</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PC1 score (shape)"</span>)</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Allometric plot: size vs. shape PC1"</span>)</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="co"># הוספת קו רגרסיה</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>m, b <span class="op">=</span> np.polyfit(np.log(centroid_sizes), scores[:, <span class="dv">0</span>], <span class="dv">1</span>)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(np.log(centroid_sizes).<span class="bu">min</span>(), np.log(centroid_sizes).<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>plt.plot(x, m<span class="op">*</span>x <span class="op">+</span> b, <span class="st">'r--'</span>)</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>אם האלומטריה מובהקת: ייתכן שתרצו להסיר את אפקט הגודל לפני השוואת קבוצות (באמצעות שאריות מרגרסיית האלומטריה).</span>
 <span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple Comparisons</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>If you are comparing 5 pottery periods against each other pairwise, you run 10 comparisons. By chance, you expect at least one to be "significant" at p &lt; 0.05 — even if there is no real difference anywhere.</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## השוואות מרובות</span></span>
 <span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>**Solutions:**</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>אם אתם משווים 5 תקופות כלי חרס אחת מול השנייה, אתם מריצים 10 השוואות. על פי המקרה, תצפו שלפחות אחת תהיה "מובהקת" ב-p &lt; 0.05 — גם אם לא קיים הבדל אמיתי בשום מקום.</span>
 <span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Bonferroni correction**: divide your α threshold by the number of tests. For 10 tests, use p &lt; 0.005 instead of p &lt; 0.05.</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>**פתרונות:**</span>
 <span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Benjamini-Hochberg FDR**: less conservative, controls the *false discovery rate* rather than the family-wise error rate.</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**תיקון בונפרוני**: חלקו את סף ה-α שלכם במספר הבדיקות. עבור 10 בדיקות, השתמשו ב-p &lt; 0.005 במקום p &lt; 0.05.</span>
 <span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**A priori hypotheses**: only test comparisons you predicted before looking at the data. This is the most principled approach.</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**FDR של Benjamini-Hochberg**: פחות שמרני, שולט ב*שיעור הגילויים הכוזבים* ולא בשיעור השגיאות המשפחתי.</span>
 <span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.multitest <span class="im">import</span> multipletests</span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> [<span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.001</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>]  <span class="co"># example: 5 pairwise tests</span></span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>reject, p_corrected, _, _ <span class="op">=</span> multipletests(p_values, method<span class="op">=</span><span class="st">'bonferroni'</span>)</span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> orig, corr, rej <span class="kw">in</span> <span class="bu">zip</span>(p_values, p_corrected, reject):</span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"p = </span><span class="sc">{</span>orig<span class="sc">:.3f}</span><span class="ss"> → corrected p = </span><span class="sc">{</span>corr<span class="sc">:.3f}</span><span class="ss"> → </span><span class="sc">{</span><span class="st">'SIGNIFICANT'</span> <span class="cf">if</span> rej <span class="cf">else</span> <span class="st">'ns'</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**השערות מוקדמות**: בחנו רק השוואות שחזיתם לפני שהסתכלתם בנתונים. זוהי הגישה העקרונית ביותר.</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.multitest <span class="im">import</span> multipletests</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> [<span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.001</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>]  <span class="co"># דוגמה: 5 בדיקות זוגיות</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>reject, p_corrected, _, _ <span class="op">=</span> multipletests(p_values, method<span class="op">=</span><span class="st">'bonferroni'</span>)</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> orig, corr, rej <span class="kw">in</span> <span class="bu">zip</span>(p_values, p_corrected, reject):</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"p = </span><span class="sc">{</span>orig<span class="sc">:.3f}</span><span class="ss"> → p מתוקן = </span><span class="sc">{</span>corr<span class="sc">:.3f}</span><span class="ss"> → </span><span class="sc">{</span><span class="st">'מובהק'</span> <span class="cf">if</span> rej <span class="cf">else</span> <span class="st">'לא מובהק'</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary: Statistical Reporting in a GM Study</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>A complete statistical report should include:</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## סיכום: דיווח סטטיסטי במחקר GM</span></span>
 <span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Element <span class="pp">|</span> What to report <span class="pp">|</span></span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|---------------|</span></span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Test** <span class="pp">|</span> What test (permutation MANOVA, etc.) <span class="pp">|</span></span>
-<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Parameters** <span class="pp">|</span> Number of PCs used, number of permutations <span class="pp">|</span></span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **F-statistic** <span class="pp">|</span> The observed F ratio <span class="pp">|</span></span>
-<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **p-value** <span class="pp">|</span> From permutation distribution <span class="pp">|</span></span>
-<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Effect size** <span class="pp">|</span> R² <span class="pp">|</span></span>
-<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Multiple comparisons** <span class="pp">|</span> Correction method used (if any) <span class="pp">|</span></span>
-<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>דוח סטטיסטי מלא צריך לכלול:</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> מרכיב <span class="pp">|</span> מה לדווח <span class="pp">|</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|----------|</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **בדיקה** <span class="pp">|</span> איזו בדיקה (MANOVA תמורה, וכו') <span class="pp">|</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **פרמטרים** <span class="pp">|</span> מספר ה-PC בשימוש, מספר התמורות <span class="pp">|</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **סטטיסטיקת F** <span class="pp">|</span> יחס F הנצפה <span class="pp">|</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **p-ערך** <span class="pp">|</span> מהתפלגות התמורה <span class="pp">|</span></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **גודל אפקט** <span class="pp">|</span> R² <span class="pp">|</span></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **השוואות מרובות** <span class="pp">|</span> שיטת התיקון בשימוש (אם בכלל) <span class="pp">|</span></span>
 <span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab: Apply Statistics to Your Final Project Dataset</span></span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>This week's lab is open: use the Week 11 Colab notebook to run the full statistical suite on whichever dataset you are using for your final project (or a preview of it).</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## מעבדה: יישום סטטיסטיקה על מאגר הנתונים של הפרויקט הסופי</span></span>
 <span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>מעבדת השבוע הזה פתוחה: השתמשו במחברת Colab של שבוע 11 כדי להריץ את חבילת הסטטיסטיקה המלאה על כל מאגר הנתונים שאתם משתמשים בו לפרויקט הסופי (או תצוגה מקדימה שלו).</span>
 <span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Next Week: Synthesis and Final Presentations</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">→ Module 12: Big Questions + Final Presentations</span><span class="co">](12-big-questions.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## שבוע הבא: סינתזה ומצגות סיום</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">← מודול 12: שאלות גדולות + מצגות סיום</span><span class="co">](12-big-questions.qmd)</span></span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <div class="author-credit">

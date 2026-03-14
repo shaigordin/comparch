@@ -210,7 +210,7 @@
 </section>
 <section id="הבעיה-איך-משווים-צורות" class="slide level2 center">
 <h2>הבעיה: איך משווים צורות?</h2>
-<p>שני מטבעות, אבל אחד גדול פי שניים ומסובב ב-45°.</p>
+<p>שני מטבעות — אחד גדול פי שניים ומסובב ב-45°.</p>
 <div class="fragment">
 <p><strong>פתרון:</strong> יישור פרוקרוסטס (GPA — Generalized Procrustes Analysis)</p>
 <p>הסרת <strong>גודל + מיקום + סיבוב</strong> — ונשארת רק הצורה.</p>
@@ -221,7 +221,7 @@
 <ol type="1">
 <li class="fragment"><strong>הזזה (Translation)</strong> — מרכז הכובד של כל פרט ל-(0,0)</li>
 <li class="fragment"><strong>קנה מידה (Scaling)</strong> — גודל-צנטרואיד = 1 לכולם</li>
-<li class="fragment"><strong>סיבוב (Rotation)</strong> — מינמום סטייה מהממוצע</li>
+<li class="fragment"><strong>סיבוב (Rotation)</strong> — מינימום סטייה מהממוצע</li>
 </ol>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -233,7 +233,7 @@
 <p><strong>הערה</strong></p>
 </div>
 <div class="callout-content">
-<p>התהליך <strong>איטרטיבי</strong>: מחשבים ממוצע → מיישרים → מחשבים ממוצע מחדש, עד להתכנסות.</p>
+<p>התהליך <strong>איטרטיבי</strong>: מחשבים ממוצע → מיישרים → מחשבים שוב, עד להתכנסות.</p>
 </div>
 </div>
 </div>
@@ -242,58 +242,38 @@
 <section id="גודל-צנטרואיד-centroid-size" class="slide level2">
 <h2>גודל-צנטרואיד (Centroid Size)</h2>
 <p><span class="math display">\[CS = \sqrt{\sum_{i=1}^{k} \left[(x_i - \bar{x})^2 + (y_i - \bar{y})^2\right]}\]</span></p>
+
+<img data-src="../images/slides/05-centroid-size.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">גודל-צנטרואיד — אותה צורה, גדלים שונים</p></section>
+<section id="gpa-ב-python-colab" class="slide level2">
+<h2>GPA ב-Python (Colab)</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="kw">def</span> centroid_size(landmarks):</span>
-<span id="cb1-4"><a></a>    <span class="co">"""מחשב גודל-צנטרואיד."""</span></span>
-<span id="cb1-5"><a></a>    centroid <span class="op">=</span> landmarks.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb1-6"><a></a>    <span class="cf">return</span> np.sqrt(np.<span class="bu">sum</span>((landmarks <span class="op">-</span> centroid)<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="co"># דוגמה</span></span>
-<span id="cb1-9"><a></a>coin <span class="op">=</span> np.array([[<span class="dv">142</span>, <span class="dv">891</span>], [<span class="dv">378</span>, <span class="dv">734</span>], </span>
-<span id="cb1-10"><a></a>                  [<span class="dv">521</span>, <span class="dv">612</span>], [<span class="dv">489</span>, <span class="dv">398</span>]])</span>
-<span id="cb1-11"><a></a><span class="bu">print</span>(<span class="ss">f"גודל-צנטרואיד: </span><span class="sc">{</span>centroid_size(coin)<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a><span class="im">from</span> morphops <span class="im">import</span> gpa</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># landmarks.shape = (35, 16, 2) — 35 מטבעות, 16 ציוני דרך</span></span>
+<span id="cb1-5"><a></a>landmarks <span class="op">=</span> np.load(<span class="st">"coins_landmarks.npy"</span>)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># יישור GPA — מחזיר מילון</span></span>
+<span id="cb1-8"><a></a>result <span class="op">=</span> gpa(landmarks)</span>
+<span id="cb1-9"><a></a>aligned    <span class="op">=</span> result[<span class="st">'aligned'</span>]   <span class="co"># ציוני דרך מיושרים</span></span>
+<span id="cb1-10"><a></a>mean_shape <span class="op">=</span> result[<span class="st">'mean'</span>]      <span class="co"># צורה ממוצעת</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a><span class="bu">print</span>(<span class="ss">f"מספר מטבעות: </span><span class="sc">{</span><span class="bu">len</span>(aligned)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-13"><a></a><span class="bu">print</span>(<span class="ss">f"ציוני דרך: </span><span class="sc">{</span>aligned<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-14"><a></a><span class="bu">print</span>(<span class="ss">f"טווח x לאחר GPA: </span><span class="sc">{</span>aligned[:,:,<span class="dv">0</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.3f}</span><span class="ss"> עד </span><span class="sc">{</span>aligned[:,:,<span class="dv">0</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="gpa-ב-python" class="slide level2">
-<h2>GPA ב-Python</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> morphops <span class="im">import</span> procrustes_alignment</span>
-<span id="cb2-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># טעינת 20 מטבעות (8 ציוני דרך כל אחד)</span></span>
-<span id="cb2-5"><a></a>landmarks <span class="op">=</span> np.load(<span class="st">"hadrian_landmarks.npy"</span>)  <span class="co"># (20, 8, 2)</span></span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># יישור GPA</span></span>
-<span id="cb2-8"><a></a>aligned, mean_shape, _ <span class="op">=</span> procrustes_alignment(landmarks)</span>
-<span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="bu">print</span>(<span class="st">"לפני יישור — טווח x:"</span>, </span>
-<span id="cb2-11"><a></a>      landmarks[:,:,<span class="dv">0</span>].<span class="bu">min</span>().<span class="bu">round</span>(<span class="dv">1</span>),</span>
-<span id="cb2-12"><a></a>      <span class="st">"עד"</span>, landmarks[:,:,<span class="dv">0</span>].<span class="bu">max</span>().<span class="bu">round</span>(<span class="dv">1</span>))</span>
-<span id="cb2-13"><a></a><span class="bu">print</span>(<span class="st">"אחרי יישור — טווח x:"</span>, </span>
-<span id="cb2-14"><a></a>      aligned[:,:,<span class="dv">0</span>].<span class="bu">min</span>().<span class="bu">round</span>(<span class="dv">3</span>),</span>
-<span id="cb2-15"><a></a>      <span class="st">"עד"</span>, aligned[:,:,<span class="dv">0</span>].<span class="bu">max</span>().<span class="bu">round</span>(<span class="dv">3</span>))</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="תוצאה-לפני-ואחרי-gpa" class="slide level2">
+<h2>תוצאה — לפני ואחרי GPA</h2>
+
+<img data-src="../images/slides/05-gpa-before-after.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">יישור פרוקרוסטס — 35 מטבעות רומיים</p><div class="fragment">
+<p>שמאל: כל מטבע במיקום ובגודל שלו. ימין: כולם מיושרים — רק הצורה נשארת.</p>
+</div>
 </section>
-<section id="ויזואליזציה-של-יישור" class="slide level2">
-<h2>ויזואליזציה של יישור</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a><span class="cf">for</span> i, (title, data) <span class="kw">in</span> <span class="bu">enumerate</span>([</span>
-<span id="cb3-6"><a></a>    (<span class="st">"לפני GPA"</span>, landmarks), </span>
-<span id="cb3-7"><a></a>    (<span class="st">"אחרי GPA"</span>, aligned)</span>
-<span id="cb3-8"><a></a>]):</span>
-<span id="cb3-9"><a></a>    <span class="cf">for</span> specimen <span class="kw">in</span> data:</span>
-<span id="cb3-10"><a></a>        axes[i].plot(<span class="op">*</span>specimen.T, <span class="st">'o-'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, </span>
-<span id="cb3-11"><a></a>                     color<span class="op">=</span><span class="st">'steelblue'</span>, ms<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb3-12"><a></a>    axes[i].plot(<span class="op">*</span>mean_shape.T, <span class="st">'ro-'</span>, lw<span class="op">=</span><span class="dv">2</span>, ms<span class="op">=</span><span class="dv">8</span>,</span>
-<span id="cb3-13"><a></a>                  label<span class="op">=</span><span class="st">'צורה ממוצעת'</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb3-14"><a></a>    axes[i].set_title(title, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb3-15"><a></a>    axes[i].set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb3-16"><a></a>    axes[i].legend()</span>
-<span id="cb3-17"><a></a></span>
-<span id="cb3-18"><a></a>plt.suptitle(<span class="st">"יישור פרוקרוסטס — 20 מטבעות הדריאנוס"</span>)</span>
-<span id="cb3-19"><a></a>plt.tight_layout()</span>
-<span id="cb3-20"><a></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ציוני-הדרך-המיושרים" class="slide level2">
+<h2>ציוני הדרך המיושרים</h2>
+
+<img data-src="../images/slides/05-landmarks-aligned.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">ציוני דרך מיושרים — 35 מטבעות</p><div class="fragment">
+<p>כל נקודה = ציון דרך אחד על מטבע אחד. הצבע = קיסר. הנקודה הלבנה = ממוצע.</p>
+</div>
 </section>
 <section id="מה-שומרים-לאחר-gpa" class="slide level2">
 <h2>מה שומרים לאחר GPA?</h2>
@@ -313,7 +293,7 @@
 <p><strong>עצה</strong></p>
 </div>
 <div class="callout-content">
-<p>גודל-צנטרואיד <strong>נשמר בצד</strong> — אפשר לנתח אלומטריה (קשר צורה-גודל) בנפרד.</p>
+<p>גודל-צנטרואיד <strong>נשמר בצד</strong> לניתוח אלומטריה (קשר צורה-גודל) בנפרד.</p>
 </div>
 </div>
 </div>
@@ -321,10 +301,10 @@
 </section>
 <section id="לשיעור-הבא-pca" class="slide level2">
 <h2>לשיעור הבא — PCA</h2>
-<p>לאחר GPA יש לנו נתוני צורה מיושרים.<br>
-השלב הבא: <strong>הפחתת ממדים</strong> — מאות ממדים → 2–3 ציר עיקריים.</p>
+<p>לאחר GPA: נתוני צורה מיושרים ב-32 ממדים (16 נקודות × x,y).<br>
+השלב הבא: <strong>הפחתת ממדים</strong> → 2 צירים עיקריים.</p>
 <div class="fragment">
-<p>קראו: <a href="../modules/05-pca.html">מודול 5 — PCA</a></p>
+<p>קראו: <a href="../modules/05-pca.html">מודול 5 — PCA ומרחב הצורות</a></p>
 </div>
 
 
