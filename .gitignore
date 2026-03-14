@@ -6,3 +6,5 @@
 *.conflicted*
 .quarto/
 _site/
+
+/.quarto/

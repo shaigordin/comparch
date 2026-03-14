@@ -17,12 +17,18 @@ format:
 
 ## מהי צורה? {.center}
 
-> "כל חפץ שנוצר בידי אדם — יש לו צורה.  
+> "כל חפץ שנוצר בידי אדם — יש לו צורה.
 > הצורה אינה קישוט — היא מידע."
 
 ::: {.fragment}
 מורפומטריה גיאומטרית (GM) היא השיטה המתמטית לכימות הצורה.
 :::
+
+---
+
+## מה אנחנו חוקרים?
+
+![מטבעות, כלי חרס, כלי נחושת — שלושה סוגי חפצים עם צורה מדידה](../images/slides/01-we-study-variables.png){fig-align="center" width="90%"}
 
 ---
 
@@ -36,40 +42,29 @@ format:
 
 ---
 
-## צורה ≠ גודל {.center}
+## גודל לעומת צורה
 
-::: {.columns}
-::: {.column width="50%"}
-**גודל** (Size)
+![אותה צורה בבקבוקים בגדלים שונים — כולם בורגוניה, אבל לא אותו גודל](../images/slides/01-size-vs-shape.png){fig-align="center" width="88%"}
 
-- גובה, רוחב, נפח
-- מושפע מגיל, עשירות, תפקוד
-- ניתן למדידה פשוטה
-:::
-::: {.column width="50%"}
-**צורה** (Shape)
-
-- היחסים הגיאומטריים בין חלקי החפץ
-- נשמרת גם לאחר שינוי גודל
-- מקודד: מסורת, יצרן, שימוש
-:::
-:::
-
-::: {.callout-note .fragment}
-בניתוח GM מסירים תחילה את ההשפעה של **גודל, מיקום וסיבוב** — ואז עובדים עם הצורה הטהורה.
+::: {.fragment}
+**גודל** (Size) — נפח, גובה, משקל. **צורה** (Shape) — היחסים הגיאומטריים, בלי קשר לגודל.
 :::
 
 ---
 
-## דוגמה: מטבעות רומיים
+## הגדרת צורה — קנדל 1977
 
-![מטבע רומאי (דנריוס) — הפנים והגב](../images/coin_example.png){fig-align="center" width="60%"}
+![הגדרה פורמלית: מה נשאר כשמסירים מיקום, גודל וסיבוב (Zelditch et al. 2004)](../images/slides/01-shape-definition-fish.png){fig-align="center" width="88%"}
 
-::: {.fragment}
-- מאות מטבעות, מאות שנים, עשרות מנטות
-- ניתוח GM מגלה: האם **צורת הדיוקן** השתנתה עם הקיסר?
-- האם מנטות שונות ייצרו **מטבעות בצורה שונה**?
+::: {.callout-note .fragment}
+**הגדרה:** הצורה היא "כל המידע הגיאומטרי שנשאר לאחר שמסירים את השפעות המיקום, הגודל והסיבוב מהאובייקט" (Kendall 1977).
 :::
+
+---
+
+## גודל + צורה = טיפוס
+
+![Size + Shape = Form — כל השילובים של גדלים וצורות יוצרים את מרחב הטיפוסים](../images/slides/01-size-shape-form.png){fig-align="center" width="88%"}
 
 ---
 
@@ -147,10 +142,10 @@ landmarks = np.array([
 ])
 
 fig, ax = plt.subplots(figsize=(5, 5))
-ax.scatter(landmarks[:, 0], landmarks[:, 1], 
+ax.scatter(landmarks[:, 0], landmarks[:, 1],
            c='red', s=100, zorder=5)
 for i, (x, y) in enumerate(landmarks):
-    ax.annotate(str(i+1), (x, y), 
+    ax.annotate(str(i+1), (x, y),
                 textcoords="offset points", xytext=(5, 5))
 ax.set_aspect('equal')
 ax.set_title(rtl('ציוני דרך על מטבע'))

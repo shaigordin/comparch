@@ -211,13 +211,16 @@
 <section id="מהי-צורה" class="slide level2 center">
 <h2>מהי צורה?</h2>
 <blockquote>
-<p>“כל חפץ שנוצר בידי אדם — יש לו צורה.<br>
-הצורה אינה קישוט — היא מידע.”</p>
+<p>“כל חפץ שנוצר בידי אדם — יש לו צורה. הצורה אינה קישוט — היא מידע.”</p>
 </blockquote>
 <div class="fragment">
 <p>מורפומטריה גיאומטרית (GM) היא השיטה המתמטית לכימות הצורה.</p>
 </div>
 </section>
+<section id="מה-אנחנו-חוקרים" class="slide level2">
+<h2>מה אנחנו חוקרים?</h2>
+
+<img data-src="../images/slides/01-we-study-variables.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">מטבעות, כלי חרס, כלי נחושת — שלושה סוגי חפצים עם צורה מדידה</p></section>
 <section id="שלוש-שאלות-יסוד" class="slide level2">
 <h2>שלוש שאלות יסוד</h2>
 <ol type="1">
@@ -226,25 +229,17 @@
 <li class="fragment"><strong>מה ניתן להסיק</strong> מהשוואת צורות בין חפצים, אתרים, תרבויות?</li>
 </ol>
 </section>
-<section id="צורה-גודל" class="slide level2 center">
-<h2>צורה ≠ גודל</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>גודל</strong> (Size)</p>
-<ul>
-<li>גובה, רוחב, נפח</li>
-<li>מושפע מגיל, עשירות, תפקוד</li>
-<li>ניתן למדידה פשוטה</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>צורה</strong> (Shape)</p>
-<ul>
-<li>היחסים הגיאומטריים בין חלקי החפץ</li>
-<li>נשמרת גם לאחר שינוי גודל</li>
-<li>מקודד: מסורת, יצרן, שימוש</li>
-</ul>
-</div></div>
-<div class="fragment">
+<section id="גודל-לעומת-צורה" class="slide level2">
+<h2>גודל לעומת צורה</h2>
+
+<img data-src="../images/slides/01-size-vs-shape.png" style="width:88.0%" class="r-stretch quarto-figure-center"><p class="caption">אותה צורה בבקבוקים בגדלים שונים — כולם בורגוניה, אבל לא אותו גודל</p><div class="fragment">
+<p><strong>גודל</strong> (Size) — נפח, גובה, משקל. <strong>צורה</strong> (Shape) — היחסים הגיאומטריים, בלי קשר לגודל.</p>
+</div>
+</section>
+<section id="הגדרת-צורה-קנדל-1977" class="slide level2">
+<h2>הגדרת צורה — קנדל 1977</h2>
+
+<img data-src="../images/slides/01-shape-definition-fish.png" style="width:88.0%" class="r-stretch quarto-figure-center"><p class="caption">הגדרה פורמלית: מה נשאר כשמסירים מיקום, גודל וסיבוב (Zelditch et al.&nbsp;2004)</p><div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -254,23 +249,16 @@
 <p><strong>הערה</strong></p>
 </div>
 <div class="callout-content">
-<p>בניתוח GM מסירים תחילה את ההשפעה של <strong>גודל, מיקום וסיבוב</strong> — ואז עובדים עם הצורה הטהורה.</p>
+<p><strong>הגדרה:</strong> הצורה היא “כל המידע הגיאומטרי שנשאר לאחר שמסירים את השפעות המיקום, הגודל והסיבוב מהאובייקט” (Kendall 1977).</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="דוגמה-מטבעות-רומיים" class="slide level2">
-<h2>דוגמה: מטבעות רומיים</h2>
+<section id="גודל-צורה-טיפוס" class="slide level2">
+<h2>גודל + צורה = טיפוס</h2>
 
-<img data-src="../images/coin_example.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">מטבע רומאי (דנריוס) — הפנים והגב</p><div class="fragment">
-<ul>
-<li>מאות מטבעות, מאות שנים, עשרות מנטות</li>
-<li>ניתוח GM מגלה: האם <strong>צורת הדיוקן</strong> השתנתה עם הקיסר?</li>
-<li>האם מנטות שונות ייצרו <strong>מטבעות בצורה שונה</strong>?</li>
-</ul>
-</div>
-</section>
+<img data-src="../images/slides/01-size-shape-form.png" style="width:88.0%" class="r-stretch quarto-figure-center"><p class="caption">Size + Shape = Form — כל השילובים של גדלים וצורות יוצרים את מרחב הטיפוסים</p></section>
 <section id="שלושה-סוגי-נתוני-צורה" class="slide level2">
 <h2>שלושה סוגי נתוני צורה</h2>
 <table class="caption-top" style="width:100%;">
@@ -374,10 +362,10 @@
 <span id="cb1-16"><a></a>])</span>
 <span id="cb1-17"><a></a></span>
 <span id="cb1-18"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb1-19"><a></a>ax.scatter(landmarks[:, <span class="dv">0</span>], landmarks[:, <span class="dv">1</span>], </span>
+<span id="cb1-19"><a></a>ax.scatter(landmarks[:, <span class="dv">0</span>], landmarks[:, <span class="dv">1</span>],</span>
 <span id="cb1-20"><a></a>           c<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">100</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb1-21"><a></a><span class="cf">for</span> i, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(landmarks):</span>
-<span id="cb1-22"><a></a>    ax.annotate(<span class="bu">str</span>(i<span class="op">+</span><span class="dv">1</span>), (x, y), </span>
+<span id="cb1-22"><a></a>    ax.annotate(<span class="bu">str</span>(i<span class="op">+</span><span class="dv">1</span>), (x, y),</span>
 <span id="cb1-23"><a></a>                textcoords<span class="op">=</span><span class="st">"offset points"</span>, xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb1-24"><a></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
 <span id="cb1-25"><a></a>ax.set_title(rtl(<span class="st">'ציוני דרך על מטבע'</span>))</span>

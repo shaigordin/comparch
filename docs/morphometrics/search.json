@@ -1313,7 +1313,7 @@
     "href": "slides/01-what-is-shape.html#מהי-צורה",
     "title": "מהי צורה?",
     "section": "מהי צורה?",
-    "text": "מהי צורה?\n\n“כל חפץ שנוצר בידי אדם — יש לו צורה.\nהצורה אינה קישוט — היא מידע.”\n\n\nמורפומטריה גיאומטרית (GM) היא השיטה המתמטית לכימות הצורה."
+    "text": "מהי צורה?\n\n“כל חפץ שנוצר בידי אדם — יש לו צורה. הצורה אינה קישוט — היא מידע.”\n\n\nמורפומטריה גיאומטרית (GM) היא השיטה המתמטית לכימות הצורה."
   },
   {
     "objectID": "slides/01-what-is-shape.html#שלוש-שאלות-יסוד",
@@ -1362,7 +1362,7 @@
     "href": "slides/01-what-is-shape.html#קוד-לדוגמה-ויזואליזציה-של-ציוני-דרך",
     "title": "מהי צורה?",
     "section": "קוד לדוגמה: ויזואליזציה של ציוני דרך",
-    "text": "קוד לדוגמה: ויזואליזציה של ציוני דרך\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom bidi.algorithm import get_display\nrtl = get_display\n\n# ציוני דרך של מטבע (x, y)\nlandmarks = np.array([\n    [0.0, 1.0],   # קצה עליון\n    [0.7, 0.7],   # ימין עליון\n    [1.0, 0.0],   # ימין\n    [0.7, -0.7],  # ימין תחתון\n    [0.0, -1.0],  # קצה תחתון\n    [-0.7, -0.7], # שמאל תחתון\n    [-1.0, 0.0],  # שמאל\n    [-0.7, 0.7],  # שמאל עליון\n])\n\nfig, ax = plt.subplots(figsize=(5, 5))\nax.scatter(landmarks[:, 0], landmarks[:, 1], \n           c='red', s=100, zorder=5)\nfor i, (x, y) in enumerate(landmarks):\n    ax.annotate(str(i+1), (x, y), \n                textcoords=\"offset points\", xytext=(5, 5))\nax.set_aspect('equal')\nax.set_title(rtl('ציוני דרך על מטבע'))\nplt.show()"
+    "text": "קוד לדוגמה: ויזואליזציה של ציוני דרך\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom bidi.algorithm import get_display\nrtl = get_display\n\n# ציוני דרך של מטבע (x, y)\nlandmarks = np.array([\n    [0.0, 1.0],   # קצה עליון\n    [0.7, 0.7],   # ימין עליון\n    [1.0, 0.0],   # ימין\n    [0.7, -0.7],  # ימין תחתון\n    [0.0, -1.0],  # קצה תחתון\n    [-0.7, -0.7], # שמאל תחתון\n    [-1.0, 0.0],  # שמאל\n    [-0.7, 0.7],  # שמאל עליון\n])\n\nfig, ax = plt.subplots(figsize=(5, 5))\nax.scatter(landmarks[:, 0], landmarks[:, 1],\n           c='red', s=100, zorder=5)\nfor i, (x, y) in enumerate(landmarks):\n    ax.annotate(str(i+1), (x, y),\n                textcoords=\"offset points\", xytext=(5, 5))\nax.set_aspect('equal')\nax.set_title(rtl('ציוני דרך על מטבע'))\nplt.show()"
   },
   {
     "objectID": "slides/01-what-is-shape.html#לשיעור-הבא",
@@ -2273,5 +2273,33 @@
     "title": "שבוע 11: סטטיסטיקה מתקדמת למורפומטריקה",
     "section": "סיכום",
     "text": "סיכום\n\nMANOVA הסתברותי: ויזואליזציה של התפלגות ה-F עוזרת להבין את המשמעות\nאלומטריה: scipy.stats.linregress עם רווח בטחון 95%\nבונפרוני: α_מתוקן = α / מספר_השוואות\nמפת חום: דרך נוחה להציג תוצאות השוואות מרובות\n\nשאלות לחשיבה: 1. מדוע תיקון בונפרוני הכרחי בהשוואות מרובות? 2. האם יש דרכים אחרות לתקן עבור השוואות מרובות? 3. מה ניתן ללמוד מגרף האלומטריה על תהליך ייצור הקרדומות?"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#מה-אנחנו-חוקרים",
+    "href": "slides/01-what-is-shape.html#מה-אנחנו-חוקרים",
+    "title": "מהי צורה?",
+    "section": "מה אנחנו חוקרים?",
+    "text": "מה אנחנו חוקרים?\n\nמטבעות, כלי חרס, כלי נחושת — שלושה סוגי חפצים עם צורה מדידה"
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#גודל-לעומת-צורה",
+    "href": "slides/01-what-is-shape.html#גודל-לעומת-צורה",
+    "title": "מהי צורה?",
+    "section": "גודל לעומת צורה",
+    "text": "גודל לעומת צורה\n\nאותה צורה בבקבוקים בגדלים שונים — כולם בורגוניה, אבל לא אותו גודל\nגודל (Size) — נפח, גובה, משקל. צורה (Shape) — היחסים הגיאומטריים, בלי קשר לגודל."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#הגדרת-צורה-קנדל-1977",
+    "href": "slides/01-what-is-shape.html#הגדרת-צורה-קנדל-1977",
+    "title": "מהי צורה?",
+    "section": "הגדרת צורה — קנדל 1977",
+    "text": "הגדרת צורה — קנדל 1977\n\nהגדרה פורמלית: מה נשאר כשמסירים מיקום, גודל וסיבוב (Zelditch et al. 2004)\n\n\n\n\n\n\nהערה\n\n\nהגדרה: הצורה היא “כל המידע הגיאומטרי שנשאר לאחר שמסירים את השפעות המיקום, הגודל והסיבוב מהאובייקט” (Kendall 1977)."
+  },
+  {
+    "objectID": "slides/01-what-is-shape.html#גודל-צורה-טיפוס",
+    "href": "slides/01-what-is-shape.html#גודל-צורה-טיפוס",
+    "title": "מהי צורה?",
+    "section": "גודל + צורה = טיפוס",
+    "text": "גודל + צורה = טיפוס\n\nSize + Shape = Form — כל השילובים של גדלים וצורות יוצרים את מרחב הטיפוסים"
   }
 ]
