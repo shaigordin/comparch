@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>שבוע 5: יישור פרוקרוסטס (GPA) – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>שבוע 05: ניתוח פרוקרוסטס (GPA) – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,10 +238,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#טעינת-הנתונים" id="toc-טעינת-הנתונים" class="nav-link active" data-scroll-target="#טעינת-הנתונים">טעינת הנתונים</a></li>
-  <li><a href="#מה-זה-gpa" id="toc-מה-זה-gpa" class="nav-link" data-scroll-target="#מה-זה-gpa">מה זה GPA?</a></li>
-  <li><a href="#גודל-צנטרואיד" id="toc-גודל-צנטרואיד" class="nav-link" data-scroll-target="#גודל-צנטרואיד">גודל-צנטרואיד</a></li>
-  <li><a href="#תרגיל" id="toc-תרגיל" class="nav-link" data-scroll-target="#תרגיל">תרגיל</a></li>
+  <li><a href="#טעינת-שני-קבצי-tps" id="toc-טעינת-שני-קבצי-tps" class="nav-link active" data-scroll-target="#טעינת-שני-קבצי-tps">טעינת שני קבצי TPS</a></li>
+  <li><a href="#הרצת-gpa" id="toc-הרצת-gpa" class="nav-link" data-scroll-target="#הרצת-gpa">הרצת GPA</a></li>
+  <li><a href="#גרף-לפני-ואחרי-gpa" id="toc-גרף-לפני-ואחרי-gpa" class="nav-link" data-scroll-target="#גרף-לפני-ואחרי-gpa">גרף לפני ואחרי GPA</a></li>
+  <li><a href="#גודל-קנטרואיד-השוואה-בין-הקבוצות" id="toc-גודל-קנטרואיד-השוואה-בין-הקבוצות" class="nav-link" data-scroll-target="#גודל-קנטרואיד-השוואה-בין-הקבוצות">גודל קנטרואיד: השוואה בין הקבוצות</a></li>
+  <li><a href="#סיכום" id="toc-סיכום" class="nav-link" data-scroll-target="#סיכום">סיכום</a></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">שבוע 5: יישור פרוקרוסטס (GPA)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">שבוע 05: ניתוח פרוקרוסטס (GPA)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
 </div>
 
 
@@ -267,170 +268,193 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>בשיעור זה נלמד: - מה עושה ה-GPA (Generalized Procrustes Analysis) - כיצד להריץ GPA עם ספריית morphops - גודל-צנטרואיד כמדד גודל - הבדל ויזואלי לפני ואחרי יישור</p>
-<blockquote class="blockquote">
-<p><strong>הוראות</strong>: הריצו כל תא בסדר מלמעלה למטה. לחצו על התא ואחר כך <code>Shift+Enter</code>.</p>
-</blockquote>
-<div id="cell-c01" class="cell">
+<p><strong>Generalized Procrustes Analysis</strong> מיישרת את כל הדגימות:<br>
+מסירה הבדלי מיקום, גודל וסיבוב — ומשאירה רק את ה<strong>צורה</strong>.</p>
+<p>נשתמש ב-<code>morphops</code> ונשווה לפני ואחרי.</p>
+<div id="setup" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install morphops python<span class="op">-</span>bidi <span class="op">-</span>q</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="טעינת-הנתונים" class="level2">
-<h2 class="anchored" data-anchor-id="טעינת-הנתונים">טעינת הנתונים</h2>
-<p>נשתמש בנתוני מטבעות הדריאנוס ואנטונינוס פיוס.</p>
-<div id="cell-c02" class="cell">
+<div id="parser" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_tps(text):</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    specimens, ids <span class="op">=</span> [], []</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> text.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(lines):</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> lines[i].strip()</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> line.startswith(<span class="st">'LM='</span>):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            n_lm <span class="op">=</span> <span class="bu">int</span>(line.split(<span class="st">'='</span>)[<span class="dv">1</span>])</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            coords <span class="op">=</span> []</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n_lm):</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                parts <span class="op">=</span> lines[i].strip().replace(<span class="st">','</span>, <span class="st">'.'</span>).split()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                coords.append([<span class="bu">float</span>(parts[<span class="dv">0</span>]), <span class="bu">float</span>(parts[<span class="dv">1</span>])])</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            specimens.append(np.array(coords))</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> line.startswith(<span class="st">'ID='</span>):</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            ids.append(line.split(<span class="st">'='</span>)[<span class="dv">1</span>])</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(specimens), ids</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_synthetic_coins(n, seed_offset<span class="op">=</span><span class="dv">0</span>):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""נתוני מטבעות סינתטיים לגיבוי"""</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span> <span class="op">+</span> seed_offset)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    coins <span class="op">=</span> []</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        cx <span class="op">=</span> np.random.uniform(<span class="dv">100</span>, <span class="dv">500</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        cy <span class="op">=</span> np.random.uniform(<span class="dv">100</span>, <span class="dv">500</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        scale <span class="op">=</span> np.random.uniform(<span class="fl">0.8</span>, <span class="fl">1.2</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        angle_offset <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="fl">0.2</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        lm <span class="op">=</span> []</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            a <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>j<span class="op">/</span><span class="dv">8</span> <span class="op">+</span> angle_offset</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            r <span class="op">=</span> <span class="dv">80</span><span class="op">*</span>scale <span class="op">+</span> np.random.randn()<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            lm.append([cx <span class="op">+</span> r<span class="op">*</span>np.cos(a), cy <span class="op">+</span> r<span class="op">*</span>np.sin(a)])</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        coins.append(np.array(lm))</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(coins), [<span class="ss">f'coin_</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">:03d}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/coins/'</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(base <span class="op">+</span> <span class="st">'hadrian.tps'</span>) <span class="im">as</span> r:</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        lm_h, ids_h <span class="op">=</span> parse_tps(r.read().decode(<span class="st">'utf-8'</span>))</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(base <span class="op">+</span> <span class="st">'antoninus.tps'</span>) <span class="im">as</span> r:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        lm_a, ids_a <span class="op">=</span> parse_tps(r.read().decode(<span class="st">'utf-8'</span>))</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'הדריאנוס: </span><span class="sc">{</span><span class="bu">len</span>(lm_h)<span class="sc">}</span><span class="ss"> מטבעות'</span>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'אנטונינוס פיוס: </span><span class="sc">{</span><span class="bu">len</span>(lm_a)<span class="sc">}</span><span class="ss"> מטבעות'</span>)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'משתמשים בנתוני דוגמה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    lm_h, ids_h <span class="op">=</span> make_synthetic_coins(<span class="dv">20</span>, <span class="dv">0</span>)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    lm_a, ids_a <span class="op">=</span> make_synthetic_coins(<span class="dv">15</span>, <span class="dv">10</span>)</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>all_lm <span class="op">=</span> np.concatenate([lm_h, lm_a], axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.array([<span class="st">'הדריאנוס'</span>] <span class="op">*</span> <span class="bu">len</span>(lm_h) <span class="op">+</span> [<span class="st">'אנטונינוס פיוס'</span>] <span class="op">*</span> <span class="bu">len</span>(lm_a))</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">סה"כ: </span><span class="sc">{</span><span class="bu">len</span>(all_lm)<span class="sc">}</span><span class="ss"> מטבעות'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_tps(filepath_or_text):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Works with both local path string and text content."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="kw">in</span> filepath_or_text:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> filepath_or_text.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(filepath_or_text, encoding<span class="op">=</span><span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>) <span class="im">as</span> f:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            lines <span class="op">=</span> f.readlines()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    specimens, ids <span class="op">=</span> [], []</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(lines):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> lines[i].strip() <span class="cf">if</span> <span class="bu">hasattr</span>(lines[i], <span class="st">'strip'</span>) <span class="cf">else</span> lines[i]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> line.startswith(<span class="st">'LM='</span>):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            n_lm <span class="op">=</span> <span class="bu">int</span>(line.split(<span class="st">'='</span>)[<span class="dv">1</span>])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            coords <span class="op">=</span> []</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n_lm):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                parts <span class="op">=</span> lines[i].strip().replace(<span class="st">','</span>, <span class="st">'.'</span>).split()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                coords.append([<span class="bu">float</span>(parts[<span class="dv">0</span>]), <span class="bu">float</span>(parts[<span class="dv">1</span>])])</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            specimens.append(np.array(coords))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> line.startswith(<span class="st">'ID='</span>):</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            ids.append(line.split(<span class="st">'='</span>)[<span class="dv">1</span>].strip())</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(specimens), ids</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'parse_tps מוכן'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section>
-<section id="מה-זה-gpa" class="level2">
-<h2 class="anchored" data-anchor-id="מה-זה-gpa">מה זה GPA?</h2>
-<p>GPA (Generalized Procrustes Analysis) מכוון את כל הפרטים על ידי:</p>
-<ol type="1">
-<li><strong>הזזה</strong> — מרכז כל פרט לנקודת המקור (0,0)</li>
-<li><strong>שינוי קנה-מידה</strong> — מנרמל לגודל-צנטרואיד = 1</li>
-<li><strong>סיבוב</strong> — ממזער את סכום המרחקים הריבועיים בין ציוני הדרך המתאימים</li>
-</ol>
-<p><strong>מה נשמר</strong>: צורה בלבד — גדול, מיקום וסיבוב מוסרים.</p>
-<div id="cell-c03" class="cell">
+<section id="טעינת-שני-קבצי-tps" class="level2">
+<h2 class="anchored" data-anchor-id="טעינת-שני-קבצי-tps">טעינת שני קבצי TPS</h2>
+<div id="load-coins" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># הרצת GPA</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>aligned, mean_shape, _ <span class="op">=</span> mops.procrustes(all_lm)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'צורת מוצא: </span><span class="sc">{</span>all_lm<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'לאחר GPA:  </span><span class="sc">{</span>aligned<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'צורת ממוצע: </span><span class="sc">{</span>mean_shape<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="cell-c04" class="cell">
-<details class="code-fold">
-<summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax1.set_title(rtl(<span class="st">'לפני GPA (קואורדינטות גולמיות)'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lm <span class="kw">in</span> all_lm[:<span class="dv">10</span>]:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    ax1.plot(lm[:, <span class="dv">0</span>], lm[:, <span class="dv">1</span>], <span class="st">'o-'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ax1.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ax1.invert_yaxis()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(rtl(<span class="st">'X (פיקסלים)'</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(rtl(<span class="st">'Y (פיקסלים)'</span>))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(rtl(<span class="st">'אחרי GPA (קואורדינטות פרוקרוסטס)'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lm <span class="kw">in</span> aligned[:<span class="dv">10</span>]:</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    ax2.plot(lm[:, <span class="dv">0</span>], lm[:, <span class="dv">1</span>], <span class="st">'o-'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax2.plot(mean_shape[:, <span class="dv">0</span>], mean_shape[:, <span class="dv">1</span>], <span class="st">'k*-'</span>, markersize<span class="op">=</span><span class="dv">12</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>         linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span>rtl(<span class="st">'צורת ממוצע'</span>))</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>ax2.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(rtl(<span class="st">'X (יחידות פרוקרוסטס)'</span>))</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="גודל-צנטרואיד" class="level2">
-<h2 class="anchored" data-anchor-id="גודל-צנטרואיד">גודל-צנטרואיד</h2>
-<p>גודל-צנטרואיד (CS) = שורש הריבועי של סכום המרחקים הריבועיים של ציוני הדרך מהמרכז. הוא המדד הסטנדרטי לגודל בריפומטריה גאומטרית.</p>
-<div id="cell-c05" class="cell">
-<details class="code-fold">
-<summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> centroid_size(lm):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    centroid <span class="op">=</span> lm.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sqrt(np.<span class="bu">sum</span>((lm <span class="op">-</span> centroid)<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>cs_h <span class="op">=</span> [centroid_size(lm) <span class="cf">for</span> lm <span class="kw">in</span> lm_h]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>cs_a <span class="op">=</span> [centroid_size(lm) <span class="cf">for</span> lm <span class="kw">in</span> lm_a]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ax.hist(cs_h, bins<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span>rtl(<span class="st">'הדריאנוס'</span>), color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ax.hist(cs_a, bins<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span>rtl(<span class="st">'אנטונינוס פיוס'</span>), color<span class="op">=</span><span class="st">'coral'</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'גודל-צנטרואיד'</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="st">'מספר מטבעות'</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'השוואת גדלי מטבעות'</span>))</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'ממוצע CS הדריאנוס:    </span><span class="sc">{</span>np<span class="sc">.</span>mean(cs_h)<span class="sc">:.1f}</span><span class="ss"> ± </span><span class="sc">{</span>np<span class="sc">.</span>std(cs_h)<span class="sc">:.1f}</span><span class="ss">'</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'ממוצע CS אנטונינוס:   </span><span class="sc">{</span>np<span class="sc">.</span>mean(cs_a)<span class="sc">:.1f}</span><span class="ss"> ± </span><span class="sc">{</span>np<span class="sc">.</span>std(cs_a)<span class="sc">:.1f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>BASE <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/coins/'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_tps_url(url):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(url, timeout<span class="op">=</span><span class="dv">15</span>) <span class="im">as</span> r:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> r.read().decode(<span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    had_text <span class="op">=</span> load_tps_url(BASE <span class="op">+</span> <span class="st">'hadrian.tps'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ant_text <span class="op">=</span> load_tps_url(BASE <span class="op">+</span> <span class="st">'antoninus.tps'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    had_lm, had_ids <span class="op">=</span> parse_tps(had_text)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ant_lm, ant_ids <span class="op">=</span> parse_tps(ant_text)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'הדריאנוס: </span><span class="sc">{</span><span class="bu">len</span>(had_lm)<span class="sc">}</span><span class="ss"> מטבעות, </span><span class="sc">{</span>had_lm<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> נקודות ציון'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'אנטונינוס פיוס: </span><span class="sc">{</span><span class="bu">len</span>(ant_lm)<span class="sc">}</span><span class="ss"> מטבעות, </span><span class="sc">{</span>ant_lm<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> נקודות ציון'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    DATA_OK <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'שגיאה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss"> — משתמשים בנתונים סינתטיים'</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    n_lm <span class="op">=</span> <span class="dv">16</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    angles <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, n_lm, endpoint<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> np.column_stack([np.cos(angles)<span class="op">*</span><span class="dv">100</span>, np.sin(angles)<span class="op">*</span><span class="dv">80</span>])</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    had_lm <span class="op">=</span> np.array([base <span class="op">+</span> np.random.randn(n_lm, <span class="dv">2</span>)<span class="op">*</span><span class="dv">5</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">22</span>)])</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    ant_lm <span class="op">=</span> np.array([base <span class="op">*</span> <span class="fl">0.9</span> <span class="op">+</span> np.random.randn(n_lm, <span class="dv">2</span>)<span class="op">*</span><span class="dv">5</span> <span class="op">+</span> [<span class="dv">10</span>, <span class="dv">5</span>] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">15</span>)])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    had_ids <span class="op">=</span> [<span class="ss">f'Hadrian_</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">22</span>)]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    ant_ids <span class="op">=</span> [<span class="ss">f'Antoninus_</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">15</span>)]</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    DATA_OK <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>all_lm <span class="op">=</span> np.concatenate([had_lm, ant_lm], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> np.array([<span class="st">'Hadrian'</span>]<span class="op">*</span><span class="bu">len</span>(had_lm) <span class="op">+</span> [<span class="st">'Antoninus'</span>]<span class="op">*</span><span class="bu">len</span>(ant_lm))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">סה"כ: </span><span class="sc">{</span><span class="bu">len</span>(all_lm)<span class="sc">}</span><span class="ss"> מטבעות, תוויות: </span><span class="sc">{</span>np<span class="sc">.</span>unique(labels, return_counts<span class="op">=</span><span class="va">True</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="תרגיל" class="level2">
-<h2 class="anchored" data-anchor-id="תרגיל">תרגיל</h2>
-<ol type="1">
-<li>מדוע נחלק ב-CS ולא פשוט בשטח או בהיקף?</li>
-<li>מה קורה לשונות בגרף השני (לאחר GPA) לעומת הראשון (לפני)? מדוע?</li>
-<li>האם גדל מטבעות הדריאנוס שונה מגדל מטבעות אנטונינוס פיוס? מה אתם רואים בהיסטוגרמה?</li>
-</ol>
+<section id="הרצת-gpa" class="level2">
+<h2 class="anchored" data-anchor-id="הרצת-gpa">הרצת GPA</h2>
+<p><code>mops.gpa()</code> מחזירה מילון עם המפתחות <code>'aligned'</code> ו-<code>'mean'</code>.<br>
+<strong>חשוב</strong>: אל תשתמשו ב-<code>mops.procrustes()</code> — ה-API הנכון הוא <code>mops.gpa()</code>.</p>
+<div id="run-gpa" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> mops.gpa(all_lm)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>aligned <span class="op">=</span> result[<span class="st">'aligned'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> result[<span class="st">'mean'</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'צורת מערך המיושר: </span><span class="sc">{</span>aligned<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'צורת הממוצע: </span><span class="sc">{</span>mean_shape<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'GPA הושלם בהצלחה!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="גרף-לפני-ואחרי-gpa" class="level2">
+<h2 class="anchored" data-anchor-id="גרף-לפני-ואחרי-gpa">גרף לפני ואחרי GPA</h2>
+<div id="plot-before-after" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># לפני</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, lm <span class="kw">in</span> <span class="bu">enumerate</span>(all_lm):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    clr <span class="op">=</span> <span class="st">'steelblue'</span> <span class="cf">if</span> labels[i] <span class="op">==</span> <span class="st">'Hadrian'</span> <span class="cf">else</span> <span class="st">'coral'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ax.scatter(lm[:, <span class="dv">0</span>], lm[:, <span class="dv">1</span>], color<span class="op">=</span>clr, s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'לפני GPA'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># אחרי</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">1</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, lm <span class="kw">in</span> <span class="bu">enumerate</span>(aligned):</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    clr <span class="op">=</span> <span class="st">'steelblue'</span> <span class="cf">if</span> labels[i] <span class="op">==</span> <span class="st">'Hadrian'</span> <span class="cf">else</span> <span class="st">'coral'</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    ax.scatter(lm[:, <span class="dv">0</span>], lm[:, <span class="dv">1</span>], color<span class="op">=</span>clr, s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>ax.scatter(mean_shape[:, <span class="dv">0</span>], mean_shape[:, <span class="dv">1</span>],</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>           color<span class="op">=</span><span class="st">'black'</span>, s<span class="op">=</span><span class="dv">40</span>, zorder<span class="op">=</span><span class="dv">5</span>, label<span class="op">=</span>rtl(<span class="st">'צורה ממוצעת'</span>))</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'אחרי GPA'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>legend_elements <span class="op">=</span> [</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'w'</span>, markerfacecolor<span class="op">=</span><span class="st">'steelblue'</span>, label<span class="op">=</span><span class="st">'Hadrian'</span>, markersize<span class="op">=</span><span class="dv">8</span>),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'w'</span>, markerfacecolor<span class="op">=</span><span class="st">'coral'</span>, label<span class="op">=</span><span class="st">'Antoninus'</span>, markersize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].legend(handles<span class="op">=</span>legend_elements, loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'השפעת GPA על נקודות הציון'</span>), fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="גודל-קנטרואיד-השוואה-בין-הקבוצות" class="level2">
+<h2 class="anchored" data-anchor-id="גודל-קנטרואיד-השוואה-בין-הקבוצות">גודל קנטרואיד: השוואה בין הקבוצות</h2>
+<div id="centroid-hist" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> centroid_size(lm):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> lm.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sqrt(np.<span class="bu">sum</span>((lm <span class="op">-</span> c)<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cs_had <span class="op">=</span> np.array([centroid_size(s) <span class="cf">for</span> s <span class="kw">in</span> had_lm])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>cs_ant <span class="op">=</span> np.array([centroid_size(s) <span class="cf">for</span> s <span class="kw">in</span> ant_lm])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>ax.hist(cs_had, bins<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Hadrian (n=</span><span class="sc">{</span><span class="bu">len</span>(cs_had)<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ax.hist(cs_ant, bins<span class="op">=</span><span class="dv">8</span>, color<span class="op">=</span><span class="st">'coral'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Antoninus (n=</span><span class="sc">{</span><span class="bu">len</span>(cs_ant)<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ax.axvline(cs_had.mean(), color<span class="op">=</span><span class="st">'steelblue'</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ax.axvline(cs_ant.mean(), color<span class="op">=</span><span class="st">'coral'</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'גודל קנטרואיד'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="st">'תדירות'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'גודל קנטרואיד: הדריאנוס vs אנטונינוס פיוס'</span>), fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'הדריאנוס — ממוצע: </span><span class="sc">{</span>cs_had<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">, SD: </span><span class="sc">{</span>cs_had<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'אנטונינוס — ממוצע: </span><span class="sc">{</span>cs_ant<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">, SD: </span><span class="sc">{</span>cs_ant<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="סיכום" class="level2">
+<h2 class="anchored" data-anchor-id="סיכום">סיכום</h2>
+<ul>
+<li><strong>GPA</strong> משתמש ב-<code>mops.gpa(all_lm)</code> ומחזיר <code>{'aligned': ..., 'mean': ...}</code></li>
+<li>לאחר GPA, כל הדגימות קטנות לאותו גודל ומיושרות לציר משותף</li>
+<li>גודל הקנטרואיד נשמר <strong>לפני</strong> GPA — הוא מידע חשוב על גודל פיזי</li>
+</ul>
+<p><strong>שאלות לחשיבה:</strong> 1. מה מייצגת ‘הצורה הממוצעת’ שהגרף מציג? 2. מה יקרה אם נריץ GPA רק על הדריאנוס? 3. האם גדלי הקנטרואיד שונים בין הקיסרים? מה המשמעות הארכיאולוגית?</p>
 
 
 </section>

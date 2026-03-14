@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>שבוע 11: סטטיסטיקה מתקדמת – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>שבוע 11: סטטיסטיקה מתקדמת למורפומטריקה – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,11 +238,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#manova-בפרמוטציה-תיאוריה" id="toc-manova-בפרמוטציה-תיאוריה" class="nav-link active" data-scroll-target="#manova-בפרמוטציה-תיאוריה">1. MANOVA בפרמוטציה — תיאוריה</a></li>
-  <li><a href="#אלומטריה-גודל-וצורה" id="toc-אלומטריה-גודל-וצורה" class="nav-link" data-scroll-target="#אלומטריה-גודל-וצורה">2. אלומטריה: גודל וצורה</a></li>
-  <li><a href="#השוואות-מרובות-ותיקון-בונפרוני" id="toc-השוואות-מרובות-ותיקון-בונפרוני" class="nav-link" data-scroll-target="#השוואות-מרובות-ותיקון-בונפרוני">3. השוואות מרובות ותיקון בונפרוני</a></li>
-  <li><a href="#יישום-על-מאגר-הנתונים-של-הפרויקט-הסופי" id="toc-יישום-על-מאגר-הנתונים-של-הפרויקט-הסופי" class="nav-link" data-scroll-target="#יישום-על-מאגר-הנתונים-של-הפרויקט-הסופי">יישום על מאגר הנתונים של הפרויקט הסופי</a></li>
-  <li><a href="#תרגיל" id="toc-תרגיל" class="nav-link" data-scroll-target="#תרגיל">תרגיל</a></li>
+  <li><a href="#manova-הסתברותי-עם-ויזואליזציה-של-התפלגות-ה-f" id="toc-manova-הסתברותי-עם-ויזואליזציה-של-התפלגות-ה-f" class="nav-link active" data-scroll-target="#manova-הסתברותי-עם-ויזואליזציה-של-התפלגות-ה-f">MANOVA הסתברותי עם ויזואליזציה של התפלגות ה-F</a></li>
+  <li><a href="#אלומטריה-גודל-vs.-pc1" id="toc-אלומטריה-גודל-vs.-pc1" class="nav-link" data-scroll-target="#אלומטריה-גודל-vs.-pc1">אלומטריה: גודל vs.&nbsp;PC1</a></li>
+  <li><a href="#השוואות-מרובות-ותיקון-בונפרוני" id="toc-השוואות-מרובות-ותיקון-בונפרוני" class="nav-link" data-scroll-target="#השוואות-מרובות-ותיקון-בונפרוני">השוואות מרובות ותיקון בונפרוני</a></li>
+  <li><a href="#סיכום" id="toc-סיכום" class="nav-link" data-scroll-target="#סיכום">סיכום</a></li>
   </ul>
 </nav>
     </div>
@@ -251,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">שבוע 11: סטטיסטיקה מתקדמת</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">שבוע 11: סטטיסטיקה מתקדמת למורפומטריקה</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
 </div>
 
 
@@ -268,233 +267,256 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>בשיעור זה נלמד: - MANOVA בפרמוטציה — תיאוריה מעמיקה ו-R² - אלומטריה: קורלציה בין גודל לצורה - השוואות מרובות ותיקון בונפרוני - גרף חום (heatmap) של מטריצת p-values</p>
-<blockquote class="blockquote">
-<p><strong>מטרה</strong>: החלו את הכלים הללו על מאגר הנתונים של הפרויקט הסופי שלכם.</p>
-</blockquote>
-<div id="cell-c01" class="cell">
+<p>שיעור זה מעמיק את הכלים הסטטיסטיים: - ויזואליזציה של התפלגות ה-MANOVA - אלומטריה עם רגרסיה לינארית - השוואות מרובות ותיקון בונפרוני - מפת חום של ערכי p</p>
+<div id="setup" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install morphops python<span class="op">-</span>bidi <span class="op">-</span>q</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install morphops python<span class="op">-</span>bidi scipy <span class="op">-</span>q</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="manova-בפרמוטציה-תיאוריה" class="level2">
-<h2 class="anchored" data-anchor-id="manova-בפרמוטציה-תיאוריה">1. MANOVA בפרמוטציה — תיאוריה</h2>
-<p><strong>למה לא t-test רגיל?</strong></p>
-<p>נתוני צורה הם <strong>רב-משתניים</strong> — כל פרט הוא נקודה בעשרות ממדים. t-test פועל על משתנה אחד בלבד.</p>
-<p><strong>MANOVA</strong> = Multivariate ANOVA — בודק אם הממוצע הווקטורי שונה בין קבוצות.</p>
-<p><strong>למה פרמוטציה ולא MANOVA קלאסי?</strong> - MANOVA מניח נורמליות רב-משתנית - נתוני צורה לרוב אינם עומדים בהנחה זו - פרמוטציה חופשייה מהנחות פרמטריות</p>
-<p><strong>R² = effect size</strong>: אחוז השונות המוסבר על ידי הקבוצה - R² &lt; 0.05 = אפקט קטן - R² 0.05–0.15 = אפקט בינוני - R² &gt; 0.15 = אפקט גדול</p>
-<div id="cell-c02" class="cell">
+<div id="efa-parser" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(X, groups, n_perm<span class="op">=</span><span class="dv">999</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    MANOVA בפרמוטציה.</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    מחזיר: F (observed), p-value, R² (effect size)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    np.random.seed(seed)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f_stat(X, g):</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        unique_g <span class="op">=</span> np.unique(g)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        gm <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        between <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            np.<span class="bu">sum</span>(g <span class="op">==</span> u) <span class="op">*</span> np.<span class="bu">sum</span>((X[g <span class="op">==</span> u].mean(<span class="dv">0</span>) <span class="op">-</span> gm) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> u <span class="kw">in</span> unique_g</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        within <span class="op">=</span> <span class="bu">sum</span>(</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            np.<span class="bu">sum</span>((X[g <span class="op">==</span> u] <span class="op">-</span> X[g <span class="op">==</span> u].mean(<span class="dv">0</span>)) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> u <span class="kw">in</span> unique_g</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> between <span class="op">/</span> within <span class="cf">if</span> within <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> f_stat(X, groups)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    perm <span class="op">=</span> [f_stat(X, np.random.permutation(groups)) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm)]</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(perm) <span class="op">&gt;=</span> obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    r2 <span class="op">=</span> obs <span class="op">/</span> (obs <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> obs, p, r2, np.array(perm)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_efa_dat(text_or_path):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="kw">in</span> text_or_path:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> text_or_path.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(text_or_path, encoding<span class="op">=</span><span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>) <span class="im">as</span> f:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            lines <span class="op">=</span> f.readlines()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    groups, data, sizes <span class="op">=</span> [], [], []</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">2</span>:]:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> line.strip() <span class="cf">if</span> <span class="bu">hasattr</span>(line, <span class="st">'strip'</span>) <span class="cf">else</span> line</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> line:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        groups.append(cols[<span class="dv">3</span>].strip())</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        sizes.append(<span class="bu">float</span>(cols[<span class="dv">4</span>].replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        coeffs <span class="op">=</span> []</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> cols[<span class="dv">5</span>:]:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> c.strip()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> c <span class="kw">and</span> c <span class="op">!=</span> <span class="st">'-'</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                    coeffs.append(<span class="bu">float</span>(c.replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        data.append(coeffs)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    min_len <span class="op">=</span> <span class="bu">min</span>(<span class="bu">len</span>(d) <span class="cf">for</span> d <span class="kw">in</span> data)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([d[:min_len] <span class="cf">for</span> d <span class="kw">in</span> data]), np.array(groups), np.array(sizes)</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># דוגמה: שלוש קבוצות</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> np.random.randn(<span class="dv">25</span>, <span class="dv">10</span>) <span class="op">+</span> <span class="fl">0.5</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> np.random.randn(<span class="dv">30</span>, <span class="dv">10</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> np.random.randn(<span class="dv">20</span>, <span class="dv">10</span>) <span class="op">-</span> <span class="fl">0.3</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>X_demo <span class="op">=</span> np.vstack([X1, X2, X3])</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>g_demo <span class="op">=</span> np.array([<span class="st">'קבוצה א'</span>] <span class="op">*</span> <span class="dv">25</span> <span class="op">+</span> [<span class="st">'קבוצה ב'</span>] <span class="op">*</span> <span class="dv">30</span> <span class="op">+</span> [<span class="st">'קבוצה ג'</span>] <span class="op">*</span> <span class="dv">20</span>)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>f_obs, p_val, r2, perm_dist <span class="op">=</span> permutation_manova(X_demo, g_demo)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'F = </span><span class="sc">{</span>f_obs<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'R² = </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss"> (</span><span class="sc">{</span>r2<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">% שונות מוסברת)'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'parse_efa_dat מוכן'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-c03" class="cell">
+<div id="load-axes" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ויזואליזציה של התפלגות הפרמוטציה</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.hist(perm_dist, bins<span class="op">=</span><span class="dv">40</span>, color<span class="op">=</span><span class="st">'lightblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span>rtl(<span class="st">'התפלגות H₀ (פרמוטציה)'</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ax.axvline(f_obs, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span>rtl(<span class="ss">f'F נצפה = </span><span class="sc">{</span>f_obs<span class="sc">:.2f}</span><span class="ss">'</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'סטטיסטיקת F'</span>))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="st">'תדירות'</span>))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="ss">f'התפלגות פרמוטציה (p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">)'</span>))</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>AXES_URL <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/axes/axes_efa.dat'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(AXES_URL, timeout<span class="op">=</span><span class="dv">15</span>) <span class="im">as</span> r:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> r.read().decode(<span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    efa_data, groups, sizes <span class="op">=</span> parse_efa_dat(text)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נטענו </span><span class="sc">{</span><span class="bu">len</span>(efa_data)<span class="sc">}</span><span class="ss"> קרדומות, </span><span class="sc">{</span>efa_data<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> מקדמים'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'שגיאה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss"> — משתמשים בנתונים סינתטיים'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> np.random.randn(<span class="dv">60</span>, <span class="dv">120</span>) <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    base[:<span class="dv">30</span>, <span class="dv">0</span>] <span class="op">+=</span> <span class="fl">0.5</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    base[<span class="dv">30</span>:, <span class="dv">2</span>] <span class="op">+=</span> <span class="fl">0.4</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    efa_data <span class="op">=</span> base</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.array([<span class="st">'G3'</span>]<span class="op">*</span><span class="dv">30</span> <span class="op">+</span> [<span class="st">'G4'</span>]<span class="op">*</span><span class="dv">30</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    sizes <span class="op">=</span> np.random.uniform(<span class="dv">50</span>, <span class="dv">150</span>, <span class="dv">60</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    sizes[:<span class="dv">30</span>] <span class="op">+=</span> <span class="dv">20</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>pca_ax <span class="op">=</span> PCA()</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>scores_ax <span class="op">=</span> pca_ax.fit_transform(efa_data)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>ve_ax <span class="op">=</span> pca_ax.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'PCA: PC1=</span><span class="sc">{</span>ve_ax[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%, PC2=</span><span class="sc">{</span>ve_ax[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="manova-הסתברותי-עם-ויזואליזציה-של-התפלגות-ה-f" class="level2">
+<h2 class="anchored" data-anchor-id="manova-הסתברותי-עם-ויזואליזציה-של-התפלגות-ה-f">MANOVA הסתברותי עם ויזואליזציה של התפלגות ה-F</h2>
+<p>נציג את התפלגות ה-F תחת H₀ (אקראיות) ואת הערך הנצפה.</p>
+<div id="manova-full" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(X, groups, n_perm<span class="op">=</span><span class="dv">999</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    np.random.seed(seed)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f_stat(X, g):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        ug <span class="op">=</span> np.unique(g)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        gm <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        between <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>(g<span class="op">==</span>u) <span class="op">*</span> np.<span class="bu">sum</span>((X[g<span class="op">==</span>u].mean(<span class="dv">0</span>) <span class="op">-</span> gm)<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> ug)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        within  <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>((X[g<span class="op">==</span>u] <span class="op">-</span> X[g<span class="op">==</span>u].mean(<span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> ug)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> between <span class="op">/</span> within <span class="cf">if</span> within <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> f_stat(X, groups)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    perm <span class="op">=</span> [f_stat(X, np.random.permutation(groups)) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm)]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(perm) <span class="op">&gt;=</span> obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> obs, p, obs <span class="op">/</span> (obs <span class="op">+</span> <span class="dv">1</span>), np.array(perm)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>F_obs, p_val, r_sq, perm_dist <span class="op">=</span> permutation_manova(scores_ax[:, :<span class="dv">4</span>], groups)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">5</span>))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>ax.hist(perm_dist, bins<span class="op">=</span><span class="dv">40</span>, color<span class="op">=</span><span class="st">'lightsteelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span>rtl(<span class="st">'התפלגות F תחת H₀ (999 תמורות)'</span>))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>ax.axvline(F_obs, color<span class="op">=</span><span class="st">'red'</span>, lw<span class="op">=</span><span class="fl">2.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'F נצפה = </span><span class="sc">{</span>F_obs<span class="sc">:.3f}</span><span class="ss">  (p = </span><span class="sc">{</span>p_val<span class="sc">:.4f}</span><span class="ss">)'</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>ax.fill_betweenx([<span class="dv">0</span>, ax.get_ylim()[<span class="dv">1</span>] <span class="cf">if</span> ax.get_ylim()[<span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">10</span>],</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                  F_obs, perm_dist.<span class="bu">max</span>(), alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span><span class="st">'red'</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                  label<span class="op">=</span><span class="ss">f'p = </span><span class="sc">{</span>p_val<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'F-statistic'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="st">'תדירות'</span>), fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'התפלגות MANOVA הסתברותי — קרדומות G3/G4'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'F = </span><span class="sc">{</span>F_obs<span class="sc">:.4f}</span><span class="ss">, p = </span><span class="sc">{</span>p_val<span class="sc">:.4f}</span><span class="ss">, R² = </span><span class="sc">{</span>r_sq<span class="sc">:.4f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="אלומטריה-גודל-וצורה" class="level2">
-<h2 class="anchored" data-anchor-id="אלומטריה-גודל-וצורה">2. אלומטריה: גודל וצורה</h2>
-<p><strong>אלומטריה</strong> = הקשר בין גודל לצורה.</p>
-<ul>
-<li>גדולים יותר → צורה שונה = <strong>אלומטריה חיובית</strong></li>
-<li>אין קשר = <strong>איזומטריה</strong> (צורה עצמאית מגודל)</li>
-</ul>
-<p>בודקים עם רגרסיה: PC1_צורה ~ ln(גודל-צנטרואיד)</p>
-<div id="cell-c04" class="cell">
+<section id="אלומטריה-גודל-vs.-pc1" class="level2">
+<h2 class="anchored" data-anchor-id="אלומטריה-גודל-vs.-pc1">אלומטריה: גודל vs.&nbsp;PC1</h2>
+<div id="allometry" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">99</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">65</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>centroid_size <span class="op">=</span> np.random.uniform(<span class="dv">50</span>, <span class="dv">150</span>, n)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pc1_shape <span class="op">=</span> <span class="fl">0.004</span> <span class="op">*</span> centroid_size <span class="op">+</span> np.random.randn(n) <span class="op">*</span> <span class="fl">0.12</span>  <span class="co"># אלומטריה מתונה</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>pc2_shape <span class="op">=</span> np.random.randn(n) <span class="op">*</span> <span class="fl">0.12</span>                            <span class="co"># ללא אלומטריה</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">5</span>))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, y, title_he <span class="kw">in</span> [</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    (ax1, pc1_shape, <span class="st">'PC1 — עם אלומטריה'</span>),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    (ax2, pc2_shape, <span class="st">'PC2 — ללא אלומטריה'</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>]:</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    slope, intercept, r, p, se <span class="op">=</span> stats.linregress(np.log(centroid_size), y)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    ax.scatter(np.log(centroid_size), y, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">55</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    x_line <span class="op">=</span> np.linspace(np.log(centroid_size).<span class="bu">min</span>(), np.log(centroid_size).<span class="bu">max</span>(), <span class="dv">100</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ax.plot(x_line, slope <span class="op">*</span> x_line <span class="op">+</span> intercept, <span class="st">'r-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(rtl(<span class="st">'ln(גודל-צנטרואיד)'</span>))</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(rtl(<span class="st">'ציון PC (צורה)'</span>))</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.set_title(rtl(<span class="ss">f'</span><span class="sc">{</span>title_he<span class="sc">}</span><span class="ch">\n</span><span class="ss">r=</span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'בדיקת אלומטריה'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>log_sizes <span class="op">=</span> np.log(sizes)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>slope, intercept, r_value, p_allo, se <span class="op">=</span> stats.linregress(log_sizes, scores_ax[:, <span class="dv">0</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> grp, color <span class="kw">in</span> [(<span class="st">'G3'</span>, <span class="st">'steelblue'</span>), (<span class="st">'G4'</span>, <span class="st">'darkorange'</span>)]:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> groups <span class="op">==</span> grp</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ax.scatter(log_sizes[mask], scores_ax[mask, <span class="dv">0</span>],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span>color, s<span class="op">=</span><span class="dv">70</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span>grp, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>x_line <span class="op">=</span> np.linspace(log_sizes.<span class="bu">min</span>(), log_sizes.<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax.plot(x_line, slope <span class="op">*</span> x_line <span class="op">+</span> intercept, <span class="st">'k--'</span>, lw<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'רגרסיה: R²=</span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p_allo<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># רווח בטחון 95%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(log_sizes)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>se_line <span class="op">=</span> se <span class="op">*</span> np.sqrt(<span class="dv">1</span><span class="op">/</span>n <span class="op">+</span> (x_line <span class="op">-</span> log_sizes.mean())<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> np.<span class="bu">sum</span>((log_sizes <span class="op">-</span> log_sizes.mean())<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>t_crit <span class="op">=</span> stats.t.ppf(<span class="fl">0.975</span>, df<span class="op">=</span>n<span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>ax.fill_between(x_line,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                slope<span class="op">*</span>x_line <span class="op">+</span> intercept <span class="op">-</span> t_crit<span class="op">*</span>se_line,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                slope<span class="op">*</span>x_line <span class="op">+</span> intercept <span class="op">+</span> t_crit<span class="op">*</span>se_line,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.15</span>, color<span class="op">=</span><span class="st">'gray'</span>, label<span class="op">=</span><span class="st">'רווח בטחון 95%'</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'log(גודל קרדום)'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f'PC1 (</span><span class="sc">{</span>ve_ax[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'אלומטריה: קשר בין גודל לצורה'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'שיפוע: </span><span class="sc">{</span>slope<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'R²: </span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p: </span><span class="sc">{</span>p_allo<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_allo <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'** יש קשר מובהק בין גודל לצורה **'</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'אין קשר מובהק בין גודל לצורה'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="השוואות-מרובות-ותיקון-בונפרוני" class="level2">
-<h2 class="anchored" data-anchor-id="השוואות-מרובות-ותיקון-בונפרוני">3. השוואות מרובות ותיקון בונפרוני</h2>
-<p>עם <strong>k קבוצות</strong> יש <strong>k(k-1)/2 זוגות</strong> לבדיקה.</p>
-<p><strong>בעיית ריבוי הבדיקות</strong>: אם בודקים 10 זוגות ב-α=0.05, מצפים למצוא ~0.5 תוצאות חיוביות שגויות.</p>
-<p><strong>תיקון בונפרוני</strong>: α’ = α / מספר_הבדיקות</p>
-<div id="cell-c05" class="cell">
+<h2 class="anchored" data-anchor-id="השוואות-מרובות-ותיקון-בונפרוני">השוואות מרובות ותיקון בונפרוני</h2>
+<p>כאשר בודקים מספר השוואות בו-זמנית, עולה הסיכוי לשגיאת סוג I.<br>
+<strong>תיקון בונפרוני</strong>: מחלקים את סף המובהקות (α=0.05) במספר ההשוואות.</p>
+<p>דוגמה: 4 תקופות → 6 זוגות השוואה → α_מתוקן = 0.05/6 = 0.0083</p>
+<div id="bonferroni" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># נתוני דוגמה: 4 תקופות כרונולוגיות</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>periods <span class="op">=</span> [<span class="st">'EBA'</span>, <span class="st">'MBA'</span>, <span class="st">'LBA'</span>, <span class="st">'IA'</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>shifts <span class="op">=</span> {<span class="st">'EBA'</span>: <span class="fl">0.0</span>, <span class="st">'MBA'</span>: <span class="fl">0.4</span>, <span class="st">'LBA'</span>: <span class="fl">0.7</span>, <span class="st">'IA'</span>: <span class="fl">0.2</span>}</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>period_data <span class="op">=</span> {p: np.random.randn(<span class="dv">22</span>, <span class="dv">6</span>) <span class="op">+</span> shifts[p] <span class="cf">for</span> p <span class="kw">in</span> periods}</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>n_comparisons <span class="op">=</span> <span class="bu">len</span>(periods) <span class="op">*</span> (<span class="bu">len</span>(periods) <span class="op">-</span> <span class="dv">1</span>) <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>alpha_bonferroni <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> n_comparisons</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'מספר השוואות: </span><span class="sc">{</span>n_comparisons<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'α מתוקן (בונפרוני): </span><span class="sc">{</span>alpha_bonferroni<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> g1, g2 <span class="kw">in</span> combinations(periods, <span class="dv">2</span>):</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    X_comb <span class="op">=</span> np.vstack([period_data[g1], period_data[g2]])</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    g_comb <span class="op">=</span> np.array([g1] <span class="op">*</span> <span class="bu">len</span>(period_data[g1]) <span class="op">+</span> [g2] <span class="op">*</span> <span class="bu">len</span>(period_data[g2]))</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    f_val, p_val, r2_val, _ <span class="op">=</span> permutation_manova(X_comb, g_comb, n_perm<span class="op">=</span><span class="dv">499</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    sig <span class="op">=</span> <span class="st">'*'</span> <span class="cf">if</span> p_val <span class="op">&lt;</span> alpha_bonferroni <span class="cf">else</span> <span class="st">''</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    results.append((g1, g2, p_val, r2_val, sig))</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  </span><span class="sc">{</span>g1<span class="sc">}</span><span class="ss"> vs </span><span class="sc">{</span>g2<span class="sc">}</span><span class="ss">: p=</span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">, R²=</span><span class="sc">{</span>r2_val<span class="sc">:.3f}</span><span class="ss"> </span><span class="sc">{</span>sig<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="ss">מובהק לאחר בונפרוני: </span><span class="sc">{</span><span class="bu">sum</span>(r[<span class="dv">4</span>]<span class="op">==</span><span class="st">"*"</span> <span class="cf">for</span> r <span class="kw">in</span> results)<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>n_comparisons<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># נוצר נתונים סינתטיים של 4 תקופות</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>n_per <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>periods <span class="op">=</span> [<span class="st">'EBA'</span>, <span class="st">'MBA'</span>, <span class="st">'LBA'</span>, <span class="st">'Iron'</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># כל תקופה נבדלת מעט מהשאר</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>period_data <span class="op">=</span> [</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    np.random.randn(n_per, <span class="dv">10</span>) <span class="op">+</span> i <span class="op">*</span> <span class="fl">0.3</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(periods))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># MANOVA פרמוטציה לכל זוג</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> <span class="bu">list</span>(combinations(<span class="bu">range</span>(<span class="bu">len</span>(periods)), <span class="dv">2</span>))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>n_comparisons <span class="op">=</span> <span class="bu">len</span>(pairs)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>alpha_bonferroni <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> n_comparisons</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'מספר השוואות: </span><span class="sc">{</span>n_comparisons<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'α מתוקן (בונפרוני): </span><span class="sc">{</span>alpha_bonferroni<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>p_matrix <span class="op">=</span> np.ones((<span class="bu">len</span>(periods), <span class="bu">len</span>(periods)))</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> pairs:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    Xi <span class="op">=</span> period_data[i]</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    Xj <span class="op">=</span> period_data[j]</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    X_pair <span class="op">=</span> np.vstack([Xi, Xj])</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    g_pair <span class="op">=</span> np.array([periods[i]]<span class="op">*</span>n_per <span class="op">+</span> [periods[j]]<span class="op">*</span>n_per)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    _, p, _ <span class="op">=</span> permutation_manova(X_pair, g_pair, n_perm<span class="op">=</span><span class="dv">499</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    p_matrix[i, j] <span class="op">=</span> p</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    p_matrix[j, i] <span class="op">=</span> p</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    sig <span class="op">=</span> <span class="st">'**'</span> <span class="cf">if</span> p <span class="op">&lt;</span> alpha_bonferroni <span class="cf">else</span> (<span class="st">'*'</span> <span class="cf">if</span> p <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="cf">else</span> <span class="st">'n.s.'</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>periods[i]<span class="sc">}</span><span class="ss"> vs </span><span class="sc">{</span>periods[j]<span class="sc">}</span><span class="ss">: p=</span><span class="sc">{</span>p<span class="sc">:.4f}</span><span class="ss"> </span><span class="sc">{</span>sig<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'(** = מובהק לאחר בונפרוני; * = מובהק ללא תיקון; n.s. = לא מובהק)'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-c06" class="cell">
+<div id="p-heatmap" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># גרף חום של מטריצת p-values</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(periods)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p_matrix <span class="op">=</span> np.ones((n, n))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> g1, g2, p, r2, sig <span class="kw">in</span> results:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    i, j <span class="op">=</span> periods.index(g1), periods.index(g2)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    p_matrix[i, j] <span class="op">=</span> p</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    p_matrix[j, i] <span class="op">=</span> p</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(p_matrix, cmap<span class="op">=</span><span class="st">'RdYlGn_r'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">!=</span> j:</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            val <span class="op">=</span> p_matrix[i, j]</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            marker <span class="op">=</span> <span class="st">' *'</span> <span class="cf">if</span> val <span class="op">&lt;</span> alpha_bonferroni <span class="cf">else</span> <span class="st">''</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            color <span class="op">=</span> <span class="st">'white'</span> <span class="cf">if</span> val <span class="op">&lt;</span> <span class="fl">0.04</span> <span class="cf">else</span> <span class="st">'black'</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, <span class="ss">f'</span><span class="sc">{</span>val<span class="sc">:.3f}{</span>marker<span class="sc">}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                   fontsize<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span>color, fontweight<span class="op">=</span><span class="st">'bold'</span> <span class="cf">if</span> marker <span class="cf">else</span> <span class="st">'normal'</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, <span class="st">'—'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(n))</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(n))</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(periods, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(periods, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="ss">f'מטריצת p-values בין תקופות</span><span class="ch">\n</span><span class="ss">(* מובהק לאחר בונפרוני, α=</span><span class="sc">{</span>alpha_bonferroni<span class="sc">:.4f}</span><span class="ss">)'</span>),</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, label<span class="op">=</span><span class="st">'p-value'</span>)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="יישום-על-מאגר-הנתונים-של-הפרויקט-הסופי" class="level2">
-<h2 class="anchored" data-anchor-id="יישום-על-מאגר-הנתונים-של-הפרויקט-הסופי">יישום על מאגר הנתונים של הפרויקט הסופי</h2>
-<p>החליפו את <code>X_project</code> ו-<code>groups_project</code> בנתוני הפרויקט שלכם:</p>
-<div id="cell-c07" class="cell">
-<details class="code-fold">
-<summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ─── הכניסו כאן את הנתונים שלכם ───</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># X_project = ...     # מערך NumPy: (n_specimens, n_features)</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># groups_project = ... # מערך NumPy של מחרוזות עם תוויות הקבוצות</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># דוגמה (מחקו ושנו):</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>X_project <span class="op">=</span> X_demo</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>groups_project <span class="op">=</span> g_demo</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ─────────────────────────────────</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>f_proj, p_proj, r2_proj, _ <span class="op">=</span> permutation_manova(X_project, groups_project)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'תוצאות הפרויקט:'</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  F = </span><span class="sc">{</span>f_proj<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  p = </span><span class="sc">{</span>p_proj<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  R² = </span><span class="sc">{</span>r2_proj<span class="sc">:.3f}</span><span class="ss"> (</span><span class="sc">{</span>r2_proj<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(p_matrix, cmap<span class="op">=</span><span class="st">'RdYlGn_r'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(periods)))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(periods)))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(periods, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels(periods, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(periods)):</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(periods)):</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">!=</span> j:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            p_val_ij <span class="op">=</span> p_matrix[i, j]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>            sig <span class="op">=</span> <span class="st">'**'</span> <span class="cf">if</span> p_val_ij <span class="op">&lt;</span> alpha_bonferroni <span class="cf">else</span> (<span class="st">'*'</span> <span class="cf">if</span> p_val_ij <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="cf">else</span> <span class="st">''</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            txt <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>p_val_ij<span class="sc">:.3f}{</span>sig<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, txt, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">'white'</span> <span class="cf">if</span> p_val_ij <span class="op">&lt;</span> <span class="fl">0.03</span> <span class="cf">else</span> <span class="st">'black'</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, <span class="st">'-'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'p-value'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'מפת חום: p-values בין תקופות (MANOVA הסתברותי)'</span>), fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'ירוק = לא מובהק, אדום = מובהק מאוד'</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'α בונפרוני = </span><span class="sc">{</span>alpha_bonferroni<span class="sc">:.4f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="תרגיל" class="level2">
-<h2 class="anchored" data-anchor-id="תרגיל">תרגיל</h2>
-<ol type="1">
-<li>למה פרמוטציה עדיפה על MANOVA קלאסי בניתוח נתוני צורה?</li>
-<li>בניתוח שלכם עם 3 קבוצות, כמה השוואות זוגיות תצטרכו? מה יהיה α המתוקן?</li>
-<li>אם מצאתם אלומטריה, מה המשמעות הארכאולוגית?</li>
-<li>מה ה-R² המינימלי שאתם מחשיבים כ’אפקט משמעותי’ בארכאולוגיה? הנמקו.</li>
-</ol>
+<section id="סיכום" class="level2">
+<h2 class="anchored" data-anchor-id="סיכום">סיכום</h2>
+<ul>
+<li><strong>MANOVA הסתברותי</strong>: ויזואליזציה של התפלגות ה-F עוזרת להבין את המשמעות</li>
+<li><strong>אלומטריה</strong>: <code>scipy.stats.linregress</code> עם רווח בטחון 95%</li>
+<li><strong>בונפרוני</strong>: α_מתוקן = α / מספר_השוואות</li>
+<li><strong>מפת חום</strong>: דרך נוחה להציג תוצאות השוואות מרובות</li>
+</ul>
+<p><strong>שאלות לחשיבה:</strong> 1. מדוע תיקון בונפרוני הכרחי בהשוואות מרובות? 2. האם יש דרכים אחרות לתקן עבור השוואות מרובות? 3. מה ניתן ללמוד מגרף האלומטריה על תהליך ייצור הקרדומות?</p>
 
 
 </section>

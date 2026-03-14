@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>שבוע 8: מתארים פורייה אליפטיים (EFA) — מבוא – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>שבוע 08: ניתוח מתאר אליפטי (EFA) — מבוא – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,10 +238,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#efa-הרעיון-הבסיסי" id="toc-efa-הרעיון-הבסיסי" class="nav-link active" data-scroll-target="#efa-הרעיון-הבסיסי">EFA — הרעיון הבסיסי</a></li>
-  <li><a href="#שחזור-ממספרים-שונים-של-הרמוניות" id="toc-שחזור-ממספרים-שונים-של-הרמוניות" class="nav-link" data-scroll-target="#שחזור-ממספרים-שונים-של-הרמוניות">שחזור ממספרים שונים של הרמוניות</a></li>
-  <li><a href="#גרזני-כנפיים-הנתונים-שלנו" id="toc-גרזני-כנפיים-הנתונים-שלנו" class="nav-link" data-scroll-target="#גרזני-כנפיים-הנתונים-שלנו">גרזני כנפיים — הנתונים שלנו</a></li>
-  <li><a href="#תרגיל" id="toc-תרגיל" class="nav-link" data-scroll-target="#תרגיל">תרגיל</a></li>
+  <li><a href="#הדגמה-מתאר-סינתטי" id="toc-הדגמה-מתאר-סינתטי" class="nav-link active" data-scroll-target="#הדגמה-מתאר-סינתטי">הדגמה: מתאר סינתטי</a></li>
+  <li><a href="#שחזור-מתאר-השפעת-מספר-ההרמוניות" id="toc-שחזור-מתאר-השפעת-מספר-ההרמוניות" class="nav-link" data-scroll-target="#שחזור-מתאר-השפעת-מספר-ההרמוניות">שחזור מתאר: השפעת מספר ההרמוניות</a></li>
+  <li><a href="#טעינת-נתוני-קרדומות" id="toc-טעינת-נתוני-קרדומות" class="nav-link" data-scroll-target="#טעינת-נתוני-קרדומות">טעינת נתוני קרדומות</a></li>
+  <li><a href="#pca-על-נתוני-efa-של-הקרדומות" id="toc-pca-על-נתוני-efa-של-הקרדומות" class="nav-link" data-scroll-target="#pca-על-נתוני-efa-של-הקרדומות">PCA על נתוני EFA של הקרדומות</a></li>
+  <li><a href="#סיכום" id="toc-סיכום" class="nav-link" data-scroll-target="#סיכום">סיכום</a></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">שבוע 8: מתארים פורייה אליפטיים (EFA) — מבוא</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">שבוע 08: ניתוח מתאר אליפטי (EFA) — מבוא</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
 </div>
 
 
@@ -267,165 +268,185 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>בשיעור זה נלמד: - מה זה EFA ולמה הוא שונה מציוני דרך - כיצד קו מתאר הופך לסדרת הרמוניות - כיצד לחלץ מתארי EFA עם pyefd - שחזור צורה ממספרים שונים של הרמוניות</p>
-<blockquote class="blockquote">
-<p><strong>הוראות</strong>: הריצו כל תא בסדר מלמעלה למטה.</p>
-</blockquote>
-<div id="cell-c01" class="cell">
+<p><strong>Elliptic Fourier Analysis</strong> מנתחת <strong>מתאר סגור</strong> ולא נקודות ציון.<br>
+היא מפרקת כל מתאר לסדרה של הרמוניות — כמו פורייה לצורות.</p>
+<p><strong>מטרות השיעור:</strong> - הבנת EFA ועקרון ההרמוניות - שחזור מתאר ממספר הרמוניות גדל - טעינת נתוני קרדומות מ-MorphoJ - PCA ראשוני של EFA</p>
+<div id="setup" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pyefd python<span class="op">-</span>bidi <span class="op">-</span>q</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="efa-הרעיון-הבסיסי" class="level2">
-<h2 class="anchored" data-anchor-id="efa-הרעיון-הבסיסי">EFA — הרעיון הבסיסי</h2>
-<p>EFA (Elliptic Fourier Analysis) מפרק כל קו מתאר לסכום של אליפסות בתדרים שונים:</p>
-<ul>
-<li><strong>הרמוניה 1</strong>: הצורה הכוללת (גדולה, אליפסה עיקרית)</li>
-<li><strong>הרמוניות 2–3</strong>: פרטים גדולים (זוויות, בליטות)</li>
-<li><strong>הרמוניות 4+</strong>: פרטים קטנים ועדינים</li>
-</ul>
-<p>כל הרמוניה מוגדרת ע”י <strong>4 מקדמים</strong> (a, b, c, d) — לסה”כ <strong>4n מקדמים</strong> עבור n הרמוניות.</p>
-<div id="cell-c02" class="cell">
+<section id="הדגמה-מתאר-סינתטי" class="level2">
+<h2 class="anchored" data-anchor-id="הדגמה-מתאר-סינתטי">הדגמה: מתאר סינתטי</h2>
+<p>ניצור מתאר של כוכב ונראה כיצד EFA מחשב את המקדמים.</p>
+<div id="synthetic-contour" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># יצירת צורה סינתטית — אליפסה עם בליטה</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, <span class="dv">300</span>, endpoint<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.0</span> <span class="op">*</span> np.cos(theta) <span class="op">+</span> <span class="fl">0.4</span> <span class="op">*</span> np.cos(<span class="dv">3</span><span class="op">*</span>theta)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">1.0</span> <span class="op">*</span> np.sin(theta) <span class="op">+</span> <span class="fl">0.25</span> <span class="op">*</span> np.sin(<span class="dv">2</span><span class="op">*</span>theta)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>contour <span class="op">=</span> np.column_stack([x, y])</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># חילוץ מקדמי EFA (20 הרמוניות)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>coeffs <span class="op">=</span> pyefd.elliptic_fourier_descriptors(contour, order<span class="op">=</span><span class="dv">20</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'מקדמי EFA: </span><span class="sc">{</span>coeffs<span class="sc">.</span>shape<span class="sc">}</span><span class="ss"> (20 הרמוניות × 4 מקדמים)'</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'הרמוניה 1: a=</span><span class="sc">{</span>coeffs[<span class="dv">0</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, b=</span><span class="sc">{</span>coeffs[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">, c=</span><span class="sc">{</span>coeffs[<span class="dv">0</span>,<span class="dv">2</span>]<span class="sc">:.3f}</span><span class="ss">, d=</span><span class="sc">{</span>coeffs[<span class="dv">0</span>,<span class="dv">3</span>]<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור הצורה המקורית</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ax.plot(contour[:, <span class="dv">0</span>], contour[:, <span class="dv">1</span>], <span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'צורה סינתטית לדוגמה'</span>))</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># מתאר כוכב</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n_pts <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi, n_pts, endpoint<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">0.4</span> <span class="op">*</span> np.cos(<span class="dv">5</span> <span class="op">*</span> theta)  <span class="co"># 5 עלי כותרת</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>contour_star <span class="op">=</span> np.column_stack([r <span class="op">*</span> np.cos(theta), r <span class="op">*</span> np.sin(theta)]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># EFA</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>coeffs_full <span class="op">=</span> pyefd.elliptic_fourier_descriptors(contour_star, order<span class="op">=</span><span class="dv">20</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'צורת מטריצת המקדמים: </span><span class="sc">{</span>coeffs_full<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">  (harmonics × 4 coefficients)'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'4 מקדמים לכל הרמוניקה: a_n, b_n, c_n, d_n'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'המקדמים הראשונים:'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, row <span class="kw">in</span> <span class="bu">enumerate</span>(coeffs_full[:<span class="dv">5</span>]):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  הרמוניקה </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: a=</span><span class="sc">{</span>row[<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, b=</span><span class="sc">{</span>row[<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">, c=</span><span class="sc">{</span>row[<span class="dv">2</span>]<span class="sc">:.3f}</span><span class="ss">, d=</span><span class="sc">{</span>row[<span class="dv">3</span>]<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="שחזור-ממספרים-שונים-של-הרמוניות" class="level2">
-<h2 class="anchored" data-anchor-id="שחזור-ממספרים-שונים-של-הרמוניות">שחזור ממספרים שונים של הרמוניות</h2>
-<p>כמה הרמוניות מספיקות? בואו נראה:</p>
-<div id="cell-c03" class="cell">
+<section id="שחזור-מתאר-השפעת-מספר-ההרמוניות" class="level2">
+<h2 class="anchored" data-anchor-id="שחזור-מתאר-השפעת-מספר-ההרמוניות">שחזור מתאר: השפעת מספר ההרמוניות</h2>
+<p>נשחזר את הכוכב עם 1, 2, 4, 8 ו-20 הרמוניות.<br>
+שימו לב ל-API הנכון: <code>pyefd.reconstruct_contour(coeffs_mat, locus=(0,0), num_points=400)</code></p>
+<div id="plot-reconstruction" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">4</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>]</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">4</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, order <span class="kw">in</span> <span class="bu">zip</span>(axes, orders):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    reconstructed <span class="op">=</span> pyefd.reconstruct_contour(coeffs, locus<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                               num_points<span class="op">=</span><span class="dv">300</span>, harmonic<span class="op">=</span>order)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ax.plot(reconstructed[:, <span class="dv">0</span>], reconstructed[:, <span class="dv">1</span>], <span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ax.plot(contour[:, <span class="dv">0</span>], contour[:, <span class="dv">1</span>], <span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ax.set_title(rtl(<span class="ss">f'</span><span class="sc">{</span>order<span class="sc">}</span><span class="ss"> הרמוניות'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="fl">2.8</span>, <span class="fl">2.8</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="fl">1.6</span>, <span class="fl">1.6</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">'off'</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'שחזור קו מתאר ממספרים שונים של הרמוניות'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># לקחת את coeffs_full[:order] — מטריצה בצורת (order, 4)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    coeffs_mat <span class="op">=</span> coeffs_full[:order]  <span class="co"># (order, 4)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    reconstructed <span class="op">=</span> pyefd.reconstruct_contour(coeffs_mat, locus<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), num_points<span class="op">=</span><span class="dv">400</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    ax.plot(reconstructed[:, <span class="dv">0</span>], reconstructed[:, <span class="dv">1</span>], <span class="st">'steelblue'</span>, lw<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ax.plot(contour_star[:, <span class="dv">0</span>], contour_star[:, <span class="dv">1</span>], <span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f'</span><span class="sc">{</span>order<span class="sc">}</span><span class="ss"> הרמוניות'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'שחזור מתאר כוכב: מספר הרמוניות גדל'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="efa-parser" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_efa_dat(text_or_path):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parse MorphoJ EFA dat: tab-sep, European decimals, 2 header lines."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="kw">in</span> text_or_path:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> text_or_path.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(text_or_path, encoding<span class="op">=</span><span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>) <span class="im">as</span> f:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            lines <span class="op">=</span> f.readlines()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    groups, data, sizes <span class="op">=</span> [], [], []</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">2</span>:]:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> line.strip() <span class="cf">if</span> <span class="bu">hasattr</span>(line, <span class="st">'strip'</span>) <span class="cf">else</span> line</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> line:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        groups.append(cols[<span class="dv">3</span>].strip())</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        sizes.append(<span class="bu">float</span>(cols[<span class="dv">4</span>].replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        coeffs <span class="op">=</span> []</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> cols[<span class="dv">5</span>:]:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> c.strip()</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> c <span class="kw">and</span> c <span class="op">!=</span> <span class="st">'-'</span>:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    coeffs.append(<span class="bu">float</span>(c.replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        data.append(coeffs)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    min_len <span class="op">=</span> <span class="bu">min</span>(<span class="bu">len</span>(d) <span class="cf">for</span> d <span class="kw">in</span> data)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([d[:min_len] <span class="cf">for</span> d <span class="kw">in</span> data]), np.array(groups), np.array(sizes)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'parse_efa_dat מוכן'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="גרזני-כנפיים-הנתונים-שלנו" class="level2">
-<h2 class="anchored" data-anchor-id="גרזני-כנפיים-הנתונים-שלנו">גרזני כנפיים — הנתונים שלנו</h2>
-<p>גרזני הכנפיים של תקופת הברונזה הבינונית כוללים שתי קבוצות עיצוביות: - <strong>G3</strong>: גרזנים קדומים יותר - <strong>G4</strong>: גרזנים מאוחרים יותר</p>
-<p>נטען נתוני EFA שחולצו מראש.</p>
-<div id="cell-c04" class="cell">
+<section id="טעינת-נתוני-קרדומות" class="level2">
+<h2 class="anchored" data-anchor-id="טעינת-נתוני-קרדומות">טעינת נתוני קרדומות</h2>
+<p>קובץ <code>axes_efa.dat</code> מכיל 60 קרדומות (30 G3, 30 G4) עם 30 הרמוניות = 120 מקדמי EFA.</p>
+<div id="load-axes" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_efa_csv(url):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""טעינת קובץ CSV עם מקדמי EFA ותוויות קבוצה"""</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(url) <span class="im">as</span> r:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> r.read().decode(<span class="st">'utf-8'</span>).strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> lines[<span class="dv">0</span>].split(<span class="st">','</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    data, groups <span class="op">=</span> [], []</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">1</span>:]:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        parts <span class="op">=</span> line.strip().split(<span class="st">','</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        groups.append(parts[<span class="dv">0</span>])</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        data.append([<span class="bu">float</span>(x) <span class="cf">for</span> x <span class="kw">in</span> parts[<span class="dv">1</span>:]])</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(data), np.array(groups)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/axes/'</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    efa_data, groups <span class="op">=</span> load_efa_csv(base <span class="op">+</span> <span class="st">'axes_efa.csv'</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נטענו </span><span class="sc">{</span><span class="bu">len</span>(efa_data)<span class="sc">}</span><span class="ss"> גרזנים, </span><span class="sc">{</span>efa_data<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> מקדמי EFA'</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'G3: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>(groups<span class="op">==</span><span class="st">"G3"</span>)<span class="sc">}</span><span class="ss">, G4: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>(groups<span class="op">==</span><span class="st">"G4"</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'משתמשים בנתוני דוגמה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    n_g3, n_g4 <span class="op">=</span> <span class="dv">30</span>, <span class="dv">35</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    base_g3 <span class="op">=</span> np.random.randn(<span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.1</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    base_g4 <span class="op">=</span> base_g3 <span class="op">+</span> np.random.randn(<span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.05</span> <span class="op">+</span> <span class="fl">0.15</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    efa_data <span class="op">=</span> np.vstack([</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        base_g3 <span class="op">+</span> np.random.randn(n_g3, <span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.08</span>,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        base_g4 <span class="op">+</span> np.random.randn(n_g4, <span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.08</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    ])</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.array([<span class="st">'G3'</span>] <span class="op">*</span> n_g3 <span class="op">+</span> [<span class="st">'G4'</span>] <span class="op">*</span> n_g4)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נוצרו נתוני דוגמה: </span><span class="sc">{</span>efa_data<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="cell-c05" class="cell">
-<details class="code-fold">
-<summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(efa_data)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'שונות מוסברת:'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>var[i]<span class="sc">:.1f}</span><span class="ss">%'</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'G3'</span>: <span class="st">'#9C27B0'</span>, <span class="st">'G4'</span>: <span class="st">'#4CAF50'</span>}</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> group, color <span class="kw">in</span> colors.items():</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> groups <span class="op">==</span> group</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    ax.scatter(scores[mask, <span class="dv">0</span>], scores[mask, <span class="dv">1</span>], c<span class="op">=</span>color, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.8</span>,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>group<span class="sc">}</span><span class="ss"> (n=</span><span class="sc">{</span>mask<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, edgecolors<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="ss">f'PC1 (</span><span class="sc">{</span>var[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)'</span>))</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="ss">f'PC2 (</span><span class="sc">{</span>var[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)'</span>))</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'מרחב EFA — גרזני כנפיים G3 ו-G4'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span>rtl(<span class="st">'קבוצה עיצובית'</span>))</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>AXES_URL <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/axes/axes_efa.dat'</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(AXES_URL, timeout<span class="op">=</span><span class="dv">15</span>) <span class="im">as</span> r:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> r.read().decode(<span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    efa_data, groups, sizes <span class="op">=</span> parse_efa_dat(text)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נטענו </span><span class="sc">{</span><span class="bu">len</span>(efa_data)<span class="sc">}</span><span class="ss"> קרדומות, </span><span class="sc">{</span>efa_data<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> מקדמי EFA'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'קבוצות: </span><span class="sc">{</span>np<span class="sc">.</span>unique(groups, return_counts<span class="op">=</span><span class="va">True</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    DATA_OK <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'שגיאה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss"> — משתמשים בנתונים סינתטיים'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    n_g3, n_g4 <span class="op">=</span> <span class="dv">30</span>, <span class="dv">30</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># G3: יותר עגול (harmonic 1 גדול), G4: יותר מוארך</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> np.random.randn(n_g3 <span class="op">+</span> n_g4, <span class="dv">120</span>) <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    base[:n_g3, <span class="dv">0</span>] <span class="op">+=</span> <span class="fl">0.5</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    base[n_g3:, <span class="dv">2</span>] <span class="op">+=</span> <span class="fl">0.4</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    efa_data <span class="op">=</span> base</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.array([<span class="st">'G3'</span>]<span class="op">*</span>n_g3 <span class="op">+</span> [<span class="st">'G4'</span>]<span class="op">*</span>n_g4)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    sizes <span class="op">=</span> np.random.uniform(<span class="dv">50</span>, <span class="dv">150</span>, n_g3<span class="op">+</span>n_g4)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    sizes[:n_g3] <span class="op">+=</span> <span class="dv">20</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    DATA_OK <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'מקור נתונים: </span><span class="sc">{</span><span class="st">"GitHub"</span> <span class="cf">if</span> DATA_OK <span class="cf">else</span> <span class="st">"Synthetic"</span><span class="sc">}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="תרגיל" class="level2">
-<h2 class="anchored" data-anchor-id="תרגיל">תרגיל</h2>
-<ol type="1">
-<li>שנו את <code>order</code> ב-5 לספרות שונות — כמה הרמוניות מספיקות לשחזור סביר?</li>
-<li>מה ההבדל בין EFA לציוני דרך? מה יתרון כל שיטה?</li>
-<li>האם G3 ו-G4 נפרדים בבירור במרחב PCA? לאיזה ציר בעיקר?</li>
-</ol>
+<section id="pca-על-נתוני-efa-של-הקרדומות" class="level2">
+<h2 class="anchored" data-anchor-id="pca-על-נתוני-efa-של-הקרדומות">PCA על נתוני EFA של הקרדומות</h2>
+<div id="pca-axes" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pca_axes <span class="op">=</span> PCA()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>scores_axes <span class="op">=</span> pca_axes.fit_transform(efa_data)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ve_axes <span class="op">=</span> pca_axes.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'PC1: </span><span class="sc">{</span>ve_axes[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%, PC2: </span><span class="sc">{</span>ve_axes[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>mask_g3 <span class="op">=</span> groups <span class="op">==</span> <span class="st">'G3'</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>mask_g4 <span class="op">=</span> groups <span class="op">==</span> <span class="st">'G4'</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ax.scatter(scores_axes[mask_g3, <span class="dv">0</span>], scores_axes[mask_g3, <span class="dv">1</span>],</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.85</span>, label<span class="op">=</span><span class="ss">f'G3 (n=</span><span class="sc">{</span>mask_g3<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.scatter(scores_axes[mask_g4, <span class="dv">0</span>], scores_axes[mask_g4, <span class="dv">1</span>],</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'darkorange'</span>, s<span class="op">=</span><span class="dv">80</span>, marker<span class="op">=</span><span class="st">'s'</span>, alpha<span class="op">=</span><span class="fl">0.85</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'G4 (n=</span><span class="sc">{</span>mask_g4<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="ss">f'PC1 (</span><span class="sc">{</span>ve_axes[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f'PC2 (</span><span class="sc">{</span>ve_axes[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'מרחב הצורה: קרדומות מסוג G3 vs G4'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="סיכום" class="level2">
+<h2 class="anchored" data-anchor-id="סיכום">סיכום</h2>
+<ul>
+<li><strong>EFA</strong> מפרקת מתאר סגור ל-4 מקדמים לכל הרמוניקה (a, b, c, d)</li>
+<li><strong>שחזור</strong>: <code>pyefd.reconstruct_contour(coeffs_mat, locus=(0,0), num_points=400)</code></li>
+<li><strong>נתוני קרדומות</strong>: 60 דגימות, 120 מקדמים (30 הרמוניות × 4)</li>
+<li><strong>PCA</strong>: מאפשר ראייה כוללת של מרחב הצורה</li>
+</ul>
+<p><strong>שאלות לחשיבה:</strong> 1. כמה הרמוניות צריך כדי לשחזר מתאר מורכב? 2. האם G3 ו-G4 נפרדים בבירור ב-PCA? מה זה אומר על הצורה? 3. מה ההבדל בין EFA לניתוח נקודות ציון?</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>שבוע 9: ניתוח גרזני כנפיים מלא — מטלה 4 – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
+<title>שבוע 09: ניתוח מלא — קרדומות (מטלה 4) – צורה בזמן: מורפומטריה גיאומטרית לארכאולוגים</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -238,10 +238,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">בעמוד זה</h2>
    
   <ul>
-  <li><a href="#שחזור-צורות-ממוצע" id="toc-שחזור-צורות-ממוצע" class="nav-link active" data-scroll-target="#שחזור-צורות-ממוצע">שחזור צורות ממוצע</a></li>
-  <li><a href="#בדיקה-סטטיסטית" id="toc-בדיקה-סטטיסטית" class="nav-link" data-scroll-target="#בדיקה-סטטיסטית">בדיקה סטטיסטית</a></li>
-  <li><a href="#בדיקת-אלומטריה" id="toc-בדיקת-אלומטריה" class="nav-link" data-scroll-target="#בדיקת-אלומטריה">בדיקת אלומטריה</a></li>
-  <li><a href="#שאלות-לדוח" id="toc-שאלות-לדוח" class="nav-link" data-scroll-target="#שאלות-לדוח">שאלות לדוח</a></li>
+  <li><a href="#גרף-pca-עם-אליפסות-שמירה-כקובץ" id="toc-גרף-pca-עם-אליפסות-שמירה-כקובץ" class="nav-link active" data-scroll-target="#גרף-pca-עם-אליפסות-שמירה-כקובץ">גרף PCA עם אליפסות — שמירה כקובץ</a></li>
+  <li><a href="#שחזור-צורות-ממוצעות" id="toc-שחזור-צורות-ממוצעות" class="nav-link" data-scroll-target="#שחזור-צורות-ממוצעות">שחזור צורות ממוצעות</a></li>
+  <li><a href="#אלומטריה-גודל-vs.-צורה" id="toc-אלומטריה-גודל-vs.-צורה" class="nav-link" data-scroll-target="#אלומטריה-גודל-vs.-צורה">אלומטריה: גודל vs.&nbsp;צורה</a></li>
+  <li><a href="#שאלות-לדיון-מטלה-4" id="toc-שאלות-לדיון-מטלה-4" class="nav-link" data-scroll-target="#שאלות-לדיון-מטלה-4">שאלות לדיון (מטלה 4)</a></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">שבוע 9: ניתוח גרזני כנפיים מלא — מטלה 4</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">שבוע 09: ניתוח מלא — קרדומות (מטלה 4)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> קוד</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הראה את הקוד כולו</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">הסתר את הקוד כולו</a></li></ul></div></div>
 </div>
 
 
@@ -267,194 +267,253 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>שבוע זה הוא שבוע <strong>מטלה 4 — ניתוח EFA של גרזני כנפיים</strong>.</p>
-<p>הצינור המלא: 1. טעינת נתוני EFA 2. PCA על מקדמי EFA 3. ויזואליזציית מרחב הצורות 4. שחזור צורות ממוצע לכל קבוצה 5. בדיקה סטטיסטית (MANOVA בפרמוטציה) 6. בדיקת אלומטריה</p>
-<blockquote class="blockquote">
-<p><strong>טיפ</strong>: שמרו את תמונות הגרפים שלכם (<code>plt.savefig</code>) לדוח.</p>
-</blockquote>
-<div id="cell-c01" class="cell">
+<p>שיעור זה הוא בסיס המטלה הרביעית.<br>
+ניתוח EFA מלא של קרדומות ברונזה אירופיות: PCA, סטטיסטיקה, אלומטריה.</p>
+<p><strong>מטרות:</strong> - גרף PCA מלא עם אליפסות - שחזור צורות ממוצעות לפי קבוצה - מבחן MANOVA הסתברותי - ניתוח אלומטריה (גודל vs.&nbsp;צורה)</p>
+<div id="setup" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pyefd python<span class="op">-</span>bidi <span class="op">-</span>q</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'DejaVu Sans'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bidi.algorithm <span class="im">import</span> get_display</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rtl <span class="op">=</span> get_display</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הכל מוכן!'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-c02" class="cell">
+<div id="efa-parser" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_efa_csv(url):</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(url) <span class="im">as</span> r:</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> r.read().decode(<span class="st">'utf-8'</span>).strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    data, groups <span class="op">=</span> [], []</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">1</span>:]:</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        parts <span class="op">=</span> line.strip().split(<span class="st">','</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        groups.append(parts[<span class="dv">0</span>])</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        data.append([<span class="bu">float</span>(x) <span class="cf">for</span> x <span class="kw">in</span> parts[<span class="dv">1</span>:]])</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(data), np.array(groups)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/axes/'</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    efa_data, groups <span class="op">=</span> load_efa_csv(base <span class="op">+</span> <span class="st">'axes_efa.csv'</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    n_harmonics <span class="op">=</span> efa_data.shape[<span class="dv">1</span>] <span class="op">//</span> <span class="dv">4</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נטענו </span><span class="sc">{</span><span class="bu">len</span>(efa_data)<span class="sc">}</span><span class="ss"> גרזנים, </span><span class="sc">{</span>n_harmonics<span class="sc">}</span><span class="ss"> הרמוניות'</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'G3: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>(groups<span class="op">==</span><span class="st">"G3"</span>)<span class="sc">}</span><span class="ss">, G4: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>(groups<span class="op">==</span><span class="st">"G4"</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'משתמשים בנתוני דוגמה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    n_g3, n_g4 <span class="op">=</span> <span class="dv">30</span>, <span class="dv">35</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    base_g3 <span class="op">=</span> np.random.randn(<span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.1</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    base_g4 <span class="op">=</span> base_g3 <span class="op">+</span> np.random.randn(<span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.05</span> <span class="op">+</span> <span class="fl">0.18</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    efa_data <span class="op">=</span> np.vstack([</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        base_g3 <span class="op">+</span> np.random.randn(n_g3, <span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.08</span>,</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        base_g4 <span class="op">+</span> np.random.randn(n_g4, <span class="dv">40</span>) <span class="op">*</span> <span class="fl">0.08</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    ])</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.array([<span class="st">'G3'</span>] <span class="op">*</span> n_g3 <span class="op">+</span> [<span class="st">'G4'</span>] <span class="op">*</span> n_g4)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    n_harmonics <span class="op">=</span> <span class="dv">10</span></span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_efa_dat(text_or_path):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="kw">in</span> text_or_path:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        lines <span class="op">=</span> text_or_path.strip().split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(text_or_path, encoding<span class="op">=</span><span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>) <span class="im">as</span> f:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            lines <span class="op">=</span> f.readlines()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    groups, data, sizes <span class="op">=</span> [], [], []</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines[<span class="dv">2</span>:]:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        line <span class="op">=</span> line.strip() <span class="cf">if</span> <span class="bu">hasattr</span>(line, <span class="st">'strip'</span>) <span class="cf">else</span> line</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> line:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        groups.append(cols[<span class="dv">3</span>].strip())</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        sizes.append(<span class="bu">float</span>(cols[<span class="dv">4</span>].replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        coeffs <span class="op">=</span> []</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> c <span class="kw">in</span> cols[<span class="dv">5</span>:]:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> c.strip()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> c <span class="kw">and</span> c <span class="op">!=</span> <span class="st">'-'</span>:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                    coeffs.append(<span class="bu">float</span>(c.replace(<span class="st">','</span>, <span class="st">'.'</span>).replace(<span class="st">'E'</span>, <span class="st">'e'</span>)))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        data.append(coeffs)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    min_len <span class="op">=</span> <span class="bu">min</span>(<span class="bu">len</span>(d) <span class="cf">for</span> d <span class="kw">in</span> data)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([d[:min_len] <span class="cf">for</span> d <span class="kw">in</span> data]), np.array(groups), np.array(sizes)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'parse_efa_dat מוכן'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-c03" class="cell">
+<div id="load-axes" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(efa_data)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>var <span class="op">=</span> pca.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'שונות מוסברת:'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>var[i]<span class="sc">:.1f}</span><span class="ss">%'</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  PC1+PC2: </span><span class="sc">{</span><span class="bu">sum</span>(var[:<span class="dv">2</span>])<span class="sc">:.1f}</span><span class="ss">%'</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> {<span class="st">'G3'</span>: <span class="st">'#9C27B0'</span>, <span class="st">'G4'</span>: <span class="st">'#4CAF50'</span>}</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> group, color <span class="kw">in</span> colors.items():</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> groups <span class="op">==</span> group</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    ax.scatter(scores[mask, <span class="dv">0</span>], scores[mask, <span class="dv">1</span>], c<span class="op">=</span>color, s<span class="op">=</span><span class="dv">90</span>, alpha<span class="op">=</span><span class="fl">0.8</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>group<span class="sc">}</span><span class="ss"> (n=</span><span class="sc">{</span>mask<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, edgecolors<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="ss">f'PC1 (</span><span class="sc">{</span>var[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)'</span>))</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="ss">f'PC2 (</span><span class="sc">{</span>var[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">% שונות)'</span>))</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'מרחב EFA — גרזני כנפיים (G3 / G4)'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span>rtl(<span class="st">'קבוצה עיצובית'</span>))</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'axes_pca.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הגרף נשמר: axes_pca.png'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>AXES_URL <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/shaigordin/comparch/2026/morphometrics/data/axes/axes_efa.dat'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> urllib.request.urlopen(AXES_URL, timeout<span class="op">=</span><span class="dv">15</span>) <span class="im">as</span> r:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> r.read().decode(<span class="st">'utf-8'</span>, errors<span class="op">=</span><span class="st">'replace'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    efa_data, groups, sizes <span class="op">=</span> parse_efa_dat(text)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נטענו </span><span class="sc">{</span><span class="bu">len</span>(efa_data)<span class="sc">}</span><span class="ss"> קרדומות, </span><span class="sc">{</span>efa_data<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> מקדמי EFA'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'קבוצות: </span><span class="sc">{</span>np<span class="sc">.</span>unique(groups, return_counts<span class="op">=</span><span class="va">True</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'שגיאה: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss"> — משתמשים בנתונים סינתטיים'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> np.random.randn(<span class="dv">60</span>, <span class="dv">120</span>) <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    base[:<span class="dv">30</span>, <span class="dv">0</span>] <span class="op">+=</span> <span class="fl">0.5</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    base[<span class="dv">30</span>:, <span class="dv">2</span>] <span class="op">+=</span> <span class="fl">0.4</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    efa_data <span class="op">=</span> base</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    groups <span class="op">=</span> np.array([<span class="st">'G3'</span>]<span class="op">*</span><span class="dv">30</span> <span class="op">+</span> [<span class="st">'G4'</span>]<span class="op">*</span><span class="dv">30</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    sizes <span class="op">=</span> np.random.uniform(<span class="dv">50</span>, <span class="dv">150</span>, <span class="dv">60</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    sizes[:<span class="dv">30</span>] <span class="op">+=</span> <span class="dv">20</span></span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="שחזור-צורות-ממוצע" class="level2">
-<h2 class="anchored" data-anchor-id="שחזור-צורות-ממוצע">שחזור צורות ממוצע</h2>
-<div id="cell-c04" class="cell">
+<div id="pca-axes" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>group_colors <span class="op">=</span> {<span class="st">'G3'</span>: <span class="st">'#9C27B0'</span>, <span class="st">'G4'</span>: <span class="st">'#4CAF50'</span>}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (group, color) <span class="kw">in</span> <span class="bu">zip</span>(axes, group_colors.items()):</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> groups <span class="op">==</span> group</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    mean_coeffs <span class="op">=</span> efa_data[mask].mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        coeffs_matrix <span class="op">=</span> mean_coeffs[:n_harmonics<span class="op">*</span><span class="dv">4</span>].reshape(n_harmonics, <span class="dv">4</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        contour <span class="op">=</span> pyefd.reconstruct_contour(coeffs_matrix, locus<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                                             num_points<span class="op">=</span><span class="dv">300</span>, harmonic<span class="op">=</span>n_harmonics)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        ax.plot(contour[:, <span class="dv">0</span>], contour[:, <span class="dv">1</span>], color<span class="op">=</span>color, linewidth<span class="op">=</span><span class="fl">2.5</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        ax.fill(contour[:, <span class="dv">0</span>], contour[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.15</span>, color<span class="op">=</span>color)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># fallback: plot PC space mean as text</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        ax.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, rtl(<span class="ss">f'שחזור </span><span class="sc">{</span>group<span class="sc">}</span><span class="ch">\n</span><span class="ss">לא זמין'</span>), ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>               transform<span class="op">=</span>ax.transAxes, fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span>color)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ax.set_title(rtl(<span class="ss">f'צורת ממוצע — </span><span class="sc">{</span>group<span class="sc">}</span><span class="ss"> (n=</span><span class="sc">{</span>mask<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>), fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">'off'</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'השוואת צורות ממוצע — גרזני כנפיים'</span>), fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'axes_mean_shapes.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pca_axes <span class="op">=</span> PCA()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>scores_axes <span class="op">=</span> pca_axes.fit_transform(efa_data)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ve_axes <span class="op">=</span> pca_axes.explained_variance_ratio_ <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'PC1: </span><span class="sc">{</span>ve_axes[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%, PC2: </span><span class="sc">{</span>ve_axes[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section>
-<section id="בדיקה-סטטיסטית" class="level2">
-<h2 class="anchored" data-anchor-id="בדיקה-סטטיסטית">בדיקה סטטיסטית</h2>
-<div id="cell-c05" class="cell">
+<section id="גרף-pca-עם-אליפסות-שמירה-כקובץ" class="level2">
+<h2 class="anchored" data-anchor-id="גרף-pca-עם-אליפסות-שמירה-כקובץ">גרף PCA עם אליפסות — שמירה כקובץ</h2>
+<div id="plot-scatter-save" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(X, groups, n_perm<span class="op">=</span><span class="dv">999</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    np.random.seed(seed)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f_stat(X, g):</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        unique_g <span class="op">=</span> np.unique(g)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        gm <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        between <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>(g<span class="op">==</span>u) <span class="op">*</span> np.<span class="bu">sum</span>((X[g<span class="op">==</span>u].mean(<span class="dv">0</span>) <span class="op">-</span> gm)<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> unique_g)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        within  <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>((X[g<span class="op">==</span>u] <span class="op">-</span> X[g<span class="op">==</span>u].mean(<span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> unique_g)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> between <span class="op">/</span> within <span class="cf">if</span> within <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> f_stat(X, groups)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    perm <span class="op">=</span> [f_stat(X, np.random.permutation(groups)) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm)]</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(perm) <span class="op">&gt;=</span> obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> obs, p, obs <span class="op">/</span> (obs <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>f_val, p_val, r2 <span class="op">=</span> permutation_manova(scores[:, :<span class="dv">4</span>], groups)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'MANOVA בפרמוטציה (999 ערבולים):'</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  F = </span><span class="sc">{</span>f_val<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  p = </span><span class="sc">{</span>p_val<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'  R² = </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss"> (</span><span class="sc">{</span>r2<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">% שונות מוסברת ע"י קבוצה)'</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_val <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'→ G3 ו-G4 שונות סטטיסטית מובהקת (p &lt; 0.05)'</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'→ אין הבדל מובהק בין G3 ל-G4 (p ≥ 0.05)'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Ellipse</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.transforms <span class="im">as</span> transforms</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confidence_ellipse(x, y, ax, n_std<span class="op">=</span><span class="fl">2.0</span>, <span class="op">**</span>kwargs):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(x) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    cov <span class="op">=</span> np.cov(x, y)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    pearson <span class="op">=</span> cov[<span class="dv">0</span>, <span class="dv">1</span>] <span class="op">/</span> np.sqrt(cov[<span class="dv">0</span>, <span class="dv">0</span>] <span class="op">*</span> cov[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    rx, ry <span class="op">=</span> np.sqrt(<span class="dv">1</span> <span class="op">+</span> pearson), np.sqrt(<span class="dv">1</span> <span class="op">-</span> pearson)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    ellipse <span class="op">=</span> Ellipse((<span class="dv">0</span>, <span class="dv">0</span>), width<span class="op">=</span>rx<span class="op">*</span><span class="dv">2</span>, height<span class="op">=</span>ry<span class="op">*</span><span class="dv">2</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                      facecolor<span class="op">=</span><span class="st">'none'</span>, <span class="op">**</span>kwargs)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    scale_x <span class="op">=</span> np.sqrt(cov[<span class="dv">0</span>, <span class="dv">0</span>]) <span class="op">*</span> n_std</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    scale_y <span class="op">=</span> np.sqrt(cov[<span class="dv">1</span>, <span class="dv">1</span>]) <span class="op">*</span> n_std</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    transf <span class="op">=</span> (transforms.Affine2D().rotate_deg(<span class="dv">45</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>               .scale(scale_x, scale_y)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>               .translate(np.mean(x), np.mean(y)))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    ellipse.set_transform(transf <span class="op">+</span> ax.transData)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    ax.add_patch(ellipse)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>mask_g3 <span class="op">=</span> groups <span class="op">==</span> <span class="st">'G3'</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>mask_g4 <span class="op">=</span> groups <span class="op">==</span> <span class="st">'G4'</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ax.scatter(scores_axes[mask_g3, <span class="dv">0</span>], scores_axes[mask_g3, <span class="dv">1</span>],</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.85</span>, label<span class="op">=</span><span class="ss">f'G3 (n=</span><span class="sc">{</span>mask_g3<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>ax.scatter(scores_axes[mask_g4, <span class="dv">0</span>], scores_axes[mask_g4, <span class="dv">1</span>],</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'darkorange'</span>, s<span class="op">=</span><span class="dv">80</span>, marker<span class="op">=</span><span class="st">'s'</span>, alpha<span class="op">=</span><span class="fl">0.85</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'G4 (n=</span><span class="sc">{</span>mask_g4<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss">)'</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>confidence_ellipse(scores_axes[mask_g3, <span class="dv">0</span>], scores_axes[mask_g3, <span class="dv">1</span>],</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                   ax, edgecolor<span class="op">=</span><span class="st">'steelblue'</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>confidence_ellipse(scores_axes[mask_g4, <span class="dv">0</span>], scores_axes[mask_g4, <span class="dv">1</span>],</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                   ax, edgecolor<span class="op">=</span><span class="st">'darkorange'</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">':'</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">':'</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="ss">f'PC1 (</span><span class="sc">{</span>ve_axes[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f'PC2 (</span><span class="sc">{</span>ve_axes[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'מרחב הצורה: קרדומות ברונזה G3 vs G4'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'axes_pca.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'הגרף נשמר כ-axes_pca.png'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="בדיקת-אלומטריה" class="level2">
-<h2 class="anchored" data-anchor-id="בדיקת-אלומטריה">בדיקת אלומטריה</h2>
-<p>האם קיים קשר בין מיקום במרחב PC1 לבין מיקום ב-PC2?</p>
-<div id="cell-c06" class="cell">
+<section id="שחזור-צורות-ממוצעות" class="level2">
+<h2 class="anchored" data-anchor-id="שחזור-צורות-ממוצעות">שחזור צורות ממוצעות</h2>
+<p>נחשב את ממוצע המקדמים לכל קבוצה ונשחזר את המתאר.<br>
+<strong>API</strong>: <code>pyefd.reconstruct_contour(coeffs_mat, locus=(0,0), num_points=400)</code><br>
+כאשר <code>coeffs_mat</code> הוא מטריצה בצורת <code>(n_harmonics, 4)</code>.</p>
+<div id="plot-mean-shapes" class="cell">
 <details class="code-fold">
 <summary>קוד</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>slope, intercept, r, p_allom, se <span class="op">=</span> stats.linregress(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>])</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> group, color <span class="kw">in</span> colors.items():</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> groups <span class="op">==</span> group</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    ax.scatter(scores[mask, <span class="dv">0</span>], scores[mask, <span class="dv">1</span>], c<span class="op">=</span>color, s<span class="op">=</span><span class="dv">70</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span>group)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>x_line <span class="op">=</span> np.linspace(scores[:, <span class="dv">0</span>].<span class="bu">min</span>(), scores[:, <span class="dv">0</span>].<span class="bu">max</span>(), <span class="dv">100</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>ax.plot(x_line, slope <span class="op">*</span> x_line <span class="op">+</span> intercept, <span class="st">'k--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'r=</span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p_allom<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'PC1'</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(rtl(<span class="st">'PC2'</span>))</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'בדיקת קורלציה PC1-PC2 (אלומטריה)'</span>))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_allom <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'נמצאה קורלציה מובהקת: r=</span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p_allom<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'לא נמצאה קורלציה מובהקת: r=</span><span class="sc">{</span>r<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p_allom<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># מספר הרמוניות</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n_harm <span class="op">=</span> efa_data.shape[<span class="dv">1</span>] <span class="op">//</span> <span class="dv">4</span>  <span class="co"># 30 הרמוניות → 120 מקדמים</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mean_g3 <span class="op">=</span> efa_data[mask_g3].mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mean_g4 <span class="op">=</span> efa_data[mask_g4].mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (title, mean_coeffs, color) <span class="kw">in</span> <span class="bu">zip</span>(axes, [</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'G3 (ממוצע)'</span>, mean_g3, <span class="st">'steelblue'</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'G4 (ממוצע)'</span>, mean_g4, <span class="st">'darkorange'</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>]):</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># reshape ל-(n_harm, 4)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    coeffs_mat <span class="op">=</span> mean_coeffs[:n_harm<span class="op">*</span><span class="dv">4</span>].reshape(n_harm, <span class="dv">4</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    reconstructed <span class="op">=</span> pyefd.reconstruct_contour(coeffs_mat, locus<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>), num_points<span class="op">=</span><span class="dv">400</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    ax.plot(reconstructed[:, <span class="dv">0</span>], reconstructed[:, <span class="dv">1</span>], color<span class="op">=</span>color, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    ax.fill(reconstructed[:, <span class="dv">0</span>], reconstructed[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span>color)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    ax.set_title(rtl(title), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.suptitle(rtl(<span class="st">'צורות ממוצעות של הקרדומות לפי קבוצה'</span>), fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="manova" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_manova(X, groups, n_perm<span class="op">=</span><span class="dv">999</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    np.random.seed(seed)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f_stat(X, g):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        ug <span class="op">=</span> np.unique(g)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        gm <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        between <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>(g<span class="op">==</span>u) <span class="op">*</span> np.<span class="bu">sum</span>((X[g<span class="op">==</span>u].mean(<span class="dv">0</span>) <span class="op">-</span> gm)<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> ug)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        within  <span class="op">=</span> <span class="bu">sum</span>(np.<span class="bu">sum</span>((X[g<span class="op">==</span>u] <span class="op">-</span> X[g<span class="op">==</span>u].mean(<span class="dv">0</span>))<span class="op">**</span><span class="dv">2</span>) <span class="cf">for</span> u <span class="kw">in</span> ug)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> between <span class="op">/</span> within <span class="cf">if</span> within <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> f_stat(X, groups)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    perm <span class="op">=</span> [f_stat(X, np.random.permutation(groups)) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_perm)]</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (np.<span class="bu">sum</span>(np.array(perm) <span class="op">&gt;=</span> obs) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> (n_perm <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> obs, p, obs <span class="op">/</span> (obs <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>F_obs, p_val, r_sq <span class="op">=</span> permutation_manova(scores_axes[:, :<span class="dv">4</span>], groups)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'=== MANOVA הסתברותי — קרדומות ==='</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'F-statistic: </span><span class="sc">{</span>F_obs<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p-value:     </span><span class="sc">{</span>p_val<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'R²:          </span><span class="sc">{</span>r_sq<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_val <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'** ההפרש בין G3 ל-G4 מובהק (p &lt; 0.05) **'</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'אין הפרש מובהק (p &gt;= 0.05)'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="שאלות-לדוח" class="level2">
-<h2 class="anchored" data-anchor-id="שאלות-לדוח">שאלות לדוח</h2>
+<section id="אלומטריה-גודל-vs.-צורה" class="level2">
+<h2 class="anchored" data-anchor-id="אלומטריה-גודל-vs.-צורה">אלומטריה: גודל vs.&nbsp;צורה</h2>
+<p>אלומטריה היא הקשר בין גודל לצורה.<br>
+נבדוק: האם קרדומות גדולות יותר שונות בצורתן מקרדומות קטנות?</p>
+<div id="allometry" class="cell">
+<details class="code-fold">
+<summary>קוד</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>log_sizes <span class="op">=</span> np.log(sizes)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pc1_scores <span class="op">=</span> scores_axes[:, <span class="dv">0</span>]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>slope, intercept, r_value, p_value, se <span class="op">=</span> linregress(log_sizes, pc1_scores)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mask, color, label <span class="kw">in</span> [(mask_g3, <span class="st">'steelblue'</span>, <span class="st">'G3'</span>), (mask_g4, <span class="st">'darkorange'</span>, <span class="st">'G4'</span>)]:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    ax.scatter(log_sizes[mask], pc1_scores[mask],</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span>color, s<span class="op">=</span><span class="dv">70</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span>label, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>x_line <span class="op">=</span> np.linspace(log_sizes.<span class="bu">min</span>(), log_sizes.<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax.plot(x_line, slope <span class="op">*</span> x_line <span class="op">+</span> intercept, <span class="st">'k--'</span>, lw<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'קו רגרסיה (R²=</span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>p_value<span class="sc">:.4f}</span><span class="ss">)'</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(rtl(<span class="st">'log(גודל קרדום)'</span>), fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="ss">f'PC1 (</span><span class="sc">{</span>ve_axes[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">%)'</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(rtl(<span class="st">'אלומטריה: גודל קרדום vs. PC1'</span>), fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'שיפוע: </span><span class="sc">{</span>slope<span class="sc">:.4f}</span><span class="ss">, R²: </span><span class="sc">{</span>r_value<span class="op">**</span><span class="dv">2</span><span class="sc">:.4f}</span><span class="ss">, p: </span><span class="sc">{</span>p_value<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> p_value <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'** יש קשר מובהק בין גודל לצורה (אלומטריה) **'</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'אין קשר מובהק בין גודל לצורה'</span>)</span></code><button title="העתק ללוח" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="שאלות-לדיון-מטלה-4" class="level2">
+<h2 class="anchored" data-anchor-id="שאלות-לדיון-מטלה-4">שאלות לדיון (מטלה 4)</h2>
 <ol type="1">
-<li>כמה אחוז שונות מוסבר על ידי PC1 ו-PC2 יחד בניתוח EFA?</li>
-<li>האם ההפרדה בין G3 ל-G4 מובהקת? (p-value, R²)</li>
-<li>תארו בשפה פשוטה: מה ההבדל בצורת הגרזן בין G3 ל-G4?</li>
-<li>מה המגבלות של שיטת EFA לעומת ניתוח ציוני דרך?</li>
+<li><strong>הפרדה</strong>: האם G3 ו-G4 נפרדים בבירור? מה ה-p-value ומה משמעותו?</li>
+<li><strong>צורות ממוצעות</strong>: תארו בשפה ויזואלית את ההבדל בין צורת G3 לצורת G4.</li>
+<li><strong>אלומטריה</strong>: האם גודל הקרדום קשור לצורתו? מה ניתן להסיק?</li>
+<li><strong>פרשנות ארכיאולוגית</strong>: מה מלמדות הצורות השונות על ייצור, שימוש או תרבות?</li>
 </ol>
 
 
