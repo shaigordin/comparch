@@ -388,7 +388,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="ltr-block">
 <ul>
 <li>Slice, D.E. (2007). Geometric morphometrics. <em>Annual Review of Anthropology</em> 36:261–265 [introduction only]</li>
-<li>Broodbank, C. (2013). <em>The Making of the Middle Sea</em>, pp.&nbsp;1–10 [context: why typology matters]</li>
+<li>Renfrew, C. &amp; Bahn, P. <em>Archaeology: Theories, Methods and Practice</em> (any edition), Chapter 4: “Typological Sequences” [~4 pp.&nbsp;— the subjectivity problem with traditional types]</li>
+<li>Zelditch, M.L. et al.&nbsp;(2004). <em>Geometric Morphometrics for Biologists</em>, Chapter 1, pp.&nbsp;1–7 [what GM offers that traditional measurement cannot; available via Google Books preview]</li>
 </ul>
 </div>
 <p><strong>אין מעבדה השבוע.</strong> הביאו חפץ לכיתה בשבוע הבא.</p>
@@ -1429,485 +1430,486 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
 <span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–265 <span class="co">[</span><span class="ot">introduction only</span><span class="co">]</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Broodbank, C. (2013). *The Making of the Middle Sea*, pp. 1–10 <span class="co">[</span><span class="ot">context: why typology matters</span><span class="co">]</span></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>**אין מעבדה השבוע.** הביאו חפץ לכיתה בשבוע הבא.</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 2: היסטוריה קצרה — ממחוגות לקואורדינטות</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מורפומטריה מסורתית: מדידות, יחסים, מדדים — ומגבלותיהם</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>המהפכה המורפומטרית של שנות ה-80 וה-90: קואורדינטות במקום מרחקים</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שלוש שיטות שהוצגו: **ציוני דרך**, **ציוני-דרך למחצה**, **קווי מתאר**</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מתי להשתמש באיזו שיטה (ממחיש עם דוגמאות ארכאולוגיות)</span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>נוף התוכנות: מה קיים, מדוע אנחנו משתמשים ב-Python ב-Colab</span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות — בכיתה, אין תוכנה נדרשת):**</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>בשימוש בתמונות מודפסות של מטבעות וגרזנים, הסטודנטים מציבים ידנית ציוני דרך על נייר ודנים: מה נחשב לנקודה הומולוגית? אילו בחירות אתם עושים?</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>**מטלה 1 מחולקת:** יומן צורות</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 3: ראיית צורה — דיגיטיזציה של ציוני דרך</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הכנת תמונה: סרגלי סקאלה, מוסכמות כיוון, איכות תמונה</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סוגי ציוני דרך: סוג I (הומולוגיים ביולוגית/ארכאולוגית), סוג II (מקצוות גיאומטריות), סוג III (נקודות מובנות)</span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ציוני-דרך למחצה והחלקה</span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ציור קווי מתאר: מתי וכיצד</span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שגיאת בין-צופים — הבעיה הנסתרת בכל מחקרי ציוני הדרך</span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות — FIJI נדרש, התקנה חד-פעמית):**</span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **זהו המפגש היחיד הדורש הורדה.** הסטודנטים מתקינים FIJI פעם אחת ומשתמשים בו להצבת ציוני דרך על 5 תמונות מטבעות הדריאנוס. מסופקות הוראות שלב אחר שלב מלאות.</span></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>פרוטוקול שלב אחר שלב:</span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>פתחו FIJI ← פתחו תמונת מטבע</span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>קבעו סקאלה (Analyze ← Set Scale)</span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>כלי נקודה ← הציבו 8 ציוני דרך לפי פרוטוקול ציוני הדרך של הקורס</span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>שמרו כ-.txt והמירו לפורמט TPS באמצעות סקריפט Python המסופק ב-Colab</span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>**מטלה 1 להגשה. מטלה 2 מחולקת:** תרגיל ציוני דרך</span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ב' — ארגז הכלים (שבועות 4–7)</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI</span></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מהו Google Colab? כיצד להשתמש בו (הדגמה חיה)</span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד לדבר עם AI: כתיבת פרומפטים אפקטיביים לניתוח נתונים</span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מסגרת הפרומפט PEAR:</span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**P**urpose — איזה ניתוח אתם צריכים?</span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**E**xample — הראו ל-AI דוגמה ממבנה הנתונים שלכם</span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**A**ction — איזו פעולה ספציפית?</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**R**esult — איזה פורמט פלט אתם רוצים?</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קריאה והבנת קוד שנוצר על ידי AI מבלי לכתוב אותו בעצמכם</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הכלל הזהב: *אתם מפרשים את התוצאות, ה-AI כותב את הקוד*</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות — מפגש Colab ראשון):**</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>הסטודנטים פותחים את **מחברת Colab של שבוע 4** (קישור מסופק) ועוקבים:</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="co"># קוד שנוצר על ידי AI: טעינת נתוני TPS ובדיקתם</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install morphops pyefd <span class="op">-</span>q</span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת קובץ TPS של מטבעות</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>lms <span class="op">=</span> mops.read_tps(<span class="st">"Coins.TPS"</span>)</span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset shape: </span><span class="sc">{</span>lms<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="co"># (n_specimens, n_landmarks, 2)</span></span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>הסטודנטים כותבים אז פרומפט AI משלהם לשלב הבא ומשתפים תוצאות.</span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>**מטלה 2 להגשה. מטלה 3 מחולקת:** ניתוח צורות מטבעות</span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 5: יישור פרוקרוסטס — הצבת צורות באותו מרחב</span></span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הבעיה המרכזית: לפני שנוכל להשוות צורות, עלינו להסיר את אפקט הגודל, המיקום והסיבוב</span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח פרוקרוסטס מוכלל (GPA): האלגוריתם בשפה פשוטה</span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>תרגמו את כל התצורות לאותו צנטרואיד</span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>סקלו לגודל-צנטרואיד יחידה</span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>סובבו כדי למזער את סך המרחק הריבועי בין ציוני דרך מקבילים</span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>גודל-צנטרואיד: מהו ומדוע הוא מדד הסקאלה ב-GM</span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מרחב הצורות של Kendall ומדוע אנחנו עובדים במישורו המשיק</span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ויזואליזציה של תצורות מיושרות: הצורה ה"קונסנסוס" (הממוצעת)</span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>פתחו את **מחברת Colab של שבוע 5**. AI מייצר את קוד ה-GPA:</span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="co"># ניתוח פרוקרוסטס מוכלל על כל המטבעות</span></span>
-<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>gpa_result <span class="op">=</span> mops.procrustes_fit(lms)</span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>aligned <span class="op">=</span> gpa_result[<span class="dv">0</span>]    <span class="co"># קואורדינטות מיושרות</span></span>
-<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>centroid_sizes <span class="op">=</span> gpa_result[<span class="dv">1</span>]  <span class="co"># ערך גודל אחד לכל פרט</span></span>
-<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור כל התצורות המיושרות</span></span>
-<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
-<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> config <span class="kw">in</span> aligned:</span>
-<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>    ax.scatter(config[:, <span class="dv">0</span>], config[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>ax.scatter(mean_shape[:, <span class="dv">0</span>], mean_shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'red'</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"GPA-aligned coin landmarks (red = mean shape)"</span>)</span>
-<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 6: PCA — חקירת מרחב הצורות</span></span>
-<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
-<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה PCA עושה: מציאת צירי השונות המקסימלית במאגר נתונים בממדים גבוהים</span>
-<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>צירי PC הם כיוונים במרחב הצורות; ציוני PC אומרים לנו היכן כל פרט יושב</span>
-<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד לקרוא גרף פיזור PCA: אשכולות, שיפועים, חריגים</span>
-<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**רשתות עיוות צורה:** splinesלוחות דקים לויזואליזציה של המשמעות המורפולוגית של PC1 ו-PC2</span>
-<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>טעויות נפוצות: פרשנות יתר של PCA, יחס לצירי PC כ"גורמים ביולוגיים אמיתיים"</span>
-<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
-<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>קוד PCA שנוצר על ידי AI ב**מחברת Colab של שבוע 6**:</span>
-<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a><span class="co"># שינוי צורה של ציוני דרך מיושרים עבור PCA (כל פרט = שורה אחת)</span></span>
-<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
-<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
-<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variance explained per PC:"</span>)</span>
-<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(pca.explained_variance_ratio_[:<span class="dv">5</span>]):</span>
-<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור PC1 לעומת PC2</span></span>
-<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>plt.scatter(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA of Roman coin shapes"</span>)</span>
-<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 7: מקרה בוחן א' — מטבעות רומיים ותיקון אימפריאלי</span></span>
-<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
-<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ייצור מטבעות רומיים: מטבעות, חותמות ופיקוח אימפריאלי</span>
-<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע מטבעות מתאימים באופן אידיאלי ל-GM: חפצים מיוצרים המוניים עם תיקון מכוון</span>
-<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הדנריים של הדריאנוס (117–138 לספירה) ואנטונינוס פיוס (138–161 לספירה): הקשר</span>
-<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם חרתי-חותם שמרו על תקני צורה עקביים בין קיסרים? האם סוגי פורטרט מתקבצים לפי מנפיק?*</span>
-<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קריאה ביקורתית של מאמר GM: מה לחפש בשיטות ותוצאות</span>
-<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
-<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a>ניתוח מטבעות מלא ב**מחברת Colab של שבוע 7**:</span>
-<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קידוד צבע של PCA לפי קיסר</span>
-<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בדיקה סטטיסטית (MANOVA תמורה)</span>
-<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רשת עיוות להבדל הצורה הממוצעת בין קבוצות</span>
-<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a>**מטלה 3 להגשה. מטלה 4 מחולקת:** ניתוח קו מתאר של גרזני ברונזה</span>
-<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ג' — קווי מתאר ותקופת הברונזה (שבועות 8–9)</span></span>
-<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 8: ניתוח קו מתאר — ניתוח פורייה אליפטי</span></span>
-<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
-<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כאשר ציוני דרך אינם מספיקים: חפצים ללא נקודות הומולוגיות בדידות</span>
-<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מהו קו מתאר: קווי מתאר סגורים שנלכדים כרצף של קואורדינטות x,y</span>
-<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח פורייה אליפטי: פירוק קו מתאר לסכום של הרמוניות אליפטיות</span>
-<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>אנלוגיה: כמו פירוק של אקורד מוזיקלי לתווים בודדים</span>
-<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>ההרמוניה הראשונה לוכדת גודל/צורה בסיסיים; הרמוניות גבוהות יותר מוסיפות פרטים</span>
-<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בחירת מספר ההרמוניות: קריטריון השונות המוסברת</span>
-<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>נורמליזציה לגודל, מיקום, סיבוב ונקודת התחלה</span>
-<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד EFA + PCA נותנים לנו את אותו סוג מרחב צורות כמו GM של ציוני דרך</span>
-<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>**קריאה (מסופקת):**</span>
-<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
-<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24. <span class="co">[</span><span class="ot">Introduction and methods sections</span><span class="co">]</span></span>
-<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
-<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a>מבט ראשון על מאגר נתוני הגרזנים עם הכנפיים. טעינת קווי מתאר ב**מחברת Colab של שבוע 8**:</span>
-<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
-<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io, measure, color</span>
-<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת תמונת קו מתאר גרזן אחד וחילוץ הקווי</span></span>
-<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> io.imread(<span class="st">"axes/ALT.tif"</span>, as_gray<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>contours <span class="op">=</span> measure.find_contours(img, <span class="fl">0.5</span>)</span>
-<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>outline <span class="op">=</span> contours[<span class="dv">0</span>]  <span class="co"># הקווי הגדול ביותר</span></span>
-<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a><span class="co"># התאמת EFA (12 הרמוניות)</span></span>
-<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a>coeffs <span class="op">=</span> pyefd.elliptic_fourier_descriptors(outline, order<span class="op">=</span><span class="dv">12</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"EFA coefficients shape: </span><span class="sc">{</span>coeffs<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># (12, 4)</span></span>
-<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 9: מקרה בוחן ב' — גרזני ברונזה ורשתות אומנות</span></span>
-<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
-<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מטלורגיה אירופאית של תקופת הברונזה: מהם גרזני הכנפיים, כיצד הם יוצקו</span>
-<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קבוצות G3 ו-G4 הטיפולוגיות בספרות הארכאולוגית: מה אומרת הטיפולוגיה המסורתית</span>
-<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם גרזני G3 ו-G4 מייצגים קבוצות מורפולוגיות מובחנות אמיתיות? האם קיימת תבנית גיאוגרפית בשונות הצורה? מה זה אומר לנו על רשתות אומנות וחליפין בתקופת הברונזה?*</span>
-<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קישור צורה לשאלות חברתיות: טכנולוגיה, חליפין, זהות, חיקוי</span>
-<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
-<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a>צינור EFA + PCA מלא למאגר נתוני הגרזנים ב**מחברת Colab של שבוע 9**. הסטודנטים מפיקים גרף PCA מקודד קבוצה ומריצים בדיקת תמורה.</span>
-<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a>**מטלה 4 להגשה. מטלה 5 מחולקת:** PCA של כלי חרס</span>
-<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ד' — כלי חרס, סטטיסטיקה וסינתזה (שבועות 10–12)</span></span>
-<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 10: מקרה בוחן ג' — כלי חרס ומסורות קרמיות</span></span>
-<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
-<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע כלי חרס הם הממצא הנחקר ביותר בארכאולוגיה — ובGM</span>
-<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סוגי כלי חרס ומשמעויותיהם הארכאולוגיות (אחסון, בישול, הגשה, קבורה)</span>
-<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>טכניקות ייצור וחתימותיהן המורפולוגיות: גלגל לעומת בנייה ביד</span>
-<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מאגר נתוני כלי החרס לקורס זה: <span class="co">[</span><span class="ot">מאגר נתונים בגישה פתוחה — מקור ו-DOI מאושרים מפורסמים בדף הנתונים של הקורס</span><span class="co">]</span></span>
-<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם ניתן להבחין בין מסורות ייצור כלי חרס או תקופות כרונולוגיות מצורת קו מתאר הכלי בלבד?*</span>
-<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a>**קריאה:**</span>
-<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
-<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Karasik, A. &amp; Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.</span>
-<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">2024 open-access pottery GM paper — confirmed before course launch</span><span class="co">]</span></span>
-<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
-<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a>צינור EFA + PCA מלא לקווי מתאר כלי חרס. **מחברת Colab של שבוע 10** מסופקת.</span>
-<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a>**מטלה 5 להגשה.**</span>
-<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 11: בחינת השערות — סטטיסטיקה במרחב הצורות</span></span>
-<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
-<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע t-tests ו-ANOVAs רגילים אינם פועלים על נתוני צורה</span>
-<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בדיקות תמורה: ההיגיון ומדוע הן מתאימות ל-GM</span>
-<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>MANOVA במרחב הצורות: בחינת הבדלים בין קבוצות</span>
-<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>גדלי אפקט: R² ומשמעותו</span>
-<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אלומטריה: האם הצורה משתנה עם הגודל? כיצד לבחון זאת</span>
-<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואות מרובות: מה לעשות כשיש קבוצות רבות</span>
-<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה "מובהק סטטיסטית" אכן אומר — ומה לא</span>
-<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
-<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a>צינור השוואה סטטיסטית ב**מחברת Colab של שבוע 11** — מיושם על מאגר הנתונים שהסטודנטים משתמשים בו לפרויקט הסופי שלהם.</span>
-<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 12: מצגות פרויקט סופי + סינתזת הקורס</span></span>
-<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a>**הרצאת סינתזה (30 דקות):**</span>
-<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מצורות לסיפורים: קישור תוצאות GM לשאלות היסטוריות וארכאולוגיות</span>
-<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סקאלת ניתוח: אתר ← אזור ← תקופה ← רשת</span>
-<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה GM אינו יכול לעשות: חשיבות שילוב טיפולוגיה, איזוטופים, הקשר, טקסט</span>
-<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רפרודוקטיביות ונתונים פתוחים: מדוע שיתוף הנתונים והקוד שלכם חשוב</span>
-<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>לאן GM הולך: פוטוגרמטריה תלת-ממדית, למידת מכונה, דיגיטיזציה אוטומטית</span>
-<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>**מצגות פרויקט סופי (90 דקות):**</span>
-<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>כל סטודנט או זוג מציגים 8 דקות + 2 דקות שאלות ותשובות.</span>
-<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a>**פרויקט סופי להגשה: שבוע לאחר שבוע 12.**</span>
-<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a><span class="fu">## סיכום מטלות</span></span>
-<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> מספר <span class="pp">|</span> מטלה <span class="pp">|</span> משקל <span class="pp">|</span> הגשה <span class="pp">|</span></span>
-<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------|------|------|</span></span>
-<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> יומן צורות <span class="pp">|</span> 5% <span class="pp">|</span> שבוע 3 <span class="pp">|</span></span>
-<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> תרגיל ציוני דרך <span class="pp">|</span> 10% <span class="pp">|</span> שבוע 4 <span class="pp">|</span></span>
-<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> ניתוח צורות מטבעות <span class="pp">|</span> 15% <span class="pp">|</span> שבוע 7 <span class="pp">|</span></span>
-<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> EFA גרזני ברונזה <span class="pp">|</span> 15% <span class="pp">|</span> שבוע 9 <span class="pp">|</span></span>
-<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> PCA של כלי חרס <span class="pp">|</span> 5% <span class="pp">|</span> שבוע 10 <span class="pp">|</span></span>
-<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> — <span class="pp">|</span> פרויקט סופי <span class="pp">|</span> 50% <span class="pp">|</span> שבוע 12 + שבוע <span class="pp">|</span></span>
-<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a><span class="fu">## תיאורים מפורטים של מטלות</span></span>
-<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 1 — יומן צורות (5%)</span></span>
-<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a>מצאו 3 ממצאים ארכאולוגיים במאגרי מוזיאון מקוונים או מאמרים מפורסמים. על כל אחד:</span>
-<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>ספקו תמונה עם ציטוט מלא שלה (מספר מוזיאון או DOI)</span>
-<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>תארו את הצורה במילים שלכם — ללא ז'רגון טיפולוגי, רק גיאומטריה</span>
-<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>כתבו שאלת מחקר אחת ש-GM יכול לסייע במענה עליה</span>
-<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הסבירו באיזו שיטה תשתמשו (ציוני דרך, קווי מתאר, תלת-ממד) ומדוע</span>
-<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a>**פורמט:** 600–800 מילים + 3 תמונות. הגישו כ-PDF דרך פורטל הקורס.</span>
-<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-422"><a href="#cb6-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-423"><a href="#cb6-423" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 2 — תרגיל ציוני דרך (10%)</span></span>
-<span id="cb6-424"><a href="#cb6-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-425"><a href="#cb6-425" aria-hidden="true" tabindex="-1"></a>באמצעות FIJI, דגמו את 20 תמונות מטבעות הדריאנוס ממאגר נתוני הקורס לפי פרוטוקול 8-ציוני הדרך המסופק.</span>
-<span id="cb6-426"><a href="#cb6-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-427"><a href="#cb6-427" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>הפיקו קובץ TPS עם כל 20 הפרטים</span>
-<span id="cb6-428"><a href="#cb6-428" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>העלו למחברת Colab של שבוע 4 והריצו את בדיקת העקביות המסופקת</span>
-<span id="cb6-429"><a href="#cb6-429" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>השוו את הצבותיכם עם שותף: חשבו מרחק פרוקרוסטס ממוצע בין-צופים לכל ציון דרך</span>
-<span id="cb6-430"><a href="#cb6-430" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>כתבו הרהור של 400 מילים: אילו ציוני דרך היו קשים ביותר להצבה עקבית? מה זה אומר לכם על שיטות מבוססות ציוני דרך ככלי מדעי?</span>
-<span id="cb6-431"><a href="#cb6-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-432"><a href="#cb6-432" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קובץ TPS + הרהור של 400 מילים. הגישו את שניהם.</span>
-<span id="cb6-433"><a href="#cb6-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-434"><a href="#cb6-434" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-435"><a href="#cb6-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-436"><a href="#cb6-436" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 3 — ניתוח צורות מטבעות (15%)</span></span>
-<span id="cb6-437"><a href="#cb6-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-438"><a href="#cb6-438" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 7** וקוד שנוצר על ידי AI:</span>
-<span id="cb6-439"><a href="#cb6-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-440"><a href="#cb6-440" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>טענו את קבצי ה-TPS של הדריאנוס + אנטונינוס פיוס למאגר נתונים אחד</span>
-<span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>הריצו GPA על מאגר הנתונים המאוחד</span>
-<span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>הריצו PCA — הפיקו גרף פיזור מקודד צבע לפי קיסר</span>
-<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הריצו השוואת צורה מבוססת תמורה</span>
-<span id="cb6-444"><a href="#cb6-444" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>הפיקו רשתות עיוות צורה ממוצעת לכל קבוצה</span>
-<span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a>**כתבו פרשנות של 500 מילים:**</span>
-<span id="cb6-447"><a href="#cb6-447" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם מטבעות שני הקיסרים מתקבצים בנפרד במרחב הצורות?</span>
-<span id="cb6-448"><a href="#cb6-448" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אילו הבדלי צורה ספציפיים אתם רואים ברשתות העיוות?</span>
-<span id="cb6-449"><a href="#cb6-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה עשוי להסביר כל דמיון או הבדל? חשבו על: תיקון חותמות, ארגון מטבעה, מוסכמות אימפריאליות.</span>
-<span id="cb6-450"><a href="#cb6-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-451"><a href="#cb6-451" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קישור למחברת Colab שלכם + פרשנות של 500 מילים כ-PDF.</span>
-<span id="cb6-452"><a href="#cb6-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-453"><a href="#cb6-453" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-454"><a href="#cb6-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-455"><a href="#cb6-455" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 4 — ניתוח קו מתאר של גרזני ברונזה (15%)</span></span>
-<span id="cb6-456"><a href="#cb6-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-457"><a href="#cb6-457" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 9** וקוד שנוצר על ידי AI:</span>
-<span id="cb6-458"><a href="#cb6-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-459"><a href="#cb6-459" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>טענו ועבדו את כל תמונות קו המתאר של גרזני הכנפיים</span>
-<span id="cb6-460"><a href="#cb6-460" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>הריצו EFA (12 הרמוניות) ונרמלו</span>
-<span id="cb6-461"><a href="#cb6-461" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>הריצו PCA על מקדמי EFA — הפיקו גרף מקודד קבוצה G3/G4</span>
-<span id="cb6-462"><a href="#cb6-462" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הריצו בדיקת תמורה להבדלי קבוצות</span>
-<span id="cb6-463"><a href="#cb6-463" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>הפיקו מפה פשוטה (מצוירת ביד או באמצעות התבנית המסופקת) עם פרטים מצובעים לפי ציון PC1</span>
-<span id="cb6-464"><a href="#cb6-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-465"><a href="#cb6-465" aria-hidden="true" tabindex="-1"></a>**כתבו פרשנות של 600 מילים:**</span>
-<span id="cb6-466"><a href="#cb6-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם G3 ו-G4 נפרדים מורפולוגית? האם ההפרדה ברורה או מטושטשת?</span>
-<span id="cb6-467"><a href="#cb6-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם קיים שיפוע גיאוגרפי בצורה?</span>
-<span id="cb6-468"><a href="#cb6-468" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה זה אומר לנו על מסורות עיבוד מתכות וחליפין בתקופת הברונזה?</span>
-<span id="cb6-469"><a href="#cb6-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-470"><a href="#cb6-470" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קישור למחברת Colab + PDF של 600 מילים + תמונת מפה.</span>
-<span id="cb6-471"><a href="#cb6-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-472"><a href="#cb6-472" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 5 — PCA של כלי חרס (5%)</span></span>
-<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a>תרגיל קל במכוון — התמקדות בפרשנות, לא בקוד.</span>
-<span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 10** (צינור בנוי מראש), טענו את מאגר נתוני כלי החרס, הריצו EFA + PCA, והפיקו גרף פיזור מסומן היטב אחד. כתבו **פרשנות של 300 מילים** המקשרת את תבניות הצורה למה שאתם יודעים על ההקשר הארכאולוגי.</span>
-<span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** גרף אחד (PNG) + פרשנות של 300 מילים כ-PDF.</span>
-<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a><span class="fu">### פרויקט סופי (50%)</span></span>
-<span id="cb6-485"><a href="#cb6-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-486"><a href="#cb6-486" aria-hidden="true" tabindex="-1"></a>הפרויקט הסופי מבקש מכם להעמיק על שאלת צורה בבחירתכם.</span>
-<span id="cb6-487"><a href="#cb6-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-488"><a href="#cb6-488" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות א: ניתוח מורחב של מאגר נתונים</span></span>
-<span id="cb6-489"><a href="#cb6-489" aria-hidden="true" tabindex="-1"></a>קחו אחד ממאגרי נתוני הקורס (מטבעות, גרזנים, או כלי חרס) וערכו ניתוח מעמיק יותר. הרחבות אפשריות:</span>
-<span id="cb6-490"><a href="#cb6-490" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בחינת משתנים נוספים (כרונולוגיה, גיאוגרפיה, בד)</span>
-<span id="cb6-491"><a href="#cb6-491" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח אלומטרי</span>
-<span id="cb6-492"><a href="#cb6-492" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואת שתי שיטות (למשל, ציוני דרך לעומת קווי מתאר על אותם חפצים)</span>
-<span id="cb6-493"><a href="#cb6-493" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואת תוצאותיכם עם ממצאים שפורסמו</span>
-<span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות ב: מאגר נתונים חדש בגישה פתוחה</span></span>
-<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a>מצאו מאגר נתוני GM בגישה פתוחה ממאמר שפורסם (2020–2025) על סוג ממצא שלא כוסה בקורס. שחזרו או הרחיבו את הניתוח שפורסם באמצעות Colab. מקורות טובים: Zenodo, OSF, Figshare, נתוני נספח של כתבי-עת.</span>
-<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות ג: הצעת מחקר (אפשרות כתיבה בלבד)</span></span>
-<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a>לסטודנטים המעדיפים כתיבה על ניתוח נתונים: כתבו הצעת מחקר מפורטת (3000 מילים) למחקר GM על סוג ממצא בבחירתכם. חייבת לכלול: שאלת מחקר, עיצוב מאגר נתונים, שיטות צפויות, תוצאות מנובאות, והרהור ביקורתי על מגבלות. לפחות 8 הפניות.</span>
-<span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a><span class="fu">#### דרישות הדוח (אפשרויות א ו-ב)</span></span>
-<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**אורך:** 2000–3000 מילים (ללא דמויות והפניות)</span>
-<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**מבנה:** מבוא ← שאלת מחקר ← נתונים ושיטות ← תוצאות ← דיון ← מסקנה ← הפניות</span>
-<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**דמויות:** לפחות 3 (גרף PCA, ויזואליזציית EFA/עיוות צורה, אחת נוספת)</span>
-<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**קוד:** הגישו קישור למחברת Colab שלכם כנספח</span>
-<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**הפניות:** לפחות 8 מקורות שנסקרו עמיתים</span>
-<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a><span class="fu">#### רובריקת ציון</span></span>
-<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> קריטריון <span class="pp">|</span> נקודות <span class="pp">|</span></span>
-<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|---------|</span></span>
-<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> שאלת מחקר — בהירות ורלוונטיות ארכאולוגית <span class="pp">|</span> 20 <span class="pp">|</span></span>
-<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ניתוח GM נכון ושלם <span class="pp">|</span> 25 <span class="pp">|</span></span>
-<span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> איכות ובהירות דמויות <span class="pp">|</span> 20 <span class="pp">|</span></span>
-<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> פרשנות ארכאולוגית <span class="pp">|</span> 25 <span class="pp">|</span></span>
-<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> איכות כתיבה והפניות <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **סך הכל** | **100** <span class="pp">|</span></span>
-<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a><span class="fu">## מדיניות AI</span></span>
-<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a>קורס זה **מעודד במפורש** כלי AI לכתיבת קוד. מצופה מכם:</span>
-<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>להשתמש ב-Claude או ChatGPT ליצירת קוד Python ב-Colab — זהו חלק מהעיצוב</span>
-<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>להבין את הניתוח מושגית (לא שורה-שורה של תחביר)</span>
-<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>להיות מסוגלים להסביר את תוצאותיכם במילים שלכם</span>
-<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>להוסיף הערות לקוד שנוצר על ידי AI עם הסברים קצרים של מה כל בלוק עושה</span>
-<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**לעולם לא** להשתמש ב-AI לכתיבת הפרשנות שלכם או טקסט חיבורי</span>
-<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a>**AI הוא עוזר המעבדה שלכם. אתם הארכאולוגים.**</span>
-<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a><span class="fu">## הפניות מרכזיות</span></span>
-<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a><span class="fu">### עבודות יסוד</span></span>
-<span id="cb6-538"><a href="#cb6-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-539"><a href="#cb6-539" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
-<span id="cb6-540"><a href="#cb6-540" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Kendall, D.G. (1977). The diffusion of shape. *Advances in Applied Probability* 9:428–430.</span>
-<span id="cb6-541"><a href="#cb6-541" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bookstein, F.L. (1991). *Morphometric Tools for Landmark Data*. Cambridge University Press.</span>
-<span id="cb6-542"><a href="#cb6-542" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Zelditch, M.L. et al. (2012). *Geometric Morphometrics for Biologists* (2nd ed.). Academic Press.</span>
-<span id="cb6-543"><a href="#cb6-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–281.</span>
-<span id="cb6-544"><a href="#cb6-544" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-545"><a href="#cb6-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-546"><a href="#cb6-546" aria-hidden="true" tabindex="-1"></a><span class="fu">### כלי Python</span></span>
-<span id="cb6-547"><a href="#cb6-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-548"><a href="#cb6-548" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
-<span id="cb6-549"><a href="#cb6-549" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`morphops`</span>: github.com/tpgillam/morphops</span>
-<span id="cb6-550"><a href="#cb6-550" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pyefd`</span>: github.com/hbldh/pyefd</span>
-<span id="cb6-551"><a href="#cb6-551" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13) <span class="co">[</span><span class="ot">conceptual reference for EFA</span><span class="co">]</span>.</span>
-<span id="cb6-552"><a href="#cb6-552" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-553"><a href="#cb6-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-554"><a href="#cb6-554" aria-hidden="true" tabindex="-1"></a><span class="fu">### מאגרי נתונים בשימוש בקורס זה</span></span>
-<span id="cb6-555"><a href="#cb6-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-556"><a href="#cb6-556" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
-<span id="cb6-557"><a href="#cb6-557" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coins:** Roman Imperial denarii — Hadrian &amp; Antoninus Pius. TPS format. Source: UHK Morphometrics Course.</span>
-<span id="cb6-558"><a href="#cb6-558" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flanged Axes:** European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.</span>
-<span id="cb6-559"><a href="#cb6-559" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pottery:** Open-access dataset (DOI and full citation on the <span class="co">[</span><span class="ot">Data page</span><span class="co">](data/index.qmd)</span>).</span>
-<span id="cb6-560"><a href="#cb6-560" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Renfrew, C. &amp; Bahn, P. *Archaeology: Theories, Methods and Practice* (any edition), Chapter 4: "Typological Sequences" <span class="co">[</span><span class="ot">~4 pp. — the subjectivity problem with traditional types</span><span class="co">]</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Zelditch, M.L. et al. (2004). *Geometric Morphometrics for Biologists*, Chapter 1, pp. 1–7 <span class="co">[</span><span class="ot">what GM offers that traditional measurement cannot; available via Google Books preview</span><span class="co">]</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>**אין מעבדה השבוע.** הביאו חפץ לכיתה בשבוע הבא.</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 2: היסטוריה קצרה — ממחוגות לקואורדינטות</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מורפומטריה מסורתית: מדידות, יחסים, מדדים — ומגבלותיהם</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>המהפכה המורפומטרית של שנות ה-80 וה-90: קואורדינטות במקום מרחקים</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שלוש שיטות שהוצגו: **ציוני דרך**, **ציוני-דרך למחצה**, **קווי מתאר**</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מתי להשתמש באיזו שיטה (ממחיש עם דוגמאות ארכאולוגיות)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>נוף התוכנות: מה קיים, מדוע אנחנו משתמשים ב-Python ב-Colab</span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות — בכיתה, אין תוכנה נדרשת):**</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>בשימוש בתמונות מודפסות של מטבעות וגרזנים, הסטודנטים מציבים ידנית ציוני דרך על נייר ודנים: מה נחשב לנקודה הומולוגית? אילו בחירות אתם עושים?</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>**מטלה 1 מחולקת:** יומן צורות</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 3: ראיית צורה — דיגיטיזציה של ציוני דרך</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הכנת תמונה: סרגלי סקאלה, מוסכמות כיוון, איכות תמונה</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סוגי ציוני דרך: סוג I (הומולוגיים ביולוגית/ארכאולוגית), סוג II (מקצוות גיאומטריות), סוג III (נקודות מובנות)</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ציוני-דרך למחצה והחלקה</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ציור קווי מתאר: מתי וכיצד</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שגיאת בין-צופים — הבעיה הנסתרת בכל מחקרי ציוני הדרך</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות — FIJI נדרש, התקנה חד-פעמית):**</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **זהו המפגש היחיד הדורש הורדה.** הסטודנטים מתקינים FIJI פעם אחת ומשתמשים בו להצבת ציוני דרך על 5 תמונות מטבעות הדריאנוס. מסופקות הוראות שלב אחר שלב מלאות.</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>פרוטוקול שלב אחר שלב:</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>פתחו FIJI ← פתחו תמונת מטבע</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>קבעו סקאלה (Analyze ← Set Scale)</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>כלי נקודה ← הציבו 8 ציוני דרך לפי פרוטוקול ציוני הדרך של הקורס</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>שמרו כ-.txt והמירו לפורמט TPS באמצעות סקריפט Python המסופק ב-Colab</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>**מטלה 1 להגשה. מטלה 2 מחולקת:** תרגיל ציוני דרך</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ב' — ארגז הכלים (שבועות 4–7)</span></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 4: שותף המעבדה ה-AI שלכם — Google Colab וניתוח בסיוע AI</span></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מהו Google Colab? כיצד להשתמש בו (הדגמה חיה)</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד לדבר עם AI: כתיבת פרומפטים אפקטיביים לניתוח נתונים</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מסגרת הפרומפט PEAR:</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**P**urpose — איזה ניתוח אתם צריכים?</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**E**xample — הראו ל-AI דוגמה ממבנה הנתונים שלכם</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**A**ction — איזו פעולה ספציפית?</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**R**esult — איזה פורמט פלט אתם רוצים?</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קריאה והבנת קוד שנוצר על ידי AI מבלי לכתוב אותו בעצמכם</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הכלל הזהב: *אתם מפרשים את התוצאות, ה-AI כותב את הקוד*</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות — מפגש Colab ראשון):**</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>הסטודנטים פותחים את **מחברת Colab של שבוע 4** (קישור מסופק) ועוקבים:</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="co"># קוד שנוצר על ידי AI: טעינת נתוני TPS ובדיקתם</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install morphops pyefd <span class="op">-</span>q</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> morphops <span class="im">as</span> mops</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת קובץ TPS של מטבעות</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>lms <span class="op">=</span> mops.read_tps(<span class="st">"Coins.TPS"</span>)</span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dataset shape: </span><span class="sc">{</span>lms<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="co"># (n_specimens, n_landmarks, 2)</span></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>הסטודנטים כותבים אז פרומפט AI משלהם לשלב הבא ומשתפים תוצאות.</span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>**מטלה 2 להגשה. מטלה 3 מחולקת:** ניתוח צורות מטבעות</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 5: יישור פרוקרוסטס — הצבת צורות באותו מרחב</span></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הבעיה המרכזית: לפני שנוכל להשוות צורות, עלינו להסיר את אפקט הגודל, המיקום והסיבוב</span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח פרוקרוסטס מוכלל (GPA): האלגוריתם בשפה פשוטה</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>תרגמו את כל התצורות לאותו צנטרואיד</span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>סקלו לגודל-צנטרואיד יחידה</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>סובבו כדי למזער את סך המרחק הריבועי בין ציוני דרך מקבילים</span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>גודל-צנטרואיד: מהו ומדוע הוא מדד הסקאלה ב-GM</span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מרחב הצורות של Kendall ומדוע אנחנו עובדים במישורו המשיק</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ויזואליזציה של תצורות מיושרות: הצורה ה"קונסנסוס" (הממוצעת)</span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>פתחו את **מחברת Colab של שבוע 5**. AI מייצר את קוד ה-GPA:</span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a><span class="co"># ניתוח פרוקרוסטס מוכלל על כל המטבעות</span></span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a>gpa_result <span class="op">=</span> mops.procrustes_fit(lms)</span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>aligned <span class="op">=</span> gpa_result[<span class="dv">0</span>]    <span class="co"># קואורדינטות מיושרות</span></span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>centroid_sizes <span class="op">=</span> gpa_result[<span class="dv">1</span>]  <span class="co"># ערך גודל אחד לכל פרט</span></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור כל התצורות המיושרות</span></span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> config <span class="kw">in</span> aligned:</span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>    ax.scatter(config[:, <span class="dv">0</span>], config[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">10</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>mean_shape <span class="op">=</span> aligned.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>ax.scatter(mean_shape[:, <span class="dv">0</span>], mean_shape[:, <span class="dv">1</span>], s<span class="op">=</span><span class="dv">80</span>, color<span class="op">=</span><span class="st">'red'</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"GPA-aligned coin landmarks (red = mean shape)"</span>)</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 6: PCA — חקירת מרחב הצורות</span></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה PCA עושה: מציאת צירי השונות המקסימלית במאגר נתונים בממדים גבוהים</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>צירי PC הם כיוונים במרחב הצורות; ציוני PC אומרים לנו היכן כל פרט יושב</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד לקרוא גרף פיזור PCA: אשכולות, שיפועים, חריגים</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**רשתות עיוות צורה:** splinesלוחות דקים לויזואליזציה של המשמעות המורפולוגית של PC1 ו-PC2</span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>טעויות נפוצות: פרשנות יתר של PCA, יחס לצירי PC כ"גורמים ביולוגיים אמיתיים"</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>קוד PCA שנוצר על ידי AI ב**מחברת Colab של שבוע 6**:</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="co"># שינוי צורה של ציוני דרך מיושרים עבור PCA (כל פרט = שורה אחת)</span></span>
+<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> aligned.shape[<span class="dv">0</span>]</span>
+<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> aligned.reshape(n, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
+<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Variance explained per PC:"</span>)</span>
+<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(pca.explained_variance_ratio_[:<span class="dv">5</span>]):</span>
+<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>v<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
+<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a><span class="co"># ציור PC1 לעומת PC2</span></span>
+<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a>plt.scatter(scores[:, <span class="dv">0</span>], scores[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="ss">f"PC1 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">0</span>]<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
+<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="ss">f"PC2 (</span><span class="sc">{</span>pca<span class="sc">.</span>explained_variance_ratio_[<span class="dv">1</span>]<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
+<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA of Roman coin shapes"</span>)</span>
+<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 7: מקרה בוחן א' — מטבעות רומיים ותיקון אימפריאלי</span></span>
+<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
+<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ייצור מטבעות רומיים: מטבעות, חותמות ופיקוח אימפריאלי</span>
+<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע מטבעות מתאימים באופן אידיאלי ל-GM: חפצים מיוצרים המוניים עם תיקון מכוון</span>
+<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>הדנריים של הדריאנוס (117–138 לספירה) ואנטונינוס פיוס (138–161 לספירה): הקשר</span>
+<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם חרתי-חותם שמרו על תקני צורה עקביים בין קיסרים? האם סוגי פורטרט מתקבצים לפי מנפיק?*</span>
+<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קריאה ביקורתית של מאמר GM: מה לחפש בשיטות ותוצאות</span>
+<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
+<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>ניתוח מטבעות מלא ב**מחברת Colab של שבוע 7**:</span>
+<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קידוד צבע של PCA לפי קיסר</span>
+<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בדיקה סטטיסטית (MANOVA תמורה)</span>
+<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רשת עיוות להבדל הצורה הממוצעת בין קבוצות</span>
+<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a>**מטלה 3 להגשה. מטלה 4 מחולקת:** ניתוח קו מתאר של גרזני ברונזה</span>
+<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ג' — קווי מתאר ותקופת הברונזה (שבועות 8–9)</span></span>
+<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 8: ניתוח קו מתאר — ניתוח פורייה אליפטי</span></span>
+<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-276"><a href="#cb6-276" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
+<span id="cb6-277"><a href="#cb6-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כאשר ציוני דרך אינם מספיקים: חפצים ללא נקודות הומולוגיות בדידות</span>
+<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מהו קו מתאר: קווי מתאר סגורים שנלכדים כרצף של קואורדינטות x,y</span>
+<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח פורייה אליפטי: פירוק קו מתאר לסכום של הרמוניות אליפטיות</span>
+<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>אנלוגיה: כמו פירוק של אקורד מוזיקלי לתווים בודדים</span>
+<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>ההרמוניה הראשונה לוכדת גודל/צורה בסיסיים; הרמוניות גבוהות יותר מוסיפות פרטים</span>
+<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בחירת מספר ההרמוניות: קריטריון השונות המוסברת</span>
+<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>נורמליזציה לגודל, מיקום, סיבוב ונקודת התחלה</span>
+<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>כיצד EFA + PCA נותנים לנו את אותו סוג מרחב צורות כמו GM של ציוני דרך</span>
+<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>**קריאה (מסופקת):**</span>
+<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
+<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13):1–24. <span class="co">[</span><span class="ot">Introduction and methods sections</span><span class="co">]</span></span>
+<span id="cb6-291"><a href="#cb6-291" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-292"><a href="#cb6-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
+<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a>מבט ראשון על מאגר נתוני הגרזנים עם הכנפיים. טעינת קווי מתאר ב**מחברת Colab של שבוע 8**:</span>
+<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyefd</span>
+<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io, measure, color</span>
+<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a><span class="co"># טעינת תמונת קו מתאר גרזן אחד וחילוץ הקווי</span></span>
+<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> io.imread(<span class="st">"axes/ALT.tif"</span>, as_gray<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a>contours <span class="op">=</span> measure.find_contours(img, <span class="fl">0.5</span>)</span>
+<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a>outline <span class="op">=</span> contours[<span class="dv">0</span>]  <span class="co"># הקווי הגדול ביותר</span></span>
+<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a><span class="co"># התאמת EFA (12 הרמוניות)</span></span>
+<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a>coeffs <span class="op">=</span> pyefd.elliptic_fourier_descriptors(outline, order<span class="op">=</span><span class="dv">12</span>, normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"EFA coefficients shape: </span><span class="sc">{</span>coeffs<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># (12, 4)</span></span>
+<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 9: מקרה בוחן ב' — גרזני ברונזה ורשתות אומנות</span></span>
+<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
+<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מטלורגיה אירופאית של תקופת הברונזה: מהם גרזני הכנפיים, כיצד הם יוצקו</span>
+<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קבוצות G3 ו-G4 הטיפולוגיות בספרות הארכאולוגית: מה אומרת הטיפולוגיה המסורתית</span>
+<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם גרזני G3 ו-G4 מייצגים קבוצות מורפולוגיות מובחנות אמיתיות? האם קיימת תבנית גיאוגרפית בשונות הצורה? מה זה אומר לנו על רשתות אומנות וחליפין בתקופת הברונזה?*</span>
+<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>קישור צורה לשאלות חברתיות: טכנולוגיה, חליפין, זהות, חיקוי</span>
+<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
+<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a>צינור EFA + PCA מלא למאגר נתוני הגרזנים ב**מחברת Colab של שבוע 9**. הסטודנטים מפיקים גרף PCA מקודד קבוצה ומריצים בדיקת תמורה.</span>
+<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a>**מטלה 4 להגשה. מטלה 5 מחולקת:** PCA של כלי חרס</span>
+<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="fu">### יחידה ד' — כלי חרס, סטטיסטיקה וסינתזה (שבועות 10–12)</span></span>
+<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 10: מקרה בוחן ג' — כלי חרס ומסורות קרמיות</span></span>
+<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a>**הרצאה (60 דקות):**</span>
+<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע כלי חרס הם הממצא הנחקר ביותר בארכאולוגיה — ובGM</span>
+<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סוגי כלי חרס ומשמעויותיהם הארכאולוגיות (אחסון, בישול, הגשה, קבורה)</span>
+<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>טכניקות ייצור וחתימותיהן המורפולוגיות: גלגל לעומת בנייה ביד</span>
+<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מאגר נתוני כלי החרס לקורס זה: <span class="co">[</span><span class="ot">מאגר נתונים בגישה פתוחה — מקור ו-DOI מאושרים מפורסמים בדף הנתונים של הקורס</span><span class="co">]</span></span>
+<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>שאלת מחקר: *האם ניתן להבחין בין מסורות ייצור כלי חרס או תקופות כרונולוגיות מצורת קו מתאר הכלי בלבד?*</span>
+<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a>**קריאה:**</span>
+<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
+<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Karasik, A. &amp; Smilansky, U. (2011). Computerized morphological analysis of pottery. *Journal of Archaeological Science* 38(10):2644–2657.</span>
+<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">2024 open-access pottery GM paper — confirmed before course launch</span><span class="co">]</span></span>
+<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a>**מעבדה (60 דקות):**</span>
+<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a>צינור EFA + PCA מלא לקווי מתאר כלי חרס. **מחברת Colab של שבוע 10** מסופקת.</span>
+<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a>**מטלה 5 להגשה.**</span>
+<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 11: בחינת השערות — סטטיסטיקה במרחב הצורות</span></span>
+<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a>**הרצאה (90 דקות):**</span>
+<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מדוע t-tests ו-ANOVAs רגילים אינם פועלים על נתוני צורה</span>
+<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בדיקות תמורה: ההיגיון ומדוע הן מתאימות ל-GM</span>
+<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>MANOVA במרחב הצורות: בחינת הבדלים בין קבוצות</span>
+<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>גדלי אפקט: R² ומשמעותו</span>
+<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אלומטריה: האם הצורה משתנה עם הגודל? כיצד לבחון זאת</span>
+<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואות מרובות: מה לעשות כשיש קבוצות רבות</span>
+<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה "מובהק סטטיסטית" אכן אומר — ומה לא</span>
+<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a>**מעבדה (30 דקות):**</span>
+<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a>צינור השוואה סטטיסטית ב**מחברת Colab של שבוע 11** — מיושם על מאגר הנתונים שהסטודנטים משתמשים בו לפרויקט הסופי שלהם.</span>
+<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a><span class="fu">#### שבוע 12: מצגות פרויקט סופי + סינתזת הקורס</span></span>
+<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a>**הרצאת סינתזה (30 דקות):**</span>
+<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מצורות לסיפורים: קישור תוצאות GM לשאלות היסטוריות וארכאולוגיות</span>
+<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>סקאלת ניתוח: אתר ← אזור ← תקופה ← רשת</span>
+<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה GM אינו יכול לעשות: חשיבות שילוב טיפולוגיה, איזוטופים, הקשר, טקסט</span>
+<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>רפרודוקטיביות ונתונים פתוחים: מדוע שיתוף הנתונים והקוד שלכם חשוב</span>
+<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>לאן GM הולך: פוטוגרמטריה תלת-ממדית, למידת מכונה, דיגיטיזציה אוטומטית</span>
+<span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a>**מצגות פרויקט סופי (90 דקות):**</span>
+<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a>כל סטודנט או זוג מציגים 8 דקות + 2 דקות שאלות ותשובות.</span>
+<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-392"><a href="#cb6-392" aria-hidden="true" tabindex="-1"></a>**פרויקט סופי להגשה: שבוע לאחר שבוע 12.**</span>
+<span id="cb6-393"><a href="#cb6-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-394"><a href="#cb6-394" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-395"><a href="#cb6-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-396"><a href="#cb6-396" aria-hidden="true" tabindex="-1"></a><span class="fu">## סיכום מטלות</span></span>
+<span id="cb6-397"><a href="#cb6-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-398"><a href="#cb6-398" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> מספר <span class="pp">|</span> מטלה <span class="pp">|</span> משקל <span class="pp">|</span> הגשה <span class="pp">|</span></span>
+<span id="cb6-399"><a href="#cb6-399" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------|------|------|</span></span>
+<span id="cb6-400"><a href="#cb6-400" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> יומן צורות <span class="pp">|</span> 5% <span class="pp">|</span> שבוע 3 <span class="pp">|</span></span>
+<span id="cb6-401"><a href="#cb6-401" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2 <span class="pp">|</span> תרגיל ציוני דרך <span class="pp">|</span> 10% <span class="pp">|</span> שבוע 4 <span class="pp">|</span></span>
+<span id="cb6-402"><a href="#cb6-402" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 3 <span class="pp">|</span> ניתוח צורות מטבעות <span class="pp">|</span> 15% <span class="pp">|</span> שבוע 7 <span class="pp">|</span></span>
+<span id="cb6-403"><a href="#cb6-403" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 4 <span class="pp">|</span> EFA גרזני ברונזה <span class="pp">|</span> 15% <span class="pp">|</span> שבוע 9 <span class="pp">|</span></span>
+<span id="cb6-404"><a href="#cb6-404" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 5 <span class="pp">|</span> PCA של כלי חרס <span class="pp">|</span> 5% <span class="pp">|</span> שבוע 10 <span class="pp">|</span></span>
+<span id="cb6-405"><a href="#cb6-405" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> — <span class="pp">|</span> פרויקט סופי <span class="pp">|</span> 50% <span class="pp">|</span> שבוע 12 + שבוע <span class="pp">|</span></span>
+<span id="cb6-406"><a href="#cb6-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-407"><a href="#cb6-407" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-408"><a href="#cb6-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-409"><a href="#cb6-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## תיאורים מפורטים של מטלות</span></span>
+<span id="cb6-410"><a href="#cb6-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-411"><a href="#cb6-411" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 1 — יומן צורות (5%)</span></span>
+<span id="cb6-412"><a href="#cb6-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-413"><a href="#cb6-413" aria-hidden="true" tabindex="-1"></a>מצאו 3 ממצאים ארכאולוגיים במאגרי מוזיאון מקוונים או מאמרים מפורסמים. על כל אחד:</span>
+<span id="cb6-414"><a href="#cb6-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-415"><a href="#cb6-415" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>ספקו תמונה עם ציטוט מלא שלה (מספר מוזיאון או DOI)</span>
+<span id="cb6-416"><a href="#cb6-416" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>תארו את הצורה במילים שלכם — ללא ז'רגון טיפולוגי, רק גיאומטריה</span>
+<span id="cb6-417"><a href="#cb6-417" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>כתבו שאלת מחקר אחת ש-GM יכול לסייע במענה עליה</span>
+<span id="cb6-418"><a href="#cb6-418" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הסבירו באיזו שיטה תשתמשו (ציוני דרך, קווי מתאר, תלת-ממד) ומדוע</span>
+<span id="cb6-419"><a href="#cb6-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-420"><a href="#cb6-420" aria-hidden="true" tabindex="-1"></a>**פורמט:** 600–800 מילים + 3 תמונות. הגישו כ-PDF דרך פורטל הקורס.</span>
+<span id="cb6-421"><a href="#cb6-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-422"><a href="#cb6-422" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-423"><a href="#cb6-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-424"><a href="#cb6-424" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 2 — תרגיל ציוני דרך (10%)</span></span>
+<span id="cb6-425"><a href="#cb6-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-426"><a href="#cb6-426" aria-hidden="true" tabindex="-1"></a>באמצעות FIJI, דגמו את 20 תמונות מטבעות הדריאנוס ממאגר נתוני הקורס לפי פרוטוקול 8-ציוני הדרך המסופק.</span>
+<span id="cb6-427"><a href="#cb6-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-428"><a href="#cb6-428" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>הפיקו קובץ TPS עם כל 20 הפרטים</span>
+<span id="cb6-429"><a href="#cb6-429" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>העלו למחברת Colab של שבוע 4 והריצו את בדיקת העקביות המסופקת</span>
+<span id="cb6-430"><a href="#cb6-430" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>השוו את הצבותיכם עם שותף: חשבו מרחק פרוקרוסטס ממוצע בין-צופים לכל ציון דרך</span>
+<span id="cb6-431"><a href="#cb6-431" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>כתבו הרהור של 400 מילים: אילו ציוני דרך היו קשים ביותר להצבה עקבית? מה זה אומר לכם על שיטות מבוססות ציוני דרך ככלי מדעי?</span>
+<span id="cb6-432"><a href="#cb6-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-433"><a href="#cb6-433" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קובץ TPS + הרהור של 400 מילים. הגישו את שניהם.</span>
+<span id="cb6-434"><a href="#cb6-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-435"><a href="#cb6-435" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-436"><a href="#cb6-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-437"><a href="#cb6-437" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 3 — ניתוח צורות מטבעות (15%)</span></span>
+<span id="cb6-438"><a href="#cb6-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-439"><a href="#cb6-439" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 7** וקוד שנוצר על ידי AI:</span>
+<span id="cb6-440"><a href="#cb6-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-441"><a href="#cb6-441" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>טענו את קבצי ה-TPS של הדריאנוס + אנטונינוס פיוס למאגר נתונים אחד</span>
+<span id="cb6-442"><a href="#cb6-442" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>הריצו GPA על מאגר הנתונים המאוחד</span>
+<span id="cb6-443"><a href="#cb6-443" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>הריצו PCA — הפיקו גרף פיזור מקודד צבע לפי קיסר</span>
+<span id="cb6-444"><a href="#cb6-444" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הריצו השוואת צורה מבוססת תמורה</span>
+<span id="cb6-445"><a href="#cb6-445" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>הפיקו רשתות עיוות צורה ממוצעת לכל קבוצה</span>
+<span id="cb6-446"><a href="#cb6-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-447"><a href="#cb6-447" aria-hidden="true" tabindex="-1"></a>**כתבו פרשנות של 500 מילים:**</span>
+<span id="cb6-448"><a href="#cb6-448" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם מטבעות שני הקיסרים מתקבצים בנפרד במרחב הצורות?</span>
+<span id="cb6-449"><a href="#cb6-449" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>אילו הבדלי צורה ספציפיים אתם רואים ברשתות העיוות?</span>
+<span id="cb6-450"><a href="#cb6-450" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה עשוי להסביר כל דמיון או הבדל? חשבו על: תיקון חותמות, ארגון מטבעה, מוסכמות אימפריאליות.</span>
+<span id="cb6-451"><a href="#cb6-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-452"><a href="#cb6-452" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קישור למחברת Colab שלכם + פרשנות של 500 מילים כ-PDF.</span>
+<span id="cb6-453"><a href="#cb6-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-454"><a href="#cb6-454" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-455"><a href="#cb6-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-456"><a href="#cb6-456" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 4 — ניתוח קו מתאר של גרזני ברונזה (15%)</span></span>
+<span id="cb6-457"><a href="#cb6-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-458"><a href="#cb6-458" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 9** וקוד שנוצר על ידי AI:</span>
+<span id="cb6-459"><a href="#cb6-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-460"><a href="#cb6-460" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>טענו ועבדו את כל תמונות קו המתאר של גרזני הכנפיים</span>
+<span id="cb6-461"><a href="#cb6-461" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>הריצו EFA (12 הרמוניות) ונרמלו</span>
+<span id="cb6-462"><a href="#cb6-462" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>הריצו PCA על מקדמי EFA — הפיקו גרף מקודד קבוצה G3/G4</span>
+<span id="cb6-463"><a href="#cb6-463" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>הריצו בדיקת תמורה להבדלי קבוצות</span>
+<span id="cb6-464"><a href="#cb6-464" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>הפיקו מפה פשוטה (מצוירת ביד או באמצעות התבנית המסופקת) עם פרטים מצובעים לפי ציון PC1</span>
+<span id="cb6-465"><a href="#cb6-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-466"><a href="#cb6-466" aria-hidden="true" tabindex="-1"></a>**כתבו פרשנות של 600 מילים:**</span>
+<span id="cb6-467"><a href="#cb6-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם G3 ו-G4 נפרדים מורפולוגית? האם ההפרדה ברורה או מטושטשת?</span>
+<span id="cb6-468"><a href="#cb6-468" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>האם קיים שיפוע גיאוגרפי בצורה?</span>
+<span id="cb6-469"><a href="#cb6-469" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>מה זה אומר לנו על מסורות עיבוד מתכות וחליפין בתקופת הברונזה?</span>
+<span id="cb6-470"><a href="#cb6-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-471"><a href="#cb6-471" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** קישור למחברת Colab + PDF של 600 מילים + תמונת מפה.</span>
+<span id="cb6-472"><a href="#cb6-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-473"><a href="#cb6-473" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-474"><a href="#cb6-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-475"><a href="#cb6-475" aria-hidden="true" tabindex="-1"></a><span class="fu">### מטלה 5 — PCA של כלי חרס (5%)</span></span>
+<span id="cb6-476"><a href="#cb6-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-477"><a href="#cb6-477" aria-hidden="true" tabindex="-1"></a>תרגיל קל במכוון — התמקדות בפרשנות, לא בקוד.</span>
+<span id="cb6-478"><a href="#cb6-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-479"><a href="#cb6-479" aria-hidden="true" tabindex="-1"></a>באמצעות **מחברת Colab של שבוע 10** (צינור בנוי מראש), טענו את מאגר נתוני כלי החרס, הריצו EFA + PCA, והפיקו גרף פיזור מסומן היטב אחד. כתבו **פרשנות של 300 מילים** המקשרת את תבניות הצורה למה שאתם יודעים על ההקשר הארכאולוגי.</span>
+<span id="cb6-480"><a href="#cb6-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-481"><a href="#cb6-481" aria-hidden="true" tabindex="-1"></a>**מה להגיש:** גרף אחד (PNG) + פרשנות של 300 מילים כ-PDF.</span>
+<span id="cb6-482"><a href="#cb6-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-483"><a href="#cb6-483" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-484"><a href="#cb6-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-485"><a href="#cb6-485" aria-hidden="true" tabindex="-1"></a><span class="fu">### פרויקט סופי (50%)</span></span>
+<span id="cb6-486"><a href="#cb6-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-487"><a href="#cb6-487" aria-hidden="true" tabindex="-1"></a>הפרויקט הסופי מבקש מכם להעמיק על שאלת צורה בבחירתכם.</span>
+<span id="cb6-488"><a href="#cb6-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-489"><a href="#cb6-489" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות א: ניתוח מורחב של מאגר נתונים</span></span>
+<span id="cb6-490"><a href="#cb6-490" aria-hidden="true" tabindex="-1"></a>קחו אחד ממאגרי נתוני הקורס (מטבעות, גרזנים, או כלי חרס) וערכו ניתוח מעמיק יותר. הרחבות אפשריות:</span>
+<span id="cb6-491"><a href="#cb6-491" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>בחינת משתנים נוספים (כרונולוגיה, גיאוגרפיה, בד)</span>
+<span id="cb6-492"><a href="#cb6-492" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ניתוח אלומטרי</span>
+<span id="cb6-493"><a href="#cb6-493" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואת שתי שיטות (למשל, ציוני דרך לעומת קווי מתאר על אותם חפצים)</span>
+<span id="cb6-494"><a href="#cb6-494" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>השוואת תוצאותיכם עם ממצאים שפורסמו</span>
+<span id="cb6-495"><a href="#cb6-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-496"><a href="#cb6-496" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות ב: מאגר נתונים חדש בגישה פתוחה</span></span>
+<span id="cb6-497"><a href="#cb6-497" aria-hidden="true" tabindex="-1"></a>מצאו מאגר נתוני GM בגישה פתוחה ממאמר שפורסם (2020–2025) על סוג ממצא שלא כוסה בקורס. שחזרו או הרחיבו את הניתוח שפורסם באמצעות Colab. מקורות טובים: Zenodo, OSF, Figshare, נתוני נספח של כתבי-עת.</span>
+<span id="cb6-498"><a href="#cb6-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-499"><a href="#cb6-499" aria-hidden="true" tabindex="-1"></a><span class="fu">#### אפשרות ג: הצעת מחקר (אפשרות כתיבה בלבד)</span></span>
+<span id="cb6-500"><a href="#cb6-500" aria-hidden="true" tabindex="-1"></a>לסטודנטים המעדיפים כתיבה על ניתוח נתונים: כתבו הצעת מחקר מפורטת (3000 מילים) למחקר GM על סוג ממצא בבחירתכם. חייבת לכלול: שאלת מחקר, עיצוב מאגר נתונים, שיטות צפויות, תוצאות מנובאות, והרהור ביקורתי על מגבלות. לפחות 8 הפניות.</span>
+<span id="cb6-501"><a href="#cb6-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-502"><a href="#cb6-502" aria-hidden="true" tabindex="-1"></a><span class="fu">#### דרישות הדוח (אפשרויות א ו-ב)</span></span>
+<span id="cb6-503"><a href="#cb6-503" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**אורך:** 2000–3000 מילים (ללא דמויות והפניות)</span>
+<span id="cb6-504"><a href="#cb6-504" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**מבנה:** מבוא ← שאלת מחקר ← נתונים ושיטות ← תוצאות ← דיון ← מסקנה ← הפניות</span>
+<span id="cb6-505"><a href="#cb6-505" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**דמויות:** לפחות 3 (גרף PCA, ויזואליזציית EFA/עיוות צורה, אחת נוספת)</span>
+<span id="cb6-506"><a href="#cb6-506" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**קוד:** הגישו קישור למחברת Colab שלכם כנספח</span>
+<span id="cb6-507"><a href="#cb6-507" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**הפניות:** לפחות 8 מקורות שנסקרו עמיתים</span>
+<span id="cb6-508"><a href="#cb6-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-509"><a href="#cb6-509" aria-hidden="true" tabindex="-1"></a><span class="fu">#### רובריקת ציון</span></span>
+<span id="cb6-510"><a href="#cb6-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-511"><a href="#cb6-511" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> קריטריון <span class="pp">|</span> נקודות <span class="pp">|</span></span>
+<span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|---------|</span></span>
+<span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> שאלת מחקר — בהירות ורלוונטיות ארכאולוגית <span class="pp">|</span> 20 <span class="pp">|</span></span>
+<span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> ניתוח GM נכון ושלם <span class="pp">|</span> 25 <span class="pp">|</span></span>
+<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> איכות ובהירות דמויות <span class="pp">|</span> 20 <span class="pp">|</span></span>
+<span id="cb6-516"><a href="#cb6-516" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> פרשנות ארכאולוגית <span class="pp">|</span> 25 <span class="pp">|</span></span>
+<span id="cb6-517"><a href="#cb6-517" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> איכות כתיבה והפניות <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb6-518"><a href="#cb6-518" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **סך הכל** | **100** <span class="pp">|</span></span>
+<span id="cb6-519"><a href="#cb6-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-520"><a href="#cb6-520" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-521"><a href="#cb6-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-522"><a href="#cb6-522" aria-hidden="true" tabindex="-1"></a><span class="fu">## מדיניות AI</span></span>
+<span id="cb6-523"><a href="#cb6-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-524"><a href="#cb6-524" aria-hidden="true" tabindex="-1"></a>קורס זה **מעודד במפורש** כלי AI לכתיבת קוד. מצופה מכם:</span>
+<span id="cb6-525"><a href="#cb6-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-526"><a href="#cb6-526" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>להשתמש ב-Claude או ChatGPT ליצירת קוד Python ב-Colab — זהו חלק מהעיצוב</span>
+<span id="cb6-527"><a href="#cb6-527" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>להבין את הניתוח מושגית (לא שורה-שורה של תחביר)</span>
+<span id="cb6-528"><a href="#cb6-528" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>להיות מסוגלים להסביר את תוצאותיכם במילים שלכם</span>
+<span id="cb6-529"><a href="#cb6-529" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>להוסיף הערות לקוד שנוצר על ידי AI עם הסברים קצרים של מה כל בלוק עושה</span>
+<span id="cb6-530"><a href="#cb6-530" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**לעולם לא** להשתמש ב-AI לכתיבת הפרשנות שלכם או טקסט חיבורי</span>
+<span id="cb6-531"><a href="#cb6-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-532"><a href="#cb6-532" aria-hidden="true" tabindex="-1"></a>**AI הוא עוזר המעבדה שלכם. אתם הארכאולוגים.**</span>
+<span id="cb6-533"><a href="#cb6-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-534"><a href="#cb6-534" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-535"><a href="#cb6-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-536"><a href="#cb6-536" aria-hidden="true" tabindex="-1"></a><span class="fu">## הפניות מרכזיות</span></span>
+<span id="cb6-537"><a href="#cb6-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-538"><a href="#cb6-538" aria-hidden="true" tabindex="-1"></a><span class="fu">### עבודות יסוד</span></span>
+<span id="cb6-539"><a href="#cb6-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-540"><a href="#cb6-540" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
+<span id="cb6-541"><a href="#cb6-541" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Kendall, D.G. (1977). The diffusion of shape. *Advances in Applied Probability* 9:428–430.</span>
+<span id="cb6-542"><a href="#cb6-542" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bookstein, F.L. (1991). *Morphometric Tools for Landmark Data*. Cambridge University Press.</span>
+<span id="cb6-543"><a href="#cb6-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Zelditch, M.L. et al. (2012). *Geometric Morphometrics for Biologists* (2nd ed.). Academic Press.</span>
+<span id="cb6-544"><a href="#cb6-544" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Slice, D.E. (2007). Geometric morphometrics. *Annual Review of Anthropology* 36:261–281.</span>
+<span id="cb6-545"><a href="#cb6-545" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-546"><a href="#cb6-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-547"><a href="#cb6-547" aria-hidden="true" tabindex="-1"></a><span class="fu">### כלי Python</span></span>
+<span id="cb6-548"><a href="#cb6-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-549"><a href="#cb6-549" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
+<span id="cb6-550"><a href="#cb6-550" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`morphops`</span>: github.com/tpgillam/morphops</span>
+<span id="cb6-551"><a href="#cb6-551" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`pyefd`</span>: github.com/hbldh/pyefd</span>
+<span id="cb6-552"><a href="#cb6-552" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bonhomme, V. et al. (2014). Momocs: Outline analysis using R. *Journal of Statistical Software* 56(13) <span class="co">[</span><span class="ot">conceptual reference for EFA</span><span class="co">]</span>.</span>
+<span id="cb6-553"><a href="#cb6-553" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-554"><a href="#cb6-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-555"><a href="#cb6-555" aria-hidden="true" tabindex="-1"></a><span class="fu">### מאגרי נתונים בשימוש בקורס זה</span></span>
+<span id="cb6-556"><a href="#cb6-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-557"><a href="#cb6-557" aria-hidden="true" tabindex="-1"></a>::: {.ltr-block}</span>
+<span id="cb6-558"><a href="#cb6-558" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Coins:** Roman Imperial denarii — Hadrian &amp; Antoninus Pius. TPS format. Source: UHK Morphometrics Course.</span>
+<span id="cb6-559"><a href="#cb6-559" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Flanged Axes:** European Bronze Age, G3/G4 groups. Outline images + TPS. Source: UHK Morphometrics Course.</span>
+<span id="cb6-560"><a href="#cb6-560" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Pottery:** Open-access dataset (DOI and full citation on the <span class="co">[</span><span class="ot">Data page</span><span class="co">](data/index.qmd)</span>).</span>
+<span id="cb6-561"><a href="#cb6-561" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="העתק ללוח" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <div class="author-credit">
